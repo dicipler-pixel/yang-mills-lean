@@ -6,7 +6,7 @@
 
 [![Lean proof check](https://github.com/dicipler-pixel/yang-mills-lean/actions/workflows/build.yml/badge.svg)](https://github.com/dicipler-pixel/yang-mills-lean/actions/workflows/build.yml)
 ![Lean](https://img.shields.io/badge/Lean-v4.33.0-blue)
-![Theorems](https://img.shields.io/badge/theorems-78-2EA043)
+![Theorems](https://img.shields.io/badge/theorems-77-2EA043)
 ![sorry](https://img.shields.io/badge/sorry-0-2EA043)
 ![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
@@ -41,7 +41,7 @@ untruncated spectrum. These modules prove the finite algebra those certificates 
 | **Projector kernel**, **coupling feedback**, **observability kernel**, **projector dynamics**: from the adapted projector commutator to retained–hidden feedback and what an observation can see | [`ProjectorKernel`](ProjectorKernel.lean), [`CouplingFeedback`](CouplingFeedback.lean), [`ObservabilityKernel`](ObservabilityKernel.lean), [`ProjectorDynamics`](ProjectorDynamics.lean) | 17 |
 | **Tail-gap transfer**, **Schur floor transfer**, **nonuniform allocation floor**: how a hidden-tail gap and a local floor pass through the Schur complement | [`TailGapTransfer`](TailGapTransfer.lean), [`SchurFloorTransfer`](SchurFloorTransfer.lean), [`NonuniformAllocationFloor`](NonuniformAllocationFloor.lean) | 12 |
 | **Longest chain**: the certified finite lanes recombined, geometry → coupling → feedback → floor | [`LongestYangMillsChain`](LongestYangMillsChain.lean) | 7 |
-| | **Total** | **78** |
+| | **Total** | **77** |
 
 ## How it is checked
 

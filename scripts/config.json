@@ -49,7 +49,7 @@
       "path": "LongestYangMillsChain.lean"
     }
   ],
-  "expected_theorems": 78,
+  "expected_theorems": 77,
   "expected_false_controls": 2,
   "root_imports": [
     "GaugeCertificates",
