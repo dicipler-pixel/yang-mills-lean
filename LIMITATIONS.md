@@ -10,6 +10,19 @@ The statements are finite algebraic bridge theorems. They do **not** supply:
 * Osterwalder–Schrader reconstruction;
 * the Clay Yang–Mills mass-gap theorem.
 
+The supplied written proof uses a full hidden-sector lower bound and Schur inertia
+to certify a fixed-lattice excitation gap without knowing the interacting vacuum.
+The finite Lean comparison module proves preservation of positive trial subspaces
+and negative trial directions under Loewner order. A Lean theorem identifying the
+full negative index from these signs, and its infinite-dimensional operator
+specialization, remain open formalization tasks. The 195-by-3 frame and instanton
+calculations are classical, and the holonomy audit disproves a proposed universal
+first-order response statement.
+
+The five spatial certificates concern fixed finite lattices. The separate
+sufficiently-small-coupling stability application is qualitative; it gives no
+displayed-coupling uniform margin under growing volume or continuum trajectory.
+
 The certificates are rigorous finite statements conditional on the stated operator
 inequalities; the four-dimensional gap is not claimed.
 

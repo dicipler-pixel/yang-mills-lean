@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-# SCRIPT: DIRAC-TIME-LEAN-VERIFY-01
-"""Audit the Dirac Time Lean library after `lake build`.
+# SCRIPT: YANG-MILLS-LEAN-VERIFY-01
+"""Audit the Yang–Mills Lean library after `lake build`.
 
 Why each check proves what it claims:
 

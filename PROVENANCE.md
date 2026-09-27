@@ -1,8 +1,18 @@
 # Provenance
 
-Every Lean file is a byte-identical copy of a source in the private `operator-first`
+The original twelve Lean files are byte-identical copies of sources in the private `operator-first`
 repository, taken from branch `formal/yang-mills-longest-chain-2026-09-13` at commit
 `3eb82d5f5dd5`, which carries the union of the Yang–Mills lanes.
+`SchurInertiaComparison.lean` is the new finite sign-transfer module written for this
+public repository. Its exact proof status is determined by this repository's own CI.
+
+The complete `paper/2026-09-08/` directory is copied from the previously verified
+`Yang_Mills_Continuation_2026-09-08.zip` (SHA-256
+`3bd8f6872700931c6a22d2d8fa296b3579e56d9be37df5e3892140dfe6744f2a`).
+The `research/yang_mills_2026_09_09/` tree comes from private research PR #18 at
+`4c90eaa499cde0c178ac3378a2138aa8aa9c5c34`. These historical reports retain
+their original dates and claims about where the full Compound Eye application was
+delivered. This public repository carries the focused native reproduction.
 
 | Files | Source directory | Earlier verification |
 | :--- | :--- | :--- |
@@ -12,6 +22,7 @@ repository, taken from branch `formal/yang-mills-longest-chain-2026-09-13` at co
 | `TailGapTransfer`, `SchurFloorTransfer`, `NonuniformAllocationFloor` | same | PRs #52, #54, #56 |
 | `LongestYangMillsChain` | same | this branch |
 
-Several of the later lanes were recorded as audited drafts before their CI closed; the check in
-this repository is the verification of the complete set. The SHA-256 of every checked file is
-written to `verification/report.json` on each run.
+PR #51 and #52 had failed dedicated runs at their respective old heads; PR #60
+has a successful combined run at `3eb82d5f5dd5`. This repository's current
+check is the certification of its own exact source. The SHA-256 of every checked
+Lean file is written to `verification/report.json` on each run.
