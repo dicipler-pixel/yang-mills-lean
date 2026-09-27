@@ -31,6 +31,7 @@ specified finite algebra. The spatial work checks five original-link SU(3) model
 | Read the September 8 paper and reproduce the frame, holonomy and one-loop results | [Paper and source bundle](paper/2026-09-08/) |
 | Rebuild the five spatial models and 58 rational targets | [September 9 research report](research/yang_mills_2026_09_09/cross_theorem/REPORT.md) and [native reproduction](research/yang_mills_2026_09_09/cross_theorem/native/) |
 | Check the Schur inertia argument and formalization boundary | [Schur inertia bridge](SCHUR_INERTIA_BRIDGE.md) |
+| Describe the result relative to established full-operator methods | [Prior art and scope](PRIOR_ART_AND_SCOPE.md) |
 | Know exactly what is **not** proved | [`LIMITATIONS.md`](LIMITATIONS.md) |
 | Check where every file came from | [`PROVENANCE.md`](PROVENANCE.md) |
 | See the statements that must be rejected | [`FalseControls/`](FalseControls/) |
