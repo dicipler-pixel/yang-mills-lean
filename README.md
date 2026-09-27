@@ -1,12 +1,12 @@
 <div align="center">
 
-# Retained Geometry and Certified Gauge Cutoffs — Lean proofs
+# Retained Geometry and Certified Gauge Cutoffs
 
-**Machine-checked finite algebra behind the Yang–Mills strand: gauge-cutoff certificates, the boundary-matrix Schur certificate, and the longest finite chain from projector geometry to an allocation floor.**
+**The Yang–Mills research record: the September 8 paper and verification scripts, the September 9 spatial calculations, and machine-checked finite algebra.**
 
 [![Lean proof check](https://github.com/dicipler-pixel/yang-mills-lean/actions/workflows/build.yml/badge.svg)](https://github.com/dicipler-pixel/yang-mills-lean/actions/workflows/build.yml)
 ![Lean](https://img.shields.io/badge/Lean-v4.33.0-blue)
-![Theorems](https://img.shields.io/badge/theorems-77-2EA043)
+![Theorems](https://img.shields.io/badge/theorems-79-2EA043)
 ![sorry](https://img.shields.io/badge/sorry-0-2EA043)
 ![Code: MIT](https://img.shields.io/badge/code-MIT-lightgrey)
 ![Text: CC BY 4.0](https://img.shields.io/badge/text-CC%20BY%204.0-lightgrey)
@@ -21,12 +21,17 @@ Jeromie Beasley
 
 Keep the shape of the coupling to the discarded sector instead of its norm. Where a scalar norm
 bound says nothing, the boundary-matrix Schur certificate returns a rigorous lower bound on the
-untruncated spectrum. These modules prove the finite algebra those certificates rest on.
+untruncated one-loop gap. The paper gives the complete-tail argument; the Lean modules certify
+specified finite algebra. The spatial work checks five original-link SU(3) models.
 
 ## Start here
 
 | If you want to… | Open |
 | :--- | :--- |
+| Read the September 8 paper and reproduce the frame, holonomy and one-loop results | [Paper and source bundle](paper/2026-09-08/) |
+| Rebuild the five spatial models and 58 rational targets | [September 9 research report](research/yang_mills_2026_09_09/cross_theorem/REPORT.md) and [native reproduction](research/yang_mills_2026_09_09/cross_theorem/native/) |
+| Check the Schur inertia argument and formalization boundary | [Schur inertia bridge](SCHUR_INERTIA_BRIDGE.md) |
+| Describe the result relative to established full-operator methods | [Prior art and scope](PRIOR_ART_AND_SCOPE.md) |
 | Know exactly what is **not** proved | [`LIMITATIONS.md`](LIMITATIONS.md) |
 | Check where every file came from | [`PROVENANCE.md`](PROVENANCE.md) |
 | See the statements that must be rejected | [`FalseControls/`](FalseControls/) |
@@ -42,11 +47,13 @@ untruncated spectrum. These modules prove the finite algebra those certificates 
 | **Projector kernel**, **coupling feedback**, **observability kernel**, **projector dynamics**: from the adapted projector commutator to retained–hidden feedback and what an observation can see | [`ProjectorKernel`](ProjectorKernel.lean), [`CouplingFeedback`](CouplingFeedback.lean), [`ObservabilityKernel`](ObservabilityKernel.lean), [`ProjectorDynamics`](ProjectorDynamics.lean) | 17 |
 | **Tail-gap transfer**, **Schur floor transfer**, **nonuniform allocation floor**: how a hidden-tail gap and a local floor pass through the Schur complement | [`TailGapTransfer`](TailGapTransfer.lean), [`SchurFloorTransfer`](SchurFloorTransfer.lean), [`NonuniformAllocationFloor`](NonuniformAllocationFloor.lean) | 12 |
 | **Longest chain**: the certified finite lanes recombined, geometry → coupling → feedback → floor | [`LongestYangMillsChain`](LongestYangMillsChain.lean) | 7 |
-| | **Total** | **77** |
+| **Schur sign comparison**: positive subspaces and negative trial directions transfer through ordered finite matrices | [`SchurInertiaComparison`](SchurInertiaComparison.lean) | 2 |
+| | **Total** | **79** |
 
 ## How it is checked
 
-Every push runs [the proof check](.github/workflows/build.yml) on GitHub:
+Every push runs [the proof check](.github/workflows/build.yml) on GitHub. The paper's
+Python verifiers are separate and run from the research folders:
 
 1. **Build**: every module compiles against Lean v4.33.0 and Mathlib `v4.33.0`.
 2. **Independent replay**: every module is re-checked by Lean's separate kernel checker.
@@ -62,8 +69,9 @@ python3 scripts/verify.py
 
 ## The paper
 
-*Retained Geometry and Certified Gauge Cutoffs*, Jeromie Beasley. The Zenodo DOI will be added
-here once the paper is deposited.
+The [September 8 paper](paper/2026-09-08/YANG_MILLS_CONTINUATION.pdf) is a dated
+snapshot. Later spatial calculations and Lean modules extend it. No revised combined
+manuscript or four-dimensional continuum mass gap is claimed here.
 
 ## Citation, licence and AI use
 

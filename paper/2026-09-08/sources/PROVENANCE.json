@@ -1,0 +1,30 @@
+[
+  {
+    "uploaded_name": "Pasted markdown(20260908-170619).md",
+    "packaged_path": "sources/HANDOFF_RESPONSE.md",
+    "library_file_id": "libfile_c225c788b8808191986ac6ad79c03ad3",
+    "sha256": "76348a726d8979283513ef5b6814b0aa8d7942a1a89662bdc482091208c48233",
+    "status": "unchanged supplied handoff; historical execution claims not rerun"
+  },
+  {
+    "uploaded_name": "SOURCE_AND_PROOF_LEDGER(1).md",
+    "packaged_path": "sources/SOURCE_AND_PROOF_LEDGER.md",
+    "library_file_id": "libfile_9fa0d06dcdb88191aabe3c70eace59df",
+    "sha256": "6e8fc594e5edc1ebbe078c979af86788c57140c4e47b354176032460e62873f2",
+    "status": "unchanged supplied handoff; historical execution claims not rerun"
+  },
+  {
+    "uploaded_name": "RESTART(1).md",
+    "packaged_path": "sources/RESTART.md",
+    "library_file_id": "libfile_4b26a00766488191832ffc729eaea655",
+    "sha256": "3215eea7286d61b0af6c8fa165af93f11da98a15f13ecf8a6bcec337ebca6a7c",
+    "status": "unchanged supplied handoff; historical execution claims not rerun"
+  },
+  {
+    "uploaded_name": "what_the_hypersurface_keeps.md",
+    "packaged_path": "sources/what_the_hypersurface_keeps.md",
+    "library_file_id": "libfile_08655392cf3481919d4fefd8a1befe75",
+    "sha256": "f33f1dc2366f751340070885b78898a6a8572c4fb6abdb20ba2c967aeb7bff78",
+    "status": "unchanged supplied handoff; historical execution claims not rerun"
+  }
+]

@@ -1,0 +1,156 @@
+{
+  "model": "H=kappa*C2+lambda*(3-Re chi_(1,0)) on L2(SU3)^Ad",
+  "assumptions": "kappa>0, lambda>=0; dimensionless normalization kappa=1",
+  "arithmetic_assertions": 13587,
+  "interval_inertia_certificates": 20,
+  "total_pivots_checked": 2275,
+  "results": [
+    {
+      "lambda_over_kappa": "0",
+      "kappa": "1",
+      "N": 1,
+      "dimension": 3,
+      "E0": "0",
+      "E1": "4/3",
+      "full_single_loop_gap_lower_exact": "4/3",
+      "full_single_loop_gap_lower_display": 1.3333333333333333,
+      "certified": true,
+      "verification": "exact diagonal Casimir spectrum",
+      "lean_formalized": false,
+      "continuum_yang_mills_claim": false
+    },
+    {
+      "lambda_over_kappa": "1/10",
+      "kappa": "1",
+      "N": 3,
+      "dimension": 10,
+      "omitted_casimir_min": "8",
+      "boundary_norm_upper": "1/10",
+      "finite_eigenvalue_enclosures": [
+        [
+          "74027/250000",
+          "592217/2000000"
+        ],
+        [
+          "15829461/10000000",
+          "7914733/5000000"
+        ]
+      ],
+      "numerical_finite_eigenvalues": [
+        0.2961082198779262,
+        1.5829463004698447,
+        1.6820513491937377
+      ],
+      "scalar_gap_lower_exact": "3213199076843839/2500000000000000",
+      "scalar_gap_lower_display": 1.2852796307375356,
+      "schur_E1_lower": "15829457/10000000",
+      "E0_upper": "592217/2000000",
+      "full_single_loop_gap_lower_exact": "3217093/2500000",
+      "full_single_loop_gap_lower_display": 1.2868372,
+      "certified": true,
+      "verification": "exact outward integer interval LDL inertia; 192-bit grid",
+      "lean_formalized": false,
+      "continuum_yang_mills_claim": false
+    },
+    {
+      "lambda_over_kappa": "1",
+      "kappa": "1",
+      "N": 6,
+      "dimension": 28,
+      "omitted_casimir_min": "58/3",
+      "boundary_norm_upper": "1",
+      "finite_eigenvalue_enclosures": [
+        [
+          "1574909/625000",
+          "25198549/10000000"
+        ],
+        [
+          "482503/125000",
+          "7720049/2000000"
+        ]
+      ],
+      "numerical_finite_eigenvalues": [
+        2.519854618095206,
+        3.860024259212295,
+        4.669582025771055
+      ],
+      "scalar_gap_lower_exact": "76548562914312817/60000000000000000",
+      "scalar_gap_lower_display": 1.2758093819052136,
+      "schur_E1_lower": "38600237/10000000",
+      "E0_upper": "25198549/10000000",
+      "full_single_loop_gap_lower_exact": "1675211/1250000",
+      "full_single_loop_gap_lower_display": 1.3401688,
+      "certified": true,
+      "verification": "exact outward integer interval LDL inertia; 192-bit grid",
+      "lean_formalized": false,
+      "continuum_yang_mills_claim": false
+    },
+    {
+      "lambda_over_kappa": "10",
+      "kappa": "1",
+      "N": 10,
+      "dimension": 66,
+      "omitted_casimir_min": "124/3",
+      "boundary_norm_upper": "10",
+      "finite_eigenvalue_enclosures": [
+        [
+          "56079471/5000000",
+          "112158947/10000000"
+        ],
+        [
+          "168641367/10000000",
+          "42160343/2500000"
+        ]
+      ],
+      "numerical_finite_eigenvalues": [
+        11.215894439051016,
+        16.86413697561469,
+        19.891841120427348
+      ],
+      "scalar_gap_lower_exact": "4995369121523707/2400000000000000",
+      "scalar_gap_lower_display": 2.081403800634878,
+      "schur_E1_lower": "84320189/5000000",
+      "E0_upper": "112158947/10000000",
+      "full_single_loop_gap_lower_exact": "56481431/10000000",
+      "full_single_loop_gap_lower_display": 5.6481431,
+      "certified": true,
+      "verification": "exact outward integer interval LDL inertia; 192-bit grid",
+      "lean_formalized": false,
+      "continuum_yang_mills_claim": false
+    },
+    {
+      "lambda_over_kappa": "100",
+      "kappa": "1",
+      "N": 25,
+      "dimension": 351,
+      "omitted_casimir_min": "195",
+      "boundary_norm_upper": "100",
+      "finite_eigenvalue_enclosures": [
+        [
+          "385784689/10000000",
+          "192892347/5000000"
+        ],
+        [
+          "579392397/10000000",
+          "289696201/5000000"
+        ]
+      ],
+      "numerical_finite_eigenvalues": [
+        38.578469103519765,
+        57.93923994689944,
+        67.81164862123323
+      ],
+      "scalar_gap_lower_exact": "-166688063265416977/5000000000000000",
+      "scalar_gap_lower_display": -33.3376126530834,
+      "schur_E1_lower": "289696197/5000000",
+      "E0_upper": "192892347/5000000",
+      "full_single_loop_gap_lower_exact": "1936077/100000",
+      "full_single_loop_gap_lower_display": 19.36077,
+      "certified": true,
+      "verification": "exact outward integer interval LDL inertia; 192-bit grid",
+      "lean_formalized": false,
+      "continuum_yang_mills_claim": false
+    }
+  ],
+  "elapsed_seconds": 1.5850107669830322
+}

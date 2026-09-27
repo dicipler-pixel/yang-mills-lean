@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "seed": 20260908,
+  "exact_rational_controls": 67,
+  "numerical_comparisons": 411,
+  "frame_shape": [
+    195,
+    3
+  ],
+  "max_absolute_frobenius_residuals": {
+    "orthonormality": 1.0532619431669406e-15,
+    "connection": 4.275599063458441e-15,
+    "curvature": 8.399283863572602e-15,
+    "projector_curvature": 8.387007506663008e-15
+  },
+  "tolerance": 1e-08,
+  "scope": "Local classical frame identities; no Lean compilation or quantum measure/gap claim."
+}

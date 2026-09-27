@@ -47,14 +47,19 @@
     {
       "module": "LongestYangMillsChain",
       "path": "LongestYangMillsChain.lean"
+    },
+    {
+      "module": "SchurInertiaComparison",
+      "path": "SchurInertiaComparison.lean"
     }
   ],
-  "expected_theorems": 77,
+  "expected_theorems": 79,
   "expected_false_controls": 2,
   "root_imports": [
     "GaugeCertificates",
     "LongestYangMillsChain",
     "ProjectorKernel",
-    "SchurFloorTransfer"
+    "SchurFloorTransfer",
+    "SchurInertiaComparison"
   ]
 }
