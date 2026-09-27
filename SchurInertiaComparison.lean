@@ -26,11 +26,10 @@ theorem positive_subspace_mono
   have hdiff : (S - K).PosSemidef := (sub_nonneg.mpr hKS).posSemidef
   have hcongr : (Tᴴ * (S - K) * T).PosSemidef :=
     hdiff.conjTranspose_mul_mul_same T
+  have hsum : K + (S - K) = S := by abel
   have hdecomp : Tᴴ * S * T = Tᴴ * K * T + Tᴴ * (S - K) * T := by
     calc
-      Tᴴ * S * T = Tᴴ * (K + (S - K)) * T := by
-        congr 1
-        abel
+      Tᴴ * S * T = Tᴴ * (K + (S - K)) * T := by rw [hsum]
       _ = Tᴴ * K * T + Tᴴ * (S - K) * T := by
         simp only [Matrix.mul_add, Matrix.add_mul]
   rw [hdecomp]
