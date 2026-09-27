@@ -13,9 +13,12 @@ The statements are finite algebraic bridge theorems. They do **not** supply:
 The supplied written proof uses a full hidden-sector lower bound and Schur inertia
 to certify a fixed-lattice excitation gap without knowing the interacting vacuum.
 The finite Lean comparison module proves preservation of positive trial subspaces
-and negative trial directions under Loewner order. A Lean theorem identifying the
-full negative index from these signs, and its infinite-dimensional operator
-specialization, remain open formalization tasks. The 195-by-3 frame and instanton
+and negative trial directions under Loewner order. A separate finite theorem
+now counts exactly one negative direction and a zero-dimensional radical when
+these are provided as subspaces of the same real quadratic form. Assembling the
+physical Schur matrix and the exact LDL witness into those quadratic-form
+hypotheses, and specializing to the infinite self-adjoint operator with its
+domain, remain formalization tasks. The 195-by-3 frame and instanton
 calculations are classical, and the holonomy audit disproves a proposed universal
 first-order response statement.
 
