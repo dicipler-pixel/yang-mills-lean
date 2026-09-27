@@ -25,11 +25,11 @@ theorem one_negative_index_of_opposite_subspaces
     (hCodim : Module.finrank ℝ V + 1 = Module.finrank ℝ M)
     (hNegative : ((-Q).restrict W).PosDef)
     (hOne : Module.finrank ℝ W = 1) :
-    QuadraticForm.sigNeg Q = 1 ∧ Module.finrank ℝ Q.radical = 0 := by
-  have hPosBound : Module.finrank ℝ V ≤ QuadraticForm.sigPos Q :=
-    QuadraticForm.le_sigPos_of_posDef hPositive
-  have hNegBound : Module.finrank ℝ W ≤ QuadraticForm.sigNeg Q :=
-    QuadraticForm.le_sigNeg_of_negDef hNegative
+    sigNeg Q = 1 ∧ Module.finrank ℝ Q.radical = 0 := by
+  have hPosBound : Module.finrank ℝ V ≤ sigPos Q :=
+    le_sigPos_of_posDef hPositive
+  have hNegBound : Module.finrank ℝ W ≤ sigNeg Q :=
+    le_sigNeg_of_negDef hNegative
   have hSignature := QuadraticForm.sigPos_add_sigNeg_add_radical (Q := Q)
   omega
 
