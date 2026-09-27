@@ -10,6 +10,7 @@ infinite-dimensional operator or prove a gauge-theory mass gap.
 -/
 
 open Matrix
+open scoped MatrixOrder
 
 namespace YangMillsInertiaComparison
 
