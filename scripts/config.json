@@ -53,7 +53,7 @@
       "path": "SchurInertiaComparison.lean"
     }
   ],
-  "expected_theorems": 79,
+  "expected_theorems": 82,
   "expected_false_controls": 2,
   "root_imports": [
     "GaugeCertificates",
