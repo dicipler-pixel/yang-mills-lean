@@ -6,6 +6,8 @@ repository, taken from branch `formal/yang-mills-longest-chain-2026-09-13` at co
 `SchurInertiaComparison.lean` is the new finite sign-transfer module written for this
 public repository. Its exact proof status is determined by this repository's own CI.
 
+The three direct positive-response declarations added to `CouplingFeedback.lean` on 28 September 2026 are adapted from the already-green finite theorem source `research/upg/formal/UPGPositiveFeedback.lean` at operator-first commit `c4e045d41642` (dedicated run 34866326919). They are restated in the existing `YangMillsFinite` namespace against this repository's `feedbackWith` definition; this repository's own CI is authoritative for the adapted source.
+
 The complete `paper/2026-09-08/` directory is copied from the previously verified
 `Yang_Mills_Continuation_2026-09-08.zip` (SHA-256
 `3bd8f6872700931c6a22d2d8fa296b3579e56d9be37df5e3892140dfe6744f2a`).
