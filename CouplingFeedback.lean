@@ -89,9 +89,63 @@ theorem feedbackWith_eq_zero_iff_of_factor_right_inverse
     subst B
     simp [feedbackWith]
 
+section PositiveResponse
+
+variable [DecidableEq r] [DecidableEq h]
+
+/-- The diagonal of the retained feedback is the quadratic response of the
+corresponding row of the coupling matrix. -/
+theorem feedbackWith_diag
+    (B : Matrix r h ℝ) (R : Matrix h h ℝ) (i : r) :
+    feedbackWith B R i i = (B i) ⬝ᵥ (R *ᵥ B i) := by
+  simp only [feedbackWith, Matrix.mul_apply, Matrix.transpose_apply,
+    dotProduct, Matrix.mulVec]
+  simp_rw [Finset.sum_mul, Finset.mul_sum]
+  rw [Finset.sum_comm]
+  simp [mul_assoc]
+
+/-- A positive-definite hidden response detects every nonzero retained-hidden
+coupling through the full feedback matrix. -/
+theorem feedbackWith_eq_zero_iff_of_posDef
+    (B : Matrix r h ℝ) (R : Matrix h h ℝ)
+    (hR : R.PosDef) :
+    feedbackWith B R = 0 ↔ B = 0 := by
+  constructor
+  · intro hfeedback
+    ext i j
+    have hdiag : (feedbackWith B R) i i = 0 := by
+      simpa using congr_fun (congr_fun hfeedback i) i
+    have hquad : (B i) ⬝ᵥ (R *ᵥ B i) = 0 := by
+      rw [← feedbackWith_diag B R i]
+      exact hdiag
+    by_contra hij
+    have hrow : B i ≠ 0 := by
+      intro hzero
+      exact hij (congr_fun hzero j)
+    have hpos : 0 < (B i) ⬝ᵥ (R *ᵥ B i) := by
+      simpa using hR.dotProduct_mulVec_pos hrow
+    exact (ne_of_gt hpos) hquad
+  · intro hB
+    subst B
+    simp [feedbackWith]
+
+/-- A nonzero retained-hidden coupling has nonzero feedback against every
+positive-definite finite hidden response. -/
+theorem nonzero_coupling_gives_nonzero_posDef_feedback
+    (B : Matrix r h ℝ) (R : Matrix h h ℝ)
+    (hR : R.PosDef) (hB : B ≠ 0) :
+    feedbackWith B R ≠ 0 := by
+  intro hzero
+  exact hB ((feedbackWith_eq_zero_iff_of_posDef B R hR).mp hzero)
+
+end PositiveResponse
+
 end YangMillsFinite
 
 #print axioms YangMillsFinite.redistribution_eq_zero_iff
 #print axioms YangMillsFinite.memoryAtZero_eq_zero_iff
 #print axioms YangMillsFinite.feedbackWith_factorized
 #print axioms YangMillsFinite.feedbackWith_eq_zero_iff_of_factor_right_inverse
+#print axioms YangMillsFinite.feedbackWith_diag
+#print axioms YangMillsFinite.feedbackWith_eq_zero_iff_of_posDef
+#print axioms YangMillsFinite.nonzero_coupling_gives_nonzero_posDef_feedback
