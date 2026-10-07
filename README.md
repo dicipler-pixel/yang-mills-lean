@@ -40,15 +40,18 @@ specified finite algebra. The spatial work checks five original-link SU(3) model
 
 | Subject | File | Theorems |
 | :--- | :--- | :-: |
-| **Gauge certificates**: spatial gap estimates and certified cutoffs | [`GaugeCertificates`](GaugeCertificates.lean) | 21 |
-| **Cross theorem**: the scalar closing kernel | [`CrossTheorem`](CrossTheorem.lean) | 12 |
+| **Gauge certificates**: exact LDLᵀ factorizations and pivot signs for the inner 10×10 and outer 7×7 matrices of the two-plaquette (shared-link) SU(3) certificate, plus exact arithmetic of its displayed cutoff constants. Haar integration, basis completeness, the analytic tail and Sylvester inertia are written proofs | [`GaugeCertificates`](GaugeCertificates.lean) | 21 |
+| **Cross theorem**: the scalar closing kernel; four of the twelve are exact arithmetic for the 45-state cube constants | [`CrossTheorem`](CrossTheorem.lean) | 12 |
 | **Matrix-resolved boundary**: the boundary coupling kept as a matrix, not a norm | [`MatrixResolvedBoundary`](MatrixResolvedBoundary.lean) | 5 |
 | **Schur congruence**: the block congruence behind the certificate | [`SchurCongruence`](SchurCongruence.lean) | 3 |
 | **Projector kernel**, **coupling feedback**, **observability kernel**, **projector dynamics**: from the adapted projector commutator to retained–hidden feedback and what an observation can see | [`ProjectorKernel`](ProjectorKernel.lean), [`CouplingFeedback`](CouplingFeedback.lean), [`ObservabilityKernel`](ObservabilityKernel.lean), [`ProjectorDynamics`](ProjectorDynamics.lean) | 17 |
-| **Tail-gap transfer**, **Schur floor transfer**, **nonuniform allocation floor**: how a hidden-tail gap and a local floor pass through the Schur complement | [`TailGapTransfer`](TailGapTransfer.lean), [`SchurFloorTransfer`](SchurFloorTransfer.lean), [`NonuniformAllocationFloor`](NonuniformAllocationFloor.lean) | 12 |
-| **Longest chain**: the certified finite lanes recombined, geometry → coupling → feedback → floor | [`LongestYangMillsChain`](LongestYangMillsChain.lean) | 7 |
+| **Tail-gap transfer**, **Schur floor transfer**, **nonuniform allocation floor**: scalar bookkeeping for nonuniform, overlapping hidden-tail budgets and local floors, and the finite Schur-complement equivalence for positivity above a candidate floor | [`TailGapTransfer`](TailGapTransfer.lean), [`SchurFloorTransfer`](SchurFloorTransfer.lean), [`NonuniformAllocationFloor`](NonuniformAllocationFloor.lean) | 12 |
+| **Combined lanes**: three finite lanes in one file, not composed into a single implication. (i) A vanishing projector commutator forces zero coupling, zero feedback and no Schur correction; the transported projector's tangent is the commutator, and half its cross-block energy and the feedback trace both equal the coupling energy. (ii) For positive-semidefinite residues with positive denominators: if the retained block clears the common-floor penalty, the energy-resolved comparison lies below the Schur complement (`K_res ≤ S`, assumed) and the shifted hidden block is positive definite, then the full shifted block is positive semidefinite. (iii) Scalar overlap-allocation bookkeeping leaves a positive residual. A dual observability certificate survives any invertible change of coordinates | [`LongestYangMillsChain`](LongestYangMillsChain.lean) | 7 |
 | **Schur sign comparison**: positive subspaces and negative trial directions transfer through ordered finite matrices | [`SchurInertiaComparison`](SchurInertiaComparison.lean) | 2 |
 | | **Total** | **79** |
+
+Besides the matrix factorizations, fifteen of the 79 theorems are exact arithmetic checks of
+displayed rational constants: eleven in `GaugeCertificates` and four in `CrossTheorem`.
 
 ## How it is checked
 
@@ -59,7 +62,8 @@ Python verifiers are separate and run from the research folders:
 2. **Independent replay**: every module is re-checked by Lean's separate kernel checker.
 3. **Axiom audit**: every named theorem depends only on `propext`, `Classical.choice` and
    `Quot.sound`. No `sorry`, no project axioms, no `native_decide`.
-4. **False controls**: two arithmetic controls must be rejected, showing the checker says no.
+4. **False controls**: two arithmetic controls, `(2 : ℚ) = 3` and `(1 : ℚ)/2 ≤ 1/3`, must be
+   rejected, showing the checker says no. They do not involve the Yang–Mills definitions.
 
 ```bash
 lake exe cache get

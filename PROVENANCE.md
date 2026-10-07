@@ -14,6 +14,15 @@ The `research/yang_mills_2026_09_09/` tree comes from private research PR #18 at
 their original dates and claims about where the full Compound Eye application was
 delivered. This public repository carries the focused native reproduction.
 
+The Lean files under `research/` are historical copies and are not built or counted by this
+repository's check. `research/yang_mills_2026_09_09/lean/GaugeCertificates.lean`,
+`research/yang_mills_2026_09_09/cross_theorem/lean/CrossTheorem.lean` and the two
+`FalseControl.lean` files beside them are byte-identical to the root `GaugeCertificates.lean`,
+`CrossTheorem.lean` and `FalseControls/*.lean`, which are checked.
+`research/yang_mills_2026_09_09/cross_theorem/sources/KakeyaForcingLinear.lean` is an unbuilt
+source snapshot and is not among the 79 theorems. Actions-run, pull-request and blob links
+inside `research/` point to the private repository.
+
 | Files | Source directory | Earlier verification |
 | :--- | :--- | :--- |
 | `GaugeCertificates.lean`, `FalseControls/GaugeControl.lean` | `research/yang_mills_2026_09_09/lean/` | PR #18, commit `4c90eaa499cd` |
