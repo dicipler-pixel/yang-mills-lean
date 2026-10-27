@@ -1,7 +1,7 @@
 # Energy-resolved boundary certificates: the usable Light-to-Yang–Mills bridge
 
 New application and written derivation,9September2026; research programme of
-Jeromie N. Beasley. The Schur/Feshbach, positive-weight and representation tools
+Jeromie Beasley. The Schur/Feshbach, positive-weight and representation tools
 are established mathematics. No priority for their general forms is asserted.
 
 ## 1. Retain the energy labels as well as the boundary Gram

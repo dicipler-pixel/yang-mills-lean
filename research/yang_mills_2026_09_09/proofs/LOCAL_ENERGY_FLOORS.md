@@ -1,6 +1,6 @@
 # Local plaquette energy allocation without a common local vacuum
 
-Jeromie N. Beasley research programme — new reconstruction,9September2026.
+Jeromie Beasley research programme — new reconstruction,9September2026.
 
 ## One weighted cycle, including its non-gauge-invariant sectors
 

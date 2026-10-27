@@ -1,6 +1,6 @@
 # Complete electric subspaces of two shared SU(3) plaquettes
 
-Jeromie N. Beasley research programme — new reconstruction, 9 September 2026.
+Jeromie Beasley research programme — new reconstruction, 9 September 2026.
 This is a newly written proof of the missing dependency, not a recovered original.
 It applies to the actual seven-link graph and all of its physical spin-network
 states. It is not a Lean formalization or a continuum construction.

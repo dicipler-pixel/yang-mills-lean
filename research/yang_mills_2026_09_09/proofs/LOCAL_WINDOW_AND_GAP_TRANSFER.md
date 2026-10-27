@@ -1,6 +1,6 @@
 # Local electric tails and a gap transfer without the absolute-vacuum window
 
-Jeromie N. Beasley research programme — 9 September 2026
+Jeromie Beasley research programme — 9 September 2026
 
 **Status:** a written operator argument developed in this workstream, with the
 assumptions below. It is not a Lean formalization. The accompanying finite-model

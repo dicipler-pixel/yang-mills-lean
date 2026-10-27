@@ -1,7 +1,7 @@
 ---
 title: "Retained Geometry and Certified Gauge Cutoffs"
 subtitle: "An operator-first continuation toward Yang-Mills"
-author: "Research programme of Jeromie N. Beasley"
+author: "Research programme of Jeromie Beasley"
 date: "8 September 2026"
 fontsize: 11pt
 geometry: margin=0.85in

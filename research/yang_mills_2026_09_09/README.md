@@ -1,6 +1,6 @@
 # Yang–Mills workstream — 9 September 2026
 
-Research programme of Jeromie N. Beasley. Isolated continuation from main `401f6b4b255504ef4465140a15b6cfd6daa9c887`; existing drafts and main are not changed.
+Research programme of Jeromie Beasley. Isolated continuation from main `401f6b4b255504ef4465140a15b6cfd6daa9c887`; existing drafts and main are not changed.
 
 ## Starting evidence
 

@@ -1,6 +1,6 @@
 # Yang–Mills restart: non-Abelian projector geometry and quantitative gap preservation
 
-**Research checkpoint for Jeromie N. Beasley — 8 September 2026**  
+**Research checkpoint for Jeromie Beasley — 8 September 2026**  
 **Status:** written finite-dimensional/classical proofs, exact symbolic examples, and synthetic numerical controls. This is not a proof of four-dimensional quantum Yang–Mills existence or its continuum mass gap. It is not a fresh Lean certificate. No physical mass or CRFZD frequency has been fitted.
 
 ## Abstract
