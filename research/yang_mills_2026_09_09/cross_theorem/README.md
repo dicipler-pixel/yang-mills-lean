@@ -1,6 +1,6 @@
 # Yang–Mills through the native Compound Eye — cross-theorem continuation
 
-Requested by Jeromie N. Beasley on 9 September 2026 after the Earth–Moon side-scanner integration. This work continues PR #18 from `ae0d34ff56648b02c9d60a8a322861f0ed25ce24`. Main and the Earth–Moon hard-backup branch remain unchanged.
+Requested by Jeromie Beasley on 9 September 2026 after the Earth–Moon side-scanner integration. This work continues PR #18 from `ae0d34ff56648b02c9d60a8a322861f0ed25ce24`. Main and the Earth–Moon hard-backup branch remain unchanged.
 
 ## Active mathematical work
 

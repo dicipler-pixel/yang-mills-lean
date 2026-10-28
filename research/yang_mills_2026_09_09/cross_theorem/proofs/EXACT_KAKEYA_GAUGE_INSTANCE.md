@@ -1,6 +1,6 @@
 # The Kakeya dual theorem on the actual gauge matrices
 
-Jeromie N. Beasley research programme — 9 September 2026.
+Jeromie Beasley research programme — 9 September 2026.
 
 ## Reused theorem and its direction
 

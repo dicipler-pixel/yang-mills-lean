@@ -1,6 +1,6 @@
 # Coarsen the spectral record without discarding the direction of the inequality
 
-Jeromie N. Beasley research programme, 9 September 2026. Written finite operator
+Jeromie Beasley research programme, 9 September 2026. Written finite operator
 comparison, supported by the same full-hidden-floor proof as RESOLVED_BOUNDARY.
 Not a priority claim for scalar convexity or spectral quadrature.
 

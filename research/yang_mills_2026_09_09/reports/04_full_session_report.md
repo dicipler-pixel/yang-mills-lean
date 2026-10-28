@@ -1,6 +1,6 @@
 # Full Yang–Mills work-session report — 9 September 2026
 
-Prepared for Jeromie N. Beasley. This report reconciles the earlier session with its final, incomplete chat reply and records a separate follow-up evidence audit. No main-branch merge or continuum Yang–Mills solution is claimed.
+Prepared for Jeromie Beasley. This report reconciles the earlier session with its final, incomplete chat reply and records a separate follow-up evidence audit. No main-branch merge or continuum Yang–Mills solution is claimed.
 
 ## 1. The correction to the preceding reply
 

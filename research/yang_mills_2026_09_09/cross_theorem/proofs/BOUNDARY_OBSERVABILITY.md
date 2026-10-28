@@ -1,6 +1,6 @@
 # A silent boundary direction can become visible after one retained step
 
-Jeromie N. Beasley research programme — 9 September 2026.
+Jeromie Beasley research programme — 9 September 2026.
 
 This is a finite linear-algebra bridge between the Light paper's warning about
 one-energy/probe records and the arithmetic Kakeya work's exact-span discipline.

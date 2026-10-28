@@ -2,7 +2,7 @@
 
 ### The holonomy argument, assembled from the operator-first corpus
 
-*Jeromie N. Beasley — 8 September 2026 — working draft, built from UPG v2, FOFT v2, Matter v5, the ladder paper, the sofic note, Light Edition 4, and the offset paper v27/v30*
+*Jeromie Beasley — 8 September 2026 — working draft, built from UPG v2, FOFT v2, Matter v5, the ladder paper, the sofic note, Light Edition 4, and the offset paper v27/v30*
 
 ---
 

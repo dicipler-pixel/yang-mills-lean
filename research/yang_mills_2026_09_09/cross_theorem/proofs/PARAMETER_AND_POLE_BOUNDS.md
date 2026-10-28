@@ -1,6 +1,6 @@
 # Two further finite corollaries: parameter stability and pole degree
 
-Jeromie N. Beasley research programme — 9 September 2026.
+Jeromie Beasley research programme — 9 September 2026.
 These are written corollaries, not additional large-lattice computations.
 
 ## A genuine interval in magnetic coupling, at fixed spatial graph

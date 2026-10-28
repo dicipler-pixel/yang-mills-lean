@@ -1,6 +1,6 @@
 # Complete C<=8 gauge bases on a strip, a corner and a full cube
 
-New written construction,9September2026; Jeromie N. Beasley research programme.
+New written construction,9September2026; Jeromie Beasley research programme.
 
 ## The support theorem
 

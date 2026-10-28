@@ -1,6 +1,6 @@
 # Scaling controls and the fixed-total-cutoff obstruction
 
-Jeromie N. Beasley research programme — new reconstruction, 9 September 2026. This supplies the missing exposition for the existing exact scaling calculator; it is not a recovered original document, a derived renormalization trajectory, or a continuum Yang–Mills construction.
+Jeromie Beasley research programme — new reconstruction, 9 September 2026. This supplies the missing exposition for the existing exact scaling calculator; it is not a recovered original document, a derived renormalization trajectory, or a continuum Yang–Mills construction.
 
 ## Exact size of a single-link cutoff
 

@@ -1,6 +1,6 @@
 # Yang–Mills: the boundary needs its energy labels
 
-Research programme of Jeromie N. Beasley — 9 September 2026.
+Research programme of Jeromie Beasley — 9 September 2026.
 
 ## Completed result
 

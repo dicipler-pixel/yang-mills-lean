@@ -1,6 +1,6 @@
 # Fixed-spacing strong-coupling uniformity: an application of Yarotsky
 
-Jeromie N. Beasley research programme — 9 September 2026.
+Jeromie Beasley research programme — 9 September 2026.
 
 **Attribution and scope.** This is a hypothesis-by-hypothesis application of
 D. A. Yarotsky, *Ground states in relatively bounded quantum perturbations of
