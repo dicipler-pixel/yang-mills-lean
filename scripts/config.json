@@ -51,15 +51,20 @@
     {
       "module": "SchurInertiaComparison",
       "path": "SchurInertiaComparison.lean"
+    },
+    {
+      "module": "SchurInertiaCount",
+      "path": "SchurInertiaCount.lean"
     }
   ],
-  "expected_theorems": 79,
+  "expected_theorems": 80,
   "expected_false_controls": 2,
   "root_imports": [
     "GaugeCertificates",
     "LongestYangMillsChain",
     "ProjectorKernel",
     "SchurFloorTransfer",
-    "SchurInertiaComparison"
+    "SchurInertiaComparison",
+    "SchurInertiaCount"
   ]
 }

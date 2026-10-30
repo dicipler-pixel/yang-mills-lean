@@ -56,10 +56,14 @@ the [September 8 bundle](paper/2026-09-08/).
 
 The public Lean library checks the finite block congruence and positivity
 floor transfer. [`SchurInertiaComparison.lean`](SchurInertiaComparison.lean)
-also proves that Loewner order retains any certified positive trial subspace
-and any negative upper-comparison trial vector. Its source does not yet
-encode Sylvester's exact negative-index count, infinite self-adjoint operator
-domains, or the full physical `K_res≤S(z)` hypothesis. The spatial
+proves that Loewner order retains any certified positive trial subspace
+and any negative upper-comparison trial vector.
+[`SchurInertiaCount.lean`](SchurInertiaCount.lean) then uses Mathlib's
+quadratic-form signature identity to count exactly one negative direction
+and no radical under those subspace hypotheses. The formal assembly from the
+actual gauge matrices and exact LDL witnesses into a single real quadratic
+form, the infinite self-adjoint operator domains, and the full physical
+`K_res≤S(z)` hypothesis remain outside these Lean statements. The spatial
 calculation has a separate complete-cutoff written proof and executable
 checks, and no quantitative growing-volume margin at the displayed
 couplings follows from these finite results.

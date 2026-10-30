@@ -6,7 +6,7 @@
 
 [![Lean proof check](https://github.com/dicipler-pixel/yang-mills-lean/actions/workflows/build.yml/badge.svg)](https://github.com/dicipler-pixel/yang-mills-lean/actions/workflows/build.yml)
 ![Lean](https://img.shields.io/badge/Lean-v4.33.0-blue)
-![Theorems](https://img.shields.io/badge/theorems-79-2EA043)
+![Theorems](https://img.shields.io/badge/theorems-80-2EA043)
 ![sorry](https://img.shields.io/badge/sorry-0-2EA043)
 ![Code: MIT](https://img.shields.io/badge/code-MIT-lightgrey)
 ![Text: CC BY 4.0](https://img.shields.io/badge/text-CC%20BY%204.0-lightgrey)
@@ -48,7 +48,8 @@ specified finite algebra. The spatial work checks five original-link SU(3) model
 | **Tail-gap transfer**, **Schur floor transfer**, **nonuniform allocation floor**: scalar bookkeeping for nonuniform, overlapping hidden-tail budgets and local floors, and the finite Schur-complement equivalence for positivity above a candidate floor | [`TailGapTransfer`](TailGapTransfer.lean), [`SchurFloorTransfer`](SchurFloorTransfer.lean), [`NonuniformAllocationFloor`](NonuniformAllocationFloor.lean) | 12 |
 | **Combined lanes**: three finite lanes in one file, not composed into a single implication. (i) A vanishing projector commutator forces zero coupling, zero feedback and no Schur correction; the transported projector's tangent is the commutator, and half its cross-block energy and the feedback trace both equal the coupling energy. (ii) For positive-semidefinite residues with positive denominators: if the retained block clears the common-floor penalty, the energy-resolved comparison lies below the Schur complement (`K_res ≤ S`, assumed) and the shifted hidden block is positive definite, then the full shifted block is positive semidefinite. (iii) Scalar overlap-allocation bookkeeping leaves a positive residual. A dual observability certificate survives any invertible change of coordinates | [`LongestYangMillsChain`](LongestYangMillsChain.lean) | 7 |
 | **Schur sign comparison**: positive subspaces and negative trial directions transfer through ordered finite matrices | [`SchurInertiaComparison`](SchurInertiaComparison.lean) | 2 |
-| | **Total** | **79** |
+| **Finite inertia count**: positive codimension-one and negative one-dimensional subspaces give exactly one negative direction and no radical | [`SchurInertiaCount`](SchurInertiaCount.lean) | 1 |
+| | **Total** | **80** |
 
 Besides the matrix factorizations, fifteen of the 79 theorems are exact arithmetic checks of
 displayed rational constants: eleven in `GaugeCertificates` and four in `CrossTheorem`.
