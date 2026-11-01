@@ -16,4 +16,4 @@ name = "CrossTheorem"
 roots = ["CrossTheorem", "MatrixResolvedBoundary", "SchurCongruence", "ProjectorKernel",
   "CouplingFeedback", "ObservabilityKernel", "ProjectorDynamics", "TailGapTransfer",
   "SchurFloorTransfer", "NonuniformAllocationFloor", "LongestYangMillsChain",
-  "SchurInertiaComparison"]
+  "SchurInertiaComparison", "SchurInertiaCount"]

@@ -3,8 +3,9 @@
 The original twelve Lean files are byte-identical copies of sources in the private `operator-first`
 repository, taken from branch `formal/yang-mills-longest-chain-2026-09-13` at commit
 `3eb82d5f5dd5`, which carries the union of the Yang–Mills lanes.
-`SchurInertiaComparison.lean` is the new finite sign-transfer module written for this
-public repository. Its exact proof status is determined by this repository's own CI.
+`SchurInertiaComparison.lean` and `SchurInertiaCount.lean` are new finite
+sign-transfer and signature-count modules written for this public repository.
+Their exact proof status is determined by this repository's own CI.
 
 The complete `paper/2026-09-08/` directory is copied from the previously verified
 `Yang_Mills_Continuation_2026-09-08.zip` (SHA-256
