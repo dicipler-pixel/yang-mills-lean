@@ -87,10 +87,26 @@
     {
       "module": "TailFloorDoubleCube",
       "path": "TailFloorDoubleCube.lean"
+    },
+    {
+      "module": "GaugeSupport",
+      "path": "GaugeSupport.lean"
+    },
+    {
+      "module": "GaugeSupportFDRep",
+      "path": "GaugeSupportFDRep.lean"
+    },
+    {
+      "module": "GaugeSupportLattice",
+      "path": "GaugeSupportLattice.lean"
+    },
+    {
+      "module": "DualSimple",
+      "path": "DualSimple.lean"
     }
   ],
-  "expected_theorems": 461,
-  "expected_false_controls": 3,
+  "expected_theorems": 493,
+  "expected_false_controls": 4,
   "root_imports": [
     "GaugeCertificates",
     "LongestYangMillsChain",
@@ -105,6 +121,10 @@
     "WindowWallMono",
     "TailFloor",
     "OneLinkTailFloor",
-    "TailFloorDoubleCube"
+    "TailFloorDoubleCube",
+    "GaugeSupport",
+    "GaugeSupportFDRep",
+    "GaugeSupportLattice",
+    "DualSimple"
   ]
 }
