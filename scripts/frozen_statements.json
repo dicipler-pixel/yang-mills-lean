@@ -391,6 +391,37 @@
       "dc124": ": allChoose hypB 6 [(0,4),(0,2),(0,1),(1,5),(1,3),(2,6),(2,3),(3,7),(4,8),(4,6),(4,5),(5,9),(5,7),(6,10),(6,7),(7,11),(8,10),(8,9),(9,11),(10,11)] [] = true",
       "dcube_checkB": ": checkB dcubeE = true",
       "dcube_cycles": ": SmallSupportsAreCycles dcubeE"
+    },
+    "ThetaFloor.lean": {
+      "cas3_ge_of_large": "(x : Irrep) (h : 7 ≤ x.1 + x.2) : 52 ≤ cas3 x",
+      "cas3_ge_of_mid": "(x : Irrep) (h : 4 ≤ x.1 + x.2) : 18 ≤ cas3 x",
+      "cutoff_any_arm": "(a b c : Irrep) (h : 7 ≤ a.1 + a.2 ∨ 7 ≤ b.1 + b.2 ∨ 7 ≤ c.1 + c.2) : 51 < level3 a b c",
+      "cutoff_long_arm": "(a b c : Irrep) (h : 4 ≤ b.1 + b.2 ∨ 4 ≤ c.1 + c.2) : 51 < level3 a b c",
+      "bounds_of_level": "(a b c : Irrep) (h : level3 a b c ≤ 51) : a.1 + a.2 ≤ 6 ∧ b.1 + b.2 ≤ 3 ∧ c.1 + c.2 ≤ 3",
+      "box_p0": ": ∀ q1 < 7, ∀ p2 < 4, ∀ q2 < 4, ∀ p3 < 4, ∀ q3 < 4, good (0, q1) (p2, q2) (p3, q3)",
+      "box_p1": ": ∀ q1 < 7, ∀ p2 < 4, ∀ q2 < 4, ∀ p3 < 4, ∀ q3 < 4, good (1, q1) (p2, q2) (p3, q3)",
+      "box_p2": ": ∀ q1 < 7, ∀ p2 < 4, ∀ q2 < 4, ∀ p3 < 4, ∀ q3 < 4, good (2, q1) (p2, q2) (p3, q3)",
+      "box_p3": ": ∀ q1 < 7, ∀ p2 < 4, ∀ q2 < 4, ∀ p3 < 4, ∀ q3 < 4, good (3, q1) (p2, q2) (p3, q3)",
+      "box_p4": ": ∀ q1 < 7, ∀ p2 < 4, ∀ q2 < 4, ∀ p3 < 4, ∀ q3 < 4, good (4, q1) (p2, q2) (p3, q3)",
+      "box_p5": ": ∀ q1 < 7, ∀ p2 < 4, ∀ q2 < 4, ∀ p3 < 4, ∀ q3 < 4, good (5, q1) (p2, q2) (p3, q3)",
+      "box_p6": ": ∀ q1 < 7, ∀ p2 < 4, ∀ q2 < 4, ∀ p3 < 4, ∀ q3 < 4, good (6, q1) (p2, q2) (p3, q3)",
+      "good_of_box": "(a b c : Irrep) (ha : a.1 + a.2 ≤ 6) (hb : b.1 + b.2 ≤ 3) (hc : c.1 + c.2 ≤ 3) : good a b c",
+      "thetaList_sound": ": ∀ t ∈ thetaList, admissible t.1 t.2.1 t.2.2 = true ∧ level3 t.1 t.2.1 t.2.2 ≤ 51",
+      "theta_enumeration": "(a b c : Irrep) : (admissible a b c = true ∧ level3 a b c ≤ 51) ↔ (a, b, c) ∈ thetaList",
+      "thetaList_length": ": thetaList.length = 34",
+      "level40_char": ": ∀ t ∈ thetaList, level3 t.1 t.2.1 t.2.2 = 40 ↔ t ∈ level40List",
+      "level43_char": ": ∀ t ∈ thetaList, level3 t.1 t.2.1 t.2.2 = 43 ↔ t ∈ level43List",
+      "level40List_sub": ": ∀ t ∈ level40List, t ∈ thetaList",
+      "level43List_sub": ": ∀ t ∈ level43List, t ∈ thetaList",
+      "theta_level_40_3_iff": "(a b c : Irrep) : (admissible a b c = true ∧ level3 a b c = 40) ↔ (a, b, c) ∈ level40List",
+      "theta_level_43_3_iff": "(a b c : Irrep) : (admissible a b c = true ∧ level3 a b c = 43) ↔ (a, b, c) ∈ level43List",
+      "level40List_length": ": level40List.length = 4",
+      "level43List_length": ": level43List.length = 4",
+      "levels_of_list": ": ∀ t ∈ thetaList, level3 t.1 t.2.1 t.2.2 ∈ levelSet3",
+      "levels_realized": ": ∀ n ∈ levelSet3, ∃ t ∈ thetaList, level3 t.1 t.2.1 t.2.2 = n",
+      "theta_levels": "(n : Nat) (hn : n ≤ 51) : (∃ a b c : Irrep, admissible a b c = true ∧ level3 a b c = n) ↔ n ∈ levelSet3",
+      "levelSet3_sorted": ": levelSet3.Pairwise (· < ·)",
+      "theta_floor": "(a b c : Irrep) (h : admissible a b c = true) : 16 ≤ level3 a b c"
     }
   },
   "complete_files": [
@@ -400,6 +431,7 @@
     "WindowWallMono.lean",
     "OneLinkTailFloor.lean",
     "TailFloor.lean",
-    "TailFloorDoubleCube.lean"
+    "TailFloorDoubleCube.lean",
+    "ThetaFloor.lean"
   ]
 }

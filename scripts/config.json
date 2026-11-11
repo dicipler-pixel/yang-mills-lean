@@ -67,10 +67,14 @@
     {
       "module": "TailFloorDoubleCube",
       "path": "TailFloorDoubleCube.lean"
+    },
+    {
+      "module": "ThetaFloor",
+      "path": "ThetaFloor.lean"
     }
   ],
-  "expected_theorems": 430,
-  "expected_false_controls": 2,
+  "expected_theorems": 459,
+  "expected_false_controls": 3,
   "root_imports": [
     "GaugeCertificates",
     "LongestYangMillsChain",
@@ -80,6 +84,7 @@
     "SchurInertiaCount",
     "TailFloor",
     "OneLinkTailFloor",
-    "TailFloorDoubleCube"
+    "TailFloorDoubleCube",
+    "ThetaFloor"
   ]
 }
