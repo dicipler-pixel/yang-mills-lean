@@ -1,0 +1,367 @@
+{
+ "N": 30,
+ "h": "1/1000",
+ "rows": [
+  {
+   "model": "two",
+   "lam": "1",
+   "certified_sum": "258924953/1000000000",
+   "certified_sum_float": 0.258924953,
+   "margin_float": 9.074408380333333,
+   "excluded": false,
+   "stored_target": true
+  },
+  {
+   "model": "two",
+   "lam": "2",
+   "certified_sum": "116944751/100000000",
+   "certified_sum_float": 1.16944751,
+   "margin_float": 8.163885823333333,
+   "excluded": false,
+   "stored_target": true
+  },
+  {
+   "model": "two",
+   "lam": "3",
+   "certified_sum": "2675789039/1000000000",
+   "certified_sum_float": 2.675789039,
+   "margin_float": 6.657544294333333,
+   "excluded": false,
+   "stored_target": false
+  },
+  {
+   "model": "two",
+   "lam": "4",
+   "certified_sum": "2223300513/500000000",
+   "certified_sum_float": 4.446601026,
+   "margin_float": 4.886732307333333,
+   "excluded": false,
+   "stored_target": false
+  },
+  {
+   "model": "two",
+   "lam": "5",
+   "certified_sum": "6206142621/1000000000",
+   "certified_sum_float": 6.206142621,
+   "margin_float": 3.1271907123333333,
+   "excluded": false,
+   "stored_target": false
+  },
+  {
+   "model": "two",
+   "lam": "6",
+   "certified_sum": "7851689111/1000000000",
+   "certified_sum_float": 7.851689111,
+   "margin_float": 1.4816442223333333,
+   "excluded": false,
+   "stored_target": false
+  },
+  {
+   "model": "two",
+   "lam": "8",
+   "certified_sum": "2156900963/200000000",
+   "certified_sum_float": 10.784504815,
+   "margin_float": -1.4511714816666668,
+   "excluded": true,
+   "stored_target": false
+  },
+  {
+   "model": "two",
+   "lam": "10",
+   "certified_sum": "13349534121/1000000000",
+   "certified_sum_float": 13.349534121,
+   "margin_float": -4.0162007876666665,
+   "excluded": true,
+   "stored_target": false
+  },
+  {
+   "model": "strip",
+   "lam": "1",
+   "certified_sum": "207089467/500000000",
+   "certified_sum_float": 0.414178934,
+   "margin_float": 8.919154399333333,
+   "excluded": false,
+   "stored_target": true
+  },
+  {
+   "model": "strip",
+   "lam": "2",
+   "certified_sum": "1863357263/1000000000",
+   "certified_sum_float": 1.863357263,
+   "margin_float": 7.469976070333334,
+   "excluded": false,
+   "stored_target": true
+  },
+  {
+   "model": "strip",
+   "lam": "3",
+   "certified_sum": "4197130883/1000000000",
+   "certified_sum_float": 4.197130883,
+   "margin_float": 5.136202450333333,
+   "excluded": false,
+   "stored_target": false
+  },
+  {
+   "model": "strip",
+   "lam": "4",
+   "certified_sum": "3429723327/500000000",
+   "certified_sum_float": 6.859446654,
+   "margin_float": 2.4738866793333334,
+   "excluded": false,
+   "stored_target": false
+  },
+  {
+   "model": "strip",
+   "lam": "5",
+   "certified_sum": "9457402251/1000000000",
+   "certified_sum_float": 9.457402251,
+   "margin_float": -0.12406891766666667,
+   "excluded": true,
+   "stored_target": false
+  },
+  {
+   "model": "strip",
+   "lam": "6",
+   "certified_sum": "5934251467/500000000",
+   "certified_sum_float": 11.868502934,
+   "margin_float": -2.535169600666667,
+   "excluded": true,
+   "stored_target": false
+  },
+  {
+   "model": "strip",
+   "lam": "8",
+   "certified_sum": "8076732671/500000000",
+   "certified_sum_float": 16.153465342,
+   "margin_float": -6.820132008666667,
+   "excluded": true,
+   "stored_target": false
+  },
+  {
+   "model": "strip",
+   "lam": "10",
+   "certified_sum": "9950068227/500000000",
+   "certified_sum_float": 19.900136454,
+   "margin_float": -10.566803120666666,
+   "excluded": true,
+   "stored_target": false
+  },
+  {
+   "model": "corner",
+   "lam": "1",
+   "certified_sum": "465761943/1000000000",
+   "certified_sum_float": 0.465761943,
+   "margin_float": 8.867571390333334,
+   "excluded": false,
+   "stored_target": true
+  },
+  {
+   "model": "corner",
+   "lam": "2",
+   "certified_sum": "2081729259/1000000000",
+   "certified_sum_float": 2.081729259,
+   "margin_float": 7.251604074333334,
+   "excluded": false,
+   "stored_target": true
+  },
+  {
+   "model": "corner",
+   "lam": "3",
+   "certified_sum": "1141006383/250000000",
+   "certified_sum_float": 4.564025532,
+   "margin_float": 4.769307801333333,
+   "excluded": false,
+   "stored_target": false
+  },
+  {
+   "model": "corner",
+   "lam": "4",
+   "certified_sum": "1809634221/250000000",
+   "certified_sum_float": 7.238536884,
+   "margin_float": 2.0947964493333333,
+   "excluded": false,
+   "stored_target": false
+  },
+  {
+   "model": "corner",
+   "lam": "5",
+   "certified_sum": "975377889/100000000",
+   "certified_sum_float": 9.75377889,
+   "margin_float": -0.42044555666666666,
+   "excluded": true,
+   "stored_target": false
+  },
+  {
+   "model": "corner",
+   "lam": "6",
+   "certified_sum": "12050441469/1000000000",
+   "certified_sum_float": 12.050441469,
+   "margin_float": -2.717108135666667,
+   "excluded": true,
+   "stored_target": false
+  },
+  {
+   "model": "corner",
+   "lam": "8",
+   "certified_sum": "16106881581/1000000000",
+   "certified_sum_float": 16.106881581,
+   "margin_float": -6.773548247666667,
+   "excluded": true,
+   "stored_target": false
+  },
+  {
+   "model": "corner",
+   "lam": "10",
+   "certified_sum": "19651806999/1000000000",
+   "certified_sum_float": 19.651806999,
+   "margin_float": -10.318473665666666,
+   "excluded": true,
+   "stored_target": false
+  },
+  {
+   "model": "cube",
+   "lam": "1",
+   "certified_sum": "375977091/250000000",
+   "certified_sum_float": 1.503908364,
+   "margin_float": 7.829424969333333,
+   "excluded": false,
+   "stored_target": true
+  },
+  {
+   "model": "cube",
+   "lam": "2",
+   "certified_sum": "1521236259/250000000",
+   "certified_sum_float": 6.084945036,
+   "margin_float": 3.2483882973333333,
+   "excluded": false,
+   "stored_target": false
+  },
+  {
+   "model": "cube",
+   "lam": "3",
+   "certified_sum": "710246901/62500000",
+   "certified_sum_float": 11.363950416,
+   "margin_float": -2.0306170826666667,
+   "excluded": true,
+   "stored_target": false
+  },
+  {
+   "model": "cube",
+   "lam": "4",
+   "certified_sum": "4016568069/250000000",
+   "certified_sum_float": 16.066272276,
+   "margin_float": -6.732938942666666,
+   "excluded": true,
+   "stored_target": false
+  },
+  {
+   "model": "cube",
+   "lam": "5",
+   "certified_sum": "1009870131/50000000",
+   "certified_sum_float": 20.19740262,
+   "margin_float": -10.864069286666666,
+   "excluded": true,
+   "stored_target": false
+  },
+  {
+   "model": "cube",
+   "lam": "6",
+   "certified_sum": "93388527/3906250",
+   "certified_sum_float": 23.907462912,
+   "margin_float": -14.574129578666666,
+   "excluded": true,
+   "stored_target": false
+  },
+  {
+   "model": "cube",
+   "lam": "8",
+   "certified_sum": "7612995489/250000000",
+   "certified_sum_float": 30.451981956,
+   "margin_float": -21.118648622666665,
+   "excluded": true,
+   "stored_target": false
+  },
+  {
+   "model": "cube",
+   "lam": "10",
+   "certified_sum": "9047190723/250000000",
+   "certified_sum_float": 36.188762892,
+   "margin_float": -26.855429558666668,
+   "excluded": true,
+   "stored_target": false
+  },
+  {
+   "model": "double_cube",
+   "lam": "1",
+   "certified_sum": "38894641/12500000",
+   "certified_sum_float": 3.11157128,
+   "margin_float": 6.221762053333333,
+   "excluded": false,
+   "stored_target": false
+  },
+  {
+   "model": "double_cube",
+   "lam": "2",
+   "certified_sum": "6706246583/562500000",
+   "certified_sum_float": 11.922216147555556,
+   "margin_float": -2.5888828142222224,
+   "excluded": true,
+   "stored_target": false
+  },
+  {
+   "model": "double_cube",
+   "lam": "3",
+   "certified_sum": "16008869063/750000000",
+   "certified_sum_float": 21.345158750666666,
+   "margin_float": -12.011825417333334,
+   "excluded": true,
+   "stored_target": false
+  },
+  {
+   "model": "double_cube",
+   "lam": "4",
+   "certified_sum": "16624135361/562500000",
+   "certified_sum_float": 29.554018419555554,
+   "margin_float": -20.220685086222222,
+   "excluded": true,
+   "stored_target": false
+  },
+  {
+   "model": "double_cube",
+   "lam": "5",
+   "certified_sum": "41337996371/1125000000",
+   "certified_sum_float": 36.74488566311111,
+   "margin_float": -27.411552329777777,
+   "excluded": true,
+   "stored_target": false
+  },
+  {
+   "model": "double_cube",
+   "lam": "6",
+   "certified_sum": "16201845767/375000000",
+   "certified_sum_float": 43.20492204533333,
+   "margin_float": -33.871588712,
+   "excluded": true,
+   "stored_target": false
+  },
+  {
+   "model": "double_cube",
+   "lam": "8",
+   "certified_sum": "122869856993/2250000000",
+   "certified_sum_float": 54.608825330222224,
+   "margin_float": -45.27549199688889,
+   "excluded": true,
+   "stored_target": false
+  },
+  {
+   "model": "double_cube",
+   "lam": "10",
+   "certified_sum": "36343878313/562500000",
+   "certified_sum_float": 64.61133922311112,
+   "margin_float": -55.27800588977778,
+   "excluded": true,
+   "stored_target": false
+  }
+ ],
+ "kill_violations": 0
+}

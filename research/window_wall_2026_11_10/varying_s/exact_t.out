@@ -1,0 +1,16 @@
+strip: states=36 t_upper=36/35 (1.028571) t_lower=32/35 (0.914286)
+   lam=5 mu=lam/c=1.5000 L=0.946761 excluded(L>t_upper)=False
+   lam=5.25 mu=lam/c=1.5750 L=1.009035 excluded(L>t_upper)=False
+   lam=5.5 mu=lam/c=1.6500 L=1.070041 excluded(L>t_upper)=True
+   lam=5.75 mu=lam/c=1.7250 L=1.129785 excluded(L>t_upper)=True
+   lam=6 mu=lam/c=1.8000 L=1.188293 excluded(L>t_upper)=True
+corner: states=49 t_upper=10/9 (1.111111) t_lower=10/9 (1.111111)
+   lam=5 mu=lam/c=1.6667 L=1.083426 excluded(L>t_upper)=False
+   lam=5.25 mu=lam/c=1.7500 L=1.149423 excluded(L>t_upper)=True
+   lam=5.5 mu=lam/c=1.8333 L=1.213909 excluded(L>t_upper)=True
+   lam=5.75 mu=lam/c=1.9167 L=1.276936 excluded(L>t_upper)=True
+   lam=6 mu=lam/c=2.0000 L=1.338570 excluded(L>t_upper)=True
+two: states=10 t_upper=4/3 (1.333333) t_lower=4/3 (1.333333)
+   lam=8 mu=lam/c=2.2857 L=1.540225 excluded(L>t_upper)=True
+cube: states=516 t_upper=7/9 (0.777778) t_lower=7/9 (0.777778)
+   lam=3 mu=lam/c=1.5000 L=0.946761 excluded(L>t_upper)=True

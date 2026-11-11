@@ -1,0 +1,43 @@
+graph          lam  sum c_p L_p (certified lower)   28/3 - sum  verdict   stored target
+two              1                       0.258925     9.074408  not excl.  yes
+two              2                       1.169448     8.163886  not excl.  yes
+two              3                       2.675789     6.657544  not excl.  -
+two              4                       4.446601     4.886732  not excl.  -
+two              5                       6.206143     3.127191  not excl.  -
+two              6                       7.851689     1.481644  not excl.  -
+two              8                      10.784505    -1.451171  EXCLUDED  -
+two             10                      13.349534    -4.016201  EXCLUDED  -
+strip            1                       0.414179     8.919154  not excl.  yes
+strip            2                       1.863357     7.469976  not excl.  yes
+strip            3                       4.197131     5.136202  not excl.  -
+strip            4                       6.859447     2.473887  not excl.  -
+strip            5                       9.457402    -0.124069  EXCLUDED  -
+strip            6                      11.868503    -2.535170  EXCLUDED  -
+strip            8                      16.153465    -6.820132  EXCLUDED  -
+strip           10                      19.900136   -10.566803  EXCLUDED  -
+corner           1                       0.465762     8.867571  not excl.  yes
+corner           2                       2.081729     7.251604  not excl.  yes
+corner           3                       4.564026     4.769308  not excl.  -
+corner           4                       7.238537     2.094796  not excl.  -
+corner           5                       9.753779    -0.420446  EXCLUDED  -
+corner           6                      12.050441    -2.717108  EXCLUDED  -
+corner           8                      16.106882    -6.773548  EXCLUDED  -
+corner          10                      19.651807   -10.318474  EXCLUDED  -
+cube             1                       1.503908     7.829425  not excl.  yes
+cube             2                       6.084945     3.248388  not excl.  -
+cube             3                      11.363950    -2.030617  EXCLUDED  -
+cube             4                      16.066272    -6.732939  EXCLUDED  -
+cube             5                      20.197403   -10.864069  EXCLUDED  -
+cube             6                      23.907463   -14.574130  EXCLUDED  -
+cube             8                      30.451982   -21.118649  EXCLUDED  -
+cube            10                      36.188763   -26.855430  EXCLUDED  -
+double_cube      1                       3.111571     6.221762  not excl.  -
+double_cube      2                      11.922216    -2.588883  EXCLUDED  -
+double_cube      3                      21.345159   -12.011825  EXCLUDED  -
+double_cube      4                      29.554018   -20.220685  EXCLUDED  -
+double_cube      5                      36.744886   -27.411552  EXCLUDED  -
+double_cube      6                      43.204922   -33.871589  EXCLUDED  -
+double_cube      8                      54.608825   -45.275492  EXCLUDED  -
+double_cube     10                      64.611339   -55.278006  EXCLUDED  -
+KILL: stored targets inside a certified-excluded cell = 0
+one-loop certificates used: 80  cutoff N = 30  h = 1/1000  grid 2^-192
