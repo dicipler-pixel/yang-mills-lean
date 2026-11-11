@@ -4,8 +4,9 @@ title: "Retained Geometry and Certified Gauge Cutoffs: Lean proofs"
 authors:
   - family-names: "Beasley"
     given-names: "Jeromie"
-version: 1.1.0
-date-released: 2026-09-27
+    orcid: "https://orcid.org/0009-0006-4645-5643"
+version: 1.2.0
+date-released: 2026-11-11
 license:
   - MIT
   - CC-BY-4.0
