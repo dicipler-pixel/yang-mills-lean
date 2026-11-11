@@ -8,7 +8,7 @@ def fr(x): return None if x is None else (str(x) if isinstance(x, F) else x)
 
 def main():
     L = int(sys.argv[1]); caps = {0: F(sys.argv[2]), 1: F(sys.argv[3])}
-    lams = [F(1, 4), F(1, 2), F(1)]
+    import os; lams = [F(x) for x in os.environ.get('LAMS', '1/4,1/2,1').split(',')]
     G = ring.ring_graph(L)
     out = dict(L=L, caps={k: str(v) for k, v in caps.items()}, results={})
     log = open(f'ring_L{L}.out', 'w')
