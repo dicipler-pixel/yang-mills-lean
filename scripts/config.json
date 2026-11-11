@@ -151,6 +151,10 @@
     {
       "module": "CentreCharacterSU3",
       "path": "CentreCharacterSU3.lean"
+    },
+    {
+      "module": "GaugeSupportReshuffle",
+      "path": "GaugeSupportReshuffle.lean"
     }
   ],
   "expected_theorems": 580,
@@ -185,6 +189,7 @@
     "CutFlux",
     "TrialityVertex",
     "GaugeSupportRegroup",
-    "CentreCharacterSU3"
+    "CentreCharacterSU3",
+    "GaugeSupportReshuffle"
   ]
 }

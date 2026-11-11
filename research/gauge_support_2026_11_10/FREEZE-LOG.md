@@ -71,3 +71,27 @@ The file has `open CategoryTheory MonoidalCategory Module`, so that `𝟙_`, `�
 - False controls: `RegroupControl` (drop the vanishing-vertex hypothesis; the open goal
   `invariants 1 = ⊥` is false), `SupportControl` (labelling outside the support), and
   `RegroupedRuleControl` (SU(3) rule without gauge invariance). All rejected (unsolved goals).
+
+## GaugeSupportReshuffle.lean (Grey, 2026-11-11)
+
+- New file `GaugeSupportReshuffle.lean` (namespace `GaugeSupport`): the edge-to-vertex
+  reshuffle `⊗_e (V_{π e} ⊗ V_{π e}*) ≅ ⊗_v W_v(π)`, taken out of the `PeterWeylLattice`
+  assumption and proved.
+- Orientation, read off `incident` / `vertexRep`: the source end of a link carries `π e`, the
+  target end `(π e)ᘁ`; `W_v` is the right-nested tensor of the factors at `v`, outgoing links
+  first, then incoming, each in `Finset.toList` order, ending in `𝟙`.
+- `reshuffle : EdgeBlock π ≃ₗ[k] RegroupedBlock Γ π` is the composite of `pairEquiv`
+  (pair the two ends of each link), `regroupEquiv` (regroup half-edges by vertex) and
+  `vertexEquiv` (list-tensor at each vertex, `listEquiv`, then `eqToIso` onto `vertexRep`).
+  `reshuffle_tprod` gives its value on pure tensors (the factor permutation);
+  `reshuffle_equivariant` / `reshuffle_symm_equivariant` show it intertwines `edgeGauge` (copy
+  at `src e` on `V`, copy at `tgt e` on `V*`) with `blockGauge`. Any group, any field.
+- New named assumption `PeterWeylLinks` / `PeterWeylLinksSU3` (a structure, not an axiom):
+  Peter–Weyl link by link onto `⊗_e (V ⊗ V*)` only. `PeterWeylLinks.toLattice` builds
+  `PeterWeylLattice` from it; `gauge_support_rule_links` and `_SU3` restate the regrouped rule
+  under the weaker assumption; `PeterWeylLinks.model` shows it is inhabited.
+- Frozen statements of earlier files are unchanged; the file is in `complete_files`
+  (all 34 theorems frozen, 521 frozen in total).
+- False control: `ReshuffleDropControl` (drop the `V*` end of a single link: claims
+  `⊗_e (V ⊗ V*) ≃ ⊗_e V` for `V = ℚ²`; dimensions 4 vs 2; rejected, unsolved goal `False`).
+- Gate: 599 theorems, 14 false controls.

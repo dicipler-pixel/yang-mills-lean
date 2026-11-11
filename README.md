@@ -10,6 +10,7 @@
 ![Theorems](https://img.shields.io/badge/theorems-573-2EA043)
 ![Theorems](https://img.shields.io/badge/theorems-565-2EA043)
 ![Theorems](https://img.shields.io/badge/theorems-590-2EA043)
+![Theorems](https://img.shields.io/badge/theorems-599-2EA043)
 ![sorry](https://img.shields.io/badge/sorry-0-2EA043)
 ![Code: MIT](https://img.shields.io/badge/code-MIT-lightgrey)
 ![Text: CC BY 4.0](https://img.shields.io/badge/text-CC%20BY%204.0-lightgrey)
@@ -70,6 +71,8 @@ specified finite algebra. The spatial work checks five original-link SU(3) model
 | | **Total** | **565** |
 | **SU(3) centre character**: in Mathlib's `specialUnitaryGroup (Fin 3) ℂ`, ω·I is in SU(3) and acts on 3 by ω, on 3̄ by ω², on 3^{⊗p} ⊗ 3̄^{⊗q} by ω^triality(p,q), and the same on every subrepresentation. This discharges `CentreCharacter`, so triality conservation at an n-valent vertex holds unconditionally for arms that embed in these tensor representations. The embedding of the genuine irrep (p,q) into 3^{⊗p} ⊗ 3̄^{⊗q} is not formalized | [`CentreCharacterSU3`](CentreCharacterSU3.lean) | 17 |
 | | **Total** | **590** |
+| **Gauge support rule**: Schur at each vertex, no dangling link (`gauge_no_dangling`), paired irreps on two-link vertices (`gauge_pair_finrank`), the per-vertex and lattice rule, and the dual of a simple representation is simple (`dual_simple`). Regrouped by vertex (`gauge_support_rule_regrouped`, `_SU3`): a nonzero gauge-invariant vector of ⊗_v W_v forces a nonzero invariant at every vertex, so every labelling in the support of a gauge-invariant state obeys the lattice rule with no per-vertex hypothesis. The edge-to-vertex reshuffle ⊗_e (V ⊗ V*) ≅ ⊗_v W_v is proved as a gauge-equivariant linear isomorphism (`reshuffle`, `reshuffle_equivariant`, `reshuffle_tprod`), so the rule also follows from `gauge_support_rule_links` (`_SU3`). Still assumed, as the named hypothesis `PeterWeylLinksSU3` (a structure, not an axiom): Peter–Weyl link by link onto ⊗_e (V ⊗ V*) | [`GaugeSupport`](GaugeSupport.lean), [`GaugeSupportFDRep`](GaugeSupportFDRep.lean), [`GaugeSupportLattice`](GaugeSupportLattice.lean), [`DualSimple`](DualSimple.lean), [`GaugeSupportRegroup`](GaugeSupportRegroup.lean), [`GaugeSupportReshuffle`](GaugeSupportReshuffle.lean) | 78 |
+| | **Total** | **599** |
 
 Among the first 80 theorems, besides the matrix factorizations, fifteen are exact arithmetic checks of
 displayed rational constants: eleven in `GaugeCertificates` and four in `CrossTheorem`.
@@ -98,6 +101,8 @@ Python verifiers are separate and run from the research folders:
    two-, three- and four-valent vertex labellings whose trialities do not sum to 0, and the
    adjoint 8 inside 3 ⊗ 3̄ claimed to have triality 1.
 5. **Frozen statements**: 512 theorem statements are frozen, so a proof cannot pass by quietly
+   dual-simple, theta floor, triality, transfer-gap, cut-bound, Ky Fan chord, the three regrouped gauge-support statements and the edge-to-vertex reshuffle (one link end dropped).
+5. **Frozen statements**: 521 theorem statements are frozen, so a proof cannot pass by quietly
    weakening what it proves. Every edit to a frozen statement is logged.
 
 ```bash
