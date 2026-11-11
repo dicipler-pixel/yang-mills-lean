@@ -163,6 +163,10 @@
     {
       "module": "NtListSupport",
       "path": "NtListSupport.lean"
+    },
+    {
+      "module": "ThetaFloorTriality",
+      "path": "ThetaFloorTriality.lean"
     }
   ],
   "expected_theorems": 580,
@@ -200,6 +204,7 @@
     "CentreCharacterSU3",
     "GaugeSupportReshuffle",
     "IrrepEmbedSU3",
-    "NtListSupport"
+    "NtListSupport",
+    "ThetaFloorTriality"
   ]
 }
