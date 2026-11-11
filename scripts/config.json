@@ -55,16 +55,36 @@
     {
       "module": "SchurInertiaCount",
       "path": "SchurInertiaCount.lean"
+    },
+    {
+      "module": "WindowWall",
+      "path": "WindowWall.lean"
+    },
+    {
+      "module": "WindowWallDeriv",
+      "path": "WindowWallDeriv.lean"
+    },
+    {
+      "module": "WindowWallFinite",
+      "path": "WindowWallFinite.lean"
+    },
+    {
+      "module": "WindowWallCells",
+      "path": "WindowWallCells.lean"
     }
   ],
-  "expected_theorems": 80,
-  "expected_false_controls": 2,
+  "expected_theorems": 107,
+  "expected_false_controls": 3,
   "root_imports": [
     "GaugeCertificates",
     "LongestYangMillsChain",
     "ProjectorKernel",
     "SchurFloorTransfer",
     "SchurInertiaComparison",
-    "SchurInertiaCount"
+    "SchurInertiaCount",
+    "WindowWall",
+    "WindowWallDeriv",
+    "WindowWallFinite",
+    "WindowWallCells"
   ]
 }
