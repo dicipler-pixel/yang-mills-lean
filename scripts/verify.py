@@ -37,6 +37,9 @@ Why each check proves what it claims:
    hypothesis or a conclusion therefore fails CI even though it compiles.
    Changing a frozen statement is deliberate: run
    `python3 scripts/verify.py --freeze` and commit the updated JSON.
+   Files listed under "complete_files" are frozen whole: every theorem or lemma
+   in them must be frozen, so a new or unlisted lemma cannot dodge the check.
+   `--freeze` adds any missing theorems of those files.
 
 `python3 scripts/verify.py --gate-only` runs checks 5 and 6 without Lean.
 """
@@ -145,6 +148,13 @@ def gate(frozen: dict) -> dict:
         raise SystemExit(f"banned tokens: {hits}")
     problems = []
     checked = 0
+    for rel in frozen.get("complete_files", []):
+        if rel not in frozen["statements"] or not (ROOT / rel).exists():
+            problems.append(f"{rel}: complete file has no frozen statements or is missing")
+            continue
+        for name in statements(ROOT / rel):
+            if name not in frozen["statements"][rel]:
+                problems.append(f"{rel}: theorem {name} is not frozen (complete file)")
     for rel, frozen_stmts in frozen["statements"].items():
         path = ROOT / rel
         if not path.exists():
@@ -166,6 +176,10 @@ def gate(frozen: dict) -> dict:
 def freeze() -> int:
     """Rewrite frozen_statements.json from the current text of the listed theorems."""
     frozen = json.loads(FROZEN_PATH.read_text())
+    for rel in frozen.get("complete_files", []):
+        stmts = frozen["statements"].setdefault(rel, {})
+        for name in statements(ROOT / rel):
+            stmts.setdefault(name, "")
     for rel, stmts in frozen["statements"].items():
         have = statements(ROOT / rel)
         for name in stmts:
