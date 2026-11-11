@@ -131,10 +131,14 @@
     {
       "module": "CutBound",
       "path": "CutBound.lean"
+    },
+    {
+      "module": "TrialityVertex",
+      "path": "TrialityVertex.lean"
     }
   ],
-  "expected_theorems": 553,
-  "expected_false_controls": 10,
+  "expected_theorems": 573,
+  "expected_false_controls": 13,
   "root_imports": [
     "GaugeCertificates",
     "LongestYangMillsChain",
@@ -160,6 +164,7 @@
     "ThetaTriality",
     "TransferGap",
     "KyFanChord",
-    "CutBound"
+    "CutBound",
+    "TrialityVertex"
   ]
 }
