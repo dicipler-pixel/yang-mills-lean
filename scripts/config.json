@@ -179,10 +179,14 @@
     {
       "module": "IrrepSmallIsoSU3",
       "path": "IrrepSmallIsoSU3.lean"
+    },
+    {
+      "module": "HntLabels",
+      "path": "HntLabels.lean"
     }
   ],
-  "expected_theorems": 823,
-  "expected_false_controls": 26,
+  "expected_theorems": 832,
+  "expected_false_controls": 27,
   "root_imports": [
     "GaugeCertificates",
     "LongestYangMillsChain",
@@ -220,6 +224,7 @@
     "IrrepEmbedSU3",
     "ThetaFloorTriality",
     "SingletWitnessSU3",
-    "IrrepSmallIsoSU3"
+    "IrrepSmallIsoSU3",
+    "HntLabels"
   ]
 }
