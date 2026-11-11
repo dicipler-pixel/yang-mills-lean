@@ -505,6 +505,12 @@
     "TransferGap.lean": {
       "decay_rate_eq_gap": "(a E₀ E₁ : ℝ) : -Real.log (Real.exp (-(a * E₁)) / Real.exp (-(a * E₀))) = a * (E₁ - E₀)",
       "decay_rate_eq_gap'": "(a E₀ E₁ t₀ t₁ : ℝ) (h₀ : t₀ = Real.exp (-(a * E₀))) (h₁ : t₁ = Real.exp (-(a * E₁))) : -Real.log (t₁ / t₀) = a * (E₁ - E₀)"
+    },
+    "KyFanChord.lean": {
+      "chord_mem": "{a b t : ℝ} (hab : a ≤ b) (ht0 : 0 ≤ t) (ht1 : t ≤ 1) : (1 - t) * a + t * b ∈ Icc a b",
+      "chord_gap_lower": "(E₀ E₁ u : ℝ → ℝ) {a b sa sb t : ℝ} (hab : a ≤ b) (hconc : ConcaveOn ℝ (Icc a b) (fun κ => E₀ κ + E₁ κ)) (ha : sa ≤ E₀ a + E₁ a) (hb : sb ≤ E₀ b + E₁ b) (hu : ∀ κ ∈ Icc a b, E₀ κ ≤ u κ) (ht0 : 0 ≤ t) (ht1 : t ≤ 1) : (1 - t) * sa + t * sb - 2 * u ((1 - t) * a + t * b) ≤ E₁ ((1 - t) * a + t * b) - E₀ ((1 - t) * a + t * b)",
+      "chord_gap_pos": "(E₀ E₁ u : ℝ → ℝ) {a b sa sb t : ℝ} (hab : a ≤ b) (hconc : ConcaveOn ℝ (Icc a b) (fun κ => E₀ κ + E₁ κ)) (ha : sa ≤ E₀ a + E₁ a) (hb : sb ≤ E₀ b + E₁ b) (hu : ∀ κ ∈ Icc a b, E₀ κ ≤ u κ) (ht0 : 0 ≤ t) (ht1 : t ≤ 1) (hpos : 0 < (1 - t) * sa + t * sb - 2 * u ((1 - t) * a + t * b)) : E₀ ((1 - t) * a + t * b) < E₁ ((1 - t) * a + t * b)",
+      "chord_gap_lower_inf": "{ι : Type*} (s : Finset ι) (hs : s.Nonempty) (m c : ι → ℝ) (E₀ E₁ : ℝ → ℝ) {a b sa sb t : ℝ} (hab : a ≤ b) (hconc : ConcaveOn ℝ (Icc a b) (fun κ => E₀ κ + E₁ κ)) (ha : sa ≤ E₀ a + E₁ a) (hb : sb ≤ E₀ b + E₁ b) (hq : ∀ i ∈ s, ∀ κ ∈ Icc a b, E₀ κ ≤ m i * κ + c i) (ht0 : 0 ≤ t) (ht1 : t ≤ 1) : (1 - t) * sa + t * sb - 2 * s.inf' hs (fun i => m i * ((1 - t) * a + t * b) + c i) ≤ E₁ ((1 - t) * a + t * b) - E₀ ((1 - t) * a + t * b)"
     }
   },
   "complete_files": [
@@ -524,6 +530,7 @@
     "SmallSupportCycle.lean",
     "ThetaFloor.lean",
     "ThetaTriality.lean",
-    "TransferGap.lean"
+    "TransferGap.lean",
+    "KyFanChord.lean"
   ]
 }
