@@ -222,3 +222,24 @@ The file has `open CategoryTheory MonoidalCategory Module`, so that `𝟙_`, `�
   claimed to have exactly 4 non-trivial links; rewriting with `cube_wilson_trivial_card_S3`
   leaves `0 = 4`; rejected, unsolved goals).
 - Gate: 786 theorems, 24 false controls.
+
+## CubeWilsonSix.lean (Grey, 2026-11-11)
+
+- New file `CubeWilsonSix.lean` (namespace `GaugeSupport`): the 6-cycle case of the cube
+  support theorem is attained, for any finite `G` with a non-trivial character
+  `φ : G →* ℂˣ`, and for `S₃` with the sign character. Reuses `charSI`, `charVecV`,
+  `charSI_isEmpty_iso`, `not_NTe_charSI_one` from `CubeWilsonExistence`.
+- Cycle: boundary of the faces `{0,1,3,2}` and `{0,1,5,4}` (shared link `0 = (0,1)` dropped),
+  `0 → 4 → 5 → 1 → 3 → 2 → 0`: links 8, 2, 5 forwards, 9, 1, 4 backwards.
+  `wilson6 φ U = φ (U₈ U₂ U₉⁻¹ U₅ U₁⁻¹ U₄⁻¹)`; labelling `face6π φ` (`φ⁻¹` on 8, 2, 5, `φ` on
+  9, 1, 4, trivial elsewhere).
+- `wilson6_gauge_invariant`, `wilson6_mul_labels`, `fourierProj_wilson6_ne_zero`,
+  `NTe_face6π_iff`, `face6π_card` (= 6), `cube_six_cycle_attained(_shortCycle)`,
+  `cube_six_card_S3`, `cube_six_cycle_attained_S3(_shortCycle)`,
+  `cube_four_and_six_attained_S3`.
+- No set_option. Frozen statements of earlier files are unchanged; the file is in
+  `complete_files` (all 11 theorems frozen, 719 frozen in total).
+- False control: `CubeWilsonSixControl` (the sign 6-cycle labelling of `S₃` claimed to have
+  exactly 4 non-trivial links; rewriting with `cube_six_card_S3` leaves `6 = 4`; rejected,
+  unsolved goals).
+- Gate: 797 theorems, 25 false controls.
