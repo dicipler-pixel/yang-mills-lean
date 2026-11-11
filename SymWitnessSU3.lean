@@ -52,7 +52,9 @@ this: `ω·I` acts by `ω · ω² = 1` (`centreActs_fund_sym`). Instead, writing
 (`sym_zero_of_signs_rot`), and the cyclic permutation then gives `S₀ = S₁ = 0`.
 `FalseControls/SymFundControl.lean` claims a nonzero invariant and is rejected.
 
-**Not proved.** Irreducibility of `V(2, 0)`, `V(0, 2)` (not needed for the rows). The table rule
+**Irreducibility.** `V(2, 0)` and `V(0, 2)` are proved simple in `SymIrreducibleSU3.lean`
+(`simple_irrep20`, `simple_irrep02`, Green's follow-up PR stacked on this one); the rows here do
+not need it. **Not proved.** General `V(p, q)` irreducibility and the classification. The table rule
 `hasSinglet` itself is still the closed-form definition of `ThetaFloor`; what is proved here is
 that each of its 34 rows is attained on the `V(p, q)` arms.
 
