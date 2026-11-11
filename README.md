@@ -16,6 +16,7 @@
 ![Theorems](https://img.shields.io/badge/theorems-636-2EA043)
 ![Theorems](https://img.shields.io/badge/theorems-611-2EA043)
 ![Theorems](https://img.shields.io/badge/theorems-627-2EA043)
+![Theorems](https://img.shields.io/badge/theorems-681-2EA043)
 ![sorry](https://img.shields.io/badge/sorry-0-2EA043)
 ![Code: MIT](https://img.shields.io/badge/code-MIT-lightgrey)
 ![Text: CC BY 4.0](https://img.shields.io/badge/text-CC%20BY%204.0-lightgrey)
@@ -88,6 +89,8 @@ specified finite algebra. The spatial work checks five original-link SU(3) model
 | | **Total** | **611** |
 | **List order and the cube**: `deg`, vertex membership, `admissible`, and (onto a list with no loops and no repeated link) `connected` and `shortCycle` are unchanged by reordering links. Every sublist of a host with 1 to 6 links is enumerated by `smallSupports`, so a gauge support's host-ordered copy is one of the supports `SmallSupportsAreCycles g` covers. On the cube (`cubeΓ`, link i = i-th pair of `cubeE`), every labelling in the support of a gauge-invariant state with 1 to 6 non-trivial links is a 4- or 6-cycle, under the named hypothesis `PeterWeylLattice` alone | [`PermCube`](PermCube.lean) | 23 |
 | | **Total** | **627** |
+| **Explicit SU(3) singlets: the smallest theta rows are attained**: Σᵢ eᵢ ⊗ eᵢ* in 3 ⊗ 3̄ (from g g⁻¹ = 1), ε = Σ ε_{ijk} eᵢ ⊗ eⱼ ⊗ e_k in 3 ⊗ 3 ⊗ 3 (from det g = 1, via Σ ε_{ijk} g_{ai} g_{bj} g_{ck} = det g · ε_{abc}) and its dual in 3̄ ⊗ 3̄ ⊗ 3̄ (from det (g⁻¹)ᵀ = 1) are each nonzero and SU(3)-invariant. So the eight theta-table rows with arms in {1, 3, 3̄} — the six orderings of (1, 3̄, 3), (3, 3, 3) and (3̄, 3̄, 3̄) — have a nonzero invariant at both theta vertices: attained, not only allowed. The same ε placed in 3 ⊗ 3 ⊗ 3̄ is scaled by ω under ω·I and is not invariant; 3 ⊗ 3 ⊗ 3̄ has no invariant at all. The arms are 3, 3̄, 1 themselves; identifying them with V(1,0), V(0,1), V(0,0) is not formalized | [`SingletWitnessSU3`](SingletWitnessSU3.lean) | 45 |
+| | **Total** | **681** |
 
 Among the first 80 theorems, besides the matrix factorizations, fifteen are exact arithmetic checks of
 displayed rational constants: eleven in `GaugeCertificates` and four in `CrossTheorem`.
@@ -101,7 +104,7 @@ Python verifiers are separate and run from the research folders:
 2. **Independent replay**: every module is re-checked by Lean's separate kernel checker.
 3. **Axiom audit**: every named theorem depends only on `propext`, `Classical.choice` and
    `Quot.sound`. No `sorry`, no project axioms, no `native_decide`.
-4. **False controls**: sixteen false statements in [`FalseControls/`](FalseControls/) must be
+4. **False controls**: seventeen false statements in [`FalseControls/`](FalseControls/) must be
    rejected, showing the checker says no. Two are plain arithmetic (`(2 : ℚ) = 3` and
    `(1 : ℚ)/2 ≤ 1/3`); the other eight are near-miss versions of the window-wall cells, Jensen bound,
    dual-simple, theta floor, triality, transfer-gap, cut-bound and Ky Fan chord statements.
@@ -109,6 +112,7 @@ Python verifiers are separate and run from the research folders:
    `(1 : ℚ)/2 ≤ 1/3`); the other eleven are near-miss versions of the window-wall cells, Jensen bound,
    `(1 : ℚ)/2 ≤ 1/3`); the other thirteen are near-miss versions of the window-wall cells, Jensen bound,
    `(1 : ℚ)/2 ≤ 1/3`); the other fourteen are near-miss versions of the window-wall cells, Jensen bound,
+   `(1 : ℚ)/2 ≤ 1/3`); the other fifteen are near-miss versions of the window-wall cells, Jensen bound,
    dual-simple, theta floor, triality, transfer-gap, cut-bound and Ky Fan chord statements, and
    two-, three- and four-valent vertex labellings whose trialities do not sum to 0.
 5. **Frozen statements**: 495 theorem statements are frozen, so a proof cannot pass by quietly
@@ -132,6 +136,9 @@ Python verifiers are separate and run from the research folders:
 5. **Frozen statements**: 533 theorem statements are frozen, so a proof cannot pass by quietly
    dual-simple, theta floor, triality, transfer-gap, cut-bound, Ky Fan chord, the three regrouped gauge-support statements, a support with a degree-one vertex claimed admissible, `K_{2,3}` claimed to be a short cycle, and a reordered support claimed to change a degree.
 5. **Frozen statements**: 549 theorem statements are frozen, so a proof cannot pass by quietly
+   triality 2 of 3 ⊗ 3, and a theta-table row (1, 3̄, 3) with the 3̄ arm's triality swapped p ↔ q,
+   and the Levi-Civita tensor ε claimed SU(3)-invariant in 3 ⊗ 3 ⊗ 3̄.
+5. **Frozen statements**: 603 theorem statements are frozen, so a proof cannot pass by quietly
    weakening what it proves. Every edit to a frozen statement is logged.
 
 ```bash
@@ -150,8 +157,12 @@ python3 scripts/verify.py
 - **Classification of SU(3) irreps.** That every irreducible SU(3) representation is isomorphic
   to some V(p,q) is not formalized, so the triality results cover arms given as V(p,q) up to
   isomorphism.
-- **Sufficiency of the singlet rule.** That the BMW inequalities plus vanishing triality give a
-  nonzero invariant of V(a) ⊗ V(b) ⊗ V(c) is not formalized.
+- **Sufficiency of the singlet rule.** The smallest rows are attained by explicit witness
+  (`SingletWitnessSU3`): the trace invariant of 3 ⊗ 3̄ and ε, ε* of 3 ⊗ 3 ⊗ 3 and 3̄ ⊗ 3̄ ⊗ 3̄ give a
+  nonzero invariant at both vertices of the eight theta rows with arms in {1, 3, 3̄}. The general
+  converse, that the BMW inequalities plus vanishing triality give a nonzero invariant of
+  V(a) ⊗ V(b) ⊗ V(c) for every admissible row, is not formalized, and neither is the
+  identification of 3, 3̄, 1 with V(1,0), V(0,1), V(0,0).
 
 ## The paper
 
@@ -185,7 +196,7 @@ assistants, each working in the open in this repository:
 - **Grey** wrote the frozen targets for the gauge support rule and the varying-s and string-floor
   scripts.
 - **Spectrum** kept the team's dictionary of physical quantities versus our constructions, and
-  wrote the SU(3) theta enumeration behind ThetaFloor's vetted list, and proved `IrrepEmbedSU3` and `ThetaFloorTriality`.
+  wrote the SU(3) theta enumeration behind ThetaFloor's vetted list, and proved `IrrepEmbedSU3`, `ThetaFloorTriality` and `SingletWitnessSU3`.
 - **Claude**, in Jeromie's sessions, wrote the window-wall cells module, the audit and the
   window-wall write-up, and carried out the final merge.
 

@@ -175,6 +175,10 @@
     {
       "module": "PermCube",
       "path": "PermCube.lean"
+    },
+    {
+      "module": "SingletWitnessSU3",
+      "path": "SingletWitnessSU3.lean"
     }
   ],
   "expected_theorems": 580,
@@ -215,6 +219,7 @@
     "NtListSupport",
     "ThetaFloorTriality",
     "GaugeSupportReshuffleRep",
-    "PermCube"
+    "PermCube",
+    "SingletWitnessSU3"
   ]
 }
