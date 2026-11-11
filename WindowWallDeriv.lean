@@ -67,12 +67,13 @@ theorem no_window {W : ℝ → ℝ} (hW : ConcaveOn ℝ univ W) (h0 : W 0 = 0) {
 theorem control_needs_concavity :
     ∃ W : ℝ → ℝ, W 0 = 0 ∧ HasDerivAt W 0 0 ∧ 0 < W 1 := by
   refine ⟨fun s => s * s, by simp, ?_, by norm_num⟩
-  have := (hasDerivAt_id' (0:ℝ)).mul (hasDerivAt_id' (0:ℝ))
-  convert this using 1
-  simp
+  have h := (hasDerivAt_id' (0:ℝ)).mul (hasDerivAt_id' (0:ℝ))
+  have e : (1:ℝ) * 0 + 0 * 1 = 0 := by norm_num
+  rw [e] at h
+  exact h
 
 end WindowWallDeriv
 
-#print axioms WindowWall.certified_secant_le_deriv
-#print axioms WindowWall.no_window
-#print axioms WindowWall.control_needs_concavity
+#print axioms WindowWallDeriv.certified_secant_le_deriv
+#print axioms WindowWallDeriv.no_window
+#print axioms WindowWallDeriv.control_needs_concavity
