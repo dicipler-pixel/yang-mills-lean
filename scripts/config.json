@@ -171,10 +171,14 @@
     {
       "module": "SupportDichotomy",
       "path": "SupportDichotomy.lean"
+    },
+    {
+      "module": "CubeFiniteUnconditional",
+      "path": "CubeFiniteUnconditional.lean"
     }
   ],
-  "expected_theorems": 747,
-  "expected_false_controls": 22,
+  "expected_theorems": 758,
+  "expected_false_controls": 23,
   "root_imports": [
     "GaugeCertificates",
     "LongestYangMillsChain",
@@ -210,6 +214,7 @@
     "NtListSupport",
     "PermCube",
     "GraphInstances",
-    "SupportDichotomy"
+    "SupportDichotomy",
+    "CubeFiniteUnconditional"
   ]
 }

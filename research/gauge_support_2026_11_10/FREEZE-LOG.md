@@ -173,3 +173,30 @@ The file has `open CategoryTheory MonoidalCategory Module`, so that `𝟙_`, `�
 - False control: `RegularSimpleControl` (`Simple` for the 6-dimensional regular
   representation of `S₃` via `simple_of_isIrreducible`; rejected, unsolved goals).
 - Gate: 651 theorems, 17 false controls.
+
+## Merge of lean-green-support-dichotomy (Grey, 2026-11-11)
+
+- Branch `grey/cube-finite-unconditional` (from `4367ced`, PR #40) merges
+  `origin/lean-green-support-dichotomy` at `c011421` (PR #39, which contains #36 `892f98c`,
+  #34, #31, #27, #23) with a normal `git merge` (merge commit `81f63ff`).
+- Conflicts in `lakefile.toml`, `scripts/config.json`, `scripts/frozen_statements.json` and
+  `README.md` resolved by union: both sides' modules, roots, frozen statements and
+  `complete_files` kept unchanged; totals recomputed (747 theorems = 651 + 661 − 565 common,
+  22 false controls, 669 frozen; `verify.py --gate-only` passed on the merge).
+
+## CubeFiniteUnconditional.lean (Grey, 2026-11-11)
+
+- New file `CubeFiniteUnconditional.lean` (namespace `GaugeSupport`): Lean Green's cube
+  theorems with no Peter–Weyl assumption, for any finite `G` and for `S₃`.
+- `cubePW G := (peterWeylLinksFinite cubeΓ simpleIrr isCompleteIrrFamily_simpleIrr).toLattice`;
+  `cubePW_proj_ne_zero` transfers `fourierProj simpleIrr π ψ ≠ 0` through the reshuffle.
+- `cube_gauge_support_shortCycle_finite`, `cube_gauge_support_card_finite`,
+  `cube_gauge_support_finite`, `cube_support_dichotomy_finite`, `cube_no_three_links_finite`;
+  `cube_gauge_support_card_S3`, `cube_support_dichotomy_S3`, `cube_no_three_links_S3`;
+  `cubeThree_sublist`, `cubeThree_not_shortCycle`.
+- No set_option. Frozen statements of earlier files are unchanged; the file is in
+  `complete_files` (all 11 theorems frozen, 680 frozen in total).
+- False control: `CubeS3ThreeControl` (a nonzero gauge-invariant `S₃` cube component with
+  exactly 3 non-trivial links; the constant state is gauge invariant, the labelling goal stays
+  open; rejected, unsolved goals).
+- Gate: 758 theorems, 23 false controls.
