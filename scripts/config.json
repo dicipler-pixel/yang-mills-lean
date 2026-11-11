@@ -103,10 +103,14 @@
     {
       "module": "DualSimple",
       "path": "DualSimple.lean"
+    },
+    {
+      "module": "WindowWallJensen",
+      "path": "WindowWallJensen.lean"
     }
   ],
-  "expected_theorems": 493,
-  "expected_false_controls": 4,
+  "expected_theorems": 499,
+  "expected_false_controls": 5,
   "root_imports": [
     "GaugeCertificates",
     "LongestYangMillsChain",
@@ -125,6 +129,7 @@
     "GaugeSupport",
     "GaugeSupportFDRep",
     "GaugeSupportLattice",
-    "DualSimple"
+    "DualSimple",
+    "WindowWallJensen"
   ]
 }
