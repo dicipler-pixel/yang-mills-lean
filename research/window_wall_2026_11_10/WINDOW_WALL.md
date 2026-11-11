@@ -143,6 +143,8 @@ These were checked after the sections above were written. Where they conflict wi
   not excluded at lambda = 5 by this bound but are excluded at 5.25, so both close
   somewhere in (5, 5.25]. This is a limit of the bound, which uses r >= P g(c). It is
   not evidence that a window opens.
+  Scripts and outputs: `varying_s/` (Grey) and, for the source/sink electric floor
+  (g^2/2)(4/3)d at the strong-coupling end, `string_floor/` (Grey).
 - **Graph step.** On all five graphs, every leaf-free support with at most 6 links is a
   single 4-cycle or 6-cycle. Counts (4-cycles / 6-cycles): two squares 2/1, strip 3/2,
   corner 3/4, cube 6/16, two cubes 11/36. The argument needs the graph to be bipartite

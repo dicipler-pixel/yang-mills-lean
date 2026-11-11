@@ -1,0 +1,5 @@
+two: E=7 trial states=4 t*<=1.33333 (uniform 28/3/E=1.33333) L=1.54023 margin L-t=0.20689 excluded=True
+strip: E=10 trial states=10 t*<=1.02857 (uniform 28/3/E=0.93333) L=0.94676 margin L-t=-0.08181 excluded=False
+corner: E=9 trial states=13 t*<=1.11111 (uniform 28/3/E=1.03704) L=1.08343 margin L-t=-0.02769 excluded=False
+cube: E=12 trial states=96 t*<=0.77778 (uniform 28/3/E=0.77778) L=0.94676 margin L-t=0.16898 excluded=True
+double_cube: E=20 trial states=1449 t*<=0.46667 (uniform 28/3/E=0.46667) L=0.59652 margin L-t=0.12986 excluded=True
