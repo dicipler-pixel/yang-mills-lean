@@ -155,6 +155,10 @@
     {
       "module": "GaugeSupportReshuffle",
       "path": "GaugeSupportReshuffle.lean"
+    },
+    {
+      "module": "IrrepEmbedSU3",
+      "path": "IrrepEmbedSU3.lean"
     }
   ],
   "expected_theorems": 580,
@@ -190,6 +194,7 @@
     "TrialityVertex",
     "GaugeSupportRegroup",
     "CentreCharacterSU3",
-    "GaugeSupportReshuffle"
+    "GaugeSupportReshuffle",
+    "IrrepEmbedSU3"
   ]
 }

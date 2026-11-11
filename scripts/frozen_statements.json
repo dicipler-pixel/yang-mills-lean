@@ -638,6 +638,31 @@
       "toLattice_proj_ne_zero": "[Fintype Vx] [DecidableEq Vx] {Γ : OrientedGraph Vx E} {Irr : Type*} {irr : Irr → FDRep k G} {H : Type*} [AddCommGroup H] [Module k H] {gauge : Representation k (Vx → G) H} (PW : PeterWeylLinks k G Γ Irr irr H gauge) (ψ : H) (π : E → Irr) (hπ : PW.proj π ψ ≠ 0) : PW.toLattice.proj π ψ ≠ 0",
       "gauge_support_rule_links": "[Fintype Vx] [DecidableEq Vx] {Γ : OrientedGraph Vx E} {Irr : Type*} {irr : Irr → FDRep k G} [∀ i, Simple (irr i)] {H : Type*} [AddCommGroup H] [Module k H] {gauge : Representation k (Vx → G) H} (PW : PeterWeylLinks k G Γ Irr irr H gauge) (ψ : H) (hψ : ∀ g, gauge g ψ = ψ) (π : E → Irr) (hπ : PW.proj π ψ ≠ 0) (v : Vx) : (∀ x, ntList (incident Γ (irr ∘ π) v) ≠ [x]) ∧ (∀ x y, ntList (incident Γ (irr ∘ π) v) = [x, y] → (x.out = true → y.out = false → Nonempty (x.rep ≅ y.rep)) ∧ (x.out = false → y.out = true → Nonempty (x.rep ≅ y.rep)) ∧ (x.out = true → y.out = true → Nonempty (x.repᘁ ≅ y.rep)) ∧ (x.out = false → y.out = false → Nonempty (x.rep ≅ y.repᘁ)))",
       "gauge_support_rule_links_SU3": "[Fintype Vx] [DecidableEq Vx] {Γ : OrientedGraph Vx E} {Irr : Type*} {irr : Irr → FDRep ℂ SU3} [∀ i, Simple (irr i)] {H : Type*} [AddCommGroup H] [Module ℂ H] {gauge : Representation ℂ (Vx → SU3) H} (PW : PeterWeylLinksSU3 Γ Irr irr H gauge) (ψ : H) (hψ : ∀ g, gauge g ψ = ψ) (π : E → Irr) (hπ : PW.proj π ψ ≠ 0) (v : Vx) : (∀ x, ntList (incident Γ (irr ∘ π) v) ≠ [x]) ∧ (∀ x y, ntList (incident Γ (irr ∘ π) v) = [x, y] → (x.out = true → y.out = false → Nonempty (x.rep ≅ y.rep)) ∧ (x.out = false → y.out = true → Nonempty (x.rep ≅ y.rep)) ∧ (x.out = true → y.out = true → Nonempty (x.repᘁ ≅ y.rep)) ∧ (x.out = false → y.out = false → Nonempty (x.rep ≅ y.repᘁ)))"
+    },
+    "IrrepEmbedSU3.lean": {
+      "projFund_e1": ": projFund e1 = 1",
+      "evalAnti_e3dual": ": evalAnti e3dual = 1",
+      "coefAnti_hwAnti": "(q : ℕ) : coefAnti q (hwAnti q) = 1",
+      "coef_hwVec": "(p q : ℕ) : coef p q (hwVec p q) = 1",
+      "hwVec_ne_zero": "(p q : ℕ) : hwVec p q ≠ 0",
+      "rho_hwAnti": "{g : SU3} {b : ℂ} (hb : antifund.ρ g e3dual = b • e3dual) (q : ℕ) : (tensorRep 0 q).ρ g (hwAnti q) = (b ^ q) • hwAnti q",
+      "rho_hwVec": "{g : SU3} {a b : ℂ} (ha : fund.ρ g e1 = a • e1) (hb : antifund.ρ g e3dual = b • e3dual) (p q : ℕ) : (tensorRep p q).ρ g (hwVec p q) = (a ^ p * b ^ q) • hwVec p q",
+      "fund_diag_e1": "(g : SU3) (d : Fin 3 → ℂ) (hg : g.1 = Matrix.diagonal d) : fund.ρ g e1 = d 0 • e1",
+      "antifund_diag_e3dual": "(g : SU3) (d : Fin 3 → ℂ) (hg : g.1 = Matrix.diagonal d) : antifund.ρ g e3dual = (starRingEnd ℂ) (d 2) • e3dual",
+      "hwVec_torus_weight": "(g : SU3) (d : Fin 3 → ℂ) (hg : g.1 = Matrix.diagonal d) (p q : ℕ) : (tensorRep p q).ρ g (hwVec p q) = (d 0 ^ p * (starRingEnd ℂ) (d 2) ^ q) • hwVec p q",
+      "irrepSub_invariant": "(p q : ℕ) : ∀ g, ∀ w ∈ irrepSub p q, (tensorRep p q).ρ g w ∈ irrepSub p q",
+      "hwVec_mem": "(p q : ℕ) : hwVec p q ∈ irrepSub p q",
+      "hwIrrep_ne_zero": "(p q : ℕ) : hwIrrep p q ≠ 0",
+      "irrepSub_ne_bot": "(p q : ℕ) : irrepSub p q ≠ ⊥",
+      "irrepIncl_hw": "(p q : ℕ) : (irrepIncl p q).hom.hom.hom (hwIrrep p q) = hwVec p q",
+      "irrepSub_le": "(p q : ℕ) (W : Submodule ℂ (tensorRep p q)) (hW : ∀ g, ∀ w ∈ W, (tensorRep p q).ρ g w ∈ W) (hw : hwVec p q ∈ W) : irrepSub p q ≤ W",
+      "centreCharacter_irrep": "(p q : ℕ) : CentreCharacter zω ω (irrepRep p q) (p, q)",
+      "triality_eq_of_centreCharacter": "{X : FDRep ℂ SU3} {x y : Irrep} (v : X) (hv : v ≠ 0) (hx : CentreCharacter zω ω X x) (hy : CentreCharacter zω ω X y) : triality x = triality y",
+      "triality_eq_of_mono": "{p q p' q' : ℕ} (f : irrepRep p q ⟶ tensorRep p' q') [Mono f] : triality (p, q) = triality (p', q')",
+      "irrep11_not_centre_omega_sq": ": ¬ CentreActs zω (ω ^ 2) (irrepRep 1 1)",
+      "irrep11_not_mono_tensor20": ": ¬ ∃ f : irrepRep 1 1 ⟶ tensorRep 2 0, Mono f",
+      "nvalent_triality_irrep": "(arms : List (HalfEdge ℂ SU3 × Irrep)) (hiso : ∀ a ∈ arms, Nonempty (a.1.rep ≅ irrepRep a.2.1 a.2.2)) (hinv : Representation.invariants (vertexRep (arms.map Prod.fst)).ρ ≠ ⊥) : vertexTri (arms.map (fun a => (a.1.out, a.2))) = 0",
+      "nvalent_triality_irrepRep": "(arms : List (HalfEdge ℂ SU3 × Irrep)) (hrep : ∀ a ∈ arms, a.1.rep = irrepRep a.2.1 a.2.2) (hinv : Representation.invariants (vertexRep (arms.map Prod.fst)).ρ ≠ ⊥) : vertexTri (arms.map (fun a => (a.1.out, a.2))) = 0"
     }
   },
   "complete_files": [
@@ -664,6 +689,7 @@
     "TrialityVertex.lean",
     "GaugeSupportRegroup.lean",
     "CentreCharacterSU3.lean",
-    "GaugeSupportReshuffle.lean"
+    "GaugeSupportReshuffle.lean",
+    "IrrepEmbedSU3.lean"
   ]
 }
