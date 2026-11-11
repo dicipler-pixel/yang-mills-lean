@@ -28,6 +28,12 @@
     "LongestYangMillsChain.lean": {
       "resolved_schur_chain_to_full_floor": "(A : Matrix r r ℝ) (B : Matrix r h ℝ) (D : Matrix h h ℝ) (μ : ℝ) (M : ι → Matrix r r ℝ) (energy : ι → ℝ) (s c offset z : ℝ) (hM : ∀ i, (M i).PosSemidef) (hs : 0 ≤ s) (he : ∀ i, c ≤ energy i) (hz : z < s*c+offset) (hCommonFloor : (CrossTheorem.retainedAtFloor A μ - YangMillsCrossTheorem.commonFloorMatrixPenalty M s c offset z).PosSemidef) (hResolvedLeSchur : CrossTheorem.retainedAtFloor A μ - YangMillsCrossTheorem.resolvedMatrixPenalty M energy s offset z ≤ CrossTheorem.schurAtFloor A B D μ) (hHidden : (CrossTheorem.hiddenAtFloor D μ).PosDef) [Invertible (CrossTheorem.hiddenAtFloor D μ)] : (CrossTheorem.symBlock A B D - μ • (1 : Matrix (Sum r h) (Sum r h) ℝ)).PosSemidef"
     },
+    "WindowWallMono.lean": {
+      "secant_anti": "{e : ℝ → ℝ} {S : Set ℝ} (he : ConcaveOn ℝ S e) {a₁ b₁ a₂ b₂ : ℝ} (ha₁ : a₁ ∈ S) (hb₁ : b₁ ∈ S) (ha₂ : a₂ ∈ S) (hb₂ : b₂ ∈ S) (h₂ : a₂ < b₂) (h₁ : a₁ < b₁) (ha : a₂ ≤ a₁) (hb : b₂ ≤ b₁) : (e b₁ - e a₁) / (b₁ - a₁) ≤ (e b₂ - e a₂) / (b₂ - a₂)",
+      "increment_mono": "{e : ℝ → ℝ} (he : ConcaveOn ℝ (Ici 0) e) {κ₁ κ₂ l₁ l₂ : ℝ} (hκ₁ : 0 < κ₁) (hκ : κ₁ ≤ κ₂) (hl₁ : 0 ≤ l₁) (hl : l₁ < l₂) : κ₁ * e (l₂ / κ₁) - κ₁ * e (l₁ / κ₁) ≤ κ₂ * e (l₂ / κ₂) - κ₂ * e (l₁ / κ₂)",
+      "forward_secant_mono": "{e : ℝ → ℝ} (he : ConcaveOn ℝ (Ici 0) e) {c h l₁ l₂ : ℝ} (hc : 0 < c) (hh : 0 ≤ h) (hl₁ : 0 ≤ l₁) (hl : l₁ < l₂) : (c + h) * e (l₁ / (c + h)) - c * e (l₁ / c) ≤ (c + h) * e (l₂ / (c + h)) - c * e (l₂ / c)",
+      "control_needs_concavity": ": ∃ e : ℝ → ℝ, ¬ (1 * e (2 / 1) - 1 * e (1 / 1) ≤ 2 * e (2 / 2) - 2 * e (1 / 2))"
+    },
     "OneLinkTailFloor.lean": {
       "tail_floor_le": "{n p q : ℕ} (h : n + 1 ≤ p + q) : tailFloor3 n ≤ casimir3 p q",
       "tail_floor_attained": "(n : ℕ) : casimir3 ((n + 1) / 2) ((n + 1) - (n + 1) / 2) = tailFloor3 n",
