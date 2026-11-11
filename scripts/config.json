@@ -99,10 +99,14 @@
     {
       "module": "GaugeSupportLattice",
       "path": "GaugeSupportLattice.lean"
+    },
+    {
+      "module": "DualSimple",
+      "path": "DualSimple.lean"
     }
   ],
-  "expected_theorems": 481,
-  "expected_false_controls": 3,
+  "expected_theorems": 493,
+  "expected_false_controls": 4,
   "root_imports": [
     "GaugeCertificates",
     "LongestYangMillsChain",
@@ -120,6 +124,7 @@
     "TailFloorDoubleCube",
     "GaugeSupport",
     "GaugeSupportFDRep",
-    "GaugeSupportLattice"
+    "GaugeSupportLattice",
+    "DualSimple"
   ]
 }

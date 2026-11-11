@@ -430,6 +430,20 @@
       "rep_of_mem_ntList": "{Vx E : Type*} [Fintype E] (Γ : OrientedGraph Vx E) (π : E → FDRep k G) (v : Vx) {x : HalfEdge k G} (hx : x ∈ ntList (incident Γ π v)) : ∃ e, x.rep = π e",
       "simple_factor": "(x : HalfEdge k G) [Simple x.rep] [Simple x.repᘁ] : Simple x.factor",
       "lattice_support_rule": "{Vx E : Type*} [Fintype E] (Γ : OrientedGraph Vx E) (π : E → FDRep k G) [hs : ∀ e, Simple (π e)] [hd : ∀ e, Simple (π e)ᘁ] (hinv : ∀ v, Representation.invariants (vertexRep (incident Γ π v)).ρ ≠ ⊥) (v : Vx) : (∀ x, ntList (incident Γ π v) ≠ [x]) ∧ (∀ x y, ntList (incident Γ π v) = [x, y] → (x.out = true → y.out = false → Nonempty (x.rep ≅ y.rep)) ∧ (x.out = false → y.out = true → Nonempty (x.rep ≅ y.rep)) ∧ (x.out = true → y.out = true → Nonempty (x.repᘁ ≅ y.rep)) ∧ (x.out = false → y.out = false → Nonempty (x.rep ≅ y.repᘁ)))"
+    },
+    "DualSimple.lean": {
+      "fgModuleCat_rightAdjointMate_apply": "{X Y : FGModuleCat.{u} k} (f : X ⟶ Y) (φ : Module.Dual k Y) (x : X) : (show Module.Dual k X from (fᘁ).hom.hom φ) x = φ (f.hom.hom x)",
+      "dual_ρ_apply": "(V : FDRep.{u} k G) (g : G) (φ : Module.Dual k V) (x : V) : (show Module.Dual k V from (Vᘁ).ρ g φ) x = φ (V.ρ g⁻¹ x)",
+      "subIncl_apply": "(X : FDRep.{u} k G) (W : Submodule k X) (hW : ∀ g, ∀ w ∈ W, X.ρ g w ∈ W) (w) : (subIncl X W hW).hom.hom.hom w = w.1",
+      "bijective_of_isIso": "{X Y : FDRep.{u} k G} (f : X ⟶ Y) [IsIso f] : Function.Bijective f.hom.hom.hom",
+      "isIso_of_bijective": "{X Y : FDRep.{u} k G} (f : X ⟶ Y) (hf : Function.Bijective f.hom.hom.hom) : IsIso f",
+      "mono_subIncl": "(X : FDRep.{u} k G) (W : Submodule k X) (hW : ∀ g, ∀ w ∈ W, X.ρ g w ∈ W) : Mono (subIncl X W hW)",
+      "subIncl_ne_zero": "(X : FDRep.{u} k G) (W : Submodule k X) (hW : ∀ g, ∀ w ∈ W, X.ρ g w ∈ W) (h : W ≠ ⊥) : subIncl X W hW ≠ 0",
+      "eq_bot_or_eq_top_of_simple": "(X : FDRep.{u} k G) [Simple X] (W : Submodule k X) (hW : ∀ g, ∀ w ∈ W, X.ρ g w ∈ W) : W = ⊥ ∨ W = ⊤",
+      "injective_of_mono": "{Y X : FDRep.{u} k G} (f : Y ⟶ X) [Mono f] : Function.Injective f.hom.hom.hom",
+      "nontrivial_of_simple": "(V : FDRep.{u} k G) [Simple V] : Nontrivial V",
+      "dual_simple": "{k : Type u} {G : Type v} [Field k] [Group G] (V : FDRep k G) [Simple V] : Simple Vᘁ",
+      "lattice_support_rule_of_simple": "{Vx E : Type*} [Fintype E] (Γ : OrientedGraph Vx E) (π : E → FDRep k G) [hs : ∀ e, Simple (π e)] (hinv : ∀ v, Representation.invariants (vertexRep (incident Γ π v)).ρ ≠ ⊥) (v : Vx) : (∀ x, ntList (incident Γ π v) ≠ [x]) ∧ (∀ x y, ntList (incident Γ π v) = [x, y] → (x.out = true → y.out = false → Nonempty (x.rep ≅ y.rep)) ∧ (x.out = false → y.out = true → Nonempty (x.rep ≅ y.rep)) ∧ (x.out = true → y.out = true → Nonempty (x.repᘁ ≅ y.rep)) ∧ (x.out = false → y.out = false → Nonempty (x.rep ≅ y.repᘁ)))"
     }
   },
   "complete_files": [
@@ -443,6 +457,7 @@
     "WindowWallCells.lean",
     "GaugeSupport.lean",
     "GaugeSupportFDRep.lean",
-    "GaugeSupportLattice.lean"
+    "GaugeSupportLattice.lean",
+    "DualSimple.lean"
   ]
 }
