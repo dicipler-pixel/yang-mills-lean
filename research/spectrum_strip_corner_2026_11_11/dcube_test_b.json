@@ -1,0 +1,24 @@
+{
+ "reading1_lambda_min_eq_U": [
+  {
+   "lam_float": 0.9866958928710952,
+   "lam_lo": "197339/200000",
+   "neg_at_lo": 1,
+   "lam_hi": "986697/1000000",
+   "neg_at_hi": 0,
+   "certified_bracket": true
+  }
+ ],
+ "control_half": 1,
+ "ratio_at_1": 1.0036222880647836,
+ "ratio_at_half": 0.7872632244193007,
+ "reading3_lambda2_eq_U_sign_changes": [
+  [
+   0.4,
+   0.41
+  ]
+ ],
+ "reading5_halfcoupling_sign_changes": [],
+ "slope_matrix_neg_pivots": 0,
+ "slope_control_neg_pivots": "uncertified pivot (not accepted)"
+}

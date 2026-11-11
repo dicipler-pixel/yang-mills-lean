@@ -1,0 +1,30 @@
+dimension 95, plaquettes 11, 3P = 33; U slope K = 22.595650622726588 = 3P - 10.404349377273
+S spectrum: max 2.6702937939, min -2.1716532669
+stored target lam=1/10 bare/scalar_floor s=1: r=3.289612  lambda_min(A)=3.289610  d=9.333333  U(lam)=11.592898  d<=U: True  lambda_min<U: True
+stored target lam=1/10 bare/resolved s=1: r=3.289612  lambda_min(A)=3.289610  d=9.333333  U(lam)=11.592898  d<=U: True  lambda_min<U: True
+stored target lam=1/10 allocated/scalar_floor s=19/20: r=3.289612  lambda_min(A)=3.289610  d=11.578685  U(lam)=11.592898  d<=U: True  lambda_min<U: True
+stored target lam=1/10 allocated/resolved s=19/20: r=3.289612  lambda_min(A)=3.289610  d=11.578685  U(lam)=11.592898  d<=U: True  lambda_min<U: True
+stored target lam=1/2 allocated/scalar_floor s=7/10: r=16.242155  lambda_min(A)=16.242152  d=20.603685  U(lam)=20.631159  d<=U: True  lambda_min<U: True
+stored target lam=1/2 allocated/resolved s=7/10: r=16.242155  lambda_min(A)=16.242152  d=20.603685  U(lam)=20.631159  d<=U: True  lambda_min<U: True
+lam, lambda_min(A), U(lam), lambda_min - U, ratio lambda_min/U
+  0.1         3.289610    11.592898    -8.303289 0.283761
+  0.25        8.184789    14.982246    -6.797457 0.546299
+  0.5        16.242152    20.631159    -4.389006 0.787263
+  0.75       24.187705    26.280071    -2.092366 0.920382
+  0.9        28.910975    29.669419    -0.758444 0.974437
+  0.95       30.479205    30.799201    -0.319996 0.989610
+  0.98       31.418791    31.477071    -0.058280 0.998148
+  0.9867     31.628498    31.628462    +0.000036 1.000001
+  1.0        32.044640    31.928984    +0.115656 1.003622
+  1.25       39.835533    37.577897    +2.257636 1.060079
+  1.5        47.578492    43.226809    +4.351683 1.100671
+  2.0        62.969709    54.524635    +8.445075 1.154885
+  3.0        93.553214    77.120285   +16.432929 1.213082
+sign changes of lambda_min - U on (0.01, 5]: [(np.float64(0.98), np.float64(0.99))]
+Reading 1 crossing lam* ~ 0.986695893; exact LDL: neg pivots of A-U at 0.986695 = 1, at 0.986697 = 0
+control: exclusion claimed at lam=1/2 (A-U PSD) -> neg pivots 1: REJECTED (ok)
+ratios lambda_min/U at lam=1, 1/2: 1.0036222880647836 0.7872632244193007
+reading 3 (lambda_2 = U) sign changes: [(np.float64(0.4), np.float64(0.41))]
+reading 5 (retained at lam/2) sign changes: []
+(33-K) I - S: negative pivots = 0 (0 => positive definite => exclusion holds for every lam >= the upper bracket end)
+control: (5/2) I - S claimed PSD -> negative pivots = uncertified pivot (not accepted): REJECTED (ok)
