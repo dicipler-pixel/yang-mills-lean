@@ -143,10 +143,14 @@
     {
       "module": "NtListSupport",
       "path": "NtListSupport.lean"
+    },
+    {
+      "module": "PermCube",
+      "path": "PermCube.lean"
     }
   ],
-  "expected_theorems": 604,
-  "expected_false_controls": 15,
+  "expected_theorems": 627,
+  "expected_false_controls": 16,
   "root_imports": [
     "GaugeCertificates",
     "LongestYangMillsChain",
@@ -175,6 +179,7 @@
     "CutBound",
     "GaugeSupportRegroup",
     "SmallSupportBridge",
-    "NtListSupport"
+    "NtListSupport",
+    "PermCube"
   ]
 }
