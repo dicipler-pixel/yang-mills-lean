@@ -47,3 +47,27 @@ The file has `open CategoryTheory MonoidalCategory Module`, so that `𝟙_`, `�
 - False control: `FalseControls/DualSimpleControl.lean` (`∀ V : FDRep ℚ Unit, Simple Vᘁ`,
   false for the zero representation) is rejected.
 - Gate: 493 theorems, 4 false controls rejected, 415 frozen, axioms propext / Classical.choice / Quot.sound.
+
+## GaugeSupportRegroup.lean (Grey, 2026-11-11)
+
+- New file `GaugeSupportRegroup.lean` (namespace `GaugeSupport`): the regrouping by vertex.
+  The vertex-regrouped block is Mathlib's `PiTensorProduct` `⨂_v W_v(π)` with
+  `W_v(π) = vertexRep (incident Γ π v)`, and the gauge group `Vx → G` acts factor by factor
+  (`gaugeAction`, built from `PiTensorProduct.mapMonoidHom`).
+- Proved with no extra hypotheses (any group, any field; no complete reducibility):
+  `gauge_invariant_eq_zero_of_vertex` / `vertex_invariant_ne_bot_of_gauge_invariant`
+  (a nonzero gauge-invariant vector of `⨂_v W_v` forces a nonzero invariant in every `W_v`),
+  and the converse direction for pure tensors `tprod_gauge_invariant`.
+- Named assumption `PeterWeylLattice` (abbreviation `PeterWeylSU3` for `ℂ`, `SU(3)`), a
+  structure, not an axiom: gauge-equivariant block projections `proj π : H → ⨂_v W_v(π)` that
+  separate points. It packages Peter–Weyl link by link and the reshuffle
+  `⊗_e (V_{π e} ⊗ V_{π e}*) ≅ ⊗_v W_v(π)`; neither is proved here. `PeterWeylLattice.model`
+  shows the structure is inhabited (block-sum model), so the assumption is not vacuous.
+- `support_vertex_invariant` discharges the `hinv` hypothesis of
+  `lattice_support_rule_of_simple` for every labelling in the support of a gauge-invariant
+  state; `gauge_support_rule_regrouped` and `gauge_support_rule_regrouped_SU3` state the
+  resulting rule. Frozen statements of earlier files are unchanged.
+- The file is in `complete_files` (all 12 theorems frozen).
+- False controls: `RegroupControl` (drop the vanishing-vertex hypothesis; the open goal
+  `invariants 1 = ⊥` is false), `SupportControl` (labelling outside the support), and
+  `RegroupedRuleControl` (SU(3) rule without gauge invariance). All rejected (unsolved goals).
