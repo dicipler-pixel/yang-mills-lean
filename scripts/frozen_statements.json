@@ -27,6 +27,11 @@
     },
     "LongestYangMillsChain.lean": {
       "resolved_schur_chain_to_full_floor": "(A : Matrix r r ℝ) (B : Matrix r h ℝ) (D : Matrix h h ℝ) (μ : ℝ) (M : ι → Matrix r r ℝ) (energy : ι → ℝ) (s c offset z : ℝ) (hM : ∀ i, (M i).PosSemidef) (hs : 0 ≤ s) (he : ∀ i, c ≤ energy i) (hz : z < s*c+offset) (hCommonFloor : (CrossTheorem.retainedAtFloor A μ - YangMillsCrossTheorem.commonFloorMatrixPenalty M s c offset z).PosSemidef) (hResolvedLeSchur : CrossTheorem.retainedAtFloor A μ - YangMillsCrossTheorem.resolvedMatrixPenalty M energy s offset z ≤ CrossTheorem.schurAtFloor A B D μ) (hHidden : (CrossTheorem.hiddenAtFloor D μ).PosDef) [Invertible (CrossTheorem.hiddenAtFloor D μ)] : (CrossTheorem.symBlock A B D - μ • (1 : Matrix (Sum r h) (Sum r h) ℝ)).PosSemidef"
+    },
+    "OneLinkTailFloor.lean": {
+      "tail_floor_le": "{n p q : ℕ} (h : n + 1 ≤ p + q) : tailFloor3 n ≤ casimir3 p q",
+      "tail_floor_attained": "(n : ℕ) : casimir3 ((n + 1) / 2) ((n + 1) - (n + 1) / 2) = tailFloor3 n",
+      "control_kept_state_below_floor": ": casimir3 0 0 < tailFloor3 1"
     }
   }
 }
