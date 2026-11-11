@@ -460,6 +460,51 @@
       "side_ge_two": "{A B : Finset V} (hbip : G.IsBipartiteWith ↑A ↑B) (hmin : ∀ v, 2 ≤ G.degree v) {v : V} (hv : v ∈ A) : 2 ≤ #B",
       "common_nbr": "{A B : Finset V} (hbip : G.IsBipartiteWith ↑A ↑B) (hmin : ∀ v, 2 ≤ G.degree v) (hB : #B ≤ 3) {a a' : V} (ha : a ∈ A) (ha' : a' ∈ A) : ∃ b, G.Adj a b ∧ G.Adj a' b",
       "small_support_is_cycle": "(A B : Finset V) (hbip : G.IsBipartiteWith ↑A ↑B) (hcov : ∀ v, v ∈ A ∨ v ∈ B) (hpair : ∀ a b, a ≠ b → #(G.neighborFinset a ∩ G.neighborFinset b) ≤ 2) (hmin : ∀ v, 2 ≤ G.degree v) (hE : #G.edgeFinset ≤ 6) [Nonempty V] : (∀ v, G.degree v = 2) ∧ G.Connected ∧ (Fintype.card V = 4 ∨ Fintype.card V = 6)"
+    },
+    "ThetaFloor.lean": {
+      "cas3_ge_of_large": "(x : Irrep) (h : 7 ≤ x.1 + x.2) : 52 ≤ cas3 x",
+      "cas3_ge_of_mid": "(x : Irrep) (h : 4 ≤ x.1 + x.2) : 18 ≤ cas3 x",
+      "cutoff_any_arm": "(a b c : Irrep) (h : 7 ≤ a.1 + a.2 ∨ 7 ≤ b.1 + b.2 ∨ 7 ≤ c.1 + c.2) : 51 < level3 a b c",
+      "cutoff_long_arm": "(a b c : Irrep) (h : 4 ≤ b.1 + b.2 ∨ 4 ≤ c.1 + c.2) : 51 < level3 a b c",
+      "bounds_of_level": "(a b c : Irrep) (h : level3 a b c ≤ 51) : a.1 + a.2 ≤ 6 ∧ b.1 + b.2 ≤ 3 ∧ c.1 + c.2 ≤ 3",
+      "box_p0": ": ∀ q1 < 7, ∀ p2 < 4, ∀ q2 < 4, ∀ p3 < 4, ∀ q3 < 4, good (0, q1) (p2, q2) (p3, q3)",
+      "box_p1": ": ∀ q1 < 7, ∀ p2 < 4, ∀ q2 < 4, ∀ p3 < 4, ∀ q3 < 4, good (1, q1) (p2, q2) (p3, q3)",
+      "box_p2": ": ∀ q1 < 7, ∀ p2 < 4, ∀ q2 < 4, ∀ p3 < 4, ∀ q3 < 4, good (2, q1) (p2, q2) (p3, q3)",
+      "box_p3": ": ∀ q1 < 7, ∀ p2 < 4, ∀ q2 < 4, ∀ p3 < 4, ∀ q3 < 4, good (3, q1) (p2, q2) (p3, q3)",
+      "box_p4": ": ∀ q1 < 7, ∀ p2 < 4, ∀ q2 < 4, ∀ p3 < 4, ∀ q3 < 4, good (4, q1) (p2, q2) (p3, q3)",
+      "box_p5": ": ∀ q1 < 7, ∀ p2 < 4, ∀ q2 < 4, ∀ p3 < 4, ∀ q3 < 4, good (5, q1) (p2, q2) (p3, q3)",
+      "box_p6": ": ∀ q1 < 7, ∀ p2 < 4, ∀ q2 < 4, ∀ p3 < 4, ∀ q3 < 4, good (6, q1) (p2, q2) (p3, q3)",
+      "good_of_box": "(a b c : Irrep) (ha : a.1 + a.2 ≤ 6) (hb : b.1 + b.2 ≤ 3) (hc : c.1 + c.2 ≤ 3) : good a b c",
+      "thetaList_sound": ": ∀ t ∈ thetaList, admissible t.1 t.2.1 t.2.2 = true ∧ level3 t.1 t.2.1 t.2.2 ≤ 51",
+      "theta_enumeration": "(a b c : Irrep) : (admissible a b c = true ∧ level3 a b c ≤ 51) ↔ (a, b, c) ∈ thetaList",
+      "thetaList_length": ": thetaList.length = 34",
+      "level40_char": ": ∀ t ∈ thetaList, level3 t.1 t.2.1 t.2.2 = 40 ↔ t ∈ level40List",
+      "level43_char": ": ∀ t ∈ thetaList, level3 t.1 t.2.1 t.2.2 = 43 ↔ t ∈ level43List",
+      "level40List_sub": ": ∀ t ∈ level40List, t ∈ thetaList",
+      "level43List_sub": ": ∀ t ∈ level43List, t ∈ thetaList",
+      "theta_level_40_3_iff": "(a b c : Irrep) : (admissible a b c = true ∧ level3 a b c = 40) ↔ (a, b, c) ∈ level40List",
+      "theta_level_43_3_iff": "(a b c : Irrep) : (admissible a b c = true ∧ level3 a b c = 43) ↔ (a, b, c) ∈ level43List",
+      "level40List_length": ": level40List.length = 4",
+      "level43List_length": ": level43List.length = 4",
+      "levels_of_list": ": ∀ t ∈ thetaList, level3 t.1 t.2.1 t.2.2 ∈ levelSet3",
+      "levels_realized": ": ∀ n ∈ levelSet3, ∃ t ∈ thetaList, level3 t.1 t.2.1 t.2.2 = n",
+      "theta_levels": "(n : Nat) (hn : n ≤ 51) : (∃ a b c : Irrep, admissible a b c = true ∧ level3 a b c = n) ↔ n ∈ levelSet3",
+      "levelSet3_sorted": ": levelSet3.Pairwise (· < ·)",
+      "theta_floor": "(a b c : Irrep) (h : admissible a b c = true) : 16 ≤ level3 a b c"
+    },
+    "ThetaTriality.lean": {
+      "triality_fund": ": triality (1, 0) = 1",
+      "triality_antifund": ": triality (0, 1) = 2",
+      "triality_adjoint": ": triality (1, 1) = 0",
+      "triality_conj": "(x : Irrep) : (triality x + triality (conj x)) % 3 = 0",
+      "singlet_triality": "(a b c : Irrep) (h : hasSinglet a b c = true) : (triality a + triality b + triality c) % 3 = 0",
+      "theta_vertex_triality": "(a b c : Irrep) (h : admissible a b c = true) : (triality a + triality b + triality c) % 3 = 0 ∧ (triality (conj a) + triality (conj b) + triality (conj c)) % 3 = 0",
+      "no_lone_triality": "(a b c : Irrep) (h : admissible a b c = true) : ¬ ((triality a ≠ 0 ∧ triality b = 0 ∧ triality c = 0) ∨ (triality a = 0 ∧ triality b ≠ 0 ∧ triality c = 0) ∨ (triality a = 0 ∧ triality b = 0 ∧ triality c ≠ 0))",
+      "no_lone_arm": "(x : Irrep) (hx : x ≠ (0, 0)) : hasSinglet x (0, 0) (0, 0) = false ∧ hasSinglet (0, 0) x (0, 0) = false ∧ hasSinglet (0, 0) (0, 0) x = false"
+    },
+    "TransferGap.lean": {
+      "decay_rate_eq_gap": "(a E₀ E₁ : ℝ) : -Real.log (Real.exp (-(a * E₁)) / Real.exp (-(a * E₀))) = a * (E₁ - E₀)",
+      "decay_rate_eq_gap'": "(a E₀ E₁ t₀ t₁ : ℝ) (h₀ : t₀ = Real.exp (-(a * E₀))) (h₁ : t₁ = Real.exp (-(a * E₁))) : -Real.log (t₁ / t₀) = a * (E₁ - E₀)"
     }
   },
   "complete_files": [
@@ -476,6 +521,9 @@
     "GaugeSupportLattice.lean",
     "DualSimple.lean",
     "WindowWallJensen.lean",
-    "SmallSupportCycle.lean"
+    "SmallSupportCycle.lean",
+    "ThetaFloor.lean",
+    "ThetaTriality.lean",
+    "TransferGap.lean"
   ]
 }

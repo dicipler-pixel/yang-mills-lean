@@ -111,10 +111,22 @@
     {
       "module": "SmallSupportCycle",
       "path": "SmallSupportCycle.lean"
+    },
+    {
+      "module": "ThetaFloor",
+      "path": "ThetaFloor.lean"
+    },
+    {
+      "module": "ThetaTriality",
+      "path": "ThetaTriality.lean"
+    },
+    {
+      "module": "TransferGap",
+      "path": "TransferGap.lean"
     }
   ],
-  "expected_theorems": 505,
-  "expected_false_controls": 5,
+  "expected_theorems": 544,
+  "expected_false_controls": 8,
   "root_imports": [
     "GaugeCertificates",
     "LongestYangMillsChain",
@@ -135,6 +147,9 @@
     "GaugeSupportLattice",
     "DualSimple",
     "WindowWallJensen",
-    "SmallSupportCycle"
+    "SmallSupportCycle",
+    "ThetaFloor",
+    "ThetaTriality",
+    "TransferGap"
   ]
 }
