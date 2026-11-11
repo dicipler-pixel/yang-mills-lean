@@ -584,6 +584,31 @@
       "irrep11_not_mono_tensor20": ": ¬ ∃ f : irrepRep 1 1 ⟶ tensorRep 2 0, Mono f",
       "nvalent_triality_irrep": "(arms : List (HalfEdge ℂ SU3 × Irrep)) (hiso : ∀ a ∈ arms, Nonempty (a.1.rep ≅ irrepRep a.2.1 a.2.2)) (hinv : Representation.invariants (vertexRep (arms.map Prod.fst)).ρ ≠ ⊥) : vertexTri (arms.map (fun a => (a.1.out, a.2))) = 0",
       "nvalent_triality_irrepRep": "(arms : List (HalfEdge ℂ SU3 × Irrep)) (hrep : ∀ a ∈ arms, a.1.rep = irrepRep a.2.1 a.2.2) (hinv : Representation.invariants (vertexRep (arms.map Prod.fst)).ρ ≠ ⊥) : vertexTri (arms.map (fun a => (a.1.out, a.2))) = 0"
+    },
+    "ThetaFloorTriality.lean": {
+      "triality_eq_exponent": "(p q : ℕ) : triality (p, q) = (p + 2 * q) % 3",
+      "irrep_centre_scalar": "(p q : ℕ) : CentreActs zω (ω ^ ((p + 2 * q) % 3)) (irrepRep p q)",
+      "irrep_centre_exponent_unique": "(p q n : ℕ) (hn : n < 3) (h : CentreActs zω (ω ^ n) (irrepRep p q)) : n = triality (p, q)",
+      "irrep_swap_centre_iff": "(p q : ℕ) : CentreCharacter zω ω (irrepRep p q) (q, p) ↔ triality (p, q) = 0",
+      "irrep10_not_triality_two": ": ¬ CentreCharacter zω ω (irrepRep 1 0) (0, 1)",
+      "singlet_clause_iff_out": "(a b c : Irrep) : (2 * (a.1 + b.1 + c.1) + (a.2 + b.2 + c.2)) % 3 = 0 ↔ vertexTri [(true, a), (true, b), (true, c)] = 0",
+      "singlet_clause_iff_in": "(a b c : Irrep) : (2 * (a.1 + b.1 + c.1) + (a.2 + b.2 + c.2)) % 3 = 0 ↔ vertexTri [(false, a), (false, b), (false, c)] = 0",
+      "hasSinglet_iff": "(a b c : Irrep) : hasSinglet a b c = true ↔ vertexTri [(true, a), (true, b), (true, c)] = 0 ∧ bmw a b c = true",
+      "singlet_clause_of_invariant_out": "(h₁ h₂ h₃ : HalfEdge ℂ SU3) (a b c : Irrep) (r₁ : h₁.rep = irrepRep a.1 a.2) (r₂ : h₂.rep = irrepRep b.1 b.2) (r₃ : h₃.rep = irrepRep c.1 c.2) (o₁ : h₁.out = true) (o₂ : h₂.out = true) (o₃ : h₃.out = true) (hinv : Representation.invariants (vertexRep [h₁, h₂, h₃]).ρ ≠ ⊥) : (2 * (a.1 + b.1 + c.1) + (a.2 + b.2 + c.2)) % 3 = 0",
+      "singlet_clause_of_invariant_in": "(h₁ h₂ h₃ : HalfEdge ℂ SU3) (a b c : Irrep) (r₁ : h₁.rep = irrepRep a.1 a.2) (r₂ : h₂.rep = irrepRep b.1 b.2) (r₃ : h₃.rep = irrepRep c.1 c.2) (o₁ : h₁.out = false) (o₂ : h₂.out = false) (o₃ : h₃.out = false) (hinv : Representation.invariants (vertexRep [h₁, h₂, h₃]).ρ ≠ ⊥) : (2 * (a.1 + b.1 + c.1) + (a.2 + b.2 + c.2)) % 3 = 0",
+      "admissible_centre": "(a b c : Irrep) (h : admissible a b c = true) : vertexTri [(true, a), (true, b), (true, c)] = 0 ∧ vertexTri [(false, a), (false, b), (false, c)] = 0",
+      "not_admissible_of_out": "(a b c : Irrep) (h : vertexTri [(true, a), (true, b), (true, c)] ≠ 0) : admissible a b c = false",
+      "not_admissible_of_in": "(a b c : Irrep) (h : vertexTri [(false, a), (false, b), (false, c)] ≠ 0) : admissible a b c = false",
+      "thetaList_centre": ": ∀ t ∈ thetaList, vertexTri [(true, t.1), (true, t.2.1), (true, t.2.2)] = 0 ∧ vertexTri [(false, t.1), (false, t.2.1), (false, t.2.2)] = 0",
+      "level40List_centre": ": ∀ t ∈ level40List, vertexTri [(true, t.1), (true, t.2.1), (true, t.2.2)] = 0 ∧ vertexTri [(false, t.1), (false, t.2.1), (false, t.2.2)] = 0",
+      "level43List_centre": ": ∀ t ∈ level43List, vertexTri [(true, t.1), (true, t.2.1), (true, t.2.2)] = 0 ∧ vertexTri [(false, t.1), (false, t.2.1), (false, t.2.2)] = 0",
+      "swap_one_arm_rejected": "(a b c : Irrep) (h : admissible a b c = true) (hb : triality b ≠ 0) : vertexTri [(true, a), (true, conj b), (true, c)] ≠ 0",
+      "swap_entry_rejected": ": ((0, 0), (0, 1), (1, 0)) ∈ thetaList ∧ vertexTri [(true, (0, 0)), (true, conj (0, 1)), (true, (1, 0))] ≠ 0",
+      "swap_entry_hasSinglet_false": ": hasSinglet (0, 0) (conj (0, 1)) (1, 0) = false",
+      "cas3_conj": "(x : Irrep) : cas3 (conj x) = cas3 x",
+      "cas3_mod_three": "(x : Irrep) : cas3 x % 3 = (triality x * triality x) % 3",
+      "cas3_mod_three_eq_zero_iff": "(x : Irrep) : cas3 x % 3 = 0 ↔ triality x = 0",
+      "level3_mod_three": "(a b c : Irrep) : level3 a b c % 3 = (triality a * triality a) % 3"
     }
   },
   "complete_files": [
@@ -608,6 +633,7 @@
     "CutBound.lean",
     "TrialityVertex.lean",
     "CentreCharacterSU3.lean",
-    "IrrepEmbedSU3.lean"
+    "IrrepEmbedSU3.lean",
+    "ThetaFloorTriality.lean"
   ]
 }

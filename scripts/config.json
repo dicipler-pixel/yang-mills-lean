@@ -143,10 +143,14 @@
     {
       "module": "IrrepEmbedSU3",
       "path": "IrrepEmbedSU3.lean"
+    },
+    {
+      "module": "ThetaFloorTriality",
+      "path": "ThetaFloorTriality.lean"
     }
   ],
-  "expected_theorems": 613,
-  "expected_false_controls": 15,
+  "expected_theorems": 636,
+  "expected_false_controls": 16,
   "root_imports": [
     "GaugeCertificates",
     "LongestYangMillsChain",
@@ -175,6 +179,7 @@
     "CutBound",
     "TrialityVertex",
     "CentreCharacterSU3",
-    "IrrepEmbedSU3"
+    "IrrepEmbedSU3",
+    "ThetaFloorTriality"
   ]
 }
