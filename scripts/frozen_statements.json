@@ -391,6 +391,14 @@
       "dc124": ": allChoose hypB 6 [(0,4),(0,2),(0,1),(1,5),(1,3),(2,6),(2,3),(3,7),(4,8),(4,6),(4,5),(5,9),(5,7),(6,10),(6,7),(7,11),(8,10),(8,9),(9,11),(10,11)] [] = true",
       "dcube_checkB": ": checkB dcubeE = true",
       "dcube_cycles": ": SmallSupportsAreCycles dcubeE"
+    },
+    "WindowWallJensen.lean": {
+      "excited_le": "{ι : Type*} (P : Finset ι) (g : ℝ → ℝ) (hg : ConcaveOn ℝ (Ici 0) g) (hmono : MonotoneOn g (Ici 0)) (κ : ι → ℝ) (hκ : ∀ p ∈ P, 0 ≤ κ p) {E s : ℝ} (hE : ∑ p ∈ P, κ p ≤ E) (hs1 : s ≤ 1) : ∑ p ∈ P, g ((1 - s) * κ p) ≤ P.card * g ((1 - s) * (E / P.card))",
+      "retained_ge": "{ι : Type*} (P : Finset ι) (g : ℝ → ℝ) {E r : ℝ} (hE : 0 ≤ E) (hr : ∀ κ' : ι → ℝ, (∀ p ∈ P, 0 ≤ κ' p) → ∑ p ∈ P, κ' p ≤ E → ∑ p ∈ P, g (κ' p) ≤ r) : P.card * g (E / P.card) ≤ r",
+      "split_free": "{ι : Type*} (P : Finset ι) (g : ℝ → ℝ) (hg : ConcaveOn ℝ (Ici 0) g) (hmono : MonotoneOn g (Ici 0)) (κ : ι → ℝ) (hκ : ∀ p ∈ P, 0 ≤ κ p) {E s T d r : ℝ} (hE : ∑ p ∈ P, κ p ≤ E) (hs1 : s ≤ 1) (hd : d ≤ s * T + ∑ p ∈ P, g ((1 - s) * κ p)) (hr : ∀ κ' : ι → ℝ, (∀ p ∈ P, 0 ≤ κ' p) → ∑ p ∈ P, κ' p ≤ E → ∑ p ∈ P, g (κ' p) ≤ r) : d - r ≤ s * T - P.card * (g (E / P.card) - g ((1 - s) * (E / P.card)))",
+      "split_free_28_3": "{ι : Type*} (P : Finset ι) (g : ℝ → ℝ) (hg : ConcaveOn ℝ (Ici 0) g) (hmono : MonotoneOn g (Ici 0)) (κ : ι → ℝ) (hκ : ∀ p ∈ P, 0 ≤ κ p) {E s d r : ℝ} (hE : ∑ p ∈ P, κ p ≤ E) (hs1 : s ≤ 1) (hd : d ≤ s * (28 / 3) + ∑ p ∈ P, g ((1 - s) * κ p)) (hr : ∀ κ' : ι → ℝ, (∀ p ∈ P, 0 ≤ κ' p) → ∑ p ∈ P, κ' p ≤ E → ∑ p ∈ P, g (κ' p) ≤ r) : d - r ≤ s * (28 / 3) - P.card * (g (E / P.card) - g ((1 - s) * (E / P.card)))",
+      "no_window_split_free": "{ι : Type*} (P : Finset ι) (hP : P.Nonempty) (g : ℝ → ℝ) (hg : ConcaveOn ℝ (Ici 0) g) (hmono : MonotoneOn g (Ici 0)) (κ : ι → ℝ) (hκ : ∀ p ∈ P, 0 ≤ κ p) {E s T d r h L : ℝ} (hEpos : 0 < E) (hE : ∑ p ∈ P, κ p ≤ E) (hh : 0 < h) (hL : L * h ≤ g (E / P.card + h) - g (E / P.card)) (hT : T ≤ E * L) (hs0 : 0 < s) (hs1 : s ≤ 1) (hd : d ≤ s * T + ∑ p ∈ P, g ((1 - s) * κ p)) (hr : ∀ κ' : ι → ℝ, (∀ p ∈ P, 0 ≤ κ' p) → ∑ p ∈ P, κ' p ≤ E → ∑ p ∈ P, g (κ' p) ≤ r) : d - r ≤ 0",
+      "excited_needs_monotone": ": ¬ ((fun x : ℝ => -x) ((1 - 0) * 0) ≤ 1 * (fun x : ℝ => -x) ((1 - 0) * (1 / 1)))"
     }
   },
   "complete_files": [
@@ -400,6 +408,7 @@
     "WindowWallMono.lean",
     "OneLinkTailFloor.lean",
     "TailFloor.lean",
-    "TailFloorDoubleCube.lean"
+    "TailFloorDoubleCube.lean",
+    "WindowWallJensen.lean"
   ]
 }
