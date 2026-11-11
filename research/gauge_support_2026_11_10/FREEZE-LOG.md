@@ -149,3 +149,27 @@ The file has `open CategoryTheory MonoidalCategory Module`, so that `𝟙_`, `�
 - False control: `PeterWeylDropControl` (`S₃`, one link, family `{trivial}` omitting the sign
   representation, through `peterWeylLinks_of_finite`; rejected, unsolved goals).
 - Gate: 635 theorems, 16 false controls.
+
+## GaugeSupportSimpleFamily.lean (Grey, 2026-11-11)
+
+- New file `GaugeSupportSimpleFamily.lean` (namespace `GaugeSupport`): a complete family of
+  simple representations for every finite group, closing the open item of
+  `GaugeSupportPeterWeylFinite.lean`.
+- `SimpleIdeal G` = simple left ideals of `MonoidAlgebra ℂ G` (in `Type`);
+  `simpleIrr m := FDRep.of (Representation.ofModule m)`. Duplicates allowed.
+- `simple_of_isIrreducible` (irreducible ⇒ `Simple` in `FDRep`), `simpleIrr_simple`
+  (+ instance `instSimpleIrr`).
+- `exists_simpleIdeal_equiv`: every finite-dimensional irreducible representation is
+  isomorphic to some simple left ideal (orbit map from `ℂ[G]`, Maschke spanning, Schur's
+  kernel/range argument); `isCompleteIrrFamily_simpleIrr`.
+- `peterWeylLinks_simpleIrr`, `gauge_support_rule_links_finite_unconditional` (only `ψ`,
+  gauge invariance, `π`, `hπ`, `v`).
+- Negation: `not_simple_regularRep`, `not_isIrreducible_regularRep` (constants are a proper
+  stable line), `not_simple_regularRep_S3`.
+- set_option: `backward.isDefEq.respectTransparency false` on `simpleIrr`,
+  `ofModule_isIrreducible`, `simpleIrr_simple`, `simpleIrr_ρ`, `exists_simpleIdeal_equiv`.
+- Frozen statements of earlier files are unchanged; the file is in `complete_files`
+  (all 16 theorems frozen, 573 frozen in total).
+- False control: `RegularSimpleControl` (`Simple` for the 6-dimensional regular
+  representation of `S₃` via `simple_of_isIrreducible`; rejected, unsolved goals).
+- Gate: 651 theorems, 17 false controls.
