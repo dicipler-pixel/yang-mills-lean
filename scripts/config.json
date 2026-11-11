@@ -159,10 +159,14 @@
     {
       "module": "IrrepIrreducibleSU3",
       "path": "IrrepIrreducibleSU3.lean"
+    },
+    {
+      "module": "AdjointWitnessSU3",
+      "path": "AdjointWitnessSU3.lean"
     }
   ],
-  "expected_theorems": 785,
-  "expected_false_controls": 19,
+  "expected_theorems": 848,
+  "expected_false_controls": 20,
   "root_imports": [
     "GaugeCertificates",
     "LongestYangMillsChain",
@@ -195,6 +199,7 @@
     "ThetaFloorTriality",
     "SingletWitnessSU3",
     "IrrepSmallIsoSU3",
-    "IrrepIrreducibleSU3"
+    "IrrepIrreducibleSU3",
+    "AdjointWitnessSU3"
   ]
 }
