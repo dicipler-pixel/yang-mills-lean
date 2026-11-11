@@ -2,7 +2,9 @@
 #   W(s) >= s*28/3 - sum_p [ g_up(c_p) - g_lo((1-s)c_p) ]   (g(0)=0 exactly)
 import sys
 sys.argv = ['x', sys.argv[1] if len(sys.argv) > 1 else '20']
-src = open('certify_slopes.py').read().split("cases = [")[0]
+from pathlib import Path
+__file__ = str(Path(__file__).resolve())
+src = open(Path(__file__).with_name('certify_slopes.py')).read().split("cases = [")[0]
 exec(src)
 from targets import all_targets
 from fractions import Fraction as F
