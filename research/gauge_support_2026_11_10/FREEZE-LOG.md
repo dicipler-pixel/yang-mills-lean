@@ -47,3 +47,199 @@ The file has `open CategoryTheory MonoidalCategory Module`, so that `𝟙_`, `�
 - False control: `FalseControls/DualSimpleControl.lean` (`∀ V : FDRep ℚ Unit, Simple Vᘁ`,
   false for the zero representation) is rejected.
 - Gate: 493 theorems, 4 false controls rejected, 415 frozen, axioms propext / Classical.choice / Quot.sound.
+
+## GaugeSupportRegroup.lean (Grey, 2026-11-11)
+
+- New file `GaugeSupportRegroup.lean` (namespace `GaugeSupport`): the regrouping by vertex.
+  The vertex-regrouped block is Mathlib's `PiTensorProduct` `⨂_v W_v(π)` with
+  `W_v(π) = vertexRep (incident Γ π v)`, and the gauge group `Vx → G` acts factor by factor
+  (`gaugeAction`, built from `PiTensorProduct.mapMonoidHom`).
+- Proved with no extra hypotheses (any group, any field; no complete reducibility):
+  `gauge_invariant_eq_zero_of_vertex` / `vertex_invariant_ne_bot_of_gauge_invariant`
+  (a nonzero gauge-invariant vector of `⨂_v W_v` forces a nonzero invariant in every `W_v`),
+  and the converse direction for pure tensors `tprod_gauge_invariant`.
+- Named assumption `PeterWeylLattice` (abbreviation `PeterWeylSU3` for `ℂ`, `SU(3)`), a
+  structure, not an axiom: gauge-equivariant block projections `proj π : H → ⨂_v W_v(π)` that
+  separate points. It packages Peter–Weyl link by link and the reshuffle
+  `⊗_e (V_{π e} ⊗ V_{π e}*) ≅ ⊗_v W_v(π)`; neither is proved here. `PeterWeylLattice.model`
+  shows the structure is inhabited (block-sum model), so the assumption is not vacuous.
+- `support_vertex_invariant` discharges the `hinv` hypothesis of
+  `lattice_support_rule_of_simple` for every labelling in the support of a gauge-invariant
+  state; `gauge_support_rule_regrouped` and `gauge_support_rule_regrouped_SU3` state the
+  resulting rule. Frozen statements of earlier files are unchanged.
+- The file is in `complete_files` (all 12 theorems frozen).
+- False controls: `RegroupControl` (drop the vanishing-vertex hypothesis; the open goal
+  `invariants 1 = ⊥` is false), `SupportControl` (labelling outside the support), and
+  `RegroupedRuleControl` (SU(3) rule without gauge invariance). All rejected (unsolved goals).
+
+## GaugeSupportReshuffle.lean (Grey, 2026-11-11)
+
+- New file `GaugeSupportReshuffle.lean` (namespace `GaugeSupport`): the edge-to-vertex
+  reshuffle `⊗_e (V_{π e} ⊗ V_{π e}*) ≅ ⊗_v W_v(π)`, taken out of the `PeterWeylLattice`
+  assumption and proved.
+- Orientation, read off `incident` / `vertexRep`: the source end of a link carries `π e`, the
+  target end `(π e)ᘁ`; `W_v` is the right-nested tensor of the factors at `v`, outgoing links
+  first, then incoming, each in `Finset.toList` order, ending in `𝟙`.
+- `reshuffle : EdgeBlock π ≃ₗ[k] RegroupedBlock Γ π` is the composite of `pairEquiv`
+  (pair the two ends of each link), `regroupEquiv` (regroup half-edges by vertex) and
+  `vertexEquiv` (list-tensor at each vertex, `listEquiv`, then `eqToIso` onto `vertexRep`).
+  `reshuffle_tprod` gives its value on pure tensors (the factor permutation);
+  `reshuffle_equivariant` / `reshuffle_symm_equivariant` show it intertwines `edgeGauge` (copy
+  at `src e` on `V`, copy at `tgt e` on `V*`) with `blockGauge`. Any group, any field.
+- New named assumption `PeterWeylLinks` / `PeterWeylLinksSU3` (a structure, not an axiom):
+  Peter–Weyl link by link onto `⊗_e (V ⊗ V*)` only. `PeterWeylLinks.toLattice` builds
+  `PeterWeylLattice` from it; `gauge_support_rule_links` and `_SU3` restate the regrouped rule
+  under the weaker assumption; `PeterWeylLinks.model` shows it is inhabited.
+- Frozen statements of earlier files are unchanged; the file is in `complete_files`
+  (all 34 theorems frozen, 521 frozen in total).
+- False control: `ReshuffleDropControl` (drop the `V*` end of a single link: claims
+  `⊗_e (V ⊗ V*) ≃ ⊗_e V` for `V = ℚ²`; dimensions 4 vs 2; rejected, unsolved goal `False`).
+- Gate: 599 theorems, 14 false controls.
+
+## GaugeSupportReshuffleRep.lean (Grey, 2026-11-11)
+
+- New file `GaugeSupportReshuffleRep.lean` (namespace `GaugeSupport`): `reshuffle` packaged as
+  one Mathlib `Representation.Equiv` for the gauge group `Vx → G`.
+- `edgeGaugeRep` / `blockGaugeRep` are abbreviations of the existing representations
+  `edgeGauge` / `blockGauge` (both already monoid homs), so application is definitional.
+- `reshuffleRepEquiv : (edgeGaugeRep Γ π).Equiv (blockGaugeRep Γ π)`, built with
+  `Representation.Equiv.mk` from `reshuffle` and `reshuffle_equivariant`;
+  `reshuffleRepEquiv_toLinearEquiv` (rfl) says its linear equivalence is `reshuffle`.
+- `repEquiv_map_invariants` (any `Representation.Equiv`), `reshuffle_map_invariants` and
+  `reshuffleInvariantsEquiv` (via `LinearEquiv.ofSubmodules`): the reshuffle maps the link
+  invariants onto the vertex invariants. `mem_blockGaugeRep_invariants_iff` identifies the
+  latter with `IsGaugeInvariant`.
+- `toLattice_proj_eq` restates `PeterWeylLinks.toLattice` through the iso;
+  `PeterWeylLinks.proj_mem_invariants` and `toLattice_proj_mem_invariants` match the
+  components of a gauge-invariant state on both sides.
+- Frozen statements of earlier files are unchanged; the file is in `complete_files`
+  (all 12 theorems frozen, 533 frozen in total).
+- False control: `ReshuffleRepControl` (the iso against the link action with `src`/`tgt`
+  swapped on one link `0 → 1`, `ℚˣ` acting on `ℚ` by scalars: the action on `V ⊗ V*` is
+  `g 0 / g 1`, the swapped one `g 1 / g 0`; rejected, unsolved goals).
+- Gate: 611 theorems, 15 false controls.
+
+## GaugeSupportPeterWeylFinite.lean (Grey, 2026-11-11)
+
+- New file `GaugeSupportPeterWeylFinite.lean` (namespace `GaugeSupport`): `PeterWeylLinks`
+  for every finite group `G` over `ℂ`, on `H = (E → G) → ℂ`.
+- Gauge convention: `(g · ψ)(U) = ψ (e ↦ g (src e)⁻¹ * U e * g (tgt e))` (`latticeGauge`,
+  `latticeGauge_apply`), matching `edgeGauge` (`g (src e)` on `V`, `g (tgt e)` on `V*`).
+- `coeffTensor V u ∈ V ⊗ V*` corresponds to `ρ(u)` under `V ⊗ V* ≅ End V`;
+  `map_coeffTensor`: `(a, b)` sends it to `coeffTensor V (a * u * b⁻¹)` (uses `dual_ρ_apply`).
+- `fourierProj irr π ψ = ∑_U ψ U • ⊗_e coeffTensor (irr (π e)) (U e)`;
+  `fourierProj_equivariant`.
+- Hypothesis on the family (a `Prop`, not an axiom): `IsCompleteIrrFamily irr` — every
+  finite-dimensional irreducible complex representation is `Representation.Equiv` to some
+  `irr i`. Nothing else (no pairwise non-isomorphism, no irreducibility of members).
+- `fourierProj_separating`: from Maschke (`IsSemisimpleModule ℂ[G] ℂ[G]`): elements of simple
+  left ideals span `ℂ[G]` (`span_simple_elements`); each simple left ideal receives an
+  equivariant map from some `irr i` (`exists_irr_map_of_simple`); the regular operator
+  `∑_U ψ U ⊗_e (left mult. by U e)` then vanishes and determines `ψ`.
+- `peterWeylLinksFinite` / `peterWeylLinks_of_finite`; corollary
+  `gauge_support_rule_links_finite` (`[∀ i, Simple (irr i)]` plus completeness).
+- `isCompleteIrrFamily_allReps`, `peterWeylLinks_of_finite_allReps`: the hypothesis is
+  satisfiable (family of all representations on `ℂⁿ`, not irreducible-only).
+- Negation: `not_peterWeylLinks_trivial_only` (any group with `g₀ ≠ 1`, one link, family
+  `{trivial}`), `not_isCompleteIrrFamily_trivial_S3`.
+- One `set_option backward.isDefEq.respectTransparency false in` on
+  `exists_irr_map_of_simple` (as Mathlib does for `isSimpleModule_iff_irreducible_ofModule`).
+- Frozen statements of earlier files are unchanged; the file is in `complete_files`
+  (all 24 theorems frozen, 557 frozen in total).
+- False control: `PeterWeylDropControl` (`S₃`, one link, family `{trivial}` omitting the sign
+  representation, through `peterWeylLinks_of_finite`; rejected, unsolved goals).
+- Gate: 635 theorems, 16 false controls.
+
+## GaugeSupportSimpleFamily.lean (Grey, 2026-11-11)
+
+- New file `GaugeSupportSimpleFamily.lean` (namespace `GaugeSupport`): a complete family of
+  simple representations for every finite group, closing the open item of
+  `GaugeSupportPeterWeylFinite.lean`.
+- `SimpleIdeal G` = simple left ideals of `MonoidAlgebra ℂ G` (in `Type`);
+  `simpleIrr m := FDRep.of (Representation.ofModule m)`. Duplicates allowed.
+- `simple_of_isIrreducible` (irreducible ⇒ `Simple` in `FDRep`), `simpleIrr_simple`
+  (+ instance `instSimpleIrr`).
+- `exists_simpleIdeal_equiv`: every finite-dimensional irreducible representation is
+  isomorphic to some simple left ideal (orbit map from `ℂ[G]`, Maschke spanning, Schur's
+  kernel/range argument); `isCompleteIrrFamily_simpleIrr`.
+- `peterWeylLinks_simpleIrr`, `gauge_support_rule_links_finite_unconditional` (only `ψ`,
+  gauge invariance, `π`, `hπ`, `v`).
+- Negation: `not_simple_regularRep`, `not_isIrreducible_regularRep` (constants are a proper
+  stable line), `not_simple_regularRep_S3`.
+- set_option: `backward.isDefEq.respectTransparency false` on `simpleIrr`,
+  `ofModule_isIrreducible`, `simpleIrr_simple`, `simpleIrr_ρ`, `exists_simpleIdeal_equiv`.
+- Frozen statements of earlier files are unchanged; the file is in `complete_files`
+  (all 16 theorems frozen, 573 frozen in total).
+- False control: `RegularSimpleControl` (`Simple` for the 6-dimensional regular
+  representation of `S₃` via `simple_of_isIrreducible`; rejected, unsolved goals).
+- Gate: 651 theorems, 17 false controls.
+
+## Merge of lean-green-support-dichotomy (Grey, 2026-11-11)
+
+- Branch `grey/cube-finite-unconditional` (from `4367ced`, PR #40) merges
+  `origin/lean-green-support-dichotomy` at `c011421` (PR #39, which contains #36 `892f98c`,
+  #34, #31, #27, #23) with a normal `git merge` (merge commit `81f63ff`).
+- Conflicts in `lakefile.toml`, `scripts/config.json`, `scripts/frozen_statements.json` and
+  `README.md` resolved by union: both sides' modules, roots, frozen statements and
+  `complete_files` kept unchanged; totals recomputed (747 theorems = 651 + 661 − 565 common,
+  22 false controls, 669 frozen; `verify.py --gate-only` passed on the merge).
+
+## CubeFiniteUnconditional.lean (Grey, 2026-11-11)
+
+- New file `CubeFiniteUnconditional.lean` (namespace `GaugeSupport`): Lean Green's cube
+  theorems with no Peter–Weyl assumption, for any finite `G` and for `S₃`.
+- `cubePW G := (peterWeylLinksFinite cubeΓ simpleIrr isCompleteIrrFamily_simpleIrr).toLattice`;
+  `cubePW_proj_ne_zero` transfers `fourierProj simpleIrr π ψ ≠ 0` through the reshuffle.
+- `cube_gauge_support_shortCycle_finite`, `cube_gauge_support_card_finite`,
+  `cube_gauge_support_finite`, `cube_support_dichotomy_finite`, `cube_no_three_links_finite`;
+  `cube_gauge_support_card_S3`, `cube_support_dichotomy_S3`, `cube_no_three_links_S3`;
+  `cubeThree_sublist`, `cubeThree_not_shortCycle`.
+- No set_option. Frozen statements of earlier files are unchanged; the file is in
+  `complete_files` (all 11 theorems frozen, 680 frozen in total).
+- False control: `CubeS3ThreeControl` (a nonzero gauge-invariant `S₃` cube component with
+  exactly 3 non-trivial links; the constant state is gauge invariant, the labelling goal stays
+  open; rejected, unsolved goals).
+- Gate: 758 theorems, 23 false controls.
+
+## CubeWilsonExistence.lean (Grey, 2026-11-11)
+
+- New file `CubeWilsonExistence.lean` (namespace `GaugeSupport`): the 4-cycle case of the
+  cube support theorem is attained, for any finite `G` with a non-trivial character
+  `φ : G →* ℂˣ`, and for `S₃` with the sign character.
+- Character ideal: `eChar φ = ∑_g φ(g⁻¹) g`, `charIdeal φ = span {eChar φ}` is a simple left
+  ideal (`charIdeal_simple`), `charSI φ : SimpleIdeal G`, `G` acts on it by the scalar `φ`
+  (`simpleIrr_charSI_ρ`); non-trivial label iff `φ ≠ 1` (`charSI_isEmpty_iso`,
+  `charSI_one_iso`).
+- Wilson loop on the face `0 → 1 → 3 → 2 → 0` (links 0, 5 forwards, 1, 4 backwards):
+  `wilson φ U = φ (U₀ U₅ U₁⁻¹ U₄⁻¹)`, gauge invariant; labelling `faceπ φ`;
+  `fourierProj_wilson_ne_zero`, `faceπ_card` (= 4), `faceπ_one_card` (= 0 for `φ = 1`);
+  `cube_four_cycle_attained(_shortCycle)`, `cube_four_cycle_attained_S3(_shortCycle)`,
+  `cube_wilson_trivial_card_S3`.
+- set_option: `backward.isDefEq.respectTransparency false` on `charSI_one_iso` only.
+  Frozen statements of earlier files are unchanged; the file is in `complete_files` (all 28
+  theorems frozen, 708 frozen in total).
+- False control: `CubeWilsonTrivialControl` (the trivial-character face labelling of `S₃`
+  claimed to have exactly 4 non-trivial links; rewriting with `cube_wilson_trivial_card_S3`
+  leaves `0 = 4`; rejected, unsolved goals).
+- Gate: 786 theorems, 24 false controls.
+
+## CubeWilsonSix.lean (Grey, 2026-11-11)
+
+- New file `CubeWilsonSix.lean` (namespace `GaugeSupport`): the 6-cycle case of the cube
+  support theorem is attained, for any finite `G` with a non-trivial character
+  `φ : G →* ℂˣ`, and for `S₃` with the sign character. Reuses `charSI`, `charVecV`,
+  `charSI_isEmpty_iso`, `not_NTe_charSI_one` from `CubeWilsonExistence`.
+- Cycle: boundary of the faces `{0,1,3,2}` and `{0,1,5,4}` (shared link `0 = (0,1)` dropped),
+  `0 → 4 → 5 → 1 → 3 → 2 → 0`: links 8, 2, 5 forwards, 9, 1, 4 backwards.
+  `wilson6 φ U = φ (U₈ U₂ U₉⁻¹ U₅ U₁⁻¹ U₄⁻¹)`; labelling `face6π φ` (`φ⁻¹` on 8, 2, 5, `φ` on
+  9, 1, 4, trivial elsewhere).
+- `wilson6_gauge_invariant`, `wilson6_mul_labels`, `fourierProj_wilson6_ne_zero`,
+  `NTe_face6π_iff`, `face6π_card` (= 6), `cube_six_cycle_attained(_shortCycle)`,
+  `cube_six_card_S3`, `cube_six_cycle_attained_S3(_shortCycle)`,
+  `cube_four_and_six_attained_S3`.
+- No set_option. Frozen statements of earlier files are unchanged; the file is in
+  `complete_files` (all 11 theorems frozen, 719 frozen in total).
+- False control: `CubeWilsonSixControl` (the sign 6-cycle labelling of `S₃` claimed to have
+  exactly 4 non-trivial links; rewriting with `cube_six_card_S3` leaves `6 = 4`; rejected,
+  unsolved goals).
+- Gate: 797 theorems, 25 false controls.

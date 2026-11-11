@@ -1,0 +1,88 @@
+{
+ "rows": [
+  {
+   "cell": "strip",
+   "c": "10/3",
+   "t": "1",
+   "h": "1/300",
+   "N": 24,
+   "eps": "1/10000000000",
+   "lam_float": 5.2134115594007895,
+   "lam_hi": "5213413/1000000",
+   "L_lower_at_lam_hi": "1924895128969317016617556992867889051/1924894828357180047062129490000000000",
+   "L_lower_at_lam_hi_float": 1.0000001561706815,
+   "lam_lo": "521341/100000",
+   "L_upper_at_lam_lo": "157405925342936836662336475429794797/157405954549978540282007970000000000",
+   "L_upper_at_lam_lo_float": 0.9999998144476695,
+   "excluded_for_all_lam_ge": "5213413/1000000"
+  },
+  {
+   "cell": "corner",
+   "c": "3",
+   "t": "10/9",
+   "h": "3/1000",
+   "N": 24,
+   "eps": "1/10000000000",
+   "lam_float": 5.10416388707381,
+   "lam_hi": "1020833/200000",
+   "L_lower_at_lam_hi": "13906632168260202626394702325103506343/12515967889637189355371796570000000000",
+   "L_lower_at_lam_hi_float": 1.1111112053726535,
+   "lam_lo": "5104163/1000000",
+   "L_upper_at_lam_lo": "27108513567423191515299549696430048639/24397662968907488988887706390000000000",
+   "L_upper_at_lam_lo_float": 1.11111107658018,
+   "excluded_for_all_lam_ge": "1020833/200000"
+  }
+ ],
+ "controls": [
+  {
+   "control": "wrong E upper endpoint (E_lo - 1/1000) at mu=5/2 certified as upper bound",
+   "claim": "E(5/2) < E_lo - 1/1000",
+   "claim_holds": false,
+   "rejected_as_required": true
+  },
+  {
+   "control": "wrong E lower endpoint (E_up + 1/1000) at mu=5/2 certified as lower bound",
+   "claim": "E(5/2) >= E_up + 1/1000",
+   "claim_holds": false,
+   "rejected_as_required": true
+  },
+  {
+   "control": "strip h=c/1000: exclusion at lam_lo=5.21341",
+   "claim": "L_lower(lam_lo) > t",
+   "claim_holds": false,
+   "rejected_as_required": true
+  },
+  {
+   "control": "strip h=c/1000: exclusion at lam_hi with t raised by 1/1000",
+   "claim": "L_lower(lam_hi) > t + 1/1000",
+   "claim_holds": false,
+   "rejected_as_required": true
+  },
+  {
+   "control": "strip h=c/1000: exclusion at lam_hi against the pre-vertex-rule upper t = 36/35",
+   "claim": "L_lower(lam_hi) > 36/35",
+   "claim_holds": false,
+   "rejected_as_required": true
+  },
+  {
+   "control": "corner h=c/1000: exclusion at lam_lo=5.104163",
+   "claim": "L_lower(lam_lo) > t",
+   "claim_holds": false,
+   "rejected_as_required": true
+  },
+  {
+   "control": "corner h=c/1000: exclusion at lam_hi with t raised by 1/1000",
+   "claim": "L_lower(lam_hi) > t + 1/1000",
+   "claim_holds": false,
+   "rejected_as_required": true
+  },
+  {
+   "control": "corner h=c/1000: exclusion at lam_hi with the strip coefficient c = 10/3 swapped in against t = 10/9",
+   "claim": "monotone in c fails? L_lower(10/3) > 10/9",
+   "claim_holds": false,
+   "rejected_as_required": true
+  }
+ ],
+ "monotonicity": "WindowWallMono.forward_secant_mono: forward secant nondecreasing in lam (e concave on [0,inf) is a hypothesis there)",
+ "scope": "strong-coupling window-wall bookkeeping on finite cells; no continuum or mass-gap claim"
+}

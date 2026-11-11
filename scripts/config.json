@@ -133,6 +133,62 @@
       "path": "CutBound.lean"
     },
     {
+      "module": "GaugeSupportRegroup",
+      "path": "GaugeSupportRegroup.lean"
+    },
+    {
+      "module": "GaugeSupportReshuffle",
+      "path": "GaugeSupportReshuffle.lean"
+    },
+    {
+      "module": "GaugeSupportReshuffleRep",
+      "path": "GaugeSupportReshuffleRep.lean"
+    },
+    {
+      "module": "GaugeSupportPeterWeylFinite",
+      "path": "GaugeSupportPeterWeylFinite.lean"
+    },
+    {
+      "module": "GaugeSupportSimpleFamily",
+      "path": "GaugeSupportSimpleFamily.lean"
+    },
+    {
+      "module": "SmallSupportBridge",
+      "path": "SmallSupportBridge.lean"
+    },
+    {
+      "module": "NtListSupport",
+      "path": "NtListSupport.lean"
+    },
+    {
+      "module": "PermCube",
+      "path": "PermCube.lean"
+    },
+    {
+      "module": "GraphInstances",
+      "path": "GraphInstances.lean"
+    },
+    {
+      "module": "SupportDichotomy",
+      "path": "SupportDichotomy.lean"
+    },
+    {
+      "module": "CubeFiniteUnconditional",
+      "path": "CubeFiniteUnconditional.lean"
+    },
+    {
+      "module": "CubeWilsonExistence",
+      "path": "CubeWilsonExistence.lean"
+    },
+    {
+      "module": "CubeWilsonSix",
+      "path": "CubeWilsonSix.lean"
+    },
+    {
+      "module": "CutFlux",
+      "path": "CutFlux.lean"
+    },
+    {
       "module": "TrialityVertex",
       "path": "TrialityVertex.lean"
     },
@@ -161,6 +217,10 @@
       "path": "IrrepIrreducibleSU3.lean"
     },
     {
+      "module": "HntLabels",
+      "path": "HntLabels.lean"
+    },
+    {
       "module": "AdjointWitnessSU3",
       "path": "AdjointWitnessSU3.lean"
     },
@@ -173,8 +233,8 @@
       "path": "SymIrreducibleSU3.lean"
     }
   ],
-  "expected_theorems": 1026,
-  "expected_false_controls": 22,
+  "expected_theorems": 1286,
+  "expected_false_controls": 39,
   "root_imports": [
     "GaugeCertificates",
     "LongestYangMillsChain",
@@ -201,6 +261,20 @@
     "TransferGap",
     "KyFanChord",
     "CutBound",
+    "GaugeSupportRegroup",
+    "GaugeSupportReshuffle",
+    "GaugeSupportReshuffleRep",
+    "GaugeSupportPeterWeylFinite",
+    "GaugeSupportSimpleFamily",
+    "SmallSupportBridge",
+    "NtListSupport",
+    "PermCube",
+    "GraphInstances",
+    "SupportDichotomy",
+    "CubeFiniteUnconditional",
+    "CubeWilsonExistence",
+    "CubeWilsonSix",
+    "CutFlux",
     "TrialityVertex",
     "CentreCharacterSU3",
     "IrrepEmbedSU3",
@@ -208,6 +282,7 @@
     "SingletWitnessSU3",
     "IrrepSmallIsoSU3",
     "IrrepIrreducibleSU3",
+    "HntLabels",
     "AdjointWitnessSU3",
     "SymWitnessSU3",
     "SymIrreducibleSU3"
