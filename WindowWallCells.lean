@@ -40,15 +40,15 @@ theorem cell_no_window {n : ℕ} (C Lo Hi : Fin n → ℝ) (hC : ∀ p, 0 < C p)
 /-! ## Two squares sharing one link, lambda/alpha = 8 (2 faces) -/
 
 /-- Allocation coefficients. -/
-def twoC : Fin 2 → ℝ := ![7/2, 7/2]
+noncomputable def twoC : Fin 2 → ℝ := ![7/2, 7/2]
 
 /-- Certified lower bounds for the ground energy at `c p + 1/1000`. -/
-def twoLo : Fin 2 → ℝ := ![
+noncomputable def twoLo : Fin 2 → ℝ := ![
     3213886872609/200000000000,
     3213886872609/200000000000]
 
 /-- Certified upper bounds for the ground energy at `c p`. -/
-def twoHi : Fin 2 → ℝ := ![
+noncomputable def twoHi : Fin 2 → ℝ := ![
     32135787439/2000000000,
     32135787439/2000000000]
 
@@ -71,16 +71,16 @@ theorem two_eight_no_window (g : Fin 2 → ℝ → ℝ) (hg : ∀ p, ConcaveOn �
 /-! ## Strip of three squares, lambda/alpha = 5 (3 faces) -/
 
 /-- Allocation coefficients. -/
-def stripC : Fin 3 → ℝ := ![7/2, 3, 7/2]
+noncomputable def stripC : Fin 3 → ℝ := ![7/2, 3, 7/2]
 
 /-- Certified lower bounds for the ground energy at `c p + 1/1000`. -/
-def stripLo : Fin 3 → ℝ := ![
+noncomputable def stripLo : Fin 3 → ℝ := ![
     11586026658303/1000000000000,
     1109547789021/100000000000,
     11586026658303/1000000000000]
 
 /-- Certified upper bounds for the ground energy at `c p`. -/
-def stripHi : Fin 3 → ℝ := ![
+noncomputable def stripHi : Fin 3 → ℝ := ![
     23170280133/2000000000,
     11094394137/1000000000,
     23170280133/2000000000]
@@ -104,16 +104,16 @@ theorem strip_five_no_window (g : Fin 3 → ℝ → ℝ) (hg : ∀ p, ConcaveOn 
 /-! ## Three faces at an open cubic corner, lambda/alpha = 5 (3 faces) -/
 
 /-- Allocation coefficients. -/
-def cornerC : Fin 3 → ℝ := ![3, 3, 3]
+noncomputable def cornerC : Fin 3 → ℝ := ![3, 3, 3]
 
 /-- Certified lower bounds for the ground energy at `c p + 1/1000`. -/
-def cornerLo : Fin 3 → ℝ := ![
+noncomputable def cornerLo : Fin 3 → ℝ := ![
     1109547789021/100000000000,
     1109547789021/100000000000,
     1109547789021/100000000000]
 
 /-- Certified upper bounds for the ground energy at `c p`. -/
-def cornerHi : Fin 3 → ℝ := ![
+noncomputable def cornerHi : Fin 3 → ℝ := ![
     11094394137/1000000000,
     11094394137/1000000000,
     11094394137/1000000000]
@@ -137,10 +137,10 @@ theorem corner_five_no_window (g : Fin 3 → ℝ → ℝ) (hg : ∀ p, ConcaveOn
 /-! ## One open cube, lambda/alpha = 3 (6 faces) -/
 
 /-- Allocation coefficients. -/
-def cubeC : Fin 6 → ℝ := ![2, 2, 2, 2, 2, 2]
+noncomputable def cubeC : Fin 6 → ℝ := ![2, 2, 2, 2, 2, 2]
 
 /-- Certified lower bounds for the ground energy at `c p + 1/1000`. -/
-def cubeLo : Fin 6 → ℝ := ![
+noncomputable def cubeLo : Fin 6 → ℝ := ![
     1715089049967/250000000000,
     1715089049967/250000000000,
     1715089049967/250000000000,
@@ -149,7 +149,7 @@ def cubeLo : Fin 6 → ℝ := ![
     1715089049967/250000000000]
 
 /-- Certified upper bounds for the ground energy at `c p`. -/
-def cubeHi : Fin 6 → ℝ := ![
+noncomputable def cubeHi : Fin 6 → ℝ := ![
     1714852301/250000000,
     1714852301/250000000,
     1714852301/250000000,
@@ -176,10 +176,10 @@ theorem cube_three_no_window (g : Fin 6 → ℝ → ℝ) (hg : ∀ p, ConcaveOn 
 /-! ## Two adjacent open cubes, lambda/alpha = 2 (11 faces) -/
 
 /-- Allocation coefficients. -/
-def twoCubesC : Fin 11 → ℝ := ![2, 11/6, 11/6, 11/6, 11/6, 4/3, 11/6, 11/6, 11/6, 11/6, 2]
+noncomputable def twoCubesC : Fin 11 → ℝ := ![2, 11/6, 11/6, 11/6, 11/6, 4/3, 11/6, 11/6, 11/6, 11/6, 2]
 
 /-- Certified lower bounds for the ground energy at `c p + 1/1000`. -/
-def twoCubesLo : Fin 11 → ℝ := ![
+noncomputable def twoCubesLo : Fin 11 → ℝ := ![
     5040216354753/1000000000000,
     14847453604541/3000000000000,
     14847453604541/3000000000000,
@@ -193,7 +193,7 @@ def twoCubesLo : Fin 11 → ℝ := ![
     5040216354753/1000000000000]
 
 /-- Certified upper bounds for the ground energy at `c p`. -/
-def twoCubesHi : Fin 11 → ℝ := ![
+noncomputable def twoCubesHi : Fin 11 → ℝ := ![
     1259927319/250000000,
     618570337/125000000,
     618570337/125000000,
