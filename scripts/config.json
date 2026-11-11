@@ -151,10 +151,14 @@
     {
       "module": "GraphInstances",
       "path": "GraphInstances.lean"
+    },
+    {
+      "module": "SupportDichotomy",
+      "path": "SupportDichotomy.lean"
     }
   ],
-  "expected_theorems": 652,
-  "expected_false_controls": 17,
+  "expected_theorems": 661,
+  "expected_false_controls": 18,
   "root_imports": [
     "GaugeCertificates",
     "LongestYangMillsChain",
@@ -185,6 +189,7 @@
     "SmallSupportBridge",
     "NtListSupport",
     "PermCube",
-    "GraphInstances"
+    "GraphInstances",
+    "SupportDichotomy"
   ]
 }

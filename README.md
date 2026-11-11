@@ -6,7 +6,7 @@
 
 [![Lean proof check](https://github.com/dicipler-pixel/yang-mills-lean/actions/workflows/build.yml/badge.svg)](https://github.com/dicipler-pixel/yang-mills-lean/actions/workflows/build.yml)
 ![Lean](https://img.shields.io/badge/Lean-v4.33.0-blue)
-![Theorems](https://img.shields.io/badge/theorems-652-2EA043)
+![Theorems](https://img.shields.io/badge/theorems-661-2EA043)
 ![sorry](https://img.shields.io/badge/sorry-0-2EA043)
 ![Code: MIT](https://img.shields.io/badge/code-MIT-lightgrey)
 ![Text: CC BY 4.0](https://img.shields.io/badge/text-CC%20BY%204.0-lightgrey)
@@ -62,7 +62,8 @@ specified finite algebra. The spatial work checks five original-link SU(3) model
 | **Gauge supports as list supports**: the non-trivial links of a labelling, read as a TailFloor link list, have list degree equal to the number of non-trivial half-edges in `ntList` at each vertex. So the regrouped gauge support rule makes every support of a gauge-invariant state `admissible`, with degree at least 2 at every touched vertex. On a simple, two-coloured, codegree-≤2 host, supports with at most six links are single 4- or 6-cycles. Still under the named hypothesis `PeterWeylLattice`; `K_{2,3}` is admissible but not a cycle | [`NtListSupport`](NtListSupport.lean) | 12 |
 | **List order and the cube**: `deg`, vertex membership, `admissible`, and (onto a list with no loops and no repeated link) `connected` and `shortCycle` are unchanged by reordering links. Every sublist of a host with 1 to 6 links is enumerated by `smallSupports`, so a gauge support's host-ordered copy is one of the supports `SmallSupportsAreCycles g` covers. On the cube (`cubeΓ`, link i = i-th pair of `cubeE`), every labelling in the support of a gauge-invariant state with 1 to 6 non-trivial links is a 4- or 6-cycle, under the named hypothesis `PeterWeylLattice` alone | [`PermCube`](PermCube.lean) | 23 |
 | **Graph instances**: the `cubeΓ` pattern made generic (`listΓ g n`, link i = i-th pair of the TailFloor edge list, `lab = Fin.val`) and applied to the two squares, the three-square strip, the corner and the double cube. Under the named hypothesis `PeterWeylLattice` alone, every labelling in the support of a gauge-invariant state with 1 to 6 non-trivial links is a 4- or 6-cycle, so it has exactly 4 or 6 non-trivial links. The double cube uses #23's colouring-and-codegree route, with no support enumeration | [`GraphInstances`](GraphInstances.lean) | 25 |
-| | **Total** | **652** |
+| **Short or long**: one statement per graph (cube, two squares, strip, corner, double cube, and generic `listΓ`). For a nonzero gauge-invariant component with at least one non-trivial link, under `PeterWeylLattice` alone, either it has 4 or 6 non-trivial links forming a short cycle, or more than 6 and the conclusion of `long_support_floor` holds (any 7+ link costs, each at least 4, sum to at least 28 in `c3` units). `long_energy_floor` gives that bound for Dynkin labels, assuming a non-trivial link has a nonzero label | [`SupportDichotomy`](SupportDichotomy.lean) | 9 |
+| | **Total** | **661** |
 
 Among the first 80 theorems, besides the matrix factorizations, fifteen are exact arithmetic checks of
 displayed rational constants: eleven in `GaugeCertificates` and four in `CrossTheorem`.
@@ -76,11 +77,11 @@ Python verifiers are separate and run from the research folders:
 2. **Independent replay**: every module is re-checked by Lean's separate kernel checker.
 3. **Axiom audit**: every named theorem depends only on `propext`, `Classical.choice` and
    `Quot.sound`. No `sorry`, no project axioms, no `native_decide`.
-4. **False controls**: seventeen false statements in [`FalseControls/`](FalseControls/) must be
+4. **False controls**: eighteen false statements in [`FalseControls/`](FalseControls/) must be
    rejected, showing the checker says no. Two are plain arithmetic (`(2 : ℚ) = 3` and
-   `(1 : ℚ)/2 ≤ 1/3`); the other fifteen are near-miss versions of the window-wall cells, Jensen bound,
-   dual-simple, theta floor, triality, transfer-gap, cut-bound, Ky Fan chord, the three regrouped gauge-support statements, a support with a degree-one vertex claimed admissible, `K_{2,3}` claimed to be a short cycle, a reordered support claimed to change a degree, and a 5-link double-cube support claimed to be a short cycle.
-5. **Frozen statements**: 574 theorem statements are frozen, so a proof cannot pass by quietly
+   `(1 : ℚ)/2 ≤ 1/3`); the other sixteen are near-miss versions of the window-wall cells, Jensen bound,
+   dual-simple, theta floor, triality, transfer-gap, cut-bound, Ky Fan chord, the three regrouped gauge-support statements, a support with a degree-one vertex claimed admissible, `K_{2,3}` claimed to be a short cycle, a reordered support claimed to change a degree, a 5-link double-cube support claimed to be a short cycle, and a 3-link strip support claimed to be a short cycle.
+5. **Frozen statements**: 583 theorem statements are frozen, so a proof cannot pass by quietly
    weakening what it proves. Every edit to a frozen statement is logged.
 
 ```bash
@@ -109,7 +110,7 @@ assistants, each working in the open in this repository:
   gap on the one plaquette and the two-square cell, and certified the 58 windows,
   the λ = 5 slope endpoints and the double-cube uniform endpoint.
 - **Lean Green PR Machine** proved the certified-point window wall, `WindowWallMono`, `ThetaFloor`,
-  `ThetaTriality`, `TransferGap`, `CutBound`, `KyFanChord`, `SmallSupportBridge`, `NtListSupport`, `PermCube` and `GraphInstances`, wired the gauge modules into the gate, and cross-checked the
+  `ThetaTriality`, `TransferGap`, `CutBound`, `KyFanChord`, `SmallSupportBridge`, `NtListSupport`, `PermCube`, `GraphInstances` and `SupportDichotomy`, wired the gauge modules into the gate, and cross-checked the
   λ = 5 strip and corner slopes in exact rationals.
 - **ink between the stars** built the 28/3 tail floor and its kernel-checked double-cube check
   (`TailFloor`, `TailFloorDoubleCube`) and proved the general small-support lemma

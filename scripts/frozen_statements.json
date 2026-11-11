@@ -627,6 +627,17 @@
       "dcube_gauge_support_card_ne_five": "{gauge : Representation k (Fin 12 → G) H} (PW : PeterWeylLattice k G dcubeΓ Irr irr H gauge) (ψ : H) (hψ : ∀ g, gauge g ψ = ψ) (π : Fin dcubeE.length → Irr) (hπ : PW.proj π ψ ≠ 0) : (Finset.univ.filter (NTe (irr ∘ π))).card ≠ 5",
       "dcubeFive_sublist": ": dcubeFive.Sublist dcubeE",
       "dcubeFive_not_shortCycle": ": shortCycle dcubeFive = false"
+    },
+    "SupportDichotomy.lean": {
+      "list_support_dichotomy": "{k : Type u} {G : Type v} [Field k] [Group G] (g : Graph) (n : ℕ) (hmem : LinksIn g n) (hinj : NormInj g n) (hs : simpleB g = true) (hSSAC : SmallSupportsAreCycles g) {Irr : Type*} {irr : Irr → FDRep k G} [∀ i, Simple (irr i)] {H : Type*} [AddCommGroup H] [Module k H] {gauge : Representation k (Fin (n + 1) → G) H} (PW : PeterWeylLattice k G (listΓ g n) Irr irr H gauge) (ψ : H) (hψ : ∀ g, gauge g ψ = ψ) (π : Fin g.length → Irr) (hπ : PW.proj π ψ ≠ 0) (h1 : 1 ≤ (Finset.univ.filter (NTe (irr ∘ π))).card) : (((Finset.univ.filter (NTe (irr ∘ π))).card = 4 ∨ (Finset.univ.filter (NTe (irr ∘ π))).card = 6) ∧ shortCycle (supportList (listΓ g n) (irr ∘ π) Fin.val) = true) ∨ (6 < (Finset.univ.filter (NTe (irr ∘ π))).card ∧ ∀ cs : List ℕ, cs.length = (Finset.univ.filter (NTe (irr ∘ π))).card → (∀ x ∈ cs, x ≥ 4) → cs.sum ≥ 28)",
+      "cube_support_dichotomy": "{gauge : Representation k (Fin 8 → G) H} (PW : PeterWeylLattice k G cubeΓ Irr irr H gauge) (ψ : H) (hψ : ∀ g, gauge g ψ = ψ) (π : Fin 12 → Irr) (hπ : PW.proj π ψ ≠ 0) (h1 : 1 ≤ (Finset.univ.filter (NTe (irr ∘ π))).card) : (((Finset.univ.filter (NTe (irr ∘ π))).card = 4 ∨ (Finset.univ.filter (NTe (irr ∘ π))).card = 6) ∧ shortCycle (supportList cubeΓ (irr ∘ π) Fin.val) = true) ∨ (6 < (Finset.univ.filter (NTe (irr ∘ π))).card ∧ ∀ cs : List ℕ, cs.length = (Finset.univ.filter (NTe (irr ∘ π))).card → (∀ x ∈ cs, x ≥ 4) → cs.sum ≥ 28)",
+      "two_support_dichotomy": "{gauge : Representation k (Fin 6 → G) H} (PW : PeterWeylLattice k G twoΓ Irr irr H gauge) (ψ : H) (hψ : ∀ g, gauge g ψ = ψ) (π : Fin twoE.length → Irr) (hπ : PW.proj π ψ ≠ 0) (h1 : 1 ≤ (Finset.univ.filter (NTe (irr ∘ π))).card) : (((Finset.univ.filter (NTe (irr ∘ π))).card = 4 ∨ (Finset.univ.filter (NTe (irr ∘ π))).card = 6) ∧ shortCycle (supportList twoΓ (irr ∘ π) Fin.val) = true) ∨ (6 < (Finset.univ.filter (NTe (irr ∘ π))).card ∧ ∀ cs : List ℕ, cs.length = (Finset.univ.filter (NTe (irr ∘ π))).card → (∀ x ∈ cs, x ≥ 4) → cs.sum ≥ 28)",
+      "strip_support_dichotomy": "{gauge : Representation k (Fin 8 → G) H} (PW : PeterWeylLattice k G stripΓ Irr irr H gauge) (ψ : H) (hψ : ∀ g, gauge g ψ = ψ) (π : Fin stripE.length → Irr) (hπ : PW.proj π ψ ≠ 0) (h1 : 1 ≤ (Finset.univ.filter (NTe (irr ∘ π))).card) : (((Finset.univ.filter (NTe (irr ∘ π))).card = 4 ∨ (Finset.univ.filter (NTe (irr ∘ π))).card = 6) ∧ shortCycle (supportList stripΓ (irr ∘ π) Fin.val) = true) ∨ (6 < (Finset.univ.filter (NTe (irr ∘ π))).card ∧ ∀ cs : List ℕ, cs.length = (Finset.univ.filter (NTe (irr ∘ π))).card → (∀ x ∈ cs, x ≥ 4) → cs.sum ≥ 28)",
+      "corner_support_dichotomy": "{gauge : Representation k (Fin 7 → G) H} (PW : PeterWeylLattice k G cornerΓ Irr irr H gauge) (ψ : H) (hψ : ∀ g, gauge g ψ = ψ) (π : Fin cornerE.length → Irr) (hπ : PW.proj π ψ ≠ 0) (h1 : 1 ≤ (Finset.univ.filter (NTe (irr ∘ π))).card) : (((Finset.univ.filter (NTe (irr ∘ π))).card = 4 ∨ (Finset.univ.filter (NTe (irr ∘ π))).card = 6) ∧ shortCycle (supportList cornerΓ (irr ∘ π) Fin.val) = true) ∨ (6 < (Finset.univ.filter (NTe (irr ∘ π))).card ∧ ∀ cs : List ℕ, cs.length = (Finset.univ.filter (NTe (irr ∘ π))).card → (∀ x ∈ cs, x ≥ 4) → cs.sum ≥ 28)",
+      "dcube_support_dichotomy": "{gauge : Representation k (Fin 12 → G) H} (PW : PeterWeylLattice k G dcubeΓ Irr irr H gauge) (ψ : H) (hψ : ∀ g, gauge g ψ = ψ) (π : Fin dcubeE.length → Irr) (hπ : PW.proj π ψ ≠ 0) (h1 : 1 ≤ (Finset.univ.filter (NTe (irr ∘ π))).card) : (((Finset.univ.filter (NTe (irr ∘ π))).card = 4 ∨ (Finset.univ.filter (NTe (irr ∘ π))).card = 6) ∧ shortCycle (supportList dcubeΓ (irr ∘ π) Fin.val) = true) ∨ (6 < (Finset.univ.filter (NTe (irr ∘ π))).card ∧ ∀ cs : List ℕ, cs.length = (Finset.univ.filter (NTe (irr ∘ π))).card → (∀ x ∈ cs, x ≥ 4) → cs.sum ≥ 28)",
+      "long_energy_floor": "{k : Type u} {G : Type v} [Field k] [Group G] {E : Type*} [Fintype E] {Irr : Type*} (irr : Irr → FDRep k G) (π : E → Irr) (lbl : Irr → ℕ × ℕ) (hnt : ∀ e, NTe (irr ∘ π) e → (lbl (π e)).1 + (lbl (π e)).2 ≥ 1) (hlong : 6 < (Finset.univ.filter (NTe (irr ∘ π))).card) : (((Finset.univ.filter (NTe (irr ∘ π))).toList).map (fun e => c3 (lbl (π e)).1 (lbl (π e)).2)).sum ≥ 28",
+      "stripThree_sublist": ": stripThree.Sublist stripE",
+      "stripThree_not_shortCycle": ": shortCycle stripThree = false"
     }
   },
   "complete_files": [
@@ -653,6 +664,7 @@
     "SmallSupportBridge.lean",
     "NtListSupport.lean",
     "PermCube.lean",
-    "GraphInstances.lean"
+    "GraphInstances.lean",
+    "SupportDichotomy.lean"
   ]
 }
