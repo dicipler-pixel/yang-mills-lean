@@ -209,8 +209,8 @@
       "path": "HntLabels.lean"
     }
   ],
-  "expected_theorems": 580,
-  "expected_false_controls": 10,
+  "expected_theorems": 995,
+  "expected_false_controls": 33,
   "root_imports": [
     "GaugeCertificates",
     "LongestYangMillsChain",
