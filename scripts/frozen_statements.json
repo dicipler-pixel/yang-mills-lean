@@ -788,6 +788,33 @@
       "epsMixed_centre": ": (fund ⊗ (fund ⊗ antifund)).ρ zω epsMixed = ω • epsMixed",
       "invariants_mixed_eq_bot": ": Representation.invariants (fund ⊗ (fund ⊗ antifund)).ρ = ⊥",
       "epsMixed_not_invariant": ": ¬ ∀ g : SU3, (fund ⊗ (fund ⊗ antifund)).ρ g epsMixed = epsMixed"
+    },
+    "GraphInstances.lean": {
+      "list_gauge_support_shortCycle": "{k : Type u} {G : Type v} [Field k] [Group G] (g : Graph) (n : ℕ) (hmem : LinksIn g n) (hinj : NormInj g n) (hs : simpleB g = true) (hSSAC : SmallSupportsAreCycles g) {Irr : Type*} {irr : Irr → FDRep k G} [∀ i, Simple (irr i)] {H : Type*} [AddCommGroup H] [Module k H] {gauge : Representation k (Fin (n + 1) → G) H} (PW : PeterWeylLattice k G (listΓ g n) Irr irr H gauge) (ψ : H) (hψ : ∀ g, gauge g ψ = ψ) (π : Fin g.length → Irr) (hπ : PW.proj π ψ ≠ 0) (h1 : 1 ≤ (Finset.univ.filter (NTe (irr ∘ π))).card) (h6 : (Finset.univ.filter (NTe (irr ∘ π))).card ≤ 6) : shortCycle (supportList (listΓ g n) (irr ∘ π) Fin.val) = true",
+      "list_gauge_support_card": "{k : Type u} {G : Type v} [Field k] [Group G] (g : Graph) (n : ℕ) (hmem : LinksIn g n) (hinj : NormInj g n) (hs : simpleB g = true) (hSSAC : SmallSupportsAreCycles g) {Irr : Type*} {irr : Irr → FDRep k G} [∀ i, Simple (irr i)] {H : Type*} [AddCommGroup H] [Module k H] {gauge : Representation k (Fin (n + 1) → G) H} (PW : PeterWeylLattice k G (listΓ g n) Irr irr H gauge) (ψ : H) (hψ : ∀ g, gauge g ψ = ψ) (π : Fin g.length → Irr) (hπ : PW.proj π ψ ≠ 0) (h1 : 1 ≤ (Finset.univ.filter (NTe (irr ∘ π))).card) (h6 : (Finset.univ.filter (NTe (irr ∘ π))).card ≤ 6) : (Finset.univ.filter (NTe (irr ∘ π))).card = 4 ∨ (Finset.univ.filter (NTe (irr ∘ π))).card = 6",
+      "twoΓ_links": ": LinksIn twoE 5",
+      "twoΓ_norm_inj": ": NormInj twoE 5",
+      "twoE_simple": ": simpleB twoE = true",
+      "stripΓ_links": ": LinksIn stripE 7",
+      "stripΓ_norm_inj": ": NormInj stripE 7",
+      "stripE_simple": ": simpleB stripE = true",
+      "cornerΓ_links": ": LinksIn cornerE 6",
+      "cornerΓ_norm_inj": ": NormInj cornerE 6",
+      "cornerE_simple": ": simpleB cornerE = true",
+      "dcubeΓ_links": ": LinksIn dcubeE 11",
+      "dcubeΓ_norm_inj": ": NormInj dcubeE 11",
+      "dcubeE_simple": ": simpleB dcubeE = true",
+      "two_gauge_support_shortCycle": "{gauge : Representation k (Fin 6 → G) H} (PW : PeterWeylLattice k G twoΓ Irr irr H gauge) (ψ : H) (hψ : ∀ g, gauge g ψ = ψ) (π : Fin twoE.length → Irr) (hπ : PW.proj π ψ ≠ 0) (h1 : 1 ≤ (Finset.univ.filter (NTe (irr ∘ π))).card) (h6 : (Finset.univ.filter (NTe (irr ∘ π))).card ≤ 6) : shortCycle (supportList twoΓ (irr ∘ π) Fin.val) = true",
+      "two_gauge_support_card": "{gauge : Representation k (Fin 6 → G) H} (PW : PeterWeylLattice k G twoΓ Irr irr H gauge) (ψ : H) (hψ : ∀ g, gauge g ψ = ψ) (π : Fin twoE.length → Irr) (hπ : PW.proj π ψ ≠ 0) (h1 : 1 ≤ (Finset.univ.filter (NTe (irr ∘ π))).card) (h6 : (Finset.univ.filter (NTe (irr ∘ π))).card ≤ 6) : (Finset.univ.filter (NTe (irr ∘ π))).card = 4 ∨ (Finset.univ.filter (NTe (irr ∘ π))).card = 6",
+      "strip_gauge_support_shortCycle": "{gauge : Representation k (Fin 8 → G) H} (PW : PeterWeylLattice k G stripΓ Irr irr H gauge) (ψ : H) (hψ : ∀ g, gauge g ψ = ψ) (π : Fin stripE.length → Irr) (hπ : PW.proj π ψ ≠ 0) (h1 : 1 ≤ (Finset.univ.filter (NTe (irr ∘ π))).card) (h6 : (Finset.univ.filter (NTe (irr ∘ π))).card ≤ 6) : shortCycle (supportList stripΓ (irr ∘ π) Fin.val) = true",
+      "strip_gauge_support_card": "{gauge : Representation k (Fin 8 → G) H} (PW : PeterWeylLattice k G stripΓ Irr irr H gauge) (ψ : H) (hψ : ∀ g, gauge g ψ = ψ) (π : Fin stripE.length → Irr) (hπ : PW.proj π ψ ≠ 0) (h1 : 1 ≤ (Finset.univ.filter (NTe (irr ∘ π))).card) (h6 : (Finset.univ.filter (NTe (irr ∘ π))).card ≤ 6) : (Finset.univ.filter (NTe (irr ∘ π))).card = 4 ∨ (Finset.univ.filter (NTe (irr ∘ π))).card = 6",
+      "corner_gauge_support_shortCycle": "{gauge : Representation k (Fin 7 → G) H} (PW : PeterWeylLattice k G cornerΓ Irr irr H gauge) (ψ : H) (hψ : ∀ g, gauge g ψ = ψ) (π : Fin cornerE.length → Irr) (hπ : PW.proj π ψ ≠ 0) (h1 : 1 ≤ (Finset.univ.filter (NTe (irr ∘ π))).card) (h6 : (Finset.univ.filter (NTe (irr ∘ π))).card ≤ 6) : shortCycle (supportList cornerΓ (irr ∘ π) Fin.val) = true",
+      "corner_gauge_support_card": "{gauge : Representation k (Fin 7 → G) H} (PW : PeterWeylLattice k G cornerΓ Irr irr H gauge) (ψ : H) (hψ : ∀ g, gauge g ψ = ψ) (π : Fin cornerE.length → Irr) (hπ : PW.proj π ψ ≠ 0) (h1 : 1 ≤ (Finset.univ.filter (NTe (irr ∘ π))).card) (h6 : (Finset.univ.filter (NTe (irr ∘ π))).card ≤ 6) : (Finset.univ.filter (NTe (irr ∘ π))).card = 4 ∨ (Finset.univ.filter (NTe (irr ∘ π))).card = 6",
+      "dcube_gauge_support_shortCycle": "{gauge : Representation k (Fin 12 → G) H} (PW : PeterWeylLattice k G dcubeΓ Irr irr H gauge) (ψ : H) (hψ : ∀ g, gauge g ψ = ψ) (π : Fin dcubeE.length → Irr) (hπ : PW.proj π ψ ≠ 0) (h1 : 1 ≤ (Finset.univ.filter (NTe (irr ∘ π))).card) (h6 : (Finset.univ.filter (NTe (irr ∘ π))).card ≤ 6) : shortCycle (supportList dcubeΓ (irr ∘ π) Fin.val) = true",
+      "dcube_gauge_support_card": "{gauge : Representation k (Fin 12 → G) H} (PW : PeterWeylLattice k G dcubeΓ Irr irr H gauge) (ψ : H) (hψ : ∀ g, gauge g ψ = ψ) (π : Fin dcubeE.length → Irr) (hπ : PW.proj π ψ ≠ 0) (h1 : 1 ≤ (Finset.univ.filter (NTe (irr ∘ π))).card) (h6 : (Finset.univ.filter (NTe (irr ∘ π))).card ≤ 6) : (Finset.univ.filter (NTe (irr ∘ π))).card = 4 ∨ (Finset.univ.filter (NTe (irr ∘ π))).card = 6",
+      "dcube_gauge_support_card_ne_five": "{gauge : Representation k (Fin 12 → G) H} (PW : PeterWeylLattice k G dcubeΓ Irr irr H gauge) (ψ : H) (hψ : ∀ g, gauge g ψ = ψ) (π : Fin dcubeE.length → Irr) (hπ : PW.proj π ψ ≠ 0) : (Finset.univ.filter (NTe (irr ∘ π))).card ≠ 5",
+      "dcubeFive_sublist": ": dcubeFive.Sublist dcubeE",
+      "dcubeFive_not_shortCycle": ": shortCycle dcubeFive = false"
     }
   },
   "complete_files": [
@@ -820,6 +847,7 @@
     "ThetaFloorTriality.lean",
     "GaugeSupportReshuffleRep.lean",
     "PermCube.lean",
-    "SingletWitnessSU3.lean"
+    "SingletWitnessSU3.lean",
+    "GraphInstances.lean"
   ]
 }

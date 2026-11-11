@@ -179,6 +179,10 @@
     {
       "module": "SingletWitnessSU3",
       "path": "SingletWitnessSU3.lean"
+    },
+    {
+      "module": "GraphInstances",
+      "path": "GraphInstances.lean"
     }
   ],
   "expected_theorems": 580,
@@ -220,6 +224,7 @@
     "ThetaFloorTriality",
     "GaugeSupportReshuffleRep",
     "PermCube",
-    "SingletWitnessSU3"
+    "SingletWitnessSU3",
+    "GraphInstances"
   ]
 }

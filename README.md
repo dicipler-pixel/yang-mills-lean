@@ -17,6 +17,7 @@
 ![Theorems](https://img.shields.io/badge/theorems-611-2EA043)
 ![Theorems](https://img.shields.io/badge/theorems-627-2EA043)
 ![Theorems](https://img.shields.io/badge/theorems-681-2EA043)
+![Theorems](https://img.shields.io/badge/theorems-652-2EA043)
 ![sorry](https://img.shields.io/badge/sorry-0-2EA043)
 ![Code: MIT](https://img.shields.io/badge/code-MIT-lightgrey)
 ![Text: CC BY 4.0](https://img.shields.io/badge/text-CC%20BY%204.0-lightgrey)
@@ -91,6 +92,8 @@ specified finite algebra. The spatial work checks five original-link SU(3) model
 | | **Total** | **627** |
 | **Explicit SU(3) singlets: the smallest theta rows are attained**: Σᵢ eᵢ ⊗ eᵢ* in 3 ⊗ 3̄ (from g g⁻¹ = 1), ε = Σ ε_{ijk} eᵢ ⊗ eⱼ ⊗ e_k in 3 ⊗ 3 ⊗ 3 (from det g = 1, via Σ ε_{ijk} g_{ai} g_{bj} g_{ck} = det g · ε_{abc}) and its dual in 3̄ ⊗ 3̄ ⊗ 3̄ (from det (g⁻¹)ᵀ = 1) are each nonzero and SU(3)-invariant. So the eight theta-table rows with arms in {1, 3, 3̄} — the six orderings of (1, 3̄, 3), (3, 3, 3) and (3̄, 3̄, 3̄) — have a nonzero invariant at both theta vertices: attained, not only allowed. The same ε placed in 3 ⊗ 3 ⊗ 3̄ is scaled by ω under ω·I and is not invariant; 3 ⊗ 3 ⊗ 3̄ has no invariant at all. The arms are 3, 3̄, 1 themselves; identifying them with V(1,0), V(0,1), V(0,0) is not formalized | [`SingletWitnessSU3`](SingletWitnessSU3.lean) | 45 |
 | | **Total** | **681** |
+| **Graph instances**: the `cubeΓ` pattern made generic (`listΓ g n`, link i = i-th pair of the TailFloor edge list, `lab = Fin.val`) and applied to the two squares, the three-square strip, the corner and the double cube. Under the named hypothesis `PeterWeylLattice` alone, every labelling in the support of a gauge-invariant state with 1 to 6 non-trivial links is a 4- or 6-cycle, so it has exactly 4 or 6 non-trivial links. The double cube uses #23's colouring-and-codegree route, with no support enumeration | [`GraphInstances`](GraphInstances.lean) | 25 |
+| | **Total** | **652** |
 
 Among the first 80 theorems, besides the matrix factorizations, fifteen are exact arithmetic checks of
 displayed rational constants: eleven in `GaugeCertificates` and four in `CrossTheorem`.
@@ -139,6 +142,8 @@ Python verifiers are separate and run from the research folders:
    triality 2 of 3 ⊗ 3, and a theta-table row (1, 3̄, 3) with the 3̄ arm's triality swapped p ↔ q,
    and the Levi-Civita tensor ε claimed SU(3)-invariant in 3 ⊗ 3 ⊗ 3̄.
 5. **Frozen statements**: 603 theorem statements are frozen, so a proof cannot pass by quietly
+   dual-simple, theta floor, triality, transfer-gap, cut-bound, Ky Fan chord, the three regrouped gauge-support statements, a support with a degree-one vertex claimed admissible, `K_{2,3}` claimed to be a short cycle, a reordered support claimed to change a degree, and a 5-link double-cube support claimed to be a short cycle.
+5. **Frozen statements**: 574 theorem statements are frozen, so a proof cannot pass by quietly
    weakening what it proves. Every edit to a frozen statement is logged.
 
 ```bash
@@ -189,6 +194,7 @@ assistants, each working in the open in this repository:
   `ThetaTriality`, `TransferGap`, `CutBound`, `KyFanChord`, `TrialityVertex` and `CentreCharacterSU3`, wired the gauge modules into the gate, and cross-checked the
   `ThetaTriality`, `TransferGap`, `CutBound`, `KyFanChord`, `SmallSupportBridge` and `NtListSupport`, wired the gauge modules into the gate, and cross-checked the
   `ThetaTriality`, `TransferGap`, `CutBound`, `KyFanChord`, `SmallSupportBridge`, `NtListSupport` and `PermCube`, wired the gauge modules into the gate, and cross-checked the
+  `ThetaTriality`, `TransferGap`, `CutBound`, `KyFanChord`, `SmallSupportBridge`, `NtListSupport`, `PermCube` and `GraphInstances`, wired the gauge modules into the gate, and cross-checked the
   λ = 5 strip and corner slopes in exact rationals.
 - **ink between the stars** built the 28/3 tail floor and its kernel-checked double-cube check
   (`TailFloor`, `TailFloorDoubleCube`) and proved the general small-support lemma
