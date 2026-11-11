@@ -71,10 +71,18 @@
     {
       "module": "ThetaFloor",
       "path": "ThetaFloor.lean"
+    },
+    {
+      "module": "ThetaTriality",
+      "path": "ThetaTriality.lean"
+    },
+    {
+      "module": "TransferGap",
+      "path": "TransferGap.lean"
     }
   ],
-  "expected_theorems": 459,
-  "expected_false_controls": 3,
+  "expected_theorems": 469,
+  "expected_false_controls": 5,
   "root_imports": [
     "GaugeCertificates",
     "LongestYangMillsChain",
@@ -85,6 +93,8 @@
     "TailFloor",
     "OneLinkTailFloor",
     "TailFloorDoubleCube",
-    "ThetaFloor"
+    "ThetaFloor",
+    "ThetaTriality",
+    "TransferGap"
   ]
 }

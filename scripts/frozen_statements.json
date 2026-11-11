@@ -422,6 +422,20 @@
       "theta_levels": "(n : Nat) (hn : n ≤ 51) : (∃ a b c : Irrep, admissible a b c = true ∧ level3 a b c = n) ↔ n ∈ levelSet3",
       "levelSet3_sorted": ": levelSet3.Pairwise (· < ·)",
       "theta_floor": "(a b c : Irrep) (h : admissible a b c = true) : 16 ≤ level3 a b c"
+    },
+    "ThetaTriality.lean": {
+      "triality_fund": ": triality (1, 0) = 1",
+      "triality_antifund": ": triality (0, 1) = 2",
+      "triality_adjoint": ": triality (1, 1) = 0",
+      "triality_conj": "(x : Irrep) : (triality x + triality (conj x)) % 3 = 0",
+      "singlet_triality": "(a b c : Irrep) (h : hasSinglet a b c = true) : (triality a + triality b + triality c) % 3 = 0",
+      "theta_vertex_triality": "(a b c : Irrep) (h : admissible a b c = true) : (triality a + triality b + triality c) % 3 = 0 ∧ (triality (conj a) + triality (conj b) + triality (conj c)) % 3 = 0",
+      "no_lone_triality": "(a b c : Irrep) (h : admissible a b c = true) : ¬ ((triality a ≠ 0 ∧ triality b = 0 ∧ triality c = 0) ∨ (triality a = 0 ∧ triality b ≠ 0 ∧ triality c = 0) ∨ (triality a = 0 ∧ triality b = 0 ∧ triality c ≠ 0))",
+      "no_lone_arm": "(x : Irrep) (hx : x ≠ (0, 0)) : hasSinglet x (0, 0) (0, 0) = false ∧ hasSinglet (0, 0) x (0, 0) = false ∧ hasSinglet (0, 0) (0, 0) x = false"
+    },
+    "TransferGap.lean": {
+      "decay_rate_eq_gap": "(a E₀ E₁ : ℝ) : -Real.log (Real.exp (-(a * E₁)) / Real.exp (-(a * E₀))) = a * (E₁ - E₀)",
+      "decay_rate_eq_gap'": "(a E₀ E₁ t₀ t₁ : ℝ) (h₀ : t₀ = Real.exp (-(a * E₀))) (h₁ : t₁ = Real.exp (-(a * E₁))) : -Real.log (t₁ / t₀) = a * (E₁ - E₀)"
     }
   },
   "complete_files": [
@@ -432,6 +446,8 @@
     "OneLinkTailFloor.lean",
     "TailFloor.lean",
     "TailFloorDoubleCube.lean",
-    "ThetaFloor.lean"
+    "ThetaFloor.lean",
+    "ThetaTriality.lean",
+    "TransferGap.lean"
   ]
 }
