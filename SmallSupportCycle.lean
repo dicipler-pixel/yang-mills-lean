@@ -18,8 +18,9 @@ other side to be their common neighbours, so it has 2 too (4-cycle); otherwise b
 3 vertices, there are exactly 6 links and every degree is 2. Two vertices on one side always
 share a neighbour (2 + 2 > 3), which gives connectivity.
 
-Open item: the bridge from this statement to the list-based `TailFloor.SmallSupportsAreCycles`
-(relabelling a list support into a `SimpleGraph`) is not formalized here.
+Bridge (formerly the open item): the link from this statement to the list-based
+`TailFloor.SmallSupportsAreCycles` (relabelling a list support into a `SimpleGraph`) is proved in
+`SmallSupportBridge.lean` (`SmallSupportBridge.smallSupportsAreCycles_of`).
 -/
 
 open Finset

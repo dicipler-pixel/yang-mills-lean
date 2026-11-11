@@ -16,4 +16,4 @@ name = "CrossTheorem"
 roots = ["CrossTheorem", "MatrixResolvedBoundary", "SchurCongruence", "ProjectorKernel",
   "CouplingFeedback", "ObservabilityKernel", "ProjectorDynamics", "TailGapTransfer",
   "SchurFloorTransfer", "NonuniformAllocationFloor", "LongestYangMillsChain",
-  "SchurInertiaComparison", "SchurInertiaCount", "WindowWall", "WindowWallDeriv", "WindowWallFinite", "WindowWallMono", "WindowWallCells", "OneLinkTailFloor", "TailFloor", "TailFloorDoubleCube", "GaugeSupport", "GaugeSupportFDRep", "GaugeSupportLattice", "DualSimple", "WindowWallJensen", "SmallSupportCycle", "ThetaFloor", "ThetaTriality", "TransferGap", "KyFanChord", "CutBound", "GaugeSupportRegroup"]
+  "SchurInertiaComparison", "SchurInertiaCount", "WindowWall", "WindowWallDeriv", "WindowWallFinite", "WindowWallMono", "WindowWallCells", "OneLinkTailFloor", "TailFloor", "TailFloorDoubleCube", "GaugeSupport", "GaugeSupportFDRep", "GaugeSupportLattice", "DualSimple", "WindowWallJensen", "SmallSupportCycle", "ThetaFloor", "ThetaTriality", "TransferGap", "KyFanChord", "CutBound", "GaugeSupportRegroup", "SmallSupportBridge"]

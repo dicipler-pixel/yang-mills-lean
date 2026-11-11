@@ -135,9 +135,13 @@
     {
       "module": "GaugeSupportRegroup",
       "path": "GaugeSupportRegroup.lean"
+    },
+    {
+      "module": "SmallSupportBridge",
+      "path": "SmallSupportBridge.lean"
     }
   ],
-  "expected_theorems": 565,
+  "expected_theorems": 592,
   "expected_false_controls": 13,
   "root_imports": [
     "GaugeCertificates",
@@ -165,6 +169,7 @@
     "TransferGap",
     "KyFanChord",
     "CutBound",
-    "GaugeSupportRegroup"
+    "GaugeSupportRegroup",
+    "SmallSupportBridge"
   ]
 }

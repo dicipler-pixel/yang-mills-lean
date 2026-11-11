@@ -532,6 +532,35 @@
       "support_nonempty": "{Γ : OrientedGraph Vx E} {Irr : Type*} {irr : Irr → FDRep k G} {H : Type*} [AddCommGroup H] [Module k H] {gauge : Representation k (Vx → G) H} (PW : PeterWeylLattice k G Γ Irr irr H gauge) (ψ : H) (hψ0 : ψ ≠ 0) : ∃ π, PW.proj π ψ ≠ 0",
       "gauge_support_rule_regrouped": "[DecidableEq Vx] {Γ : OrientedGraph Vx E} {Irr : Type*} {irr : Irr → FDRep k G} [∀ i, Simple (irr i)] {H : Type*} [AddCommGroup H] [Module k H] {gauge : Representation k (Vx → G) H} (PW : PeterWeylLattice k G Γ Irr irr H gauge) (ψ : H) (hψ : ∀ g, gauge g ψ = ψ) (π : E → Irr) (hπ : PW.proj π ψ ≠ 0) (v : Vx) : (∀ x, ntList (incident Γ (irr ∘ π) v) ≠ [x]) ∧ (∀ x y, ntList (incident Γ (irr ∘ π) v) = [x, y] → (x.out = true → y.out = false → Nonempty (x.rep ≅ y.rep)) ∧ (x.out = false → y.out = true → Nonempty (x.rep ≅ y.rep)) ∧ (x.out = true → y.out = true → Nonempty (x.repᘁ ≅ y.rep)) ∧ (x.out = false → y.out = false → Nonempty (x.rep ≅ y.repᘁ)))",
       "gauge_support_rule_regrouped_SU3": "[DecidableEq Vx] {Γ : OrientedGraph Vx E} {Irr : Type*} {irr : Irr → FDRep ℂ SU3} [∀ i, Simple (irr i)] {H : Type*} [AddCommGroup H] [Module ℂ H] {gauge : Representation ℂ (Vx → SU3) H} (PW : PeterWeylSU3 Γ Irr irr H gauge) (ψ : H) (hψ : ∀ g, gauge g ψ = ψ) (π : E → Irr) (hπ : PW.proj π ψ ≠ 0) (v : Vx) : (∀ x, ntList (incident Γ (irr ∘ π) v) ≠ [x]) ∧ (∀ x y, ntList (incident Γ (irr ∘ π) v) = [x, y] → (x.out = true → y.out = false → Nonempty (x.rep ≅ y.rep)) ∧ (x.out = false → y.out = true → Nonempty (x.rep ≅ y.rep)) ∧ (x.out = true → y.out = true → Nonempty (x.repᘁ ≅ y.rep)) ∧ (x.out = false → y.out = false → Nonempty (x.rep ≅ y.repᘁ)))"
+    },
+    "SmallSupportBridge.lean": {
+      "mem_verts": "(s : Graph) (v : ℕ) : v ∈ verts s ↔ ∃ e ∈ s, e.1 = v ∨ e.2 = v",
+      "adjB_iff": "(s : Graph) (u w : ℕ) : adjB s u w = true ↔ adjP s u w",
+      "adjP_verts": "{s : Graph} {u w : ℕ} (h : adjP s u w) : u ∈ verts s ∧ w ∈ verts s",
+      "simpleB_sound": "{g : Graph} (h : simpleB g = true) : (∀ e ∈ g, e.1 ≠ e.2) ∧ (g.map norm).Nodup",
+      "bipB_sound": "{col : ℕ → Bool} {g : Graph} (h : bipB col g = true) : ∀ e ∈ g, col e.1 ≠ col e.2",
+      "codeg2B_sound": "{g : Graph} (h : codeg2B g = true) : ∀ u v, u ≠ v → ∀ T : Finset ℕ, (∀ w ∈ T, adjP g u w ∧ adjP g v w) → #T ≤ 2",
+      "supG_adj": "{s : Graph} {u w : Sup s} : (supG s).Adj u w ↔ u.1 ≠ w.1 ∧ adjP s u.1 w.1",
+      "mem_sup": "{s : Graph} {v : ℕ} : v ∈ (verts s).toFinset ↔ ∃ e ∈ s, e.1 = v ∨ e.2 = v",
+      "degree_eq_deg": "{s : Graph} (hloop : ∀ e ∈ s, e.1 ≠ e.2) (hnd : (s.map norm).Nodup) (v : Sup s) : (supG s).degree v = deg s v.1",
+      "card_edgeFinset_eq_length": "{s : Graph} (hloop : ∀ e ∈ s, e.1 ≠ e.2) (hnd : (s.map norm).Nodup) : #(supG s).edgeFinset = s.length",
+      "reach_succ": "(s : Graph) (n : ℕ) (acc : List ℕ) : reach s (n + 1) acc = reach s n (pass s acc)",
+      "foldl_mono": "(l : Graph) {x : ℕ} : ∀ acc : List ℕ, x ∈ acc → x ∈ pass l acc",
+      "foldl_edge": "(l : Graph) {e : ℕ × ℕ} (he : e ∈ l) : ∀ acc : List ℕ, (e.1 ∈ acc ∨ e.2 ∈ acc) → e.2 ∈ pass l acc ∧ e.1 ∈ pass l acc",
+      "reach_mono": "(s : Graph) {x : ℕ} : ∀ (n : ℕ) (acc : List ℕ), x ∈ acc → x ∈ reach s n acc | 0, _, h => h | n + 1, acc, h => by rw [reach_succ]; exact reach_mono s n _ (foldl_mono s acc h) theorem walk_reach {s : Graph} {x y : Sup s} (p : (supG s).Walk x y) : ∀ (n : ℕ) (acc : List ℕ), p.length ≤ n → x.1 ∈ acc → y.1 ∈ reach s n acc",
+      "walk_reach": "{s : Graph} {x y : Sup s} (p : (supG s).Walk x y) : ∀ (n : ℕ) (acc : List ℕ), p.length ≤ n → x.1 ∈ acc → y.1 ∈ reach s n acc",
+      "connected_of_connected": "{s : Graph} (hloop : ∀ e ∈ s, e.1 ≠ e.2) (hnd : (s.map norm).Nodup) (hc : (supG s).Connected) : connected s = true",
+      "shortCycle_of": "(s : Graph) (col : ℕ → Bool) (hloop : ∀ e ∈ s, e.1 ≠ e.2) (hnd : (s.map norm).Nodup) (hbip : ∀ e ∈ s, col e.1 ≠ col e.2) (hcod : ∀ u v, u ≠ v → ∀ T : Finset ℕ, (∀ w ∈ T, adjP s u w ∧ adjP s v w) → #T ≤ 2) (hne : s ≠ []) (hlen : s.length ≤ 6) (hadm : admissible s = true) : shortCycle s = true",
+      "mem_choose": ": ∀ (k : ℕ) (l s : Graph), s ∈ TailFloor.choose k l → s.Sublist l ∧ s.length = k | 0, _, s, h => by simp [TailFloor.choose] at h; subst h; simp | _ + 1, [], s, h => by simp [TailFloor.choose] at h | k + 1, e :: es, s, h => by simp only [TailFloor.choose, List.mem_append, List.mem_map] at h rcases h with ⟨t, ht, rfl⟩ | h · obtain ⟨h1, h2⟩",
+      "smallSupportsAreCycles_of": "(g : Graph) (col : ℕ → Bool) (hloop : ∀ e ∈ g, e.1 ≠ e.2) (hnd : (g.map norm).Nodup) (hbip : ∀ e ∈ g, col e.1 ≠ col e.2) (hcod : ∀ u v, u ≠ v → ∀ T : Finset ℕ, (∀ w ∈ T, adjP g u w ∧ adjP g v w) → #T ≤ 2) : SmallSupportsAreCycles g",
+      "smallSupportsAreCycles_of_check": "(g : Graph) (col : ℕ → Bool) (hs : simpleB g = true) (hb : bipB col g = true) (hc : codeg2B g = true) : SmallSupportsAreCycles g",
+      "two_cycles_of_codegree": ": SmallSupportsAreCycles twoE",
+      "strip_cycles_of_codegree": ": SmallSupportsAreCycles stripE",
+      "corner_cycles_of_codegree": ": SmallSupportsAreCycles cornerE",
+      "cube_cycles_of_codegree": ": SmallSupportsAreCycles cubeE",
+      "dcube_cycles_of_codegree": ": SmallSupportsAreCycles dcubeE",
+      "k23_simple_bipartite": ": simpleB k23E = true ∧ bipB (fun v => v < 2) k23E = true",
+      "k23_codegree_fails": ": codeg2B k23E = false"
     }
   },
   "complete_files": [
@@ -554,6 +583,7 @@
     "TransferGap.lean",
     "KyFanChord.lean",
     "CutBound.lean",
-    "GaugeSupportRegroup.lean"
+    "GaugeSupportRegroup.lean",
+    "SmallSupportBridge.lean"
   ]
 }

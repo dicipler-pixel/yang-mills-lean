@@ -6,7 +6,7 @@
 
 [![Lean proof check](https://github.com/dicipler-pixel/yang-mills-lean/actions/workflows/build.yml/badge.svg)](https://github.com/dicipler-pixel/yang-mills-lean/actions/workflows/build.yml)
 ![Lean](https://img.shields.io/badge/Lean-v4.33.0-blue)
-![Theorems](https://img.shields.io/badge/theorems-565-2EA043)
+![Theorems](https://img.shields.io/badge/theorems-592-2EA043)
 ![sorry](https://img.shields.io/badge/sorry-0-2EA043)
 ![Code: MIT](https://img.shields.io/badge/code-MIT-lightgrey)
 ![Text: CC BY 4.0](https://img.shields.io/badge/text-CC%20BY%204.0-lightgrey)
@@ -53,12 +53,13 @@ specified finite algebra. The spatial work checks five original-link SU(3) model
 | **Finite inertia count**: positive codimension-one and negative one-dimensional subspaces give exactly one negative direction and no radical | [`SchurInertiaCount`](SchurInertiaCount.lean) | 1 |
 | **Window wall**: the window function W(s), its derivative and finite (derivative-free) bounds, monotonicity in the coupling (an exclusion carries to every larger λ), the certified cells, and the split-free two-halves Jensen bound | [`WindowWall`](WindowWall.lean), [`WindowWallDeriv`](WindowWallDeriv.lean), [`WindowWallFinite`](WindowWallFinite.lean), [`WindowWallMono`](WindowWallMono.lean), [`WindowWallCells`](WindowWallCells.lean), [`WindowWallJensen`](WindowWallJensen.lean) | 37 |
 | **Tail floor**: the 28/3 electric tail floor (layers 1 and 3), the one-link SU(3) tail floor, and the kernel-checked double-cube support check (328 lemmas) | [`TailFloor`](TailFloor.lean), [`OneLinkTailFloor`](OneLinkTailFloor.lean), [`TailFloorDoubleCube`](TailFloorDoubleCube.lean) | 350 |
-| **Small supports are cycles**: on a bipartite graph where no two vertices share three neighbours, a support with at most 6 links and minimum degree 2 is a single 4- or 6-cycle, proved in general with no search. The link from it to the list-based `SmallSupportsAreCycles` hypothesis used by `TailFloor` is not formalized yet | [`SmallSupportCycle`](SmallSupportCycle.lean) | 6 |
+| **Small supports are cycles**: on a bipartite graph where no two vertices share three neighbours, a support with at most 6 links and minimum degree 2 is a single 4- or 6-cycle, proved in general with no search | [`SmallSupportCycle`](SmallSupportCycle.lean) | 6 |
+| **Small support bridge**: list supports relabelled as simple graphs (list degree = graph degree, link count = edge count, graph connectivity makes the list checker pass), giving `SmallSupportsAreCycles` on any simple host link list with a two-colouring and at most two common neighbours per vertex pair. The five test graphs, the double cube included, then follow from a colouring and codegree check alone; `K_{2,3}` fails the codegree check. Graph-theoretic Layer 3 only: the gauge support rule (Layer 2) stays open | [`SmallSupportBridge`](SmallSupportBridge.lean) | 27 |
 | **Gauge support rule**: Schur at each vertex, no dangling link (`gauge_no_dangling`), paired irreps on two-link vertices (`gauge_pair_finrank`), the per-vertex and lattice rule, and the dual of a simple representation is simple (`dual_simple`). Regrouped by vertex (`gauge_support_rule_regrouped`, `_SU3`): a nonzero gauge-invariant vector of ⊗_v W_v forces a nonzero invariant at every vertex, so every labelling in the support of a gauge-invariant state obeys the lattice rule with no per-vertex hypothesis. Still assumed, as the named hypothesis `PeterWeylSU3` (a structure, not an axiom): Peter–Weyl link by link together with the reshuffle ⊗_e (V ⊗ V*) ≅ ⊗_v W_v | [`GaugeSupport`](GaugeSupport.lean), [`GaugeSupportFDRep`](GaugeSupportFDRep.lean), [`GaugeSupportLattice`](GaugeSupportLattice.lean), [`DualSimple`](DualSimple.lean), [`GaugeSupportRegroup`](GaugeSupportRegroup.lean) | 44 |
 | **Theta floors and triality**: SU(3) levels on the (1,3,3) theta graph, the 40/3 and 43/3 floors, triality conserved at singlet vertices, and the transfer-gap identity (an algebraic identity, not independent evidence) | [`ThetaFloor`](ThetaFloor.lean), [`ThetaTriality`](ThetaTriality.lean), [`TransferGap`](TransferGap.lean) | 39 |
 | **Cut bound**: any SU(3) irrep with nonzero triality has Casimir at least 4/3, so d such cuts cost at least (4/3)·d, and d copies of the 3 attain it. That each cut carries nonzero triality is assumed, not derived from Gauss's law | [`CutBound`](CutBound.lean) | 5 |
 | **Ky Fan chord**: if E₀+E₁ is concave in κ (Ky Fan's theorem for an H linear in κ, taken as a hypothesis), certified lower bounds at the chord ends and an affine upper bound on E₀ give a lower bound on the gap across the interval. The exact node values are in [`research/2026-11-11/kyfan_chord`](research/2026-11-11/kyfan_chord/) | [`KyFanChord`](KyFanChord.lean) | 4 |
-| | **Total** | **565** |
+| | **Total** | **592** |
 
 Among the first 80 theorems, besides the matrix factorizations, fifteen are exact arithmetic checks of
 displayed rational constants: eleven in `GaugeCertificates` and four in `CrossTheorem`.
@@ -76,7 +77,7 @@ Python verifiers are separate and run from the research folders:
    rejected, showing the checker says no. Two are plain arithmetic (`(2 : ℚ) = 3` and
    `(1 : ℚ)/2 ≤ 1/3`); the other eleven are near-miss versions of the window-wall cells, Jensen bound,
    dual-simple, theta floor, triality, transfer-gap, cut-bound, Ky Fan chord and the three regrouped gauge-support statements.
-5. **Frozen statements**: 475 theorem statements are frozen, so a proof cannot pass by quietly
+5. **Frozen statements**: 514 theorem statements are frozen, so a proof cannot pass by quietly
    weakening what it proves. Every edit to a frozen statement is logged.
 
 ```bash
@@ -105,7 +106,7 @@ assistants, each working in the open in this repository:
   gap on the one plaquette and the two-square cell, and certified the 58 windows,
   the λ = 5 slope endpoints and the double-cube uniform endpoint.
 - **Lean Green PR Machine** proved the certified-point window wall, `WindowWallMono`, `ThetaFloor`,
-  `ThetaTriality`, `TransferGap`, `CutBound` and `KyFanChord`, wired the gauge modules into the gate, and cross-checked the
+  `ThetaTriality`, `TransferGap`, `CutBound`, `KyFanChord` and `SmallSupportBridge`, wired the gauge modules into the gate, and cross-checked the
   λ = 5 strip and corner slopes in exact rationals.
 - **ink between the stars** built the 28/3 tail floor and its kernel-checked double-cube check
   (`TailFloor`, `TailFloorDoubleCube`) and proved the general small-support lemma
