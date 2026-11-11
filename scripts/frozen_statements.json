@@ -775,6 +775,19 @@
       "cube_four_cycle_attained_S3": ": ∃ ψ : (Fin 12 → S3) → ℂ, (∀ g, latticeGauge cubeΓ g ψ = ψ) ∧ ∃ π : Fin 12 → SimpleIdeal S3, fourierProj simpleIrr π ψ ≠ 0 ∧ (Finset.univ.filter (NTe (simpleIrr ∘ π))).card = 4",
       "cube_four_cycle_attained_S3_shortCycle": ": ∃ ψ : (Fin 12 → S3) → ℂ, (∀ g, latticeGauge cubeΓ g ψ = ψ) ∧ ∃ π : Fin 12 → SimpleIdeal S3, fourierProj simpleIrr π ψ ≠ 0 ∧ (Finset.univ.filter (NTe (simpleIrr ∘ π))).card = 4 ∧ shortCycle (supportList cubeΓ (simpleIrr ∘ π) Fin.val) = true",
       "cube_wilson_trivial_card_S3": ": (Finset.univ.filter (NTe (simpleIrr ∘ faceπ (1 : S3 →* ℂˣ)))).card = 0"
+    },
+    "CubeWilsonSix.lean": {
+      "wilson6_gauge_invariant": "(g : Fin 8 → G) : latticeGauge cubeΓ g (wilson6 φ) = wilson6 φ",
+      "wilson6_mul_labels": "(U : Fin 12 → G) : wilson6 φ U * ∏ e, ((face6Label φ e (U e) : ℂˣ) : ℂ) = 1",
+      "fourierProj_wilson6_ne_zero": ": fourierProj simpleIrr (face6π φ) (wilson6 φ) ≠ 0",
+      "NTe_face6π_iff": "(g₀ : G) (hg₀ : φ g₀ ≠ 1) (e : Fin 12) : NTe (simpleIrr ∘ face6π φ) e ↔ e ∈ ({1, 2, 4, 5, 8, 9} : Finset (Fin 12))",
+      "face6π_card": "(g₀ : G) (hg₀ : φ g₀ ≠ 1) : (Finset.univ.filter (NTe (simpleIrr ∘ face6π φ))).card = 6",
+      "cube_six_cycle_attained": "(g₀ : G) (hg₀ : φ g₀ ≠ 1) : ∃ ψ : (Fin 12 → G) → ℂ, (∀ g, latticeGauge cubeΓ g ψ = ψ) ∧ ∃ π : Fin 12 → SimpleIdeal G, fourierProj simpleIrr π ψ ≠ 0 ∧ (Finset.univ.filter (NTe (simpleIrr ∘ π))).card = 6",
+      "cube_six_cycle_attained_shortCycle": "(g₀ : G) (hg₀ : φ g₀ ≠ 1) : ∃ ψ : (Fin 12 → G) → ℂ, (∀ g, latticeGauge cubeΓ g ψ = ψ) ∧ ∃ π : Fin 12 → SimpleIdeal G, fourierProj simpleIrr π ψ ≠ 0 ∧ (Finset.univ.filter (NTe (simpleIrr ∘ π))).card = 6 ∧ shortCycle (supportList cubeΓ (simpleIrr ∘ π) Fin.val) = true",
+      "cube_six_card_S3": ": (Finset.univ.filter (NTe (simpleIrr ∘ face6π signChar))).card = 6",
+      "cube_six_cycle_attained_S3": ": ∃ ψ : (Fin 12 → S3) → ℂ, (∀ g, latticeGauge cubeΓ g ψ = ψ) ∧ ∃ π : Fin 12 → SimpleIdeal S3, fourierProj simpleIrr π ψ ≠ 0 ∧ (Finset.univ.filter (NTe (simpleIrr ∘ π))).card = 6",
+      "cube_six_cycle_attained_S3_shortCycle": ": ∃ ψ : (Fin 12 → S3) → ℂ, (∀ g, latticeGauge cubeΓ g ψ = ψ) ∧ ∃ π : Fin 12 → SimpleIdeal S3, fourierProj simpleIrr π ψ ≠ 0 ∧ (Finset.univ.filter (NTe (simpleIrr ∘ π))).card = 6 ∧ shortCycle (supportList cubeΓ (simpleIrr ∘ π) Fin.val) = true",
+      "cube_four_and_six_attained_S3": "(n : ℕ) (hn : n = 4 ∨ n = 6) : ∃ ψ : (Fin 12 → S3) → ℂ, (∀ g, latticeGauge cubeΓ g ψ = ψ) ∧ ∃ π : Fin 12 → SimpleIdeal S3, fourierProj simpleIrr π ψ ≠ 0 ∧ (Finset.univ.filter (NTe (simpleIrr ∘ π))).card = n ∧ shortCycle (supportList cubeΓ (simpleIrr ∘ π) Fin.val) = true"
     }
   },
   "complete_files": [
@@ -808,6 +821,7 @@
     "GraphInstances.lean",
     "SupportDichotomy.lean",
     "CubeFiniteUnconditional.lean",
-    "CubeWilsonExistence.lean"
+    "CubeWilsonExistence.lean",
+    "CubeWilsonSix.lean"
   ]
 }

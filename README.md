@@ -6,7 +6,7 @@
 
 [![Lean proof check](https://github.com/dicipler-pixel/yang-mills-lean/actions/workflows/build.yml/badge.svg)](https://github.com/dicipler-pixel/yang-mills-lean/actions/workflows/build.yml)
 ![Lean](https://img.shields.io/badge/Lean-v4.33.0-blue)
-![Theorems](https://img.shields.io/badge/theorems-786-2EA043)
+![Theorems](https://img.shields.io/badge/theorems-797-2EA043)
 ![sorry](https://img.shields.io/badge/sorry-0-2EA043)
 ![Code: MIT](https://img.shields.io/badge/code-MIT-lightgrey)
 ![Text: CC BY 4.0](https://img.shields.io/badge/text-CC%20BY%204.0-lightgrey)
@@ -65,7 +65,8 @@ specified finite algebra. The spatial work checks five original-link SU(3) model
 | **Short or long**: one statement per graph (cube, two squares, strip, corner, double cube, and generic `listΓ`). For a nonzero gauge-invariant component with at least one non-trivial link, under `PeterWeylLattice` alone, either it has 4 or 6 non-trivial links forming a short cycle, or more than 6 and the conclusion of `long_support_floor` holds (any 7+ link costs, each at least 4, sum to at least 28 in `c3` units). `long_energy_floor` gives that bound for Dynkin labels, assuming a non-trivial link has a nonzero label | [`SupportDichotomy`](SupportDichotomy.lean) | 9 |
 | **Cube, finite gauge group, no assumptions**: for any finite G (and S₃) on the cube with H = (E → G) → ℂ, the lattice gauge action and the simple-left-ideal family, Lean Green's cube theorems are instantiated with the proved Peter–Weyl structure (`(peterWeylLinksFinite …).toLattice`; its projection is the reshuffle of `fourierProj`, so a nonzero Fourier component stays nonzero). A nonzero gauge-invariant Fourier component with 1 to 6 non-trivial links has exactly 4 or 6, forming a short cycle (`cube_gauge_support_finite`, `_card_S3`); with at least one it is short-or-long (`cube_support_dichotomy_finite`, `_S3`); none has exactly 3 (`cube_no_three_links_S3`). No Peter–Weyl hypothesis | [`CubeFiniteUnconditional`](CubeFiniteUnconditional.lean) | 11 |
 | **Cube 4-cycle attained**: for any finite G with a non-trivial character φ : G →* ℂˣ (for S₃, the sign), the Wilson loop ψ(U) = φ(U₀U₅U₁⁻¹U₄⁻¹) around one face of the cube (links (0,1), (1,3) forwards, (2,3), (0,2) backwards) is gauge invariant and, with φ^{∓1} on the face links and the trivial ideal elsewhere, has a nonzero Fourier component with exactly 4 non-trivial links, on a short cycle (`cube_four_cycle_attained`, `_S3`). So the "4" case of the cube theorem occurs. With φ = 1 the same labelling has no non-trivial link (`faceπ_one_card`) | [`CubeWilsonExistence`](CubeWilsonExistence.lean) | 28 |
-| | **Total** | **786** |
+| **Cube 6-cycle attained**: with the same character construction, the Wilson loop ψ(U) = φ(U₈U₂U₉⁻¹U₅U₁⁻¹U₄⁻¹) around the boundary of two adjacent faces (0 → 4 → 5 → 1 → 3 → 2 → 0; shared link (0,1) dropped) is gauge invariant and, with φ^{∓1} on the six cycle links and the trivial ideal elsewhere, has a nonzero Fourier component with exactly 6 non-trivial links, on a short cycle (`cube_six_cycle_attained`, `_S3`). For S₃ both 4 and 6 occur (`cube_four_and_six_attained_S3`), so `cube_gauge_support_card_S3` is sharp | [`CubeWilsonSix`](CubeWilsonSix.lean) | 11 |
+| | **Total** | **797** |
 
 Among the first 80 theorems, besides the matrix factorizations, fifteen are exact arithmetic checks of
 displayed rational constants: eleven in `GaugeCertificates` and four in `CrossTheorem`.
@@ -79,11 +80,11 @@ Python verifiers are separate and run from the research folders:
 2. **Independent replay**: every module is re-checked by Lean's separate kernel checker.
 3. **Axiom audit**: every named theorem depends only on `propext`, `Classical.choice` and
    `Quot.sound`. No `sorry`, no project axioms, no `native_decide`.
-4. **False controls**: twenty-four false statements in [`FalseControls/`](FalseControls/) must be
+4. **False controls**: twenty-five false statements in [`FalseControls/`](FalseControls/) must be
    rejected, showing the checker says no. Two are plain arithmetic (`(2 : ℚ) = 3` and
-   `(1 : ℚ)/2 ≤ 1/3`); the other twenty-two are near-miss versions of the window-wall cells, Jensen bound,
-   dual-simple, theta floor, triality, transfer-gap, cut-bound, Ky Fan chord, the three regrouped gauge-support statements, the edge-to-vertex reshuffle (one link end dropped), the reshuffle iso with source and target actions swapped, Peter–Weyl with the sign representation of S₃ dropped, the regular representation of S₃ claimed simple, a support with a degree-one vertex claimed admissible, `K_{2,3}` claimed to be a short cycle, a reordered support claimed to change a degree, a 5-link double-cube support claimed to be a short cycle, a 3-link strip support claimed to be a short cycle, a nonzero gauge-invariant S₃ cube component with exactly 3 non-trivial links, and the face Wilson loop labelling of the trivial S₃ character claimed to have exactly 4 non-trivial links.
-5. **Frozen statements**: 708 theorem statements are frozen, so a proof cannot pass by quietly
+   `(1 : ℚ)/2 ≤ 1/3`); the other twenty-three are near-miss versions of the window-wall cells, Jensen bound,
+   dual-simple, theta floor, triality, transfer-gap, cut-bound, Ky Fan chord, the three regrouped gauge-support statements, the edge-to-vertex reshuffle (one link end dropped), the reshuffle iso with source and target actions swapped, Peter–Weyl with the sign representation of S₃ dropped, the regular representation of S₃ claimed simple, a support with a degree-one vertex claimed admissible, `K_{2,3}` claimed to be a short cycle, a reordered support claimed to change a degree, a 5-link double-cube support claimed to be a short cycle, a 3-link strip support claimed to be a short cycle, a nonzero gauge-invariant S₃ cube component with exactly 3 non-trivial links, the face Wilson loop labelling of the trivial S₃ character claimed to have exactly 4 non-trivial links, and the sign 6-cycle labelling of S₃ claimed to have exactly 4 non-trivial links.
+5. **Frozen statements**: 719 theorem statements are frozen, so a proof cannot pass by quietly
    weakening what it proves. Every edit to a frozen statement is logged.
 
 ```bash

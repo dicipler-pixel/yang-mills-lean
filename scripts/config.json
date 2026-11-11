@@ -179,10 +179,14 @@
     {
       "module": "CubeWilsonExistence",
       "path": "CubeWilsonExistence.lean"
+    },
+    {
+      "module": "CubeWilsonSix",
+      "path": "CubeWilsonSix.lean"
     }
   ],
-  "expected_theorems": 786,
-  "expected_false_controls": 24,
+  "expected_theorems": 797,
+  "expected_false_controls": 25,
   "root_imports": [
     "GaugeCertificates",
     "LongestYangMillsChain",
@@ -220,6 +224,7 @@
     "GraphInstances",
     "SupportDichotomy",
     "CubeFiniteUnconditional",
-    "CubeWilsonExistence"
+    "CubeWilsonExistence",
+    "CubeWilsonSix"
   ]
 }
