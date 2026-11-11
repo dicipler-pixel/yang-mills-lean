@@ -147,10 +147,14 @@
     {
       "module": "ThetaFloorTriality",
       "path": "ThetaFloorTriality.lean"
+    },
+    {
+      "module": "SingletWitnessSU3",
+      "path": "SingletWitnessSU3.lean"
     }
   ],
-  "expected_theorems": 636,
-  "expected_false_controls": 16,
+  "expected_theorems": 681,
+  "expected_false_controls": 17,
   "root_imports": [
     "GaugeCertificates",
     "LongestYangMillsChain",
@@ -180,6 +184,7 @@
     "TrialityVertex",
     "CentreCharacterSU3",
     "IrrepEmbedSU3",
-    "ThetaFloorTriality"
+    "ThetaFloorTriality",
+    "SingletWitnessSU3"
   ]
 }
