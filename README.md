@@ -6,12 +6,12 @@
 
 [![Lean proof check](https://github.com/dicipler-pixel/yang-mills-lean/actions/workflows/build.yml/badge.svg)](https://github.com/dicipler-pixel/yang-mills-lean/actions/workflows/build.yml)
 ![Lean](https://img.shields.io/badge/Lean-v4.33.0-blue)
-![Theorems](https://img.shields.io/badge/theorems-80-2EA043)
+![Theorems](https://img.shields.io/badge/theorems-544-2EA043)
 ![sorry](https://img.shields.io/badge/sorry-0-2EA043)
 ![Code: MIT](https://img.shields.io/badge/code-MIT-lightgrey)
 ![Text: CC BY 4.0](https://img.shields.io/badge/text-CC%20BY%204.0-lightgrey)
 
-Jeromie Beasley
+Jeromie Beasley, with the Grok Bot colour team (see [Credits](#credits))
 
 </div>
 
@@ -49,9 +49,14 @@ specified finite algebra. The spatial work checks five original-link SU(3) model
 | **Combined lanes**: three finite lanes in one file, not composed into a single implication. (i) A vanishing projector commutator forces zero coupling, zero feedback and no Schur correction; the transported projector's tangent is the commutator, and half its cross-block energy and the feedback trace both equal the coupling energy. (ii) For positive-semidefinite residues with positive denominators: if the retained block clears the common-floor penalty, the energy-resolved comparison lies below the Schur complement (`K_res ≤ S`, assumed) and the shifted hidden block is positive definite, then the full shifted block is positive semidefinite. (iii) Scalar overlap-allocation bookkeeping leaves a positive residual. A dual observability certificate survives any invertible change of coordinates | [`LongestYangMillsChain`](LongestYangMillsChain.lean) | 7 |
 | **Schur sign comparison**: positive subspaces and negative trial directions transfer through ordered finite matrices | [`SchurInertiaComparison`](SchurInertiaComparison.lean) | 2 |
 | **Finite inertia count**: positive codimension-one and negative one-dimensional subspaces give exactly one negative direction and no radical | [`SchurInertiaCount`](SchurInertiaCount.lean) | 1 |
-| | **Total** | **80** |
+| **Window wall**: the window function W(s), its derivative and finite (derivative-free) bounds, monotonicity in the coupling (an exclusion carries to every larger λ), the certified cells, and the split-free two-halves Jensen bound | [`WindowWall`](WindowWall.lean), [`WindowWallDeriv`](WindowWallDeriv.lean), [`WindowWallFinite`](WindowWallFinite.lean), [`WindowWallMono`](WindowWallMono.lean), [`WindowWallCells`](WindowWallCells.lean), [`WindowWallJensen`](WindowWallJensen.lean) | 37 |
+| **Tail floor**: the 28/3 electric tail floor (layers 1 and 3), the one-link SU(3) tail floor, and the kernel-checked double-cube support check (328 lemmas) | [`TailFloor`](TailFloor.lean), [`OneLinkTailFloor`](OneLinkTailFloor.lean), [`TailFloorDoubleCube`](TailFloorDoubleCube.lean) | 350 |
+| **Small supports are cycles**: on a bipartite graph where no two vertices share three neighbours, a support with at most 6 links and minimum degree 2 is a single 4- or 6-cycle, proved in general with no search | [`SmallSupportCycle`](SmallSupportCycle.lean) | 6 |
+| **Gauge support rule**: Schur at each vertex, no dangling link (`gauge_no_dangling`), paired irreps on two-link vertices (`gauge_pair_finrank`), the per-vertex and lattice rule, and the dual of a simple representation is simple (`dual_simple`). Still assumed: a nonzero invariant at each vertex, and Peter–Weyl for SU(3) | [`GaugeSupport`](GaugeSupport.lean), [`GaugeSupportFDRep`](GaugeSupportFDRep.lean), [`GaugeSupportLattice`](GaugeSupportLattice.lean), [`DualSimple`](DualSimple.lean) | 32 |
+| **Theta floors and triality**: SU(3) levels on the (1,3,3) theta graph, the 40/3 and 43/3 floors, triality conserved at singlet vertices, and the transfer-gap identity (an algebraic identity, not independent evidence) | [`ThetaFloor`](ThetaFloor.lean), [`ThetaTriality`](ThetaTriality.lean), [`TransferGap`](TransferGap.lean) | 39 |
+| | **Total** | **544** |
 
-Besides the matrix factorizations, fifteen of the 79 theorems are exact arithmetic checks of
+Among the first 80 theorems, besides the matrix factorizations, fifteen are exact arithmetic checks of
 displayed rational constants: eleven in `GaugeCertificates` and four in `CrossTheorem`.
 
 ## How it is checked
@@ -63,8 +68,12 @@ Python verifiers are separate and run from the research folders:
 2. **Independent replay**: every module is re-checked by Lean's separate kernel checker.
 3. **Axiom audit**: every named theorem depends only on `propext`, `Classical.choice` and
    `Quot.sound`. No `sorry`, no project axioms, no `native_decide`.
-4. **False controls**: two arithmetic controls, `(2 : ℚ) = 3` and `(1 : ℚ)/2 ≤ 1/3`, must be
-   rejected, showing the checker says no. They do not involve the Yang–Mills definitions.
+4. **False controls**: eight false statements in [`FalseControls/`](FalseControls/) must be
+   rejected, showing the checker says no. Two are plain arithmetic (`(2 : ℚ) = 3` and
+   `(1 : ℚ)/2 ≤ 1/3`); the other six are near-miss versions of the window-wall cells, Jensen bound,
+   dual-simple, theta floor, triality and transfer-gap statements.
+5. **Frozen statements**: 466 theorem statements are frozen, so a proof cannot pass by quietly
+   weakening what it proves. Every edit to a frozen statement is logged.
 
 ```bash
 lake exe cache get
@@ -77,6 +86,34 @@ python3 scripts/verify.py
 The [September 8 paper](paper/2026-09-08/YANG_MILLS_CONTINUATION.pdf) is a dated
 snapshot. Later spatial calculations and Lean modules extend it. No revised combined
 manuscript or four-dimensional continuum mass gap is claimed here.
+
+## Credits
+
+This library is Jeromie Beasley's research, and the November 2026 additions were a full team
+effort. The research questions, the physics and the direction are Jeromie's. The Lean modules
+and certificates added from 2026-11-09 to 2026-11-11 were built with his team of Grok Bot
+assistants, each working in the open in this repository:
+
+- **Red** led the Yang–Mills Lean work and set the merge order; wrote the gauge support rule
+  (`GaugeSupport`, `GaugeSupportFDRep`, `GaugeSupportLattice`) and the resonance cross-check.
+- **Green** proved the derivative/secant window wall, the one-link tail floor, the split-free
+  Jensen bound (`WindowWallJensen`) and `dual_simple` (`DualSimple`), and certified the 58 windows,
+  the λ = 5 slope endpoints and the double-cube uniform endpoint.
+- **Lean Green PR Machine** proved the certified-point window wall, `WindowWallMono`, `ThetaFloor`,
+  `ThetaTriality` and `TransferGap`, wired the gauge modules into the gate, and cross-checked the
+  λ = 5 strip and corner slopes in exact rationals.
+- **ink between the stars** built the 28/3 tail floor and its kernel-checked double-cube check
+  (`TailFloor`, `TailFloorDoubleCube`) and proved the general small-support lemma
+  (`SmallSupportCycle`).
+- **Grey** wrote the frozen targets for the gauge support rule and the varying-s and string-floor
+  scripts.
+- **Spectrum** led the colour team and wrote the dictionary and SU(3) theta enumeration.
+- **Claude**, in Jeromie's sessions, wrote the window-wall cells module, the audit and the
+  window-wall write-up, and carried out the final merge.
+
+GPT reviewed the gate rules (log frozen-statement edits, never quietly drop a hard part, only
+pinned-version CI counts). Every result above is checked by the Lean kernel, not by anyone's
+say-so.
 
 ## Citation, licence and AI use
 
