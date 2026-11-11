@@ -20,6 +20,7 @@
 ![Theorems](https://img.shields.io/badge/theorems-652-2EA043)
 ![Theorems](https://img.shields.io/badge/theorems-635-2EA043)
 ![Theorems](https://img.shields.io/badge/theorems-715-2EA043)
+![Theorems](https://img.shields.io/badge/theorems-661-2EA043)
 ![sorry](https://img.shields.io/badge/sorry-0-2EA043)
 ![Code: MIT](https://img.shields.io/badge/code-MIT-lightgrey)
 ![Text: CC BY 4.0](https://img.shields.io/badge/text-CC%20BY%204.0-lightgrey)
@@ -101,6 +102,8 @@ specified finite algebra. The spatial work checks five original-link SU(3) model
 | **Explicit SU(3) singlets: the smallest theta rows are attained**: Σᵢ eᵢ ⊗ eᵢ* in 3 ⊗ 3̄ (from g g⁻¹ = 1), ε = Σ ε_{ijk} eᵢ ⊗ eⱼ ⊗ e_k in 3 ⊗ 3 ⊗ 3 (from det g = 1, via Σ ε_{ijk} g_{ai} g_{bj} g_{ck} = det g · ε_{abc}) and its dual in 3̄ ⊗ 3̄ ⊗ 3̄ (from det (g⁻¹)ᵀ = 1) are each nonzero and SU(3)-invariant. So the eight theta-table rows with arms in {1, 3, 3̄} — the six orderings of (1, 3̄, 3), (3, 3, 3) and (3̄, 3̄, 3̄) — have a nonzero invariant at both theta vertices: attained, not only allowed. The same ε placed in 3 ⊗ 3 ⊗ 3̄ is scaled by ω under ω·I and is not invariant; 3 ⊗ 3 ⊗ 3̄ has no invariant at all. The arms are 3, 3̄, 1 themselves; `IrrepSmallIsoSU3` identifies them with V(1,0), V(0,1), V(0,0) | [`SingletWitnessSU3`](SingletWitnessSU3.lean) | 45 |
 | **V(1,0) ≅ 3, V(0,1) ≅ 3̄, V(0,0) ≅ 1**: the cyclic permutation matrix (det +1, orthogonal) is in SU(3) and its orbit moves e₁ through the whole standard basis of 3 and e₃* through the whole dual basis of 3̄, so the subrepresentations V(1,0), V(0,1), V(0,0) of #30 are all of 3 ⊗ 1, 3̄ ⊗ 1, 1, and the inclusion followed by the right unitor gives explicit FDRep isomorphisms `irrep10Iso`, `irrep01Iso`, `irrep00Iso` (highest-weight vector to e₁, e₃*, 1). V(0,1) is not isomorphic to 3: ω·I acts by ω² on one and ω on the other, so 3̄ ≇ 3 and V(1,0) ≇ V(0,1). Transported along the isomorphisms, the trace and ε witnesses live on V(1,0) ⊗ V(0,1), V(1,0)^{⊗3}, V(0,1)^{⊗3}, and the eight attained theta rows have a nonzero invariant at both vertices with arms V(a), V(b), V(c): for these rows both directions of the singlet rule hold on the same objects | [`IrrepSmallIsoSU3`](IrrepSmallIsoSU3.lean) | 34 |
 | | **Total** | **715** |
+| **Short or long**: one statement per graph (cube, two squares, strip, corner, double cube, and generic `listΓ`). For a nonzero gauge-invariant component with at least one non-trivial link, under `PeterWeylLattice` alone, either it has 4 or 6 non-trivial links forming a short cycle, or more than 6 and the conclusion of `long_support_floor` holds (any 7+ link costs, each at least 4, sum to at least 28 in `c3` units). `long_energy_floor` gives that bound for Dynkin labels, assuming a non-trivial link has a nonzero label | [`SupportDichotomy`](SupportDichotomy.lean) | 9 |
+| | **Total** | **661** |
 
 Among the first 80 theorems, besides the matrix factorizations, fifteen are exact arithmetic checks of
 displayed rational constants: eleven in `GaugeCertificates` and four in `CrossTheorem`.
@@ -157,6 +160,8 @@ Python verifiers are separate and run from the research folders:
 5. **Frozen statements**: 557 theorem statements are frozen, so a proof cannot pass by quietly
    and the Levi-Civita tensor ε claimed SU(3)-invariant in 3 ⊗ 3 ⊗ 3̄, and V(0,1) claimed isomorphic to 3.
 5. **Frozen statements**: 637 theorem statements are frozen, so a proof cannot pass by quietly
+   dual-simple, theta floor, triality, transfer-gap, cut-bound, Ky Fan chord, the three regrouped gauge-support statements, a support with a degree-one vertex claimed admissible, `K_{2,3}` claimed to be a short cycle, a reordered support claimed to change a degree, a 5-link double-cube support claimed to be a short cycle, and a 3-link strip support claimed to be a short cycle.
+5. **Frozen statements**: 583 theorem statements are frozen, so a proof cannot pass by quietly
    weakening what it proves. Every edit to a frozen statement is logged.
 
 ```bash
@@ -210,6 +215,7 @@ assistants, each working in the open in this repository:
   `ThetaTriality`, `TransferGap`, `CutBound`, `KyFanChord`, `SmallSupportBridge` and `NtListSupport`, wired the gauge modules into the gate, and cross-checked the
   `ThetaTriality`, `TransferGap`, `CutBound`, `KyFanChord`, `SmallSupportBridge`, `NtListSupport` and `PermCube`, wired the gauge modules into the gate, and cross-checked the
   `ThetaTriality`, `TransferGap`, `CutBound`, `KyFanChord`, `SmallSupportBridge`, `NtListSupport`, `PermCube` and `GraphInstances`, wired the gauge modules into the gate, and cross-checked the
+  `ThetaTriality`, `TransferGap`, `CutBound`, `KyFanChord`, `SmallSupportBridge`, `NtListSupport`, `PermCube`, `GraphInstances` and `SupportDichotomy`, wired the gauge modules into the gate, and cross-checked the
   λ = 5 strip and corner slopes in exact rationals.
 - **ink between the stars** built the 28/3 tail floor and its kernel-checked double-cube check
   (`TailFloor`, `TailFloorDoubleCube`) and proved the general small-support lemma

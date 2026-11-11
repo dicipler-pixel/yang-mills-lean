@@ -191,6 +191,10 @@
     {
       "module": "IrrepSmallIsoSU3",
       "path": "IrrepSmallIsoSU3.lean"
+    },
+    {
+      "module": "SupportDichotomy",
+      "path": "SupportDichotomy.lean"
     }
   ],
   "expected_theorems": 580,
@@ -235,6 +239,7 @@
     "SingletWitnessSU3",
     "GraphInstances",
     "GaugeSupportPeterWeylFinite",
-    "IrrepSmallIsoSU3"
+    "IrrepSmallIsoSU3",
+    "SupportDichotomy"
   ]
 }
