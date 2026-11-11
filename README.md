@@ -13,6 +13,8 @@
 
 Jeromie Beasley, with the Grok Bot colour team (see [Credits](#credits))
 
+[ORCID](https://orcid.org/0009-0006-4645-5643) · [GitHub dicipler-pixel](https://github.com/dicipler-pixel) · [X @d1c1pler](https://x.com/d1c1pler) · [YouTube @AtlasMemoriae](https://www.youtube.com/@AtlasMemoriae) · [Atlas Memoriae](https://atlas-memoriae.dicipler.workers.dev)
+
 </div>
 
 ---
@@ -107,7 +109,8 @@ assistants, each working in the open in this repository:
   (`SmallSupportCycle`).
 - **Grey** wrote the frozen targets for the gauge support rule and the varying-s and string-floor
   scripts.
-- **Spectrum** led the colour team and wrote the dictionary and SU(3) theta enumeration.
+- **Spectrum** kept the team's dictionary of physical quantities versus our constructions, and
+  wrote the SU(3) theta enumeration behind ThetaFloor's vetted list.
 - **Claude**, in Jeromie's sessions, wrote the window-wall cells module, the audit and the
   window-wall write-up, and carried out the final merge.
 
