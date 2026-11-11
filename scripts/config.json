@@ -139,10 +139,14 @@
     {
       "module": "CentreCharacterSU3",
       "path": "CentreCharacterSU3.lean"
+    },
+    {
+      "module": "IrrepEmbedSU3",
+      "path": "IrrepEmbedSU3.lean"
     }
   ],
-  "expected_theorems": 590,
-  "expected_false_controls": 14,
+  "expected_theorems": 613,
+  "expected_false_controls": 15,
   "root_imports": [
     "GaugeCertificates",
     "LongestYangMillsChain",
@@ -170,6 +174,7 @@
     "KyFanChord",
     "CutBound",
     "TrialityVertex",
-    "CentreCharacterSU3"
+    "CentreCharacterSU3",
+    "IrrepEmbedSU3"
   ]
 }
