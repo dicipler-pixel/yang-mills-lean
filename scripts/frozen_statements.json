@@ -532,6 +532,42 @@
       "support_nonempty": "{Γ : OrientedGraph Vx E} {Irr : Type*} {irr : Irr → FDRep k G} {H : Type*} [AddCommGroup H] [Module k H] {gauge : Representation k (Vx → G) H} (PW : PeterWeylLattice k G Γ Irr irr H gauge) (ψ : H) (hψ0 : ψ ≠ 0) : ∃ π, PW.proj π ψ ≠ 0",
       "gauge_support_rule_regrouped": "[DecidableEq Vx] {Γ : OrientedGraph Vx E} {Irr : Type*} {irr : Irr → FDRep k G} [∀ i, Simple (irr i)] {H : Type*} [AddCommGroup H] [Module k H] {gauge : Representation k (Vx → G) H} (PW : PeterWeylLattice k G Γ Irr irr H gauge) (ψ : H) (hψ : ∀ g, gauge g ψ = ψ) (π : E → Irr) (hπ : PW.proj π ψ ≠ 0) (v : Vx) : (∀ x, ntList (incident Γ (irr ∘ π) v) ≠ [x]) ∧ (∀ x y, ntList (incident Γ (irr ∘ π) v) = [x, y] → (x.out = true → y.out = false → Nonempty (x.rep ≅ y.rep)) ∧ (x.out = false → y.out = true → Nonempty (x.rep ≅ y.rep)) ∧ (x.out = true → y.out = true → Nonempty (x.repᘁ ≅ y.rep)) ∧ (x.out = false → y.out = false → Nonempty (x.rep ≅ y.repᘁ)))",
       "gauge_support_rule_regrouped_SU3": "[DecidableEq Vx] {Γ : OrientedGraph Vx E} {Irr : Type*} {irr : Irr → FDRep ℂ SU3} [∀ i, Simple (irr i)] {H : Type*} [AddCommGroup H] [Module ℂ H] {gauge : Representation ℂ (Vx → SU3) H} (PW : PeterWeylSU3 Γ Irr irr H gauge) (ψ : H) (hψ : ∀ g, gauge g ψ = ψ) (π : E → Irr) (hπ : PW.proj π ψ ≠ 0) (v : Vx) : (∀ x, ntList (incident Γ (irr ∘ π) v) ≠ [x]) ∧ (∀ x y, ntList (incident Γ (irr ∘ π) v) = [x, y] → (x.out = true → y.out = false → Nonempty (x.rep ≅ y.rep)) ∧ (x.out = false → y.out = true → Nonempty (x.rep ≅ y.rep)) ∧ (x.out = true → y.out = true → Nonempty (x.repᘁ ≅ y.rep)) ∧ (x.out = false → y.out = false → Nonempty (x.rep ≅ y.repᘁ)))"
+    },
+    "GaugeSupportReshuffle.lean": {
+      "reindexCons_tprod": "{a : ι} {l : List ι} (ha : a ∉ l) (f : ∀ j : (({⟨a, List.mem_cons_self⟩} : Set {i // i ∈ a :: l})ᶜ : Set {i // i ∈ a :: l}), M j.1.1) : reindexCons M ha (PiTensorProduct.tprod k f) = PiTensorProduct.tprod k (fun i => f ((consComplEquiv ha).symm i))",
+      "consEquiv_tprod": "[DecidableEq ι] {a : ι} {l : List ι} (ha : a ∉ l) (f : ∀ i : {i // i ∈ a :: l}, M i.1) : consEquiv M ha (PiTensorProduct.tprod k f) = f ⟨a, List.mem_cons_self⟩ ⊗ₜ[k] PiTensorProduct.tprod k (fun i : {i // i ∈ l} => f ⟨i.1, List.mem_cons_of_mem _ i.2⟩)",
+      "nilEquiv_tprod": "(f : ∀ i : {i // i ∈ ([] : List ι)}, M i.1) : nilEquiv M (PiTensorProduct.tprod k f) = 1",
+      "listEquiv_tprod": "[DecidableEq ι] (l : List ι) (h : l.Nodup) (f : ∀ i : {i // i ∈ l}, M i) : listEquiv M l h (PiTensorProduct.tprod k f) = listTmul M l f",
+      "listTmul_ρ": "(g : G) : (l : List ι) → (f : ∀ i : {i // i ∈ l}, M i) → listTmul M l (fun i => (M i).ρ g (f i)) = (tensorList (l.map M)).ρ g (listTmul M l f) | [], _ => rfl | a :: l, f => by rw [listTmul, listTmul, listTmul_ρ g l] rfl theorem listEquiv_equivariant [DecidableEq ι] (l : List ι) (h : l.Nodup) (g : G) (t : ⨂[k] i : {i // i ∈ l}, M i) : listEquiv M l h (PiTensorProduct.map (fun i => (M i.1).ρ g) t) = (tensorList (l.map M)).ρ g (listEquiv M l h t)",
+      "listEquiv_equivariant": "[DecidableEq ι] (l : List ι) (h : l.Nodup) (g : G) (t : ⨂[k] i : {i // i ∈ l}, M i) : listEquiv M l h (PiTensorProduct.map (fun i => (M i.1).ρ g) t) = (tensorList (l.map M)).ρ g (listEquiv M l h t)",
+      "update_fiber": "[DecidableEq ι] (f : ∀ i, M i) (i₀ : ι) (z : M i₀) : (fun v => PiTensorProduct.tprod k (fun j : {i // p i = v} => Function.update f i₀ z j.1)) = Function.update (fun v => PiTensorProduct.tprod k (fun j : {i // p i = v} => f j.1)) (p i₀) (PiTensorProduct.tprod k (Function.update (fun j : {i // p i = p i₀} => f j.1) ⟨i₀, rfl⟩ z))",
+      "regroupMap_tprod": "[DecidableEq ι] (f : ∀ i, M i) : regroupMap p M (PiTensorProduct.tprod k f) = PiTensorProduct.tprod k (fun v => PiTensorProduct.tprod k (fun j : {i // p i = v} => f j.1))",
+      "regroupMap_surjective": "[DecidableEq ι] : Function.Surjective (regroupMap (k",
+      "finrank_piTensorProduct": "{κ : Type*} [Fintype κ] (N : κ → Type*) [∀ i, AddCommGroup (N i)] [∀ i, Module k (N i)] [∀ i, FiniteDimensional k (N i)] : finrank k (⨂[k] i, N i) = ∏ i, finrank k (N i)",
+      "regroupMap_injective": "[DecidableEq ι] [∀ i, FiniteDimensional k (M i)] : Function.Injective (regroupMap (k",
+      "regroupEquiv_tprod": "[DecidableEq ι] [∀ i, FiniteDimensional k (M i)] (f : ∀ i, M i) : regroupEquiv p M (PiTensorProduct.tprod k f) = PiTensorProduct.tprod k (fun v => PiTensorProduct.tprod k (fun j : {i // p i = v} => f j.1))",
+      "regroupEquiv_map": "[DecidableEq ι] [∀ i, FiniteDimensional k (M i)] (φ : ∀ i, M i →ₗ[k] M i) (t : ⨂[k] i, M i) : regroupEquiv p M (PiTensorProduct.map φ t) = PiTensorProduct.map (fun v => PiTensorProduct.map (fun j : {i // p i = v} => φ j.1)) (regroupEquiv p M t)",
+      "pairMap_tprod": "(f : ∀ h, F h) : pairMap F (PiTensorProduct.tprod k f) = PiTensorProduct.tprod k (fun e => f (.inl e) ⊗ₜ[k] f (.inr e))",
+      "pairMap_surjective": ": Function.Surjective (pairMap F)",
+      "pairMap_injective": ": Function.Injective (pairMap F)",
+      "pairEquiv_symm_tprod": "(f : ∀ h, F h) : (pairEquiv F).symm (PiTensorProduct.tprod k f) = PiTensorProduct.tprod k (fun e => f (.inl e) ⊗ₜ[k] f (.inr e))",
+      "pairEquiv_map": "(φ : ∀ h, F h →ₗ[k] F h) (t : ⨂[k] e, (F (.inl e) ⊗[k] F (.inr e))) : pairEquiv F (PiTensorProduct.map (fun e => TensorProduct.map (φ (.inl e)) (φ (.inr e))) t) = PiTensorProduct.map φ (pairEquiv F t)",
+      "isoToLinearEquiv_ρ": "{X Y : FDRep k G} (i : X ≅ Y) (g : G) (x : X) : FDRep.isoToLinearEquiv i (X.ρ g x) = Y.ρ g (FDRep.isoToLinearEquiv i x)",
+      "piCongr_map": "{κ : Type*} {S T : κ → Type*} [∀ i, AddCommGroup (S i)] [∀ i, Module k (S i)] [∀ i, AddCommGroup (T i)] [∀ i, Module k (T i)] (f : ∀ i, S i ≃ₗ[k] T i) (φ : ∀ i, S i →ₗ[k] S i) (χ : ∀ i, T i →ₗ[k] T i) (h : ∀ i x, f i (φ i x) = χ i (f i x)) (t : ⨂[k] i, S i) : PiTensorProduct.congr f (PiTensorProduct.map φ t) = PiTensorProduct.map χ (PiTensorProduct.congr f t)",
+      "edgeGauge_apply": "(g : Vx → G) : edgeGauge Γ π g = PiTensorProduct.map fun e => TensorProduct.map ((π e).ρ (g (Γ.src e))) ((π e)ᘁ.ρ (g (Γ.tgt e)))",
+      "mem_halfList": "(v : Vx) (h : E ⊕ E) : h ∈ halfList Γ v ↔ endpoint Γ h = v",
+      "nodup_halfList": "(v : Vx) : (halfList Γ v).Nodup",
+      "halfList_map": "(v : Vx) : (halfList Γ v).map (halfFactor π) = (incident Γ π v).map HalfEdge.factor",
+      "tensorList_halfList": "(v : Vx) : tensorList ((halfList Γ v).map (halfFactor π)) = vertexRep (incident Γ π v)",
+      "fibreReindex_tprod": "(v : Vx) (f : ∀ h, halfFactor π h) : fibreReindex Γ π v (PiTensorProduct.tprod k (fun j : {h // endpoint Γ h = v} => f j.1)) = PiTensorProduct.tprod k (fun i : {h // h ∈ halfList Γ v} => f i.1)",
+      "fibreReindex_map": "(v : Vx) (φ : ∀ h, halfFactor π h →ₗ[k] halfFactor π h) (t : ⨂[k] j : {h // endpoint Γ h = v}, halfFactor π j.1) : fibreReindex Γ π v (PiTensorProduct.map (fun j => φ j.1) t) = PiTensorProduct.map (fun i => φ i.1) (fibreReindex Γ π v t)",
+      "vertexEquiv_equivariant": "(v : Vx) (g : G) (t : ⨂[k] j : {h // endpoint Γ h = v}, halfFactor π j.1) : vertexEquiv Γ π v (PiTensorProduct.map (fun j => (halfFactor π j.1).ρ g) t) = (vertexRep (incident Γ π v)).ρ g (vertexEquiv Γ π v t)",
+      "reshuffle_equivariant": "[Fintype Vx] [DecidableEq Vx] (g : Vx → G) (t : EdgeBlock π) : reshuffle Γ π (edgeGauge Γ π g t) = blockGauge Γ π g (reshuffle Γ π t)",
+      "reshuffle_symm_equivariant": "[Fintype Vx] [DecidableEq Vx] (g : Vx → G) (t : RegroupedBlock Γ π) : (reshuffle Γ π).symm (blockGauge Γ π g t) = edgeGauge Γ π g ((reshuffle Γ π).symm t)",
+      "reshuffle_tprod": "[Fintype Vx] [DecidableEq Vx] (a : ∀ e, π e) (b : ∀ e, ((π e)ᘁ : FDRep k G)) : reshuffle Γ π (PiTensorProduct.tprod k (fun e => a e ⊗ₜ[k] b e)) = PiTensorProduct.tprod k (fun v => vertexCast Γ π v (listTmul (halfFactor π) (halfList Γ v) (fun i => halfVec π a b i.1)))",
+      "toLattice_proj_ne_zero": "[Fintype Vx] [DecidableEq Vx] {Γ : OrientedGraph Vx E} {Irr : Type*} {irr : Irr → FDRep k G} {H : Type*} [AddCommGroup H] [Module k H] {gauge : Representation k (Vx → G) H} (PW : PeterWeylLinks k G Γ Irr irr H gauge) (ψ : H) (π : E → Irr) (hπ : PW.proj π ψ ≠ 0) : PW.toLattice.proj π ψ ≠ 0",
+      "gauge_support_rule_links": "[Fintype Vx] [DecidableEq Vx] {Γ : OrientedGraph Vx E} {Irr : Type*} {irr : Irr → FDRep k G} [∀ i, Simple (irr i)] {H : Type*} [AddCommGroup H] [Module k H] {gauge : Representation k (Vx → G) H} (PW : PeterWeylLinks k G Γ Irr irr H gauge) (ψ : H) (hψ : ∀ g, gauge g ψ = ψ) (π : E → Irr) (hπ : PW.proj π ψ ≠ 0) (v : Vx) : (∀ x, ntList (incident Γ (irr ∘ π) v) ≠ [x]) ∧ (∀ x y, ntList (incident Γ (irr ∘ π) v) = [x, y] → (x.out = true → y.out = false → Nonempty (x.rep ≅ y.rep)) ∧ (x.out = false → y.out = true → Nonempty (x.rep ≅ y.rep)) ∧ (x.out = true → y.out = true → Nonempty (x.repᘁ ≅ y.rep)) ∧ (x.out = false → y.out = false → Nonempty (x.rep ≅ y.repᘁ)))",
+      "gauge_support_rule_links_SU3": "[Fintype Vx] [DecidableEq Vx] {Γ : OrientedGraph Vx E} {Irr : Type*} {irr : Irr → FDRep ℂ SU3} [∀ i, Simple (irr i)] {H : Type*} [AddCommGroup H] [Module ℂ H] {gauge : Representation ℂ (Vx → SU3) H} (PW : PeterWeylLinksSU3 Γ Irr irr H gauge) (ψ : H) (hψ : ∀ g, gauge g ψ = ψ) (π : E → Irr) (hπ : PW.proj π ψ ≠ 0) (v : Vx) : (∀ x, ntList (incident Γ (irr ∘ π) v) ≠ [x]) ∧ (∀ x y, ntList (incident Γ (irr ∘ π) v) = [x, y] → (x.out = true → y.out = false → Nonempty (x.rep ≅ y.rep)) ∧ (x.out = false → y.out = true → Nonempty (x.rep ≅ y.rep)) ∧ (x.out = true → y.out = true → Nonempty (x.repᘁ ≅ y.rep)) ∧ (x.out = false → y.out = false → Nonempty (x.rep ≅ y.repᘁ)))"
     }
   },
   "complete_files": [
@@ -554,6 +590,7 @@
     "TransferGap.lean",
     "KyFanChord.lean",
     "CutBound.lean",
-    "GaugeSupportRegroup.lean"
+    "GaugeSupportRegroup.lean",
+    "GaugeSupportReshuffle.lean"
   ]
 }

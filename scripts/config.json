@@ -135,10 +135,14 @@
     {
       "module": "GaugeSupportRegroup",
       "path": "GaugeSupportRegroup.lean"
+    },
+    {
+      "module": "GaugeSupportReshuffle",
+      "path": "GaugeSupportReshuffle.lean"
     }
   ],
-  "expected_theorems": 565,
-  "expected_false_controls": 13,
+  "expected_theorems": 599,
+  "expected_false_controls": 14,
   "root_imports": [
     "GaugeCertificates",
     "LongestYangMillsChain",
@@ -165,6 +169,7 @@
     "TransferGap",
     "KyFanChord",
     "CutBound",
-    "GaugeSupportRegroup"
+    "GaugeSupportRegroup",
+    "GaugeSupportReshuffle"
   ]
 }
