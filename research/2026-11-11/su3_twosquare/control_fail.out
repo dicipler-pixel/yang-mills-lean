@@ -1,0 +1,23 @@
+ECUT=80 K=None states=3648 pairs=821 nnzT=72014 hw 0.7s total 1.7s
+live build ECUT=80 states=3648 λ=8.0
+  E0=33.489184069159  E1=41.292674707555  E2=41.733549048382  E3=44.700698657392
+  gap=7.803490638396
+  vs CSV |dE0|=1.208e-13 |dE1|=2.416e-13 |dgap|=3.633e-13
+
+CONTROL C1: claim  gap  ≥  computed_gap + 1/1000
+  computed_gap           = 7.803490638396
+  claimed lower bound    = 7.804490638396
+  computed_gap - claimed = -0.001000000000
+  claim holds? False
+  RESULT: REJECTED
+
+CONTROL C2: claim  flipping the recoupling sign (T → −T) leaves the gap unchanged
+  correct-sign gap = 7.803490638396
+  wrong-sign gap   = 3.165926369279
+  |difference|     = 4.637564269117
+  wrong-sign E0,E1,E2,E3 = 41.572248506239, 44.738174875518, 44.746180064755, 47.515671293022
+  claim holds? False
+  RESULT: REJECTED
+
+both controls rejected in 1.8s
+PASS

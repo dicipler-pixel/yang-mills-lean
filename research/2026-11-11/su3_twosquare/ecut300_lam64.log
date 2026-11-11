@@ -1,0 +1,13 @@
+start ECUT=300 lambda=64.0 procs=4
+[mem] start self_rss=0.06GiB kids=0.00GiB tree~0.06GiB box_used=3.94GiB avail=11.68GiB free=0.55GiB
+----- restarting with procs=8 at 2026-11-11T05:48:08-06:00 to stay within ~45 min -----
+start ECUT=300 lambda=64.0 procs=8
+[mem] start self_rss=0.06GiB kids=0.00GiB tree~0.06GiB box_used=4.07GiB avail=11.56GiB free=0.77GiB
+ECUT=300 K=None states=465572 pairs=13163 nnzT=38787867 hw 130.9s total 1173.6s
+build done states=465572 nnzT=38787867 nnz_sym=77575734 build_s=1173.6
+[mem] after_build self_rss=2.93GiB kids=0.00GiB tree~2.93GiB box_used=8.38GiB avail=7.24GiB free=0.73GiB
+[mem] after_clear self_rss=2.80GiB kids=0.00GiB tree~2.81GiB box_used=8.42GiB avail=7.21GiB free=0.28GiB
+levels E0=115.856835061158 E1=142.078923666217 E2=145.071446004730 E3=149.703635680130
+gap=26.222088605059 ratio=0.9462081197 d_vs_250=-3.801510154418e-04 d_vs_200=-1.961492059244e-02 eig_s=25.0 total_s=1199.0
+[mem] done self_rss=2.83GiB kids=0.00GiB tree~2.84GiB box_used=8.24GiB avail=7.39GiB free=0.44GiB
+wrote /workspace/ym_twosquare/results_ecut300_lam64.csv
