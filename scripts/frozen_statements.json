@@ -561,6 +561,20 @@
       "dcube_cycles_of_codegree": ": SmallSupportsAreCycles dcubeE",
       "k23_simple_bipartite": ": simpleB k23E = true ∧ bipB (fun v => v < 2) k23E = true",
       "k23_codegree_fails": ": codeg2B k23E = false"
+    },
+    "NtListSupport.lean": {
+      "length_filter_toList": "{E : Type*} (A : Finset E) (b : E → Bool) : (A.toList.filter b).length = (A.filter (fun e => b e = true)).card",
+      "ntList_length": "(Γ : OrientedGraph Vx E) (π : E → FDRep k G) (v : Vx) : (ntList (incident Γ π v)).length = (Finset.univ.filter (fun e => NTe π e ∧ Γ.src e = v)).card + (Finset.univ.filter (fun e => NTe π e ∧ Γ.tgt e = v)).card",
+      "deg_supportList": "(Γ : OrientedGraph Vx E) (π : E → FDRep k G) (lab : Vx → ℕ) (hlab : Function.Injective lab) (hloop : ∀ e, NTe π e → Γ.src e ≠ Γ.tgt e) (v : Vx) : deg (supportList Γ π lab) (lab v) = (Finset.univ.filter (fun e => NTe π e ∧ Γ.src e = v)).card + (Finset.univ.filter (fun e => NTe π e ∧ Γ.tgt e = v)).card",
+      "ntList_length_eq_deg": "(Γ : OrientedGraph Vx E) (π : E → FDRep k G) (lab : Vx → ℕ) (hlab : Function.Injective lab) (hloop : ∀ e, NTe π e → Γ.src e ≠ Γ.tgt e) (v : Vx) : (ntList (incident Γ π v)).length = deg (supportList Γ π lab) (lab v)",
+      "mem_verts_supportList": "{Γ : OrientedGraph Vx E} {π : E → FDRep k G} {lab : Vx → ℕ} {w : ℕ} (hw : w ∈ verts (supportList Γ π lab)) : ∃ v, w = lab v",
+      "admissible_supportList": "(Γ : OrientedGraph Vx E) (π : E → FDRep k G) (lab : Vx → ℕ) (hlab : Function.Injective lab) (hloop : ∀ e, NTe π e → Γ.src e ≠ Γ.tgt e) (hrule : ∀ v, ∀ x, ntList (incident Γ π v) ≠ [x]) : admissible (supportList Γ π lab) = true",
+      "two_le_deg_of_admissible": "(s : Graph) (h : admissible s = true) {w : ℕ} (hw : w ∈ verts s) : 2 ≤ deg s w",
+      "gauge_support_admissible": "[DecidableEq Vx] {Γ : OrientedGraph Vx E} {Irr : Type*} {irr : Irr → FDRep k G} [∀ i, Simple (irr i)] {H : Type*} [AddCommGroup H] [Module k H] {gauge : Representation k (Vx → G) H} (PW : PeterWeylLattice k G Γ Irr irr H gauge) (ψ : H) (hψ : ∀ g, gauge g ψ = ψ) (π : E → Irr) (hπ : PW.proj π ψ ≠ 0) (lab : Vx → ℕ) (hlab : Function.Injective lab) (hloop : ∀ e, NTe (irr ∘ π) e → Γ.src e ≠ Γ.tgt e) : admissible (supportList Γ (irr ∘ π) lab) = true",
+      "gauge_support_two_le_deg": "[DecidableEq Vx] {Γ : OrientedGraph Vx E} {Irr : Type*} {irr : Irr → FDRep k G} [∀ i, Simple (irr i)] {H : Type*} [AddCommGroup H] [Module k H] {gauge : Representation k (Vx → G) H} (PW : PeterWeylLattice k G Γ Irr irr H gauge) (ψ : H) (hψ : ∀ g, gauge g ψ = ψ) (π : E → Irr) (hπ : PW.proj π ψ ≠ 0) (lab : Vx → ℕ) (hlab : Function.Injective lab) (hloop : ∀ e, NTe (irr ∘ π) e → Γ.src e ≠ Γ.tgt e) {w : ℕ} (hw : w ∈ verts (supportList Γ (irr ∘ π) lab)) : 2 ≤ deg (supportList Γ (irr ∘ π) lab) w",
+      "gauge_support_shortCycle": "[DecidableEq Vx] {Γ : OrientedGraph Vx E} {Irr : Type*} {irr : Irr → FDRep k G} [∀ i, Simple (irr i)] {H : Type*} [AddCommGroup H] [Module k H] {gauge : Representation k (Vx → G) H} (PW : PeterWeylLattice k G Γ Irr irr H gauge) (ψ : H) (hψ : ∀ g, gauge g ψ = ψ) (π : E → Irr) (hπ : PW.proj π ψ ≠ 0) (lab : Vx → ℕ) (hlab : Function.Injective lab) (hmulti : ∀ e e', NTe (irr ∘ π) e → NTe (irr ∘ π) e' → norm (lab (Γ.src e), lab (Γ.tgt e)) = norm (lab (Γ.src e'), lab (Γ.tgt e')) → e = e') (g : Graph) (col : ℕ → Bool) (hs : simpleB g = true) (hb : bipB col g = true) (hc : codeg2B g = true) (hsub : ∀ p ∈ supportList Γ (irr ∘ π) lab, p ∈ g) (hne : supportList Γ (irr ∘ π) lab ≠ []) (hlen : (supportList Γ (irr ∘ π) lab).length ≤ 6) : shortCycle (supportList Γ (irr ∘ π) lab) = true",
+      "k23_admissible": ": admissible k23E = true",
+      "k23_not_shortCycle": ": shortCycle k23E = false"
     }
   },
   "complete_files": [
@@ -584,6 +598,7 @@
     "KyFanChord.lean",
     "CutBound.lean",
     "GaugeSupportRegroup.lean",
-    "SmallSupportBridge.lean"
+    "SmallSupportBridge.lean",
+    "NtListSupport.lean"
   ]
 }
