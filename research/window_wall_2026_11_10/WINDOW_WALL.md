@@ -30,6 +30,17 @@ then W(s) <= 0 for every s and no certificate r < z < d of this class exists.
    function is at least the right derivative. So W'(0) <= 28/3 - sum_p c_p g'_right(c_p).
 6. Forward secant: g'_right(c) >= (g_low(c+h) - g_up(c))/h for certified endpoints.
 
+Derivative-free form (the version formalized in yang-mills-lean PR #5, `WindowWallFinite.lean`):
+with L_p = (g_low(c_p+h_p) - g_up(c_p))/h_p, concavity gives g(c_p) - g((1-s)c_p) >= s*c_p*L_p,
+so W(s) <= s*(28/3 - sum_p c_p L_p) for every s in (0, 1]. No derivatives or level-crossing
+care are needed.
+
+Inputs and limits. 28/3 is the repo's tail floor on the total Casimir C = sum_e C_e over
+gauge-invariant states (`spatial_gauge.py`, `tail=F(28,3)`, `cutoff=F(8)`); it is not C2(4,0)
+(C2(3,1) = 25/3 lies between 8 and 28/3). Step 2 is LOCAL_ENERGY_FLOORS.md (1) at beta = 0, with
+s = 0 as its limiting case. Everything is at alpha = 1 and for the even allocation
+a_pe = (1-s)/r_e only.
+
 ## Certified result (window_wall_certified_02.py; integer intervals on the 2^-192 grid, N = 30, h = 1/1000)
 
 g_low: the one-loop complete-tail Schur matrix has no negative pivot (the test already used
@@ -46,9 +57,29 @@ for local floors). g_up: the finite retained matrix has a negative pivot (Raylei
 Control: none of the 58 stored accepted targets lies in an excluded cell, and all 58 obey
 d - r <= W(s) (window_wall_01.py, float check, smallest slack 0.000276).
 
+## Why "at and above" holds between and beyond the tested couplings
+
+Write g(kappa, lambda) = kappa*e(lambda/kappa) with e(t) = g(1, t), which is concave in t
+(a minimum of straight lines). Then dg/dlambda (kappa, lambda) = e'(lambda/kappa). Raising kappa
+lowers lambda/kappa, and e' is non-increasing, so dg/dlambda is non-decreasing in kappa
+(using one-sided derivatives where needed). Hence g(c+h, lambda) - g(c, lambda) is
+non-decreasing in lambda. The true forward secants therefore only grow with lambda, while c_p and
+28/3 do not depend on lambda, so a certified exclusion at a tested lambda/alpha excludes every
+larger coupling for the same graph and allocation class.
+
+## Exact check of the 58 stored windows (reported, not yet in this folder)
+
+Using certified lower endpoints for g((1-s)c_p) and upper endpoints for g(c_p) gives a rational
+lower bound W_low(s) <= W(s), compared directly with the stored rational d - r. All 58 obey
+d - r <= W_low(s) <= W(s); the smallest certified slack
+is 275749/10^9 (two squares, lambda/alpha = 1/10, s = 1). This was run outside the repo and was
+reported to the crew; the script is not committed here yet. The float check in window_wall_01.py
+agrees (smallest slack 0.000276).
+
 ## What it does not say
 
-Two cubes at lambda/alpha = 1 is not excluded here, yet the stored search there was
-inconclusive: the true edge of the method is earlier than this bound. The bound applies to
+Two cubes at lambda/alpha = 1 is not excluded here, and the stored search there was
+inconclusive. That case is still open: the bound is an outer bound only, and it does not say
+whether a certificate exists there. The bound applies to
 the total-electric cutoff C <= 8 with floor 28/3 only. It is the finite-graph form of the
 fixed-total-cutoff obstruction in SCALING_AND_OBSTRUCTIONS.md.
