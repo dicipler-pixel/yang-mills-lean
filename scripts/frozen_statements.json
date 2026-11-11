@@ -569,6 +569,20 @@
       "five_valent_conserved": ": vertexTri [(true, (1, 0)), (true, (1, 0)), (true, (0, 1)), (true, (1, 1)), (false, (1, 0))] = 0",
       "three_three_one_rejected": ": vertexTri [(true, (1, 0)), (true, (1, 0)), (true, (0, 0))] ≠ 0",
       "out_in_mismatch_rejected": ": vertexTri [(true, (1, 0)), (false, (0, 1))] ≠ 0"
+    },
+    "GaugeSupportRegroup.lean": {
+      "lid_rTensor_lTensor": "(φ : B →ₗ[k] k) (f : A →ₗ[k] A) (x : B ⊗[k] A) : TensorProduct.lid k A (φ.rTensor A (f.lTensor B x)) = f (TensorProduct.lid k A (φ.rTensor A x))",
+      "lTensor_fixed_eq_zero": "(ρ : Representation k G A) (hA : Representation.invariants ρ = ⊥) (x : B ⊗[k] A) (hx : ∀ g : G, (ρ g).lTensor B x = x) : x = 0",
+      "gaugeAction_apply": "(g : Vx → G) : gaugeAction W ρ g = PiTensorProduct.map (fun v => ρ v (g v))",
+      "regroup_split_map": "[DecidableEq Vx] (v : Vx) (f : ∀ w, W w →ₗ[k] W w) (t : ⨂[k] w, W w) : PiTensorProduct.equivPiTensorComplSingletonTensor k W v (PiTensorProduct.map f t) = TensorProduct.map (PiTensorProduct.map fun j : ({v}ᶜ : Set Vx) => f j) (f v) (PiTensorProduct.equivPiTensorComplSingletonTensor k W v t)",
+      "gauge_invariant_eq_zero_of_vertex": "[DecidableEq Vx] (t : ⨂[k] w, W w) (ht : IsGaugeInvariant W ρ t) (v : Vx) (hv : Representation.invariants (ρ v) = ⊥) : t = 0",
+      "vertex_invariant_ne_bot_of_gauge_invariant": "[DecidableEq Vx] (t : ⨂[k] w, W w) (ht : IsGaugeInvariant W ρ t) (ht0 : t ≠ 0) (v : Vx) : Representation.invariants (ρ v) ≠ ⊥",
+      "tprod_gauge_invariant": "(x : ∀ v, W v) (hx : ∀ v, x v ∈ Representation.invariants (ρ v)) : IsGaugeInvariant W ρ (PiTensorProduct.tprod k x)",
+      "proj_gauge_invariant": "{Γ : OrientedGraph Vx E} {Irr : Type*} {irr : Irr → FDRep k G} {H : Type*} [AddCommGroup H] [Module k H] {gauge : Representation k (Vx → G) H} (PW : PeterWeylLattice k G Γ Irr irr H gauge) (ψ : H) (hψ : ∀ g, gauge g ψ = ψ) (π : E → Irr) : IsGaugeInvariant (VertexSpace Γ (irr ∘ π)) (fun v => (vertexRep (incident Γ (irr ∘ π) v)).ρ) (PW.proj π ψ)",
+      "support_vertex_invariant": "[DecidableEq Vx] {Γ : OrientedGraph Vx E} {Irr : Type*} {irr : Irr → FDRep k G} {H : Type*} [AddCommGroup H] [Module k H] {gauge : Representation k (Vx → G) H} (PW : PeterWeylLattice k G Γ Irr irr H gauge) (ψ : H) (hψ : ∀ g, gauge g ψ = ψ) (π : E → Irr) (hπ : PW.proj π ψ ≠ 0) (v : Vx) : Representation.invariants (vertexRep (incident Γ (irr ∘ π) v)).ρ ≠ ⊥",
+      "support_nonempty": "{Γ : OrientedGraph Vx E} {Irr : Type*} {irr : Irr → FDRep k G} {H : Type*} [AddCommGroup H] [Module k H] {gauge : Representation k (Vx → G) H} (PW : PeterWeylLattice k G Γ Irr irr H gauge) (ψ : H) (hψ0 : ψ ≠ 0) : ∃ π, PW.proj π ψ ≠ 0",
+      "gauge_support_rule_regrouped": "[DecidableEq Vx] {Γ : OrientedGraph Vx E} {Irr : Type*} {irr : Irr → FDRep k G} [∀ i, Simple (irr i)] {H : Type*} [AddCommGroup H] [Module k H] {gauge : Representation k (Vx → G) H} (PW : PeterWeylLattice k G Γ Irr irr H gauge) (ψ : H) (hψ : ∀ g, gauge g ψ = ψ) (π : E → Irr) (hπ : PW.proj π ψ ≠ 0) (v : Vx) : (∀ x, ntList (incident Γ (irr ∘ π) v) ≠ [x]) ∧ (∀ x y, ntList (incident Γ (irr ∘ π) v) = [x, y] → (x.out = true → y.out = false → Nonempty (x.rep ≅ y.rep)) ∧ (x.out = false → y.out = true → Nonempty (x.rep ≅ y.rep)) ∧ (x.out = true → y.out = true → Nonempty (x.repᘁ ≅ y.rep)) ∧ (x.out = false → y.out = false → Nonempty (x.rep ≅ y.repᘁ)))",
+      "gauge_support_rule_regrouped_SU3": "[DecidableEq Vx] {Γ : OrientedGraph Vx E} {Irr : Type*} {irr : Irr → FDRep ℂ SU3} [∀ i, Simple (irr i)] {H : Type*} [AddCommGroup H] [Module ℂ H] {gauge : Representation ℂ (Vx → SU3) H} (PW : PeterWeylSU3 Γ Irr irr H gauge) (ψ : H) (hψ : ∀ g, gauge g ψ = ψ) (π : E → Irr) (hπ : PW.proj π ψ ≠ 0) (v : Vx) : (∀ x, ntList (incident Γ (irr ∘ π) v) ≠ [x]) ∧ (∀ x y, ntList (incident Γ (irr ∘ π) v) = [x, y] → (x.out = true → y.out = false → Nonempty (x.rep ≅ y.rep)) ∧ (x.out = false → y.out = true → Nonempty (x.rep ≅ y.rep)) ∧ (x.out = true → y.out = true → Nonempty (x.repᘁ ≅ y.rep)) ∧ (x.out = false → y.out = false → Nonempty (x.rep ≅ y.repᘁ)))"
     }
   },
   "complete_files": [
@@ -592,6 +606,7 @@
     "KyFanChord.lean",
     "CutBound.lean",
     "SmallSupportBridge.lean",
-    "TrialityVertex.lean"
+    "TrialityVertex.lean",
+    "GaugeSupportRegroup.lean"
   ]
 }

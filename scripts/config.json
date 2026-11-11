@@ -143,6 +143,10 @@
     {
       "module": "TrialityVertex",
       "path": "TrialityVertex.lean"
+    },
+    {
+      "module": "GaugeSupportRegroup",
+      "path": "GaugeSupportRegroup.lean"
     }
   ],
   "expected_theorems": 580,
@@ -175,6 +179,7 @@
     "CutBound",
     "SmallSupportBridge",
     "CutFlux",
-    "TrialityVertex"
+    "TrialityVertex",
+    "GaugeSupportRegroup"
   ]
 }

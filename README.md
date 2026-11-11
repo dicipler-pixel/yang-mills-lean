@@ -8,6 +8,7 @@
 ![Lean](https://img.shields.io/badge/Lean-v4.33.0-blue)
 ![Theorems](https://img.shields.io/badge/theorems-580-2EA043)
 ![Theorems](https://img.shields.io/badge/theorems-573-2EA043)
+![Theorems](https://img.shields.io/badge/theorems-565-2EA043)
 ![sorry](https://img.shields.io/badge/sorry-0-2EA043)
 ![Code: MIT](https://img.shields.io/badge/code-MIT-lightgrey)
 ![Text: CC BY 4.0](https://img.shields.io/badge/text-CC%20BY%204.0-lightgrey)
@@ -63,6 +64,9 @@ specified finite algebra. The spatial work checks five original-link SU(3) model
 | | **Total** | **580** |
 | **Triality at an n-valent vertex**: if the centre element acts on every arm by ω^triality (a named hypothesis `CentreCharacter`, the SU(3) centre fact, not proved here) and the vertex space has a nonzero invariant, the signed trialities sum to 0 mod 3 at any valence, with incoming arms entering as conjugates; also as zero net flux in ℤ/3. The one-, two- and three-valent cases follow as corollaries, and the closed singlet formula is shown to agree | [`TrialityVertex`](TrialityVertex.lean) | 20 |
 | | **Total** | **573** |
+| **Small supports are cycles**: on a bipartite graph where no two vertices share three neighbours, a support with at most 6 links and minimum degree 2 is a single 4- or 6-cycle, proved in general with no search. The link from it to the list-based `SmallSupportsAreCycles` hypothesis used by `TailFloor` is not formalized yet | [`SmallSupportCycle`](SmallSupportCycle.lean) | 6 |
+| **Gauge support rule**: Schur at each vertex, no dangling link (`gauge_no_dangling`), paired irreps on two-link vertices (`gauge_pair_finrank`), the per-vertex and lattice rule, and the dual of a simple representation is simple (`dual_simple`). Regrouped by vertex (`gauge_support_rule_regrouped`, `_SU3`): a nonzero gauge-invariant vector of ⊗_v W_v forces a nonzero invariant at every vertex, so every labelling in the support of a gauge-invariant state obeys the lattice rule with no per-vertex hypothesis. Still assumed, as the named hypothesis `PeterWeylSU3` (a structure, not an axiom): Peter–Weyl link by link together with the reshuffle ⊗_e (V ⊗ V*) ≅ ⊗_v W_v | [`GaugeSupport`](GaugeSupport.lean), [`GaugeSupportFDRep`](GaugeSupportFDRep.lean), [`GaugeSupportLattice`](GaugeSupportLattice.lean), [`DualSimple`](DualSimple.lean), [`GaugeSupportRegroup`](GaugeSupportRegroup.lean) | 44 |
+| | **Total** | **565** |
 
 Among the first 80 theorems, besides the matrix factorizations, fifteen are exact arithmetic checks of
 displayed rational constants: eleven in `GaugeCertificates` and four in `CrossTheorem`.
@@ -85,6 +89,8 @@ Python verifiers are separate and run from the research folders:
    dual-simple, theta floor, triality, transfer-gap, cut-bound and Ky Fan chord statements, and
    two-, three- and four-valent vertex labellings whose trialities do not sum to 0.
 5. **Frozen statements**: 495 theorem statements are frozen, so a proof cannot pass by quietly
+   dual-simple, theta floor, triality, transfer-gap, cut-bound, Ky Fan chord and the three regrouped gauge-support statements.
+5. **Frozen statements**: 475 theorem statements are frozen, so a proof cannot pass by quietly
    weakening what it proves. Every edit to a frozen statement is logged.
 
 ```bash
