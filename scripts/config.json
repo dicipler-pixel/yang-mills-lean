@@ -217,8 +217,8 @@
       "path": "AdjointWitnessSU3.lean"
     }
   ],
-  "expected_theorems": 1006,
-  "expected_false_controls": 34,
+  "expected_theorems": 1069,
+  "expected_false_controls": 35,
   "root_imports": [
     "GaugeCertificates",
     "LongestYangMillsChain",

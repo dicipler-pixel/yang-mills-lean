@@ -6,7 +6,7 @@
 
 [![Lean proof check](https://github.com/dicipler-pixel/yang-mills-lean/actions/workflows/build.yml/badge.svg)](https://github.com/dicipler-pixel/yang-mills-lean/actions/workflows/build.yml)
 ![Lean](https://img.shields.io/badge/Lean-v4.33.0-blue)
-![Theorems](https://img.shields.io/badge/theorems-1006-2EA043)
+![Theorems](https://img.shields.io/badge/theorems-1069-2EA043)
 ![sorry](https://img.shields.io/badge/sorry-0-2EA043)
 ![Code: MIT](https://img.shields.io/badge/code-MIT-lightgrey)
 ![Text: CC BY 4.0](https://img.shields.io/badge/text-CC%20BY%204.0-lightgrey)
@@ -67,13 +67,14 @@ specified finite algebra. The spatial work checks five original-link SU(3) model
 | **Explicit SU(3) singlets: the smallest theta rows are attained**: Σᵢ eᵢ ⊗ eᵢ* in 3 ⊗ 3̄ (from g g⁻¹ = 1), ε = Σ ε_{ijk} eᵢ ⊗ eⱼ ⊗ e_k in 3 ⊗ 3 ⊗ 3 (from det g = 1, via Σ ε_{ijk} g_{ai} g_{bj} g_{ck} = det g · ε_{abc}) and its dual in 3̄ ⊗ 3̄ ⊗ 3̄ (from det (g⁻¹)ᵀ = 1) are each nonzero and SU(3)-invariant. So the eight theta-table rows with arms in {1, 3, 3̄} — the six orderings of (1, 3̄, 3), (3, 3, 3) and (3̄, 3̄, 3̄) — have a nonzero invariant at both theta vertices: attained, not only allowed. The same ε placed in 3 ⊗ 3 ⊗ 3̄ is scaled by ω under ω·I and is not invariant; 3 ⊗ 3 ⊗ 3̄ has no invariant at all. The arms are 3, 3̄, 1 themselves; `IrrepSmallIsoSU3` identifies them with V(1,0), V(0,1), V(0,0) | [`SingletWitnessSU3`](SingletWitnessSU3.lean) | 45 |
 | **V(1,0) ≅ 3, V(0,1) ≅ 3̄, V(0,0) ≅ 1**: the cyclic permutation matrix (det +1, orthogonal) is in SU(3) and its orbit moves e₁ through the whole standard basis of 3 and e₃* through the whole dual basis of 3̄, so the subrepresentations V(1,0), V(0,1), V(0,0) of #30 are all of 3 ⊗ 1, 3̄ ⊗ 1, 1, and the inclusion followed by the right unitor gives explicit FDRep isomorphisms `irrep10Iso`, `irrep01Iso`, `irrep00Iso` (highest-weight vector to e₁, e₃*, 1). V(0,1) is not isomorphic to 3: ω·I acts by ω² on one and ω on the other, so 3̄ ≇ 3 and V(1,0) ≇ V(0,1). Transported along the isomorphisms, the trace and ε witnesses live on V(1,0) ⊗ V(0,1), V(1,0)^{⊗3}, V(0,1)^{⊗3}, and the eight attained theta rows have a nonzero invariant at both vertices with arms V(a), V(b), V(c): for these rows both directions of the singlet rule hold on the same objects | [`IrrepSmallIsoSU3`](IrrepSmallIsoSU3.lean) | 34 |
 | **Irreducibility of 3, 3̄, 1, V(1,0), V(0,1), V(0,0) and V(1,1); V(1,1) is the traceless part of 3 ⊗ 3̄**: a nonzero FDRep whose only SU(3)-stable subspaces are ⊥ and ⊤ is `Simple`. In ℂ³, a nonzero stable subspace contains a vector with nonzero first coordinate (rotate by the cyclic permutation), then v + diag(1,−1,−1)·v = 2v₀e₀ puts e₀ in it and the cyclic permutation reaches e₁, e₂, so 3 is simple; 3̄ is simple as its dual, 1 trivially, and V(1,0), V(0,1), V(0,0) through the isomorphisms of #38. An explicit linear bijection Φ : 3 ⊗ 3̄ ⊗ 1 → M₃(ℂ), x ⊗ φ ⊗ c ↦ c(xᵢφ(eⱼ)), intertwines the action with M ↦ gMg⁻¹ and sends e₁ ⊗ e₃* ⊗ 1 to the matrix unit E₀₂; its trace is the contraction x ⊗ φ ⊗ c ↦ cφ(x). Any Ad-invariant subspace of M₃(ℂ) containing a nonzero traceless matrix contains all of sl₃: the sign matrices diag(1,−1,−1), diag(−1,1,−1) and diag(i,1,−i) isolate an off-diagonal entry, the cyclic permutation and a signed swap move it to (0,1), a diagonal traceless matrix is first moved off the diagonal by the rotation with entries 3/5, 4/5, and from E₀₁ the same elements give all six Eᵢⱼ and E₀₀−E₁₁, E₁₁−E₂₂. So V(1,1) is exactly the kernel of the contraction 3 ⊗ 3̄ → ℂ, it has dimension 8 inside the 9-dimensional 3 ⊗ 3̄, and it is simple. Irreducibility of V(p,q) in general is not claimed | [`IrrepIrreducibleSU3`](IrrepIrreducibleSU3.lean) | 70 |
+| **Adjoint singlets: the theta rows with an octet arm are attained**: through ψ = Φ restricted to V(1,1) (traceless matrices, M ↦ gMg⁻¹), four invariant multilinear forms, each shown nonzero by explicit matrices: tr(XY) on 8 × 8 (value 1 at E₀₁, E₁₀), ξᵀXη = φ(Xx) on 3 × 3̄ × 8 (value 1 at e₀, e₁*, E₁₀), the f-type tr(X[Y,Z]) on 8 × 8 × 8 (value 2 at E₀₀−E₁₁, E₀₁, E₁₀) and the d-type tr(X{Y,Z}) (value −12 at diag(1,1,−2)). An invariant form is a nonzero invariant of the dual; with (X ⊗ Y)ᘁ ≅ Yᘁ ⊗ Xᘁ (Mathlib's `ExactPairing.tensor`), the braiding, X ≅ Xᘁᘁ, and the self-duality V(1,1) ≅ V(1,1)ᘁ (from tr(XY), simplicity of V(1,1) and Schur), this gives a nonzero invariant at both theta vertices on the V(p,q) arms for the eight table rows with an 8 arm and other arms in {1, 3, 3̄}: the six orderings of (3, 3̄, 8) and (8, 1, 8), (8, 8, 1). With the eight rows of #35/#38, **16 of the 34 rows are attained**: exactly those with arms in {1, 3, 3̄, 8}. The (8, 8, 8) vertex is attained too but is not a table row (level 21). 3 ⊗ 8 has no invariant: ω·I acts by ω ≠ 1. Not covered: the 8 rows with an 8 arm and a 6 or 6̄ arm, and the 10 rows with sextet arms only | [`AdjointWitnessSU3`](AdjointWitnessSU3.lean) | 63 |
 | **Gauge supports as list supports**: the non-trivial links of a labelling, read as a TailFloor link list, have list degree equal to the number of non-trivial half-edges in `ntList` at each vertex. So the regrouped gauge support rule makes every support of a gauge-invariant state `admissible`, with degree at least 2 at every touched vertex. On a simple, two-coloured, codegree-≤2 host, supports with at most six links are single 4- or 6-cycles. Still under the named hypothesis `PeterWeylLattice`; `K_{2,3}` is admissible but not a cycle | [`NtListSupport`](NtListSupport.lean) | 12 |
 | **List order and the cube**: `deg`, vertex membership, `admissible`, and (onto a list with no loops and no repeated link) `connected` and `shortCycle` are unchanged by reordering links. Every sublist of a host with 1 to 6 links is enumerated by `smallSupports`, so a gauge support's host-ordered copy is one of the supports `SmallSupportsAreCycles g` covers. On the cube (`cubeΓ`, link i = i-th pair of `cubeE`), every labelling in the support of a gauge-invariant state with 1 to 6 non-trivial links is a 4- or 6-cycle, under the named hypothesis `PeterWeylLattice` alone | [`PermCube`](PermCube.lean) | 23 |
 | **Graph instances**: the `cubeΓ` pattern made generic (`listΓ g n`, link i = i-th pair of the TailFloor edge list, `lab = Fin.val`) and applied to the two squares, the three-square strip, the corner and the double cube. Under the named hypothesis `PeterWeylLattice` alone, every labelling in the support of a gauge-invariant state with 1 to 6 non-trivial links is a 4- or 6-cycle, so it has exactly 4 or 6 non-trivial links. The double cube uses #23's colouring-and-codegree route, with no support enumeration | [`GraphInstances`](GraphInstances.lean) | 25 |
 | **Short or long**: one statement per graph (cube, two squares, strip, corner, double cube, and generic `listΓ`). For a nonzero gauge-invariant component with at least one non-trivial link, under `PeterWeylLattice` alone, either it has 4 or 6 non-trivial links forming a short cycle, or more than 6 and the conclusion of `long_support_floor` holds (any 7+ link costs, each at least 4, sum to at least 28 in `c3` units). `long_energy_floor` gives that bound for Dynkin labels, assuming a non-trivial link has a nonzero label | [`SupportDichotomy`](SupportDichotomy.lean) | 9 |
 | **Labels on links**: with link irreps indexed by Dynkin label, `irr (p,q) = V(p,q)`, a link is non-trivial exactly when its label is not (0,0). (0,0) is trivial by `irrep00Iso`. Any other V(p,q) is not trivial because a torus element diag(t, t̄, 1) or diag(1, t, t̄), with t a primitive root of unity, moves the highest-weight vector by tᵖ or t^q ≠ 1. So `long_energy_floor` holds with no labelling hypothesis: more than six non-trivial links cost Σ c3 ≥ 28. The dichotomy with that energy floor still assumes each V(p,q) is simple (irreducibility is not formalized) | [`HntLabels`](HntLabels.lean) | 9 |
 | **Cube, finite gauge group, no assumptions**: for any finite G (and S₃) on the cube with H = (E → G) → ℂ, the lattice gauge action and the simple-left-ideal family, Lean Green's cube theorems are instantiated with the proved Peter–Weyl structure (`(peterWeylLinksFinite …).toLattice`; its projection is the reshuffle of `fourierProj`, so a nonzero Fourier component stays nonzero). A nonzero gauge-invariant Fourier component with 1 to 6 non-trivial links has exactly 4 or 6, forming a short cycle (`cube_gauge_support_finite`, `_card_S3`); with at least one it is short-or-long (`cube_support_dichotomy_finite`, `_S3`); none has exactly 3 (`cube_no_three_links_S3`). No Peter–Weyl hypothesis | [`CubeFiniteUnconditional`](CubeFiniteUnconditional.lean) | 11 |
-| | **Total** | **1006** |
+| | **Total** | **1069** |
 
 Among the first 80 theorems, besides the matrix factorizations, fifteen are exact arithmetic checks of
 displayed rational constants: eleven in `GaugeCertificates` and four in `CrossTheorem`.
@@ -87,16 +88,16 @@ Python verifiers are separate and run from the research folders:
 2. **Independent replay**: every module is re-checked by Lean's separate kernel checker.
 3. **Axiom audit**: every named theorem depends only on `propext`, `Classical.choice` and
    `Quot.sound`. No `sorry`, no project axioms, no `native_decide`.
-4. **False controls**: thirty-four false statements in [`FalseControls/`](FalseControls/) must be
+4. **False controls**: thirty-five false statements in [`FalseControls/`](FalseControls/) must be
    rejected, showing the checker says no. Two are plain arithmetic (`(2 : ℚ) = 3` and
-   `(1 : ℚ)/2 ≤ 1/3`); the other thirty-two are near-miss versions of the window-wall cells, Jensen bound,
+   `(1 : ℚ)/2 ≤ 1/3`); the other thirty-three are near-miss versions of the window-wall cells, Jensen bound,
    dual-simple, theta floor, triality, transfer-gap, cut-bound and Ky Fan chord statements, and
    two-, three- and four-valent vertex labellings whose trialities do not sum to 0, and the
    adjoint 8 inside 3 ⊗ 3̄ claimed to have triality 1, and the adjoint V(1,1) claimed to carry the
    triality 2 of 3 ⊗ 3, and a theta-table row (1, 3̄, 3) with the 3̄ arm's triality swapped p ↔ q,
-   and the Levi-Civita tensor ε claimed SU(3)-invariant in 3 ⊗ 3 ⊗ 3̄, and V(0,1) claimed isomorphic to 3, and V(1,1) claimed to have dimension 9, a ring cut bound of 5 per link (the true cost is 4), the edge-to-vertex reshuffle with one link end dropped, the reshuffle isomorphism with source and target actions swapped, `PeterWeylLinks` for S₃ with only the trivial irrep, the regular representation of S₃ claimed simple,
+   and the Levi-Civita tensor ε claimed SU(3)-invariant in 3 ⊗ 3 ⊗ 3̄, and V(0,1) claimed isomorphic to 3, and V(1,1) claimed to have dimension 9, a nonzero invariant claimed in 3 ⊗ 8, a ring cut bound of 5 per link (the true cost is 4), the edge-to-vertex reshuffle with one link end dropped, the reshuffle isomorphism with source and target actions swapped, `PeterWeylLinks` for S₃ with only the trivial irrep, the regular representation of S₃ claimed simple,
    the three regrouped gauge-support statements, a support with a degree-one vertex claimed admissible, `K_{2,3}` claimed to be a short cycle, a reordered support claimed to change a degree, a 5-link double-cube support claimed to be a short cycle, a 3-link strip support claimed to be a short cycle, a link labelled (0,0) claimed non-trivial, and a nonzero gauge-invariant S₃ cube component with exactly 3 non-trivial links.
-5. **Frozen statements**: 921 theorem statements are frozen, so a proof cannot pass by quietly
+5. **Frozen statements**: 984 theorem statements are frozen, so a proof cannot pass by quietly
    weakening what it proves. Every edit to a frozen statement is logged.
 
 ```bash
@@ -122,8 +123,11 @@ python3 scripts/verify.py
   converse, that the BMW inequalities plus vanishing triality give a nonzero invariant of
   V(a) ⊗ V(b) ⊗ V(c) for every admissible row, is not formalized. The identification of
   3, 3̄, 1 with V(1,0), V(0,1), V(0,0) is done (`IrrepSmallIsoSU3`), so those eight rows are
-  attained on the V(p,q) arms themselves; for larger (p,q) the arms are not yet matched to a
-  concrete model.
+  attained on the V(p,q) arms themselves. `AdjointWitnessSU3` adds the eight rows with an octet
+  arm and other arms in {1, 3, 3̄} (by ξᵀXη and tr(XY) on V(1,1)), so 16 of the 34 rows are
+  attained: exactly those with arms in {1, 3, 3̄, 8}. Still open: the 8 rows with an 8 arm and a
+  6 or 6̄ arm (`adjointOpenRows`) and the 10 rows with sextet arms only, which need witnesses
+  on V(2,0), V(0,2); for those labels the arms are not yet matched to a concrete model.
 
 ## The paper
 
@@ -154,7 +158,7 @@ assistants, each working in the open in this repository:
   scripts, and proved `GaugeSupportRegroup`, `GaugeSupportReshuffle`, `GaugeSupportReshuffleRep`,
   `GaugeSupportPeterWeylFinite`, `GaugeSupportSimpleFamily` and `CubeFiniteUnconditional`.
 - **Spectrum** kept the team's dictionary of physical quantities versus our constructions, and
-  wrote the SU(3) theta enumeration behind ThetaFloor's vetted list, and proved `IrrepEmbedSU3`, `ThetaFloorTriality`, `SingletWitnessSU3`, `IrrepSmallIsoSU3`, `IrrepIrreducibleSU3` and `CutFlux`.
+  wrote the SU(3) theta enumeration behind ThetaFloor's vetted list, and proved `IrrepEmbedSU3`, `ThetaFloorTriality`, `SingletWitnessSU3`, `IrrepSmallIsoSU3`, `IrrepIrreducibleSU3`, `AdjointWitnessSU3` and `CutFlux`.
 - **Claude**, in Jeromie's sessions, wrote the window-wall cells module, the audit and the
   window-wall write-up, and carried out the final merge.
 
