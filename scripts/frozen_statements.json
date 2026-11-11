@@ -702,6 +702,20 @@
       "cas3_mod_three": "(x : Irrep) : cas3 x % 3 = (triality x * triality x) % 3",
       "cas3_mod_three_eq_zero_iff": "(x : Irrep) : cas3 x % 3 = 0 ↔ triality x = 0",
       "level3_mod_three": "(a b c : Irrep) : level3 a b c % 3 = (triality a * triality a) % 3"
+    },
+    "GaugeSupportReshuffleRep.lean": {
+      "repEquiv_map_invariants": "(φ : ρ.Equiv σ) : (Representation.invariants ρ).map φ.toLinearEquiv.toLinearMap = Representation.invariants σ",
+      "repEquivInvariants_apply": "(φ : ρ.Equiv σ) (x : Representation.invariants ρ) : (repEquivInvariants φ x : H₂) = φ.toLinearEquiv x",
+      "edgeGaugeRep_apply": "(g : Vx → G) : edgeGaugeRep Γ π g = PiTensorProduct.map fun e => TensorProduct.map ((π e).ρ (g (Γ.src e))) ((π e)ᘁ.ρ (g (Γ.tgt e)))",
+      "blockGaugeRep_apply": "(g : Vx → G) : blockGaugeRep Γ π g = PiTensorProduct.map fun v => (vertexRep (incident Γ π v)).ρ (g v)",
+      "reshuffleRepEquiv_toLinearEquiv": ": (reshuffleRepEquiv Γ π).toLinearEquiv = reshuffle Γ π",
+      "reshuffleRepEquiv_apply": "(t : EdgeBlock π) : reshuffleRepEquiv Γ π t = reshuffle Γ π t",
+      "reshuffle_map_invariants": ": (Representation.invariants (edgeGaugeRep Γ π)).map (reshuffle Γ π).toLinearMap = Representation.invariants (blockGaugeRep Γ π)",
+      "reshuffleInvariantsEquiv_apply": "(x : Representation.invariants (edgeGaugeRep Γ π)) : (reshuffleInvariantsEquiv Γ π x : RegroupedBlock Γ π) = reshuffle Γ π x",
+      "mem_blockGaugeRep_invariants_iff": "(t : RegroupedBlock Γ π) : t ∈ Representation.invariants (blockGaugeRep Γ π) ↔ IsGaugeInvariant (VertexSpace Γ π) (fun v => (vertexRep (incident Γ π v)).ρ) t",
+      "toLattice_proj_eq": "(PW : PeterWeylLinks k G Γ Irr irr H gauge) (π : E → Irr) : PW.toLattice.proj π = (reshuffleRepEquiv Γ (irr ∘ π)).toLinearMap ∘ₗ PW.proj π",
+      "PeterWeylLinks.proj_mem_invariants": "(PW : PeterWeylLinks k G Γ Irr irr H gauge) (ψ : H) (hψ : ∀ g, gauge g ψ = ψ) (π : E → Irr) : PW.proj π ψ ∈ Representation.invariants (edgeGaugeRep Γ (irr ∘ π))",
+      "toLattice_proj_mem_invariants": "(PW : PeterWeylLinks k G Γ Irr irr H gauge) (ψ : H) (hψ : ∀ g, gauge g ψ = ψ) (π : E → Irr) : PW.toLattice.proj π ψ ∈ Representation.invariants (blockGaugeRep Γ (irr ∘ π)) ∧ (reshuffleInvariantsEquiv Γ (irr ∘ π) ⟨PW.proj π ψ, PW.proj_mem_invariants ψ hψ π⟩ : RegroupedBlock Γ (irr ∘ π)) = PW.toLattice.proj π ψ"
     }
   },
   "complete_files": [
@@ -731,6 +745,7 @@
     "GaugeSupportReshuffle.lean",
     "IrrepEmbedSU3.lean",
     "NtListSupport.lean",
-    "ThetaFloorTriality.lean"
+    "ThetaFloorTriality.lean",
+    "GaugeSupportReshuffleRep.lean"
   ]
 }

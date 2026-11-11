@@ -167,6 +167,10 @@
     {
       "module": "ThetaFloorTriality",
       "path": "ThetaFloorTriality.lean"
+    },
+    {
+      "module": "GaugeSupportReshuffleRep",
+      "path": "GaugeSupportReshuffleRep.lean"
     }
   ],
   "expected_theorems": 580,
@@ -205,6 +209,7 @@
     "GaugeSupportReshuffle",
     "IrrepEmbedSU3",
     "NtListSupport",
-    "ThetaFloorTriality"
+    "ThetaFloorTriality",
+    "GaugeSupportReshuffleRep"
   ]
 }

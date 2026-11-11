@@ -14,6 +14,7 @@
 ![Theorems](https://img.shields.io/badge/theorems-613-2EA043)
 ![Theorems](https://img.shields.io/badge/theorems-604-2EA043)
 ![Theorems](https://img.shields.io/badge/theorems-636-2EA043)
+![Theorems](https://img.shields.io/badge/theorems-611-2EA043)
 ![sorry](https://img.shields.io/badge/sorry-0-2EA043)
 ![Code: MIT](https://img.shields.io/badge/code-MIT-lightgrey)
 ![Text: CC BY 4.0](https://img.shields.io/badge/text-CC%20BY%204.0-lightgrey)
@@ -82,6 +83,8 @@ specified finite algebra. The spatial work checks five original-link SU(3) model
 | | **Total** | **604** |
 | **ThetaFloor triality from the centre character**: the triality ThetaFloor attaches to the label (p,q) is exactly the exponent by which ω·I acts on V(p,q), and the only one in {0,1,2}; V(p,q) carries the swapped label's triality only when it is 0. `hasSinglet` splits as vanishing vertex triality plus the BMW inequalities, and the triality clause is proved from `nvalent_triality_irrepRep` for V(a), V(b), V(c) arms with a nonzero invariant, at both theta vertices. Every entry of the theta tables (34 rows, level 40/3, level 43/3) satisfies the proved condition, and swapping p ↔ q on an arm of nonzero triality breaks it. `cas3` is blind to p ↔ q and cas3 ≡ triality² (mod 3), so the level is an integer iff the short arm has triality 0. That `cas3` and the BMW inequalities are the Casimir and tensor rule of V(p,q) needs irreducibility and is not claimed | [`ThetaFloorTriality`](ThetaFloorTriality.lean) | 23 |
 | | **Total** | **636** |
+| **Gauge support rule**: Schur at each vertex, no dangling link (`gauge_no_dangling`), paired irreps on two-link vertices (`gauge_pair_finrank`), the per-vertex and lattice rule, and the dual of a simple representation is simple (`dual_simple`). Regrouped by vertex (`gauge_support_rule_regrouped`, `_SU3`): a nonzero gauge-invariant vector of ⊗_v W_v forces a nonzero invariant at every vertex, so every labelling in the support of a gauge-invariant state obeys the lattice rule with no per-vertex hypothesis. The edge-to-vertex reshuffle ⊗_e (V ⊗ V*) ≅ ⊗_v W_v is proved as a gauge-equivariant linear isomorphism (`reshuffle`, `reshuffle_equivariant`, `reshuffle_tprod`), and packaged as one isomorphism of representations of the gauge group (`reshuffleRepEquiv`, a Mathlib `Representation.Equiv`) that matches the gauge invariants on both sides (`reshuffleInvariantsEquiv`), so the rule also follows from `gauge_support_rule_links` (`_SU3`). Still assumed, as the named hypothesis `PeterWeylLinksSU3` (a structure, not an axiom): Peter–Weyl link by link onto ⊗_e (V ⊗ V*) | [`GaugeSupport`](GaugeSupport.lean), [`GaugeSupportFDRep`](GaugeSupportFDRep.lean), [`GaugeSupportLattice`](GaugeSupportLattice.lean), [`DualSimple`](DualSimple.lean), [`GaugeSupportRegroup`](GaugeSupportRegroup.lean), [`GaugeSupportReshuffle`](GaugeSupportReshuffle.lean), [`GaugeSupportReshuffleRep`](GaugeSupportReshuffleRep.lean) | 90 |
+| | **Total** | **611** |
 
 Among the first 80 theorems, besides the matrix factorizations, fifteen are exact arithmetic checks of
 displayed rational constants: eleven in `GaugeCertificates` and four in `CrossTheorem`.
@@ -121,6 +124,9 @@ Python verifiers are separate and run from the research folders:
 5. **Frozen statements**: 526 theorem statements are frozen, so a proof cannot pass by quietly
    triality 2 of 3 ⊗ 3, and a theta-table row (1, 3̄, 3) with the 3̄ arm's triality swapped p ↔ q.
 5. **Frozen statements**: 558 theorem statements are frozen, so a proof cannot pass by quietly
+4. **False controls**: fifteen false statements in [`FalseControls/`](FalseControls/) must be
+   dual-simple, theta floor, triality, transfer-gap, cut-bound, Ky Fan chord, the three regrouped gauge-support statements the edge-to-vertex reshuffle (one link end dropped) and the reshuffle iso with source and target actions swapped.
+5. **Frozen statements**: 533 theorem statements are frozen, so a proof cannot pass by quietly
    weakening what it proves. Every edit to a frozen statement is logged.
 
 ```bash
