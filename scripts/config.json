@@ -147,6 +147,10 @@
     {
       "module": "GaugeSupportRegroup",
       "path": "GaugeSupportRegroup.lean"
+    },
+    {
+      "module": "CentreCharacterSU3",
+      "path": "CentreCharacterSU3.lean"
     }
   ],
   "expected_theorems": 580,
@@ -180,6 +184,7 @@
     "SmallSupportBridge",
     "CutFlux",
     "TrialityVertex",
-    "GaugeSupportRegroup"
+    "GaugeSupportRegroup",
+    "CentreCharacterSU3"
   ]
 }

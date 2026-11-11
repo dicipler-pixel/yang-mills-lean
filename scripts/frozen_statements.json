@@ -583,6 +583,25 @@
       "support_nonempty": "{Γ : OrientedGraph Vx E} {Irr : Type*} {irr : Irr → FDRep k G} {H : Type*} [AddCommGroup H] [Module k H] {gauge : Representation k (Vx → G) H} (PW : PeterWeylLattice k G Γ Irr irr H gauge) (ψ : H) (hψ0 : ψ ≠ 0) : ∃ π, PW.proj π ψ ≠ 0",
       "gauge_support_rule_regrouped": "[DecidableEq Vx] {Γ : OrientedGraph Vx E} {Irr : Type*} {irr : Irr → FDRep k G} [∀ i, Simple (irr i)] {H : Type*} [AddCommGroup H] [Module k H] {gauge : Representation k (Vx → G) H} (PW : PeterWeylLattice k G Γ Irr irr H gauge) (ψ : H) (hψ : ∀ g, gauge g ψ = ψ) (π : E → Irr) (hπ : PW.proj π ψ ≠ 0) (v : Vx) : (∀ x, ntList (incident Γ (irr ∘ π) v) ≠ [x]) ∧ (∀ x y, ntList (incident Γ (irr ∘ π) v) = [x, y] → (x.out = true → y.out = false → Nonempty (x.rep ≅ y.rep)) ∧ (x.out = false → y.out = true → Nonempty (x.rep ≅ y.rep)) ∧ (x.out = true → y.out = true → Nonempty (x.repᘁ ≅ y.rep)) ∧ (x.out = false → y.out = false → Nonempty (x.rep ≅ y.repᘁ)))",
       "gauge_support_rule_regrouped_SU3": "[DecidableEq Vx] {Γ : OrientedGraph Vx E} {Irr : Type*} {irr : Irr → FDRep ℂ SU3} [∀ i, Simple (irr i)] {H : Type*} [AddCommGroup H] [Module ℂ H] {gauge : Representation ℂ (Vx → SU3) H} (PW : PeterWeylSU3 Γ Irr irr H gauge) (ψ : H) (hψ : ∀ g, gauge g ψ = ψ) (π : E → Irr) (hπ : PW.proj π ψ ≠ 0) (v : Vx) : (∀ x, ntList (incident Γ (irr ∘ π) v) ≠ [x]) ∧ (∀ x y, ntList (incident Γ (irr ∘ π) v) = [x, y] → (x.out = true → y.out = false → Nonempty (x.rep ≅ y.rep)) ∧ (x.out = false → y.out = true → Nonempty (x.rep ≅ y.rep)) ∧ (x.out = true → y.out = true → Nonempty (x.repᘁ ≅ y.rep)) ∧ (x.out = false → y.out = false → Nonempty (x.rep ≅ y.repᘁ)))"
+    },
+    "CentreCharacterSU3.lean": {
+      "omega_primitive": ": IsPrimitiveRoot ω 3",
+      "omega_cube": ": ω ^ 3 = 1",
+      "omega_mul_conj": ": ω * (starRingEnd ℂ) ω = 1",
+      "omega_smul_one_mem": ": (ω • (1 : Matrix (Fin 3) (Fin 3) ℂ)) ∈ SU3",
+      "centreActs_fund": ": CentreActs zω ω fund",
+      "centreCharacter_fund": ": CentreCharacter zω ω fund (1, 0)",
+      "centreActs_antifund": ": CentreActs zω (ω ^ 2) antifund",
+      "centreCharacter_antifund": ": CentreCharacter zω ω antifund (0, 1)",
+      "centreActs_tensorList": "(l : List (FDRep ℂ SU3 × ℕ)) (h : ∀ a ∈ l, CentreActs zω (ω ^ a.2) a.1) : CentreActs zω (ω ^ (l.map Prod.snd).sum) (tensorList (l.map Prod.fst))",
+      "omega_pow_mod": "(n : ℕ) : ω ^ (n % 3) = ω ^ n",
+      "centreCharacter_tensorRep": "(p q : ℕ) : CentreCharacter zω ω (tensorRep p q) (p, q)",
+      "centreActs_of_mono": "{G : Type} [Group G] {z : G} {c : ℂ} {X Y : FDRep ℂ G} (f : X ⟶ Y) [Mono f] (hY : CentreActs z c Y) : CentreActs z c X",
+      "centreCharacter_of_mono": "{X : FDRep ℂ SU3} {p q : ℕ} (f : X ⟶ tensorRep p q) [Mono f] : CentreCharacter zω ω X (p, q)",
+      "centreCharacter_subrep": "(p q : ℕ) (W : Submodule ℂ (tensorRep p q)) (hW : ∀ g, ∀ w ∈ W, (tensorRep p q).ρ g w ∈ W) : CentreCharacter zω ω (FDRep.of (Subrepresentation.toRepresentation (⟨W, fun g _ hw => hW g _ hw⟩ : Subrepresentation (tensorRep p q).ρ))) (p, q)",
+      "adjoint_centre_trivial": "{X : FDRep ℂ SU3} (f : X ⟶ tensorRep 1 1) [Mono f] : CentreActs zω 1 X",
+      "nvalent_triality_SU3": "(arms : List (HalfEdge ℂ SU3 × Irrep)) (hsub : ∀ a ∈ arms, ∃ f : a.1.rep ⟶ tensorRep a.2.1 a.2.2, Mono f) (hinv : Representation.invariants (vertexRep (arms.map Prod.fst)).ρ ≠ ⊥) : vertexTri (arms.map (fun a => (a.1.out, a.2))) = 0",
+      "nvalent_triality_tensorRep": "(arms : List (HalfEdge ℂ SU3 × Irrep)) (hrep : ∀ a ∈ arms, a.1.rep = tensorRep a.2.1 a.2.2) (hinv : Representation.invariants (vertexRep (arms.map Prod.fst)).ρ ≠ ⊥) : vertexTri (arms.map (fun a => (a.1.out, a.2))) = 0"
     }
   },
   "complete_files": [
@@ -607,6 +626,7 @@
     "CutBound.lean",
     "SmallSupportBridge.lean",
     "TrialityVertex.lean",
-    "GaugeSupportRegroup.lean"
+    "GaugeSupportRegroup.lean",
+    "CentreCharacterSU3.lean"
   ]
 }

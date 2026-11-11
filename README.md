@@ -9,6 +9,7 @@
 ![Theorems](https://img.shields.io/badge/theorems-580-2EA043)
 ![Theorems](https://img.shields.io/badge/theorems-573-2EA043)
 ![Theorems](https://img.shields.io/badge/theorems-565-2EA043)
+![Theorems](https://img.shields.io/badge/theorems-590-2EA043)
 ![sorry](https://img.shields.io/badge/sorry-0-2EA043)
 ![Code: MIT](https://img.shields.io/badge/code-MIT-lightgrey)
 ![Text: CC BY 4.0](https://img.shields.io/badge/text-CC%20BY%204.0-lightgrey)
@@ -67,6 +68,8 @@ specified finite algebra. The spatial work checks five original-link SU(3) model
 | **Small supports are cycles**: on a bipartite graph where no two vertices share three neighbours, a support with at most 6 links and minimum degree 2 is a single 4- or 6-cycle, proved in general with no search. The link from it to the list-based `SmallSupportsAreCycles` hypothesis used by `TailFloor` is not formalized yet | [`SmallSupportCycle`](SmallSupportCycle.lean) | 6 |
 | **Gauge support rule**: Schur at each vertex, no dangling link (`gauge_no_dangling`), paired irreps on two-link vertices (`gauge_pair_finrank`), the per-vertex and lattice rule, and the dual of a simple representation is simple (`dual_simple`). Regrouped by vertex (`gauge_support_rule_regrouped`, `_SU3`): a nonzero gauge-invariant vector of ⊗_v W_v forces a nonzero invariant at every vertex, so every labelling in the support of a gauge-invariant state obeys the lattice rule with no per-vertex hypothesis. Still assumed, as the named hypothesis `PeterWeylSU3` (a structure, not an axiom): Peter–Weyl link by link together with the reshuffle ⊗_e (V ⊗ V*) ≅ ⊗_v W_v | [`GaugeSupport`](GaugeSupport.lean), [`GaugeSupportFDRep`](GaugeSupportFDRep.lean), [`GaugeSupportLattice`](GaugeSupportLattice.lean), [`DualSimple`](DualSimple.lean), [`GaugeSupportRegroup`](GaugeSupportRegroup.lean) | 44 |
 | | **Total** | **565** |
+| **SU(3) centre character**: in Mathlib's `specialUnitaryGroup (Fin 3) ℂ`, ω·I is in SU(3) and acts on 3 by ω, on 3̄ by ω², on 3^{⊗p} ⊗ 3̄^{⊗q} by ω^triality(p,q), and the same on every subrepresentation. This discharges `CentreCharacter`, so triality conservation at an n-valent vertex holds unconditionally for arms that embed in these tensor representations. The embedding of the genuine irrep (p,q) into 3^{⊗p} ⊗ 3̄^{⊗q} is not formalized | [`CentreCharacterSU3`](CentreCharacterSU3.lean) | 17 |
+| | **Total** | **590** |
 
 Among the first 80 theorems, besides the matrix factorizations, fifteen are exact arithmetic checks of
 displayed rational constants: eleven in `GaugeCertificates` and four in `CrossTheorem`.
@@ -80,7 +83,7 @@ Python verifiers are separate and run from the research folders:
 2. **Independent replay**: every module is re-checked by Lean's separate kernel checker.
 3. **Axiom audit**: every named theorem depends only on `propext`, `Classical.choice` and
    `Quot.sound`. No `sorry`, no project axioms, no `native_decide`.
-4. **False controls**: thirteen false statements in [`FalseControls/`](FalseControls/) must be
+4. **False controls**: fourteen false statements in [`FalseControls/`](FalseControls/) must be
    rejected, showing the checker says no. Two are plain arithmetic (`(2 : ℚ) = 3` and
    `(1 : ℚ)/2 ≤ 1/3`); the other eight are near-miss versions of the window-wall cells, Jensen bound,
    dual-simple, theta floor, triality, transfer-gap, cut-bound and Ky Fan chord statements.
@@ -91,6 +94,10 @@ Python verifiers are separate and run from the research folders:
 5. **Frozen statements**: 495 theorem statements are frozen, so a proof cannot pass by quietly
    dual-simple, theta floor, triality, transfer-gap, cut-bound, Ky Fan chord and the three regrouped gauge-support statements.
 5. **Frozen statements**: 475 theorem statements are frozen, so a proof cannot pass by quietly
+   `(1 : ℚ)/2 ≤ 1/3`); the other twelve are near-miss versions of the window-wall cells, Jensen bound,
+   two-, three- and four-valent vertex labellings whose trialities do not sum to 0, and the
+   adjoint 8 inside 3 ⊗ 3̄ claimed to have triality 1.
+5. **Frozen statements**: 512 theorem statements are frozen, so a proof cannot pass by quietly
    weakening what it proves. Every edit to a frozen statement is logged.
 
 ```bash
@@ -121,6 +128,7 @@ assistants, each working in the open in this repository:
 - **Lean Green PR Machine** proved the certified-point window wall, `WindowWallMono`, `ThetaFloor`,
   `ThetaTriality`, `TransferGap`, `CutBound`, `KyFanChord` and `SmallSupportBridge`, wired the gauge modules into the gate, and cross-checked the
   `ThetaTriality`, `TransferGap`, `CutBound`, `KyFanChord` and `TrialityVertex`, wired the gauge modules into the gate, and cross-checked the
+  `ThetaTriality`, `TransferGap`, `CutBound`, `KyFanChord`, `TrialityVertex` and `CentreCharacterSU3`, wired the gauge modules into the gate, and cross-checked the
   λ = 5 strip and corner slopes in exact rationals.
 - **ink between the stars** built the 28/3 tail floor and its kernel-checked double-cube check
   (`TailFloor`, `TailFloorDoubleCube`) and proved the general small-support lemma

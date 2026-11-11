@@ -25,6 +25,8 @@ element `z` acts on `X` as the scalar `ω ^ triality x`. For SU(3), `z = ω·I` 
 primitive cube root of unity, and on the irrep with Dynkin labels `(p, q)` this is the
 standard fact that the centre acts by `ω^(p − q)` (Schur plus the highest weight). It is not
 in Mathlib v4.33.0, so every theorem below takes it as an explicit argument for each arm.
+`CentreCharacterSU3.lean` proves it for `3`, `3̄`, `3^{⊗p} ⊗ 3̄^{⊗q}` and their subrepresentations
+in Mathlib's `specialUnitaryGroup (Fin 3) ℂ`.
 
 Proved here, for any group `G`, any element `z`, any field `k` and any `ω` with
 `IsPrimitiveRoot ω 3`:
