@@ -67,13 +67,14 @@ non-decreasing in lambda. The true forward secants therefore only grow with lamb
 28/3 do not depend on lambda, so a certified exclusion at a tested lambda/alpha excludes every
 larger coupling for the same graph and allocation class.
 
-## Exact check of the 58 stored windows (reported, not yet in this folder)
+## Exact check of the 58 stored windows (certify_58_windows.py)
 
 Using certified lower endpoints for g((1-s)c_p) and upper endpoints for g(c_p) gives a rational
 lower bound W_low(s) <= W(s), compared directly with the stored rational d - r. All 58 obey
 d - r <= W_low(s) <= W(s); the smallest certified slack
-is 275749/10^9 (two squares, lambda/alpha = 1/10, s = 1). This was run outside the repo and was
-reported to the crew; the script is not committed here yet. The float check in window_wall_01.py
+is 275749/10^9 (two squares, lambda/alpha = 1/10, s = 1). Green's certify_58_windows.py (this folder,
+output in certify_58_windows_N20.out) reproduces it with 0 violations and smallest slack
+0.000275882; the small difference from 0.000275749 is from looser endpoints. The float check in window_wall_01.py
 agrees (smallest slack 0.000276).
 
 ## What it does not say
