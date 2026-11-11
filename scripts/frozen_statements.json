@@ -977,6 +977,40 @@
       "invariants_irrep10_irrep20_eq_bot": ": Representation.invariants (irrepRep 1 0 ⊗ irrepRep 2 0).ρ = ⊥",
       "invariants_sym_fund_eq_bot": ": Representation.invariants (irrepRep 2 0 ⊗ fund).ρ = ⊥",
       "invariants_irrep20_irrep10_eq_bot": ": Representation.invariants (irrepRep 2 0 ⊗ irrepRep 1 0).ρ = ⊥"
+    },
+    "SymIrreducibleSU3.lean": {
+      "star_tauBar": ": star tauBarM = tauM",
+      "tauBar_mem": ": tauBarM ∈ SU3",
+      "hb_d1": ": hb d1 = d1M",
+      "hb_d2": ": hb d2 = d2M",
+      "hb_tauBar": ": hb tauBar = tauM",
+      "cyc_cong_01": "(M : Mat3) : (cycMat * M * cycMat.transpose) 0 1 = M 2 0",
+      "cyc_cong_10": "(M : Mat3) : (cycMat * M * cycMat.transpose) 1 0 = M 0 2",
+      "cyc_cong_20": "(M : Mat3) : (cycMat * M * cycMat.transpose) 2 0 = M 1 2",
+      "cyc_cong_02": "(M : Mat3) : (cycMat * M * cycMat.transpose) 0 2 = M 2 1",
+      "cyc_cong_00": "(M : Mat3) : (cycMat * M * cycMat.transpose) 0 0 = M 2 2",
+      "cyc_cong_11": "(M : Mat3) : (cycMat * M * cycMat.transpose) 1 1 = M 0 0",
+      "cyc_cong_22": "(M : Mat3) : (cycMat * M * cycMat.transpose) 2 2 = M 1 1",
+      "rot_cong_01": "(M : Mat3) : (rotM * M * rotM.transpose) 0 1 = (12 * M 0 0 + 9 * M 0 1 - 16 * M 1 0 - 12 * M 1 1) / 25",
+      "tau_cong_00": "(M : Mat3) : (tauM * M * tauM.transpose) 0 0 = -M 0 0",
+      "tau_cong_11": "(M : Mat3) : (tauM * M * tauM.transpose) 1 1 = M 1 1",
+      "tau_cong_01": "(M : Mat3) : (tauM * M * tauM.transpose) 0 1 = Complex.I * M 0 1",
+      "tau_cong_10": "(M : Mat3) : (tauM * M * tauM.transpose) 1 0 = Complex.I * M 1 0",
+      "d1_T": ": d1M.transpose = d1M",
+      "d2_T": ": d2M.transpose = d2M",
+      "signs_proj01": "(M : Mat3) : (M - d1M * M * d1M.transpose) - d2M * (M - d1M * M * d1M.transpose) * d2M.transpose = (4 * M 0 1) • E 0 1 + (4 * M 1 0) • E 1 0",
+      "rot_F01_diag": ": E 0 0 - E 1 1 = (-(25/24) : ℂ) • (rotM * F 0 1 * rotM.transpose + (7/25 : ℂ) • F 0 1)",
+      "tau_diag_E11": ": E 1 1 = (-(1/2) : ℂ) • ((E 0 0 - E 1 1) + tauM * (E 0 0 - E 1 1) * tauM.transpose)",
+      "F01_mem_of": "{M : Mat3} (hM : M ∈ S) (h : M 0 1 ≠ 0) : F 0 1 ∈ S",
+      "exists_01_mem": "{M : Mat3} (hM : M ∈ S) (hM0 : M ≠ 0) : ∃ N ∈ S, N 0 1 ≠ 0",
+      "symSub_le_of_stable": "{M : Mat3} (hM : M ∈ S) (hM0 : M ≠ 0) : symSub ≤ S",
+      "sym_invariant_eq_bot_or_top": "(S : Submodule ℂ Mat3) (hsym : S ≤ symSub) (hS : ∀ g : SU3, ∀ M ∈ S, g.1 * M * g.1.transpose ∈ S) : S = ⊥ ∨ S = symSub",
+      "irrep20_invariant_eq_bot_or_top": "(W : Submodule ℂ (irrepRep 2 0)) (hW : ∀ g, ∀ w ∈ W, (irrepRep 2 0).ρ g w ∈ W) : W = ⊥ ∨ W = ⊤",
+      "simple_irrep20": ": Simple (irrepRep 2 0)",
+      "irrep02_invariant_eq_bot_or_top": "(W : Submodule ℂ (irrepRep 0 2)) (hW : ∀ g, ∀ w ∈ W, (irrepRep 0 2).ρ g w ∈ W) : W = ⊥ ∨ W = ⊤",
+      "simple_irrep02_direct": ": Simple (irrepRep 0 2)",
+      "simple_irrep02": ": Simple (irrepRep 0 2)",
+      "simple_irrep20_and_02": ": Simple (irrepRep 2 0) ∧ Simple (irrepRep 0 2)"
     }
   },
   "complete_files": [
@@ -1007,6 +1041,7 @@
     "IrrepSmallIsoSU3.lean",
     "IrrepIrreducibleSU3.lean",
     "AdjointWitnessSU3.lean",
-    "SymWitnessSU3.lean"
+    "SymWitnessSU3.lean",
+    "SymIrreducibleSU3.lean"
   ]
 }

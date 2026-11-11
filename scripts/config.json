@@ -167,10 +167,14 @@
     {
       "module": "SymWitnessSU3",
       "path": "SymWitnessSU3.lean"
+    },
+    {
+      "module": "SymIrreducibleSU3",
+      "path": "SymIrreducibleSU3.lean"
     }
   ],
-  "expected_theorems": 994,
-  "expected_false_controls": 21,
+  "expected_theorems": 1026,
+  "expected_false_controls": 22,
   "root_imports": [
     "GaugeCertificates",
     "LongestYangMillsChain",
@@ -205,6 +209,7 @@
     "IrrepSmallIsoSU3",
     "IrrepIrreducibleSU3",
     "AdjointWitnessSU3",
-    "SymWitnessSU3"
+    "SymWitnessSU3",
+    "SymIrreducibleSU3"
   ]
 }

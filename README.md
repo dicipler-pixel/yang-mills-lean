@@ -6,7 +6,7 @@
 
 [![Lean proof check](https://github.com/dicipler-pixel/yang-mills-lean/actions/workflows/build.yml/badge.svg)](https://github.com/dicipler-pixel/yang-mills-lean/actions/workflows/build.yml)
 ![Lean](https://img.shields.io/badge/Lean-v4.33.0-blue)
-![Theorems](https://img.shields.io/badge/theorems-994-2EA043)
+![Theorems](https://img.shields.io/badge/theorems-1026-2EA043)
 ![sorry](https://img.shields.io/badge/sorry-0-2EA043)
 ![Code: MIT](https://img.shields.io/badge/code-MIT-lightgrey)
 ![Text: CC BY 4.0](https://img.shields.io/badge/text-CC%20BY%204.0-lightgrey)
@@ -67,7 +67,8 @@ specified finite algebra. The spatial work checks five original-link SU(3) model
 | **Irreducibility of 3, 3̄, 1, V(1,0), V(0,1), V(0,0) and V(1,1); V(1,1) is the traceless part of 3 ⊗ 3̄**: a nonzero FDRep whose only SU(3)-stable subspaces are ⊥ and ⊤ is `Simple`. In ℂ³, a nonzero stable subspace contains a vector with nonzero first coordinate (rotate by the cyclic permutation), then v + diag(1,−1,−1)·v = 2v₀e₀ puts e₀ in it and the cyclic permutation reaches e₁, e₂, so 3 is simple; 3̄ is simple as its dual, 1 trivially, and V(1,0), V(0,1), V(0,0) through the isomorphisms of #38. An explicit linear bijection Φ : 3 ⊗ 3̄ ⊗ 1 → M₃(ℂ), x ⊗ φ ⊗ c ↦ c(xᵢφ(eⱼ)), intertwines the action with M ↦ gMg⁻¹ and sends e₁ ⊗ e₃* ⊗ 1 to the matrix unit E₀₂; its trace is the contraction x ⊗ φ ⊗ c ↦ cφ(x). Any Ad-invariant subspace of M₃(ℂ) containing a nonzero traceless matrix contains all of sl₃: the sign matrices diag(1,−1,−1), diag(−1,1,−1) and diag(i,1,−i) isolate an off-diagonal entry, the cyclic permutation and a signed swap move it to (0,1), a diagonal traceless matrix is first moved off the diagonal by the rotation with entries 3/5, 4/5, and from E₀₁ the same elements give all six Eᵢⱼ and E₀₀−E₁₁, E₁₁−E₂₂. So V(1,1) is exactly the kernel of the contraction 3 ⊗ 3̄ → ℂ, it has dimension 8 inside the 9-dimensional 3 ⊗ 3̄, and it is simple. Irreducibility of V(p,q) in general is not claimed | [`IrrepIrreducibleSU3`](IrrepIrreducibleSU3.lean) | 70 |
 | **Adjoint singlets: the theta rows with an octet arm are attained**: through ψ = Φ restricted to V(1,1) (traceless matrices, M ↦ gMg⁻¹), four invariant multilinear forms, each shown nonzero by explicit matrices: tr(XY) on 8 × 8 (value 1 at E₀₁, E₁₀), ξᵀXη = φ(Xx) on 3 × 3̄ × 8 (value 1 at e₀, e₁*, E₁₀), the f-type tr(X[Y,Z]) on 8 × 8 × 8 (value 2 at E₀₀−E₁₁, E₀₁, E₁₀) and the d-type tr(X{Y,Z}) (value −12 at diag(1,1,−2)). An invariant form is a nonzero invariant of the dual; with (X ⊗ Y)ᘁ ≅ Yᘁ ⊗ Xᘁ (Mathlib's `ExactPairing.tensor`), the braiding, X ≅ Xᘁᘁ, and the self-duality V(1,1) ≅ V(1,1)ᘁ (from tr(XY), simplicity of V(1,1) and Schur), this gives a nonzero invariant at both theta vertices on the V(p,q) arms for the eight table rows with an 8 arm and other arms in {1, 3, 3̄}: the six orderings of (3, 3̄, 8) and (8, 1, 8), (8, 8, 1). With the eight rows of #35/#38, **16 of the 34 rows are attained**: exactly those with arms in {1, 3, 3̄, 8}. The (8, 8, 8) vertex is attained too but is not a table row (level 21). 3 ⊗ 8 has no invariant: ω·I acts by ω ≠ 1. Not covered: the 8 rows with an 8 arm and a 6 or 6̄ arm, and the 10 rows with sextet arms only | [`AdjointWitnessSU3`](AdjointWitnessSU3.lean) | 63 |
 | **Sextet singlets: all 34 theta rows are attained**: Φ₂₀ : 3 ⊗ 3 ⊗ 1 → M₃(ℂ), x ⊗ y ⊗ c ↦ c·xyᵀ, and Φ₀₂ : 3̄ ⊗ 3̄ ⊗ 1 → M₃(ℂ) are linear bijections intertwining the actions with S ↦ gSgᵀ and T ↦ ḡTḡᵀ (ḡ = (g*)ᵀ); the cyclic permutation and the 3-4-5 rotation show that V(2,0) and V(0,2) map exactly onto the symmetric matrices, so 6 = Sym²(3), 6̄ = Sym²(3̄), both of dimension 6, and the invariant pairing tr(STᵀ) is nondegenerate, giving V(2,0) ≅ V(0,2)ᘁ. Five invariant forms, each nonzero at explicit matrices: tr(STᵀ) on 6 × 6̄, φᵀSχ on 6 × 3̄ × 3̄, xᵀTy on 6̄ × 3 × 3, Σ ε_{ijk}(SXᵀ)ᵢⱼx_k on 6 × 3 × 8 and Σ ε^{ijk}(TX)ᵢⱼφ_k on 6̄ × 3̄ × 8 (via ε(AMAᵀ, Ax) = det A · ε(M, x)). They attain the 18 rows with a 6 or 6̄ arm at both theta vertices on the V(p,q) arms, so with #35/#38/#44 **all 34 rows of the theta table are attained** (`thetaList_irrep_both`). 3 ⊗ 6 has no invariant, although triality allows it (ω·I acts by ω·ω² = 1): the sign matrices, the rotation and the cyclic permutation force every invariant of 3 ⊗ Sym²(3) to vanish | [`SymWitnessSU3`](SymWitnessSU3.lean) | 146 |
-| | **Total** | **994** |
+| **Irreducibility of the sextets V(2,0) = Sym²(3) and V(0,2) = Sym²(3̄)**: through #49's Φ₂₀ (S ↦ gSgᵀ on symmetric matrices), any subspace of Sym² stable under the congruences by diag(1,−1,−1), diag(−1,1,−1), the cyclic permutation, the 3-4-5 rotation and τ = diag(i,1,−i) and containing a nonzero matrix is all of Sym²: the sign matrices act on the weight lines {E₀₀, E₁₁, E₂₂}, F₀₁, F₁₂, F₂₀ (Fᵢⱼ = Eᵢⱼ + Eⱼᵢ) by distinct sign characters, so they isolate F₀₁ once some element has a nonzero (0,1) entry; the cyclic permutation moves an off-diagonal entry there, the rotation moves a non-scalar diagonal matrix off the diagonal, and τ turns a scalar aI (fixed by every real rotation) into diag(−a,a,−a); from F₀₁ the rotation gives E₀₀ − E₁₁, τ gives E₁₁, and the cyclic permutation the rest. So Sym²(3) has no SU(3)-stable subspace but ⊥ and ⊤, V(2,0) is simple (`simple_irrep20`), and V(0,2) is simple both directly (with τ̄ = diag(−i,1,i), whose ḡ is τ) and as the dual of V(2,0) through `conj02` (`simple_irrep02`). Irreducibility of V(p,q) in general is still not claimed | [`SymIrreducibleSU3`](SymIrreducibleSU3.lean) | 32 |
+| | **Total** | **1026** |
 
 Among the first 80 theorems, besides the matrix factorizations, fifteen are exact arithmetic checks of
 displayed rational constants: eleven in `GaugeCertificates` and four in `CrossTheorem`.
@@ -81,15 +82,15 @@ Python verifiers are separate and run from the research folders:
 2. **Independent replay**: every module is re-checked by Lean's separate kernel checker.
 3. **Axiom audit**: every named theorem depends only on `propext`, `Classical.choice` and
    `Quot.sound`. No `sorry`, no project axioms, no `native_decide`.
-4. **False controls**: twenty-one false statements in [`FalseControls/`](FalseControls/) must be
+4. **False controls**: twenty-two false statements in [`FalseControls/`](FalseControls/) must be
    rejected, showing the checker says no. Two are plain arithmetic (`(2 : ℚ) = 3` and
-   `(1 : ℚ)/2 ≤ 1/3`); the other nineteen are near-miss versions of the window-wall cells, Jensen bound,
+   `(1 : ℚ)/2 ≤ 1/3`); the other twenty are near-miss versions of the window-wall cells, Jensen bound,
    dual-simple, theta floor, triality, transfer-gap, cut-bound and Ky Fan chord statements, and
    two-, three- and four-valent vertex labellings whose trialities do not sum to 0, and the
    adjoint 8 inside 3 ⊗ 3̄ claimed to have triality 1, and the adjoint V(1,1) claimed to carry the
    triality 2 of 3 ⊗ 3, and a theta-table row (1, 3̄, 3) with the 3̄ arm's triality swapped p ↔ q,
-   and the Levi-Civita tensor ε claimed SU(3)-invariant in 3 ⊗ 3 ⊗ 3̄, and V(0,1) claimed isomorphic to 3, and V(1,1) claimed to have dimension 9, and a nonzero invariant claimed in 3 ⊗ 8, and a nonzero invariant claimed in 6 ⊗ 3.
-5. **Frozen statements**: 916 theorem statements are frozen, so a proof cannot pass by quietly
+   and the Levi-Civita tensor ε claimed SU(3)-invariant in 3 ⊗ 3 ⊗ 3̄, and V(0,1) claimed isomorphic to 3, and V(1,1) claimed to have dimension 9, and a nonzero invariant claimed in 3 ⊗ 8, and a nonzero invariant claimed in 6 ⊗ 3, and a nonzero proper SU(3)-stable subspace claimed in V(2,0).
+5. **Frozen statements**: 948 theorem statements are frozen, so a proof cannot pass by quietly
    weakening what it proves. Every edit to a frozen statement is logged.
 
 ```bash
@@ -103,7 +104,7 @@ python3 scripts/verify.py
 - **Irreducibility of V(p,q).** `IrrepEmbedSU3` defines V(p,q) as the subrepresentation of
   3^{⊗p} ⊗ 3̄^{⊗q} generated by e₁^{⊗p} ⊗ e₃*^{⊗q}. It is proved simple for (0,0), (1,0), (0,1)
   and (1,1) (`IrrepIrreducibleSU3`, with V(1,1) identified as the 8-dimensional traceless part of
-  3 ⊗ 3̄), but not for general (p,q) (that needs the raising operators and Weyl's theorem). Until it is, ThetaFloor's `cas3` and the BMW part of
+  3 ⊗ 3̄) and for (2,0), (0,2) (`SymIrreducibleSU3`, the symmetric squares Sym²(3), Sym²(3̄)), but not for general (p,q) (that needs the raising operators and Weyl's theorem). Until it is, ThetaFloor's `cas3` and the BMW part of
   `hasSinglet` are label arithmetic, not proved properties of V(p,q); only the triality part is
   proved for V(p,q) (`ThetaFloorTriality`).
 - **Classification of SU(3) irreps.** That every irreducible SU(3) representation is isomorphic
@@ -138,7 +139,8 @@ assistants, each working in the open in this repository:
 - **Red** led the Yang–Mills Lean work and set the merge order; wrote the gauge support rule
   (`GaugeSupport`, `GaugeSupportFDRep`, `GaugeSupportLattice`) and the resonance cross-check.
 - **Green** proved the derivative/secant window wall, the one-link tail floor, the split-free
-  Jensen bound (`WindowWallJensen`) and `dual_simple` (`DualSimple`), certified the Ky Fan chord
+  Jensen bound (`WindowWallJensen`), `dual_simple` (`DualSimple`) and the irreducibility of the
+  sextets (`SymIrreducibleSU3`), certified the Ky Fan chord
   gap on the one plaquette and the two-square cell, and certified the 58 windows,
   the λ = 5 slope endpoints and the double-cube uniform endpoint.
 - **Lean Green PR Machine** proved the certified-point window wall, `WindowWallMono`, `ThetaFloor`,
