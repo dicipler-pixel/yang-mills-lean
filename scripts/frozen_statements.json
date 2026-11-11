@@ -436,6 +436,13 @@
     "TransferGap.lean": {
       "decay_rate_eq_gap": "(a E₀ E₁ : ℝ) : -Real.log (Real.exp (-(a * E₁)) / Real.exp (-(a * E₀))) = a * (E₁ - E₀)",
       "decay_rate_eq_gap'": "(a E₀ E₁ t₀ t₁ : ℝ) (h₀ : t₀ = Real.exp (-(a * E₀))) (h₁ : t₁ = Real.exp (-(a * E₁))) : -Real.log (t₁ / t₀) = a * (E₁ - E₀)"
+    },
+    "CutBound.lean": {
+      "cas3_ge_four_of_triality_ne": "(x : Irrep) (h : triality x ≠ 0) : 4 ≤ cas3 x",
+      "cas3_fund": ": cas3 (1, 0) = 4",
+      "cas3_antifund": ": cas3 (0, 1) = 4",
+      "cut_bound": "(cuts : List Irrep) (h : ∀ x ∈ cuts, triality x ≠ 0) : 4 * cuts.length ≤ (cuts.map cas3).sum",
+      "cut_bound_tight": "(d : Nat) : ((List.replicate d ((1, 0) : Irrep)).map cas3).sum = 4 * d"
     }
   },
   "complete_files": [
@@ -448,6 +455,7 @@
     "TailFloorDoubleCube.lean",
     "ThetaFloor.lean",
     "ThetaTriality.lean",
-    "TransferGap.lean"
+    "TransferGap.lean",
+    "CutBound.lean"
   ]
 }
