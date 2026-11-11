@@ -131,10 +131,14 @@
     {
       "module": "CutBound",
       "path": "CutBound.lean"
+    },
+    {
+      "module": "CutFlux",
+      "path": "CutFlux.lean"
     }
   ],
-  "expected_theorems": 553,
-  "expected_false_controls": 10,
+  "expected_theorems": 560,
+  "expected_false_controls": 11,
   "root_imports": [
     "GaugeCertificates",
     "LongestYangMillsChain",
@@ -160,6 +164,7 @@
     "ThetaTriality",
     "TransferGap",
     "KyFanChord",
-    "CutBound"
+    "CutBound",
+    "CutFlux"
   ]
 }
