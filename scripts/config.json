@@ -215,6 +215,10 @@
     {
       "module": "AdjointWitnessSU3",
       "path": "AdjointWitnessSU3.lean"
+    },
+    {
+      "module": "CubeWilsonExistence",
+      "path": "CubeWilsonExistence.lean"
     }
   ],
   "expected_theorems": 1069,
@@ -265,6 +269,7 @@
     "IrrepIrreducibleSU3",
     "HntLabels",
     "CubeFiniteUnconditional",
-    "AdjointWitnessSU3"
+    "AdjointWitnessSU3",
+    "CubeWilsonExistence"
   ]
 }

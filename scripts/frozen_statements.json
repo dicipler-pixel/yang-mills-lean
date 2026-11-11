@@ -1067,6 +1067,36 @@
       "centreActs_fund_adjoint": ": CentreActs zω ω (fund ⊗ irrepRep 1 1)",
       "invariants_fund_adjoint_eq_bot": ": Representation.invariants (fund ⊗ irrepRep 1 1).ρ = ⊥",
       "invariants_irrep10_irrep11_eq_bot": ": Representation.invariants (irrepRep 1 0 ⊗ irrepRep 1 1).ρ = ⊥"
+    },
+    "CubeWilsonExistence.lean": {
+      "single_mul_eChar": "(u : G) : MonoidAlgebra.single u 1 * eChar φ = ((φ u : ℂˣ) : ℂ) • eChar φ",
+      "eChar_ne_zero": ": eChar φ ≠ 0",
+      "mul_eChar_mem": "(r : MonoidAlgebra ℂ G) : ∃ c : ℂ, r * eChar φ = c • eChar φ",
+      "mem_charIdeal": "{z : MonoidAlgebra ℂ G} (hz : z ∈ charIdeal φ) : ∃ c : ℂ, z = c • eChar φ",
+      "charIdeal_simple": ": IsSimpleModule (MonoidAlgebra ℂ G) (charIdeal φ)",
+      "idealIncl_charVec": ": idealIncl (charIdeal φ) (charVec φ) = eChar φ",
+      "charVec_ne_zero": ": charVec φ ≠ 0",
+      "ofModule_charIdeal": "(u : G) (z : RestrictScalars ℂ (MonoidAlgebra ℂ G) (charIdeal φ)) : Representation.ofModule (k",
+      "simpleIrr_charSI_ρ": "(u : G) (z : simpleIrr (charSI φ)) : (simpleIrr (charSI φ)).ρ u z = ((φ u : ℂˣ) : ℂ) • z",
+      "charSI_isEmpty_iso": "(g₀ : G) (hg₀ : φ g₀ ≠ 1) : IsEmpty (𝟙_ (FDRep ℂ G) ≅ simpleIrr (charSI φ))",
+      "eq_smul_charVec": "(z : RestrictScalars ℂ (MonoidAlgebra ℂ G) (charIdeal φ)) : ∃ c : ℂ, z = c • charVec φ",
+      "charSI_one_iso": ": Nonempty (𝟙_ (FDRep ℂ G) ≅ simpleIrr (charSI (1 : G →* ℂˣ)))",
+      "charVecV_ne_zero": ": charVecV φ ≠ 0",
+      "dual_coeffTensor_charSI": "(d : Module.Dual ℂ (simpleIrr (charSI φ))) (u : G) : d (coeffEval (simpleIrr (charSI φ)) (charVecV φ) (coeffTensor (simpleIrr (charSI φ)) u)) = ((φ u : ℂˣ) : ℂ) * d (charVecV φ)",
+      "exists_dual_charVecV": ": ∃ d : Module.Dual ℂ (simpleIrr (charSI φ)), d (charVecV φ) ≠ 0",
+      "wilson_gauge_invariant": "(g : Fin 8 → G) : latticeGauge cubeΓ g (wilson φ) = wilson φ",
+      "wilson_mul_labels": "(U : Fin 12 → G) : wilson φ U * ∏ e, ((faceLabel φ e (U e) : ℂˣ) : ℂ) = 1",
+      "fourierProj_wilson_ne_zero": ": fourierProj simpleIrr (faceπ φ) (wilson φ) ≠ 0",
+      "not_NTe_charSI_one": ": ¬ IsEmpty (𝟙_ (FDRep ℂ G) ≅ simpleIrr (charSI (1 : G →* ℂˣ)))",
+      "NTe_faceπ_iff": "(g₀ : G) (hg₀ : φ g₀ ≠ 1) (e : Fin 12) : NTe (simpleIrr ∘ faceπ φ) e ↔ e ∈ ({0, 1, 4, 5} : Finset (Fin 12))",
+      "faceπ_card": "(g₀ : G) (hg₀ : φ g₀ ≠ 1) : (Finset.univ.filter (NTe (simpleIrr ∘ faceπ φ))).card = 4",
+      "faceπ_one_card": ": (Finset.univ.filter (NTe (simpleIrr ∘ faceπ (1 : G →* ℂˣ)))).card = 0",
+      "cube_four_cycle_attained": "(g₀ : G) (hg₀ : φ g₀ ≠ 1) : ∃ ψ : (Fin 12 → G) → ℂ, (∀ g, latticeGauge cubeΓ g ψ = ψ) ∧ ∃ π : Fin 12 → SimpleIdeal G, fourierProj simpleIrr π ψ ≠ 0 ∧ (Finset.univ.filter (NTe (simpleIrr ∘ π))).card = 4",
+      "cube_four_cycle_attained_shortCycle": "(g₀ : G) (hg₀ : φ g₀ ≠ 1) : ∃ ψ : (Fin 12 → G) → ℂ, (∀ g, latticeGauge cubeΓ g ψ = ψ) ∧ ∃ π : Fin 12 → SimpleIdeal G, fourierProj simpleIrr π ψ ≠ 0 ∧ (Finset.univ.filter (NTe (simpleIrr ∘ π))).card = 4 ∧ shortCycle (supportList cubeΓ (simpleIrr ∘ π) Fin.val) = true",
+      "signChar_swap": ": signChar (Equiv.swap 0 1) ≠ 1",
+      "cube_four_cycle_attained_S3": ": ∃ ψ : (Fin 12 → S3) → ℂ, (∀ g, latticeGauge cubeΓ g ψ = ψ) ∧ ∃ π : Fin 12 → SimpleIdeal S3, fourierProj simpleIrr π ψ ≠ 0 ∧ (Finset.univ.filter (NTe (simpleIrr ∘ π))).card = 4",
+      "cube_four_cycle_attained_S3_shortCycle": ": ∃ ψ : (Fin 12 → S3) → ℂ, (∀ g, latticeGauge cubeΓ g ψ = ψ) ∧ ∃ π : Fin 12 → SimpleIdeal S3, fourierProj simpleIrr π ψ ≠ 0 ∧ (Finset.univ.filter (NTe (simpleIrr ∘ π))).card = 4 ∧ shortCycle (supportList cubeΓ (simpleIrr ∘ π) Fin.val) = true",
+      "cube_wilson_trivial_card_S3": ": (Finset.univ.filter (NTe (simpleIrr ∘ faceπ (1 : S3 →* ℂˣ)))).card = 0"
     }
   },
   "complete_files": [
@@ -1108,6 +1138,7 @@
     "IrrepIrreducibleSU3.lean",
     "HntLabels.lean",
     "CubeFiniteUnconditional.lean",
-    "AdjointWitnessSU3.lean"
+    "AdjointWitnessSU3.lean",
+    "CubeWilsonExistence.lean"
   ]
 }
