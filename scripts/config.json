@@ -221,8 +221,8 @@
       "path": "CubeWilsonExistence.lean"
     }
   ],
-  "expected_theorems": 1069,
-  "expected_false_controls": 35,
+  "expected_theorems": 1097,
+  "expected_false_controls": 36,
   "root_imports": [
     "GaugeCertificates",
     "LongestYangMillsChain",

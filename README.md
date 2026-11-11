@@ -6,7 +6,7 @@
 
 [![Lean proof check](https://github.com/dicipler-pixel/yang-mills-lean/actions/workflows/build.yml/badge.svg)](https://github.com/dicipler-pixel/yang-mills-lean/actions/workflows/build.yml)
 ![Lean](https://img.shields.io/badge/Lean-v4.33.0-blue)
-![Theorems](https://img.shields.io/badge/theorems-1069-2EA043)
+![Theorems](https://img.shields.io/badge/theorems-1097-2EA043)
 ![sorry](https://img.shields.io/badge/sorry-0-2EA043)
 ![Code: MIT](https://img.shields.io/badge/code-MIT-lightgrey)
 ![Text: CC BY 4.0](https://img.shields.io/badge/text-CC%20BY%204.0-lightgrey)
@@ -74,7 +74,8 @@ specified finite algebra. The spatial work checks five original-link SU(3) model
 | **Short or long**: one statement per graph (cube, two squares, strip, corner, double cube, and generic `listΓ`). For a nonzero gauge-invariant component with at least one non-trivial link, under `PeterWeylLattice` alone, either it has 4 or 6 non-trivial links forming a short cycle, or more than 6 and the conclusion of `long_support_floor` holds (any 7+ link costs, each at least 4, sum to at least 28 in `c3` units). `long_energy_floor` gives that bound for Dynkin labels, assuming a non-trivial link has a nonzero label | [`SupportDichotomy`](SupportDichotomy.lean) | 9 |
 | **Labels on links**: with link irreps indexed by Dynkin label, `irr (p,q) = V(p,q)`, a link is non-trivial exactly when its label is not (0,0). (0,0) is trivial by `irrep00Iso`. Any other V(p,q) is not trivial because a torus element diag(t, t̄, 1) or diag(1, t, t̄), with t a primitive root of unity, moves the highest-weight vector by tᵖ or t^q ≠ 1. So `long_energy_floor` holds with no labelling hypothesis: more than six non-trivial links cost Σ c3 ≥ 28. The dichotomy with that energy floor still assumes each V(p,q) is simple (irreducibility is not formalized) | [`HntLabels`](HntLabels.lean) | 9 |
 | **Cube, finite gauge group, no assumptions**: for any finite G (and S₃) on the cube with H = (E → G) → ℂ, the lattice gauge action and the simple-left-ideal family, Lean Green's cube theorems are instantiated with the proved Peter–Weyl structure (`(peterWeylLinksFinite …).toLattice`; its projection is the reshuffle of `fourierProj`, so a nonzero Fourier component stays nonzero). A nonzero gauge-invariant Fourier component with 1 to 6 non-trivial links has exactly 4 or 6, forming a short cycle (`cube_gauge_support_finite`, `_card_S3`); with at least one it is short-or-long (`cube_support_dichotomy_finite`, `_S3`); none has exactly 3 (`cube_no_three_links_S3`). No Peter–Weyl hypothesis | [`CubeFiniteUnconditional`](CubeFiniteUnconditional.lean) | 11 |
-| | **Total** | **1069** |
+| **Cube 4-cycle attained**: for any finite G with a non-trivial character φ : G →* ℂˣ (for S₃, the sign), the Wilson loop ψ(U) = φ(U₀U₅U₁⁻¹U₄⁻¹) around one face of the cube (links (0,1), (1,3) forwards, (2,3), (0,2) backwards) is gauge invariant and, with φ^{∓1} on the face links and the trivial ideal elsewhere, has a nonzero Fourier component with exactly 4 non-trivial links, on a short cycle (`cube_four_cycle_attained`, `_S3`). So the "4" case of the cube theorem occurs. With φ = 1 the same labelling has no non-trivial link (`faceπ_one_card`) | [`CubeWilsonExistence`](CubeWilsonExistence.lean) | 28 |
+| | **Total** | **1097** |
 
 Among the first 80 theorems, besides the matrix factorizations, fifteen are exact arithmetic checks of
 displayed rational constants: eleven in `GaugeCertificates` and four in `CrossTheorem`.
@@ -88,16 +89,16 @@ Python verifiers are separate and run from the research folders:
 2. **Independent replay**: every module is re-checked by Lean's separate kernel checker.
 3. **Axiom audit**: every named theorem depends only on `propext`, `Classical.choice` and
    `Quot.sound`. No `sorry`, no project axioms, no `native_decide`.
-4. **False controls**: thirty-five false statements in [`FalseControls/`](FalseControls/) must be
+4. **False controls**: thirty-six false statements in [`FalseControls/`](FalseControls/) must be
    rejected, showing the checker says no. Two are plain arithmetic (`(2 : ℚ) = 3` and
-   `(1 : ℚ)/2 ≤ 1/3`); the other thirty-three are near-miss versions of the window-wall cells, Jensen bound,
+   `(1 : ℚ)/2 ≤ 1/3`); the other thirty-four are near-miss versions of the window-wall cells, Jensen bound,
    dual-simple, theta floor, triality, transfer-gap, cut-bound and Ky Fan chord statements, and
    two-, three- and four-valent vertex labellings whose trialities do not sum to 0, and the
    adjoint 8 inside 3 ⊗ 3̄ claimed to have triality 1, and the adjoint V(1,1) claimed to carry the
    triality 2 of 3 ⊗ 3, and a theta-table row (1, 3̄, 3) with the 3̄ arm's triality swapped p ↔ q,
    and the Levi-Civita tensor ε claimed SU(3)-invariant in 3 ⊗ 3 ⊗ 3̄, and V(0,1) claimed isomorphic to 3, and V(1,1) claimed to have dimension 9, a nonzero invariant claimed in 3 ⊗ 8, a ring cut bound of 5 per link (the true cost is 4), the edge-to-vertex reshuffle with one link end dropped, the reshuffle isomorphism with source and target actions swapped, `PeterWeylLinks` for S₃ with only the trivial irrep, the regular representation of S₃ claimed simple,
-   the three regrouped gauge-support statements, a support with a degree-one vertex claimed admissible, `K_{2,3}` claimed to be a short cycle, a reordered support claimed to change a degree, a 5-link double-cube support claimed to be a short cycle, a 3-link strip support claimed to be a short cycle, a link labelled (0,0) claimed non-trivial, and a nonzero gauge-invariant S₃ cube component with exactly 3 non-trivial links.
-5. **Frozen statements**: 984 theorem statements are frozen, so a proof cannot pass by quietly
+   the three regrouped gauge-support statements, a support with a degree-one vertex claimed admissible, `K_{2,3}` claimed to be a short cycle, a reordered support claimed to change a degree, a 5-link double-cube support claimed to be a short cycle, a 3-link strip support claimed to be a short cycle, a link labelled (0,0) claimed non-trivial, a nonzero gauge-invariant S₃ cube component with exactly 3 non-trivial links, and the face Wilson loop labelling of the trivial S₃ character claimed to have exactly 4 non-trivial links.
+5. **Frozen statements**: 1012 theorem statements are frozen, so a proof cannot pass by quietly
    weakening what it proves. Every edit to a frozen statement is logged.
 
 ```bash
@@ -156,7 +157,7 @@ assistants, each working in the open in this repository:
   (`SmallSupportCycle`).
 - **Grey** wrote the frozen targets for the gauge support rule and the varying-s and string-floor
   scripts, and proved `GaugeSupportRegroup`, `GaugeSupportReshuffle`, `GaugeSupportReshuffleRep`,
-  `GaugeSupportPeterWeylFinite`, `GaugeSupportSimpleFamily` and `CubeFiniteUnconditional`.
+  `GaugeSupportPeterWeylFinite`, `GaugeSupportSimpleFamily`, `CubeFiniteUnconditional` and `CubeWilsonExistence`.
 - **Spectrum** kept the team's dictionary of physical quantities versus our constructions, and
   wrote the SU(3) theta enumeration behind ThetaFloor's vetted list, and proved `IrrepEmbedSU3`, `ThetaFloorTriality`, `SingletWitnessSU3`, `IrrepSmallIsoSU3`, `IrrepIrreducibleSU3`, `AdjointWitnessSU3` and `CutFlux`.
 - **Claude**, in Jeromie's sessions, wrote the window-wall cells module, the audit and the
