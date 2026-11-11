@@ -104,14 +104,45 @@ These were checked after the sections above were written. Where they conflict wi
   | two cubes | 2 | 20/11 | >= 2.601404 | 2.5971 |
 
 - **Any alpha.** The results hold for every alpha > 0 at the same ratio mu = lambda/alpha.
-- **Double cube.** For the repo's C <= 8 certificate, the double cube is excluded for all
-  lambda/alpha >= 0.9867 (GPT/Astra: 95 x 95 retained matrix, integer-interval check).
-  The certificate is accepted at lambda/alpha = 0.5. The exact edge between 0.5 and 0.9867
-  is open.
+- **Double cube: two different tests.**
+  - *(a) Window-wall test.* This test is uniform over all splits. It uses Jensen on both
+    halves: the excited part satisfies sum_p g((1-s) kappa_p) <= P g((1-s) c), and the
+    retained part satisfies r >= max_kappa sum_p g(kappa_p) = P g(c) by operator splitting.
+    So d - r <= s * 28/3 - P [g(c) - g((1-s) c)] with c = 20/11. Green's certified bracket:
+    not excluded at lambda/alpha = 1.7347412 (W'(0) >= +3.9e-5), excluded at 1.7347717
+    (W'(0) <= -2.0e-5); the float root is 1.7347574. So every split is excluded from
+    lambda/alpha >= 1.7347717. The even per-link split alone is excluded earlier, from
+    1.7338256 (not excluded at 1.7337951).
+  - *(b) GPT's separate test.* It compares U(lambda) = 28/3 +
+    (20541500575676903/909090909514080) lambda with lambda_min of the 95 x 95 retained
+    matrix and gives 0.9867, with the certificate accepted at 0.5. The team has **not yet
+    reproduced** this; we have asked GPT for the exact definition and script. Until then
+    the double-cube exclusion we rely on is (a), from 1.7347717.
+- **Link-dependent s** (Grey; rechecked exactly by Green). The bound is
+  d - r <= s_bar E (t - L(c)), with these exact t values:
+
+  | cell | t | how t arises |
+  |---|---|---|
+  | two squares | 4/3 | |
+  | cube | 7/9 | |
+  | double cube | 7/15 | weighted (not uniform) mixture of 19 seven-link thetas |
+  | corner | 10/9 | |
+  | strip | 1 | optimal mixture, 1/4 each on the two 7-link thetas, the outer 8-cycle, and the pair of end squares; vertex rule in - out = 0 mod 3 |
+
+  Two squares (lambda = 8), cube (3) and double cube (2) stay excluded. Strip and corner are
+  not excluded at lambda = 5 by this bound but are excluded at 5.25, so both close
+  somewhere in (5, 5.25]. This is a limit of the bound, which uses r >= P g(c). It is
+  not evidence that a window opens.
 - **Graph step.** On all five graphs, every leaf-free support with at most 6 links is a
   single 4-cycle or 6-cycle. Counts (4-cycles / 6-cycles): two squares 2/1, strip 3/2,
-  corner 3/4, cube 6/16, two cubes 11/36. Independent counts by GPT and Green; Lean kernel
-  proof (`SmallSupportsAreCycles`, no symmetry shortcut) in PR #11.
-- **Still open:** the SU(3) gauge support rule (no dangling link; conjugate irreps at
-  two-valent vertices), link-dependent s, the exact double-cube edge, and the 40/3 and
-  43/3 floors in Lean.
+  corner 3/4, cube 6/16, two cubes 11/36. The argument needs the graph to be bipartite
+  with no two vertices sharing 3 neighbours; C5 and K2,3 are the controls that fail.
+  Independent counts by GPT and Green. PR #11 is merged, with Lean kernel proofs
+  (`SmallSupportsAreCycles`, no symmetry shortcut) on all five graphs.
+- **Gauge support rule.** The Schur core is proved in Lean on branch `red-gauge-support`
+  (`gauge_no_dangling`, `gauge_pair_finrank`; pinned Lean/Mathlib v4.33.0, standard
+  axioms only). The lattice regrouping (link spaces into per-vertex tensor factors) and
+  the Peter-Weyl basis of L^2(SU(3)) remain assumptions.
+- **Still open:** the lattice wrapper of the gauge rule, closing strip and corner in
+  (5, 5.25] under link-dependent s, reproducing GPT's 0.9867 test, the exact double-cube
+  edge for test (b), and the 40/3 and 43/3 floors in Lean.
