@@ -7,6 +7,7 @@
 [![Lean proof check](https://github.com/dicipler-pixel/yang-mills-lean/actions/workflows/build.yml/badge.svg)](https://github.com/dicipler-pixel/yang-mills-lean/actions/workflows/build.yml)
 ![Lean](https://img.shields.io/badge/Lean-v4.33.0-blue)
 ![Theorems](https://img.shields.io/badge/theorems-580-2EA043)
+![Theorems](https://img.shields.io/badge/theorems-573-2EA043)
 ![sorry](https://img.shields.io/badge/sorry-0-2EA043)
 ![Code: MIT](https://img.shields.io/badge/code-MIT-lightgrey)
 ![Text: CC BY 4.0](https://img.shields.io/badge/text-CC%20BY%204.0-lightgrey)
@@ -60,6 +61,8 @@ specified finite algebra. The spatial work checks five original-link SU(3) model
 | **Cut bound**: any SU(3) irrep with nonzero triality has Casimir at least 4/3, so d such cuts cost at least (4/3)·d, and d copies of the 3 attain it. That each cut carries nonzero triality is assumed, not derived from Gauss's law | [`CutBound`](CutBound.lean) | 5 |
 | **Ky Fan chord**: if E₀+E₁ is concave in κ (Ky Fan's theorem for an H linear in κ, taken as a hypothesis), certified lower bounds at the chord ends and an affine upper bound on E₀ give a lower bound on the gap across the interval. The exact node values are in [`research/2026-11-11/kyfan_chord`](research/2026-11-11/kyfan_chord/) | [`KyFanChord`](KyFanChord.lean) | 4 |
 | | **Total** | **580** |
+| **Triality at an n-valent vertex**: if the centre element acts on every arm by ω^triality (a named hypothesis `CentreCharacter`, the SU(3) centre fact, not proved here) and the vertex space has a nonzero invariant, the signed trialities sum to 0 mod 3 at any valence, with incoming arms entering as conjugates; also as zero net flux in ℤ/3. The one-, two- and three-valent cases follow as corollaries, and the closed singlet formula is shown to agree | [`TrialityVertex`](TrialityVertex.lean) | 20 |
+| | **Total** | **573** |
 
 Among the first 80 theorems, besides the matrix factorizations, fifteen are exact arithmetic checks of
 displayed rational constants: eleven in `GaugeCertificates` and four in `CrossTheorem`.
@@ -73,11 +76,15 @@ Python verifiers are separate and run from the research folders:
 2. **Independent replay**: every module is re-checked by Lean's separate kernel checker.
 3. **Axiom audit**: every named theorem depends only on `propext`, `Classical.choice` and
    `Quot.sound`. No `sorry`, no project axioms, no `native_decide`.
-4. **False controls**: ten false statements in [`FalseControls/`](FalseControls/) must be
+4. **False controls**: thirteen false statements in [`FalseControls/`](FalseControls/) must be
    rejected, showing the checker says no. Two are plain arithmetic (`(2 : ℚ) = 3` and
    `(1 : ℚ)/2 ≤ 1/3`); the other eight are near-miss versions of the window-wall cells, Jensen bound,
    dual-simple, theta floor, triality, transfer-gap, cut-bound and Ky Fan chord statements.
 5. **Frozen statements**: 502 theorem statements are frozen, so a proof cannot pass by quietly
+   `(1 : ℚ)/2 ≤ 1/3`); the other eleven are near-miss versions of the window-wall cells, Jensen bound,
+   dual-simple, theta floor, triality, transfer-gap, cut-bound and Ky Fan chord statements, and
+   two-, three- and four-valent vertex labellings whose trialities do not sum to 0.
+5. **Frozen statements**: 495 theorem statements are frozen, so a proof cannot pass by quietly
    weakening what it proves. Every edit to a frozen statement is logged.
 
 ```bash
@@ -107,6 +114,7 @@ assistants, each working in the open in this repository:
   the λ = 5 slope endpoints and the double-cube uniform endpoint.
 - **Lean Green PR Machine** proved the certified-point window wall, `WindowWallMono`, `ThetaFloor`,
   `ThetaTriality`, `TransferGap`, `CutBound`, `KyFanChord` and `SmallSupportBridge`, wired the gauge modules into the gate, and cross-checked the
+  `ThetaTriality`, `TransferGap`, `CutBound`, `KyFanChord` and `TrialityVertex`, wired the gauge modules into the gate, and cross-checked the
   λ = 5 strip and corner slopes in exact rationals.
 - **ink between the stars** built the 28/3 tail floor and its kernel-checked double-cube check
   (`TailFloor`, `TailFloorDoubleCube`) and proved the general small-support lemma

@@ -547,6 +547,28 @@
       "dcube_cycles_of_codegree": ": SmallSupportsAreCycles dcubeE",
       "k23_simple_bipartite": ": simpleB k23E = true ∧ bipB (fun v => v < 2) k23E = true",
       "k23_codegree_fails": ": codeg2B k23E = false"
+    },
+    "TrialityVertex.lean": {
+      "armTri_cast": "(out : Bool) (x : Irrep) : ((armTri out x : Nat) : ZMod 3) = if out then triZ x else -triZ x",
+      "vertexTri_eq_zero_iff": "(arms : List (Bool × Irrep)) : vertexTri arms = 0 ↔ netFlux arms = 0",
+      "centreActs_unit": "(z : G) : CentreActs z (1 : k) (𝟙_ (FDRep k G))",
+      "centreActs_tensor": "{z : G} {c d : k} {X Y : FDRep k G} (hX : CentreActs z c X) (hY : CentreActs z d Y) : CentreActs z (c * d) (X ⊗ Y)",
+      "centreActs_dual": "{z : G} {c c' : k} {X : FDRep k G} (hX : CentreActs z c X) (hc : c * c' = 1) : CentreActs z c' (Xᘁ)",
+      "scalar_eq_one_of_invariant": "{z : G} {c : k} {X : FDRep k G} (hX : CentreActs z c X) (h : Representation.invariants X.ρ ≠ ⊥) : c = 1",
+      "factor_centreActs": "{z : G} {ω : k} (hω : IsPrimitiveRoot ω 3) (h : HalfEdge k G) (x : Irrep) (hc : CentreCharacter z ω h.rep x) : CentreActs z (ω ^ armTri h.out x) h.factor",
+      "vertexRep_centreActs": "{z : G} {ω : k} (hω : IsPrimitiveRoot ω 3) (arms : List (HalfEdge k G × Irrep)) (hcentre : ∀ a ∈ arms, CentreCharacter z ω a.1.rep a.2) : CentreActs z (ω ^ (arms.map (fun a => armTri a.1.out a.2)).sum) (vertexRep (arms.map Prod.fst))",
+      "nvalent_triality": "{z : G} {ω : k} (hω : IsPrimitiveRoot ω 3) (arms : List (HalfEdge k G × Irrep)) (hcentre : ∀ a ∈ arms, CentreCharacter z ω a.1.rep a.2) (hinv : Representation.invariants (vertexRep (arms.map Prod.fst)).ρ ≠ ⊥) : vertexTri (arms.map (fun a => (a.1.out, a.2))) = 0",
+      "nvalent_gauss": "{z : G} {ω : k} (hω : IsPrimitiveRoot ω 3) (arms : List (HalfEdge k G × Irrep)) (hcentre : ∀ a ∈ arms, CentreCharacter z ω a.1.rep a.2) (hinv : Representation.invariants (vertexRep (arms.map Prod.fst)).ρ ≠ ⊥) : netFlux (arms.map (fun a => (a.1.out, a.2))) = 0",
+      "one_valent_triality": "{z : G} {ω : k} (hω : IsPrimitiveRoot ω 3) (h : HalfEdge k G) (x : Irrep) (hc : CentreCharacter z ω h.rep x) (hx : triality x ≠ 0) : Representation.invariants (vertexRep [h]).ρ = ⊥",
+      "two_valent_out_in": "{z : G} {ω : k} (hω : IsPrimitiveRoot ω 3) (h₁ h₂ : HalfEdge k G) (x y : Irrep) (c₁ : CentreCharacter z ω h₁.rep x) (c₂ : CentreCharacter z ω h₂.rep y) (o₁ : h₁.out = true) (o₂ : h₂.out = false) (hinv : Representation.invariants (vertexRep [h₁, h₂]).ρ ≠ ⊥) : triality x = triality y",
+      "two_valent_out_out": "{z : G} {ω : k} (hω : IsPrimitiveRoot ω 3) (h₁ h₂ : HalfEdge k G) (x y : Irrep) (c₁ : CentreCharacter z ω h₁.rep x) (c₂ : CentreCharacter z ω h₂.rep y) (o₁ : h₁.out = true) (o₂ : h₂.out = true) (hinv : Representation.invariants (vertexRep [h₁, h₂]).ρ ≠ ⊥) : triality y = triality (conj x)",
+      "trivalent_triality": "{z : G} {ω : k} (hω : IsPrimitiveRoot ω 3) (h₁ h₂ h₃ : HalfEdge k G) (a b c : Irrep) (c₁ : CentreCharacter z ω h₁.rep a) (c₂ : CentreCharacter z ω h₂.rep b) (c₃ : CentreCharacter z ω h₃.rep c) (o₁ : h₁.out = true) (o₂ : h₂.out = true) (o₃ : h₃.out = true) (hinv : Representation.invariants (vertexRep [h₁, h₂, h₃]).ρ ≠ ⊥) : (triality a + triality b + triality c) % 3 = 0",
+      "singlet_vertexTri": "(a b c : Irrep) (h : hasSinglet a b c = true) : vertexTri [(true, a), (true, b), (true, c)] = 0",
+      "baryon_conserved": ": vertexTri [(true, (1, 0)), (true, (1, 0)), (true, (1, 0))] = 0",
+      "meson_conserved": ": vertexTri [(true, (1, 0)), (false, (1, 0))] = 0",
+      "five_valent_conserved": ": vertexTri [(true, (1, 0)), (true, (1, 0)), (true, (0, 1)), (true, (1, 1)), (false, (1, 0))] = 0",
+      "three_three_one_rejected": ": vertexTri [(true, (1, 0)), (true, (1, 0)), (true, (0, 0))] ≠ 0",
+      "out_in_mismatch_rejected": ": vertexTri [(true, (1, 0)), (false, (0, 1))] ≠ 0"
     }
   },
   "complete_files": [
@@ -569,6 +591,7 @@
     "TransferGap.lean",
     "KyFanChord.lean",
     "CutBound.lean",
-    "SmallSupportBridge.lean"
+    "SmallSupportBridge.lean",
+    "TrialityVertex.lean"
   ]
 }
