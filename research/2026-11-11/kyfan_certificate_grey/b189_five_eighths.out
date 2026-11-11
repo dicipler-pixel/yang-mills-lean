@@ -1,0 +1,13 @@
+Step 1: C2(p,q) = |k_perp|^2/2 - |rho|^2 with |rho|^2 = 1, checked for p,q < 30
+Step 1: 2 Re(tr U) chi_pq = sum of six neighbours, checked on random torus points
+Step 2: H_harm psi0 = 4w psi0, H_harm psi1 = 6w psi1, <psi0,psi1> = 0, sign rep checked
+Step 3: <sum phi^4>_0 = 10/omega**2   <sum phi^4>_1 = 25/omega**2
+        c = (mu/24)(<.>_1 - <.>_0) = 5/8
+        E0 = 4 sqrt(mu) - 1 - 5/12 + O(mu^-1/2);  E1 = 6 sqrt(mu) - 1 - 25/24 + O(mu^-1/2)
+Control: doubling the quartic coefficient gives c = 5/4 != 5/8 (rejected)
+Numerics: mu, E0 - (4sqrt(mu) - 1 - 5/12),  c(mu) = 2sqrt(mu) - gap,  sqrt(mu)*(c(mu) - 5/8)
+  mu=   64  N= 73  E0 resid -0.00613   c=0.643036   sqrt(mu)(c-5/8)=+0.1443
+  mu=  256  N= 88  E0 resid -0.00300   c=0.633715   sqrt(mu)(c-5/8)=+0.1394
+  mu= 1024  N=107  E0 resid -0.00149   c=0.629286   sqrt(mu)(c-5/8)=+0.1372
+  mu= 4096  N=136  E0 resid -0.00074   c=0.627126   sqrt(mu)(c-5/8)=+0.1361
+exit 0
