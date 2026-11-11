@@ -57,6 +57,26 @@
       "path": "SchurInertiaCount.lean"
     },
     {
+      "module": "WindowWall",
+      "path": "WindowWall.lean"
+    },
+    {
+      "module": "WindowWallDeriv",
+      "path": "WindowWallDeriv.lean"
+    },
+    {
+      "module": "WindowWallFinite",
+      "path": "WindowWallFinite.lean"
+    },
+    {
+      "module": "WindowWallCells",
+      "path": "WindowWallCells.lean"
+    },
+    {
+      "module": "WindowWallMono",
+      "path": "WindowWallMono.lean"
+    },
+    {
       "module": "TailFloor",
       "path": "TailFloor.lean"
     },
@@ -69,8 +89,8 @@
       "path": "TailFloorDoubleCube.lean"
     }
   ],
-  "expected_theorems": 430,
-  "expected_false_controls": 2,
+  "expected_theorems": 461,
+  "expected_false_controls": 3,
   "root_imports": [
     "GaugeCertificates",
     "LongestYangMillsChain",
@@ -78,6 +98,11 @@
     "SchurFloorTransfer",
     "SchurInertiaComparison",
     "SchurInertiaCount",
+    "WindowWall",
+    "WindowWallDeriv",
+    "WindowWallFinite",
+    "WindowWallCells",
+    "WindowWallMono",
     "TailFloor",
     "OneLinkTailFloor",
     "TailFloorDoubleCube"

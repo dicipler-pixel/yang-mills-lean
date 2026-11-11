@@ -391,6 +391,19 @@
       "dc124": ": allChoose hypB 6 [(0,4),(0,2),(0,1),(1,5),(1,3),(2,6),(2,3),(3,7),(4,8),(4,6),(4,5),(5,9),(5,7),(6,10),(6,7),(7,11),(8,10),(8,9),(9,11),(10,11)] [] = true",
       "dcube_checkB": ": checkB dcubeE = true",
       "dcube_cycles": ": SmallSupportsAreCycles dcubeE"
+    },
+    "WindowWallCells.lean": {
+      "cell_no_window": "{n : ℕ} (C Lo Hi : Fin n → ℝ) (hC : ∀ p, 0 < C p) (hsum : (28 : ℝ) / 3 ≤ ∑ p : Fin n, C p * ((Lo p - Hi p) / (1 / 1000))) (g : Fin n → ℝ → ℝ) (hg : ∀ p, ConcaveOn ℝ (Ici 0) (g p)) (hlo : ∀ p, Lo p ≤ g p (C p + 1 / 1000)) (hhi : ∀ p, g p (C p) ≤ Hi p) {d r s : ℝ} (hs0 : 0 < s) (hs1 : s ≤ 1) (hdr : d - r ≤ s * (28 / 3) - ∑ p : Fin n, (g p (C p) - g p ((1 - s) * C p))) : d - r ≤ 0",
+      "two_eight_sum": ": (28 : ℝ) / 3 ≤ ∑ p : Fin 2, twoC p * ((twoLo p - twoHi p) / (1 / 1000))",
+      "two_eight_no_window": "(g : Fin 2 → ℝ → ℝ) (hg : ∀ p, ConcaveOn ℝ (Ici 0) (g p)) (hlo : ∀ p, twoLo p ≤ g p (twoC p + 1 / 1000)) (hhi : ∀ p, g p (twoC p) ≤ twoHi p) {d r s : ℝ} (hs0 : 0 < s) (hs1 : s ≤ 1) (hdr : d - r ≤ s * (28 / 3) - ∑ p : Fin 2, (g p (twoC p) - g p ((1 - s) * twoC p))) : d - r ≤ 0",
+      "strip_five_sum": ": (28 : ℝ) / 3 ≤ ∑ p : Fin 3, stripC p * ((stripLo p - stripHi p) / (1 / 1000))",
+      "strip_five_no_window": "(g : Fin 3 → ℝ → ℝ) (hg : ∀ p, ConcaveOn ℝ (Ici 0) (g p)) (hlo : ∀ p, stripLo p ≤ g p (stripC p + 1 / 1000)) (hhi : ∀ p, g p (stripC p) ≤ stripHi p) {d r s : ℝ} (hs0 : 0 < s) (hs1 : s ≤ 1) (hdr : d - r ≤ s * (28 / 3) - ∑ p : Fin 3, (g p (stripC p) - g p ((1 - s) * stripC p))) : d - r ≤ 0",
+      "corner_five_sum": ": (28 : ℝ) / 3 ≤ ∑ p : Fin 3, cornerC p * ((cornerLo p - cornerHi p) / (1 / 1000))",
+      "corner_five_no_window": "(g : Fin 3 → ℝ → ℝ) (hg : ∀ p, ConcaveOn ℝ (Ici 0) (g p)) (hlo : ∀ p, cornerLo p ≤ g p (cornerC p + 1 / 1000)) (hhi : ∀ p, g p (cornerC p) ≤ cornerHi p) {d r s : ℝ} (hs0 : 0 < s) (hs1 : s ≤ 1) (hdr : d - r ≤ s * (28 / 3) - ∑ p : Fin 3, (g p (cornerC p) - g p ((1 - s) * cornerC p))) : d - r ≤ 0",
+      "cube_three_sum": ": (28 : ℝ) / 3 ≤ ∑ p : Fin 6, cubeC p * ((cubeLo p - cubeHi p) / (1 / 1000))",
+      "cube_three_no_window": "(g : Fin 6 → ℝ → ℝ) (hg : ∀ p, ConcaveOn ℝ (Ici 0) (g p)) (hlo : ∀ p, cubeLo p ≤ g p (cubeC p + 1 / 1000)) (hhi : ∀ p, g p (cubeC p) ≤ cubeHi p) {d r s : ℝ} (hs0 : 0 < s) (hs1 : s ≤ 1) (hdr : d - r ≤ s * (28 / 3) - ∑ p : Fin 6, (g p (cubeC p) - g p ((1 - s) * cubeC p))) : d - r ≤ 0",
+      "twoCubes_two_sum": ": (28 : ℝ) / 3 ≤ ∑ p : Fin 11, twoCubesC p * ((twoCubesLo p - twoCubesHi p) / (1 / 1000))",
+      "twoCubes_two_no_window": "(g : Fin 11 → ℝ → ℝ) (hg : ∀ p, ConcaveOn ℝ (Ici 0) (g p)) (hlo : ∀ p, twoCubesLo p ≤ g p (twoCubesC p + 1 / 1000)) (hhi : ∀ p, g p (twoCubesC p) ≤ twoCubesHi p) {d r s : ℝ} (hs0 : 0 < s) (hs1 : s ≤ 1) (hdr : d - r ≤ s * (28 / 3) - ∑ p : Fin 11, (g p (twoCubesC p) - g p ((1 - s) * twoCubesC p))) : d - r ≤ 0"
     }
   },
   "complete_files": [
@@ -400,6 +413,7 @@
     "WindowWallMono.lean",
     "OneLinkTailFloor.lean",
     "TailFloor.lean",
-    "TailFloorDoubleCube.lean"
+    "TailFloorDoubleCube.lean",
+    "WindowWallCells.lean"
   ]
 }
