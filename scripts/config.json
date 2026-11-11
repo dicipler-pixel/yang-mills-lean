@@ -123,10 +123,14 @@
     {
       "module": "TransferGap",
       "path": "TransferGap.lean"
+    },
+    {
+      "module": "CutBound",
+      "path": "CutBound.lean"
     }
   ],
-  "expected_theorems": 544,
-  "expected_false_controls": 8,
+  "expected_theorems": 549,
+  "expected_false_controls": 9,
   "root_imports": [
     "GaugeCertificates",
     "LongestYangMillsChain",
@@ -150,6 +154,7 @@
     "SmallSupportCycle",
     "ThetaFloor",
     "ThetaTriality",
-    "TransferGap"
+    "TransferGap",
+    "CutBound"
   ]
 }
