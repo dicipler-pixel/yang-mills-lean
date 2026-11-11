@@ -1,0 +1,11 @@
+controls rejected: wrong upper and wrong lower endpoint at mu=5/2
+strip        lam=  5  sum c g' >= 9.454340   W'(0) <= -0.121007   EXCLUDED (certified)
+corner       lam=  5  sum c g' >= 9.750832   W'(0) <= -0.417499   EXCLUDED (certified)
+cube         lam=  3  sum c g' >= 11.361133   W'(0) <= -2.027800   EXCLUDED (certified)
+double_cube  lam=  2  sum c g' >= 11.919321   W'(0) <= -2.585988   EXCLUDED (certified)
+two          lam= 10  sum c g' >= 13.346173   W'(0) <= -4.012840   EXCLUDED (certified)
+strip        lam= 10  sum c g' >= 19.895277   W'(0) <= -10.561944   EXCLUDED (certified)
+corner       lam= 10  sum c g' >= 19.647312   W'(0) <= -10.313978   EXCLUDED (certified)
+cube         lam=  4  sum c g' >= 16.062844   W'(0) <= -6.729510   EXCLUDED (certified)
+strip        lam=  4  sum c g' >= 6.857070   W'(0) <= +2.476263   not excluded
+corner       lam=  4  sum c g' >= 7.236143   W'(0) <= +2.097190   not excluded

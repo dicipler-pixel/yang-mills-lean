@@ -1,0 +1,149 @@
+{
+ "cutoff": 28,
+ "eps": "1/10000000000",
+ "rows": [
+  {
+   "model": "strip",
+   "lam": "5",
+   "faces": 3,
+   "coeffs": [
+    "7/2",
+    "3",
+    "7/2"
+   ],
+   "certified_sum_c_gprime_lower": 9.454340479395638,
+   "slope_upper": -0.12100714606230507,
+   "excluded": true
+  },
+  {
+   "model": "corner",
+   "lam": "5",
+   "faces": 3,
+   "coeffs": [
+    "3",
+    "3",
+    "3"
+   ],
+   "certified_sum_c_gprime_lower": 9.750831938304025,
+   "slope_upper": -0.41749860497069186,
+   "excluded": true
+  },
+  {
+   "model": "cube",
+   "lam": "3",
+   "faces": 6,
+   "coeffs": [
+    "2",
+    "2",
+    "2",
+    "2",
+    "2",
+    "2"
+   ],
+   "certified_sum_c_gprime_lower": 11.361133185842268,
+   "slope_upper": -2.027799852508935,
+   "excluded": true
+  },
+  {
+   "model": "double_cube",
+   "lam": "2",
+   "faces": 11,
+   "coeffs": [
+    "2",
+    "11/6",
+    "11/6",
+    "11/6",
+    "11/6",
+    "4/3",
+    "11/6",
+    "11/6",
+    "11/6",
+    "11/6",
+    "2"
+   ],
+   "certified_sum_c_gprime_lower": 11.919320874484992,
+   "slope_upper": -2.5859875411516593,
+   "excluded": true
+  },
+  {
+   "model": "two",
+   "lam": "10",
+   "faces": 2,
+   "coeffs": [
+    "7/2",
+    "7/2"
+   ],
+   "certified_sum_c_gprime_lower": 13.346172971786189,
+   "slope_upper": -4.012839638452855,
+   "excluded": true
+  },
+  {
+   "model": "strip",
+   "lam": "10",
+   "faces": 3,
+   "coeffs": [
+    "7/2",
+    "3",
+    "7/2"
+   ],
+   "certified_sum_c_gprime_lower": 19.89527687735839,
+   "slope_upper": -10.561943544025059,
+   "excluded": true
+  },
+  {
+   "model": "corner",
+   "lam": "10",
+   "faces": 3,
+   "coeffs": [
+    "3",
+    "3",
+    "3"
+   ],
+   "certified_sum_c_gprime_lower": 19.64731171671661,
+   "slope_upper": -10.313978383383278,
+   "excluded": true
+  },
+  {
+   "model": "cube",
+   "lam": "4",
+   "faces": 6,
+   "coeffs": [
+    "2",
+    "2",
+    "2",
+    "2",
+    "2",
+    "2"
+   ],
+   "certified_sum_c_gprime_lower": 16.062843535758827,
+   "slope_upper": -6.729510202425493,
+   "excluded": true
+  },
+  {
+   "model": "strip",
+   "lam": "4",
+   "faces": 3,
+   "coeffs": [
+    "7/2",
+    "3",
+    "7/2"
+   ],
+   "certified_sum_c_gprime_lower": 6.857070299968186,
+   "slope_upper": 2.476263033365148,
+   "excluded": false
+  },
+  {
+   "model": "corner",
+   "lam": "4",
+   "faces": 3,
+   "coeffs": [
+    "3",
+    "3",
+    "3"
+   ],
+   "certified_sum_c_gprime_lower": 7.2361431525766005,
+   "slope_upper": 2.097190180756733,
+   "excluded": false
+  }
+ ]
+}
