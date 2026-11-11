@@ -59,9 +59,17 @@
     {
       "module": "TailFloor",
       "path": "TailFloor.lean"
+    },
+    {
+      "module": "OneLinkTailFloor",
+      "path": "OneLinkTailFloor.lean"
+    },
+    {
+      "module": "TailFloorDoubleCube",
+      "path": "TailFloorDoubleCube.lean"
     }
   ],
-  "expected_theorems": 97,
+  "expected_theorems": 430,
   "expected_false_controls": 2,
   "root_imports": [
     "GaugeCertificates",
@@ -70,6 +78,8 @@
     "SchurFloorTransfer",
     "SchurInertiaComparison",
     "SchurInertiaCount",
-    "TailFloor"
+    "TailFloor",
+    "OneLinkTailFloor",
+    "TailFloorDoubleCube"
   ]
 }
