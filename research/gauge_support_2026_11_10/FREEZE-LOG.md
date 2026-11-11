@@ -95,3 +95,26 @@ The file has `open CategoryTheory MonoidalCategory Module`, so that `𝟙_`, `�
 - False control: `ReshuffleDropControl` (drop the `V*` end of a single link: claims
   `⊗_e (V ⊗ V*) ≃ ⊗_e V` for `V = ℚ²`; dimensions 4 vs 2; rejected, unsolved goal `False`).
 - Gate: 599 theorems, 14 false controls.
+
+## GaugeSupportReshuffleRep.lean (Grey, 2026-11-11)
+
+- New file `GaugeSupportReshuffleRep.lean` (namespace `GaugeSupport`): `reshuffle` packaged as
+  one Mathlib `Representation.Equiv` for the gauge group `Vx → G`.
+- `edgeGaugeRep` / `blockGaugeRep` are abbreviations of the existing representations
+  `edgeGauge` / `blockGauge` (both already monoid homs), so application is definitional.
+- `reshuffleRepEquiv : (edgeGaugeRep Γ π).Equiv (blockGaugeRep Γ π)`, built with
+  `Representation.Equiv.mk` from `reshuffle` and `reshuffle_equivariant`;
+  `reshuffleRepEquiv_toLinearEquiv` (rfl) says its linear equivalence is `reshuffle`.
+- `repEquiv_map_invariants` (any `Representation.Equiv`), `reshuffle_map_invariants` and
+  `reshuffleInvariantsEquiv` (via `LinearEquiv.ofSubmodules`): the reshuffle maps the link
+  invariants onto the vertex invariants. `mem_blockGaugeRep_invariants_iff` identifies the
+  latter with `IsGaugeInvariant`.
+- `toLattice_proj_eq` restates `PeterWeylLinks.toLattice` through the iso;
+  `PeterWeylLinks.proj_mem_invariants` and `toLattice_proj_mem_invariants` match the
+  components of a gauge-invariant state on both sides.
+- Frozen statements of earlier files are unchanged; the file is in `complete_files`
+  (all 12 theorems frozen, 533 frozen in total).
+- False control: `ReshuffleRepControl` (the iso against the link action with `src`/`tgt`
+  swapped on one link `0 → 1`, `ℚˣ` acting on `ℚ` by scalars: the action on `V ⊗ V*` is
+  `g 0 / g 1`, the swapped one `g 1 / g 0`; rejected, unsolved goals).
+- Gate: 611 theorems, 15 false controls.
