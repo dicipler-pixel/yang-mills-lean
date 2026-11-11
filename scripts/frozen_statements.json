@@ -391,6 +391,14 @@
       "dc124": ": allChoose hypB 6 [(0,4),(0,2),(0,1),(1,5),(1,3),(2,6),(2,3),(3,7),(4,8),(4,6),(4,5),(5,9),(5,7),(6,10),(6,7),(7,11),(8,10),(8,9),(9,11),(10,11)] [] = true",
       "dcube_checkB": ": checkB dcubeE = true",
       "dcube_cycles": ": SmallSupportsAreCycles dcubeE"
+    },
+    "SmallSupportCycle.lean": {
+      "card_side_le": "{A B : Finset V} (hbip : G.IsBipartiteWith ↑A ↑B) (hmin : ∀ v, 2 ≤ G.degree v) (hE : #G.edgeFinset ≤ 6) : #A ≤ 3",
+      "nbr_subset": "{A B : Finset V} (hbip : G.IsBipartiteWith ↑A ↑B) {v : V} (hv : v ∈ A) : G.neighborFinset v ⊆ B",
+      "side_two": "{A B : Finset V} (hbip : G.IsBipartiteWith ↑A ↑B) (hpair : ∀ a b, a ≠ b → #(G.neighborFinset a ∩ G.neighborFinset b) ≤ 2) (hmin : ∀ v, 2 ≤ G.degree v) (hA : #A = 2) : #B ≤ 2",
+      "side_ge_two": "{A B : Finset V} (hbip : G.IsBipartiteWith ↑A ↑B) (hmin : ∀ v, 2 ≤ G.degree v) {v : V} (hv : v ∈ A) : 2 ≤ #B",
+      "common_nbr": "{A B : Finset V} (hbip : G.IsBipartiteWith ↑A ↑B) (hmin : ∀ v, 2 ≤ G.degree v) (hB : #B ≤ 3) {a a' : V} (ha : a ∈ A) (ha' : a' ∈ A) : ∃ b, G.Adj a b ∧ G.Adj a' b",
+      "small_support_is_cycle": "(A B : Finset V) (hbip : G.IsBipartiteWith ↑A ↑B) (hcov : ∀ v, v ∈ A ∨ v ∈ B) (hpair : ∀ a b, a ≠ b → #(G.neighborFinset a ∩ G.neighborFinset b) ≤ 2) (hmin : ∀ v, 2 ≤ G.degree v) (hE : #G.edgeFinset ≤ 6) [Nonempty V] : (∀ v, G.degree v = 2) ∧ G.Connected ∧ (Fintype.card V = 4 ∨ Fintype.card V = 6)"
     }
   },
   "complete_files": [
@@ -400,6 +408,7 @@
     "WindowWallMono.lean",
     "OneLinkTailFloor.lean",
     "TailFloor.lean",
-    "TailFloorDoubleCube.lean"
+    "TailFloorDoubleCube.lean",
+    "SmallSupportCycle.lean"
   ]
 }

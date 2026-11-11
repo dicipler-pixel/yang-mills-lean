@@ -67,9 +67,13 @@
     {
       "module": "TailFloorDoubleCube",
       "path": "TailFloorDoubleCube.lean"
+    },
+    {
+      "module": "SmallSupportCycle",
+      "path": "SmallSupportCycle.lean"
     }
   ],
-  "expected_theorems": 430,
+  "expected_theorems": 436,
   "expected_false_controls": 2,
   "root_imports": [
     "GaugeCertificates",
@@ -80,6 +84,7 @@
     "SchurInertiaCount",
     "TailFloor",
     "OneLinkTailFloor",
-    "TailFloorDoubleCube"
+    "TailFloorDoubleCube",
+    "SmallSupportCycle"
   ]
 }
