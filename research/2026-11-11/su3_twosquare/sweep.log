@@ -1,0 +1,16 @@
+ECUT=13.333333334333334 K=None states=19 pairs=19 nnz=92 hw 0.2s total 0.4s
+done 13.333333334333334 19 0s
+ECUT=60 K=None states=1343 pairs=441 nnz=38744 hw 0.9s total 2.6s
+done 60 1343 3s
+ECUT=80 K=None states=3648 pairs=821 nnz=144028 hw 2.2s total 5.0s
+done 80 3648 6s
+ECUT=100 K=None states=7912 pairs=1330 nnz=400122 hw 3.1s total 8.4s
+done 100 7912 11s
+ECUT=125 K=None states=17659 pairs=2104 nnz=1117388 hw 5.9s total 19.1s
+done 125 17659 30s
+ECUT=150 K=None states=34375 pairs=3079 nnz=2642584 hw 12.1s total 45.9s
+done 150 34375 64s
+ECUT=175 K=None states=60601 pairs=4223 nnz=5506270 hw 18.1s total 91.3s
+done 175 60601 138s
+ECUT=200 K=None states=100184 pairs=5663 nnz=10571842 hw 27.1s total 341.6s
+done 200 100184 504s
