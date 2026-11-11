@@ -183,6 +183,10 @@
     {
       "module": "GraphInstances",
       "path": "GraphInstances.lean"
+    },
+    {
+      "module": "GaugeSupportPeterWeylFinite",
+      "path": "GaugeSupportPeterWeylFinite.lean"
     }
   ],
   "expected_theorems": 580,
@@ -225,6 +229,7 @@
     "GaugeSupportReshuffleRep",
     "PermCube",
     "SingletWitnessSU3",
-    "GraphInstances"
+    "GraphInstances",
+    "GaugeSupportPeterWeylFinite"
   ]
 }

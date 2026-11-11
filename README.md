@@ -18,6 +18,7 @@
 ![Theorems](https://img.shields.io/badge/theorems-627-2EA043)
 ![Theorems](https://img.shields.io/badge/theorems-681-2EA043)
 ![Theorems](https://img.shields.io/badge/theorems-652-2EA043)
+![Theorems](https://img.shields.io/badge/theorems-635-2EA043)
 ![sorry](https://img.shields.io/badge/sorry-0-2EA043)
 ![Code: MIT](https://img.shields.io/badge/code-MIT-lightgrey)
 ![Text: CC BY 4.0](https://img.shields.io/badge/text-CC%20BY%204.0-lightgrey)
@@ -94,6 +95,8 @@ specified finite algebra. The spatial work checks five original-link SU(3) model
 | | **Total** | **681** |
 | **Graph instances**: the `cubeΓ` pattern made generic (`listΓ g n`, link i = i-th pair of the TailFloor edge list, `lab = Fin.val`) and applied to the two squares, the three-square strip, the corner and the double cube. Under the named hypothesis `PeterWeylLattice` alone, every labelling in the support of a gauge-invariant state with 1 to 6 non-trivial links is a 4- or 6-cycle, so it has exactly 4 or 6 non-trivial links. The double cube uses #23's colouring-and-codegree route, with no support enumeration | [`GraphInstances`](GraphInstances.lean) | 25 |
 | | **Total** | **652** |
+| **Gauge support rule**: Schur at each vertex, no dangling link (`gauge_no_dangling`), paired irreps on two-link vertices (`gauge_pair_finrank`), the per-vertex and lattice rule, and the dual of a simple representation is simple (`dual_simple`). Regrouped by vertex (`gauge_support_rule_regrouped`, `_SU3`): a nonzero gauge-invariant vector of ⊗_v W_v forces a nonzero invariant at every vertex, so every labelling in the support of a gauge-invariant state obeys the lattice rule with no per-vertex hypothesis. The edge-to-vertex reshuffle ⊗_e (V ⊗ V*) ≅ ⊗_v W_v is proved as a gauge-equivariant linear isomorphism (`reshuffle`, `reshuffle_equivariant`, `reshuffle_tprod`), and packaged as one isomorphism of representations of the gauge group (`reshuffleRepEquiv`, a Mathlib `Representation.Equiv`) that matches the gauge invariants on both sides (`reshuffleInvariantsEquiv`), so the rule also follows from `gauge_support_rule_links` (`_SU3`). For every finite group over ℂ, Peter–Weyl link by link is proved (`peterWeylLinks_of_finite`, on functions of the link variables, by matrix-coefficient Fourier projections, separation from Maschke), given only that the irrep family is complete (`IsCompleteIrrFamily`); so `gauge_support_rule_links_finite` needs no Peter–Weyl assumption, and dropping irreps makes it false (`not_peterWeylLinks_trivial_only`). Still assumed for SU(3), as the named hypothesis `PeterWeylLinksSU3` (a structure, not an axiom): Peter–Weyl link by link onto ⊗_e (V ⊗ V*) | [`GaugeSupport`](GaugeSupport.lean), [`GaugeSupportFDRep`](GaugeSupportFDRep.lean), [`GaugeSupportLattice`](GaugeSupportLattice.lean), [`DualSimple`](DualSimple.lean), [`GaugeSupportRegroup`](GaugeSupportRegroup.lean), [`GaugeSupportReshuffle`](GaugeSupportReshuffle.lean), [`GaugeSupportReshuffleRep`](GaugeSupportReshuffleRep.lean), [`GaugeSupportPeterWeylFinite`](GaugeSupportPeterWeylFinite.lean) | 114 |
+| | **Total** | **635** |
 
 Among the first 80 theorems, besides the matrix factorizations, fifteen are exact arithmetic checks of
 displayed rational constants: eleven in `GaugeCertificates` and four in `CrossTheorem`.
@@ -108,6 +111,7 @@ Python verifiers are separate and run from the research folders:
 3. **Axiom audit**: every named theorem depends only on `propext`, `Classical.choice` and
    `Quot.sound`. No `sorry`, no project axioms, no `native_decide`.
 4. **False controls**: seventeen false statements in [`FalseControls/`](FalseControls/) must be
+4. **False controls**: sixteen false statements in [`FalseControls/`](FalseControls/) must be
    rejected, showing the checker says no. Two are plain arithmetic (`(2 : ℚ) = 3` and
    `(1 : ℚ)/2 ≤ 1/3`); the other eight are near-miss versions of the window-wall cells, Jensen bound,
    dual-simple, theta floor, triality, transfer-gap, cut-bound and Ky Fan chord statements.
@@ -144,6 +148,7 @@ Python verifiers are separate and run from the research folders:
 5. **Frozen statements**: 603 theorem statements are frozen, so a proof cannot pass by quietly
    dual-simple, theta floor, triality, transfer-gap, cut-bound, Ky Fan chord, the three regrouped gauge-support statements, a support with a degree-one vertex claimed admissible, `K_{2,3}` claimed to be a short cycle, a reordered support claimed to change a degree, and a 5-link double-cube support claimed to be a short cycle.
 5. **Frozen statements**: 574 theorem statements are frozen, so a proof cannot pass by quietly
+5. **Frozen statements**: 557 theorem statements are frozen, so a proof cannot pass by quietly
    weakening what it proves. Every edit to a frozen statement is logged.
 
 ```bash
