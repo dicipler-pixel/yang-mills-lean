@@ -16,12 +16,12 @@ it says nothing about SU(3). The gauge support rule (Layer 2) is still open.
 Combining: any admissible support state with energy above 8 has energy ≥ 28/3.
 Conventions: α = 1, open-boundary graphs. Core Lean only.
 
-Coverage: two squares, three-square strip, three-face corner and cube are checked by
-`decide +kernel`. The double cube (20 links) is NOT covered here yet: the fused checker
-`checkB` and its soundness theorem `checkB_sound` are proved, and `#eval` gives
-`checkB dcubeE = true` with 47 admissible supports (11 squares, 36 hexagons, matching
-independent Python counts), but the kernel check `checkB dcubeE = true` exhausted memory
-on a 15 GB machine. It is isolated in `TailFloorDoubleCube.lean`, outside the build.
+Coverage: two squares, three-square strip, three-face corner and cube are checked here by
+`decide +kernel`. The double cube (20 links) is checked in `TailFloorDoubleCube.lean`:
+the fused checker `checkB` and `checkB_sound` are proved here, and that file splits
+`checkB dcubeE = true` into 328 small kernel lemmas (a single `decide +kernel` call
+exhausted about 11 GB). 47 admissible supports (11 squares, 36 hexagons), matching
+independent Python counts.
 -/
 
 namespace TailFloor
