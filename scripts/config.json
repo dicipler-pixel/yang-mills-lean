@@ -211,6 +211,10 @@
     {
       "module": "CubeFiniteUnconditional",
       "path": "CubeFiniteUnconditional.lean"
+    },
+    {
+      "module": "AdjointWitnessSU3",
+      "path": "AdjointWitnessSU3.lean"
     }
   ],
   "expected_theorems": 1006,
@@ -260,6 +264,7 @@
     "GaugeSupportSimpleFamily",
     "IrrepIrreducibleSU3",
     "HntLabels",
-    "CubeFiniteUnconditional"
+    "CubeFiniteUnconditional",
+    "AdjointWitnessSU3"
   ]
 }
