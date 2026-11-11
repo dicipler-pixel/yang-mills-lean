@@ -219,6 +219,10 @@
     {
       "module": "CubeWilsonExistence",
       "path": "CubeWilsonExistence.lean"
+    },
+    {
+      "module": "SymWitnessSU3",
+      "path": "SymWitnessSU3.lean"
     }
   ],
   "expected_theorems": 1097,
@@ -270,6 +274,7 @@
     "HntLabels",
     "CubeFiniteUnconditional",
     "AdjointWitnessSU3",
-    "CubeWilsonExistence"
+    "CubeWilsonExistence",
+    "SymWitnessSU3"
   ]
 }
