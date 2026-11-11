@@ -151,10 +151,14 @@
     {
       "module": "SingletWitnessSU3",
       "path": "SingletWitnessSU3.lean"
+    },
+    {
+      "module": "IrrepSmallIsoSU3",
+      "path": "IrrepSmallIsoSU3.lean"
     }
   ],
-  "expected_theorems": 681,
-  "expected_false_controls": 17,
+  "expected_theorems": 715,
+  "expected_false_controls": 18,
   "root_imports": [
     "GaugeCertificates",
     "LongestYangMillsChain",
@@ -185,6 +189,7 @@
     "CentreCharacterSU3",
     "IrrepEmbedSU3",
     "ThetaFloorTriality",
-    "SingletWitnessSU3"
+    "SingletWitnessSU3",
+    "IrrepSmallIsoSU3"
   ]
 }

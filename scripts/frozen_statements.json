@@ -656,6 +656,42 @@
       "epsMixed_centre": ": (fund ⊗ (fund ⊗ antifund)).ρ zω epsMixed = ω • epsMixed",
       "invariants_mixed_eq_bot": ": Representation.invariants (fund ⊗ (fund ⊗ antifund)).ρ = ⊥",
       "epsMixed_not_invariant": ": ¬ ∀ g : SU3, (fund ⊗ (fund ⊗ antifund)).ρ g epsMixed = epsMixed"
+    },
+    "IrrepSmallIsoSU3.lean": {
+      "cyc_mem": ": cycMat ∈ SU3",
+      "fund_cyc_e0": ": fund.ρ cyc (Pi.single 0 1 : Fin 3 → ℂ) = (Pi.single 1 1 : Fin 3 → ℂ)",
+      "fund_cyc_e1": ": fund.ρ cyc (Pi.single 1 1 : Fin 3 → ℂ) = (Pi.single 2 1 : Fin 3 → ℂ)",
+      "antifund_inv_proj": "(g : SU3) (i : Fin 3) : antifund.ρ g⁻¹ (LinearMap.proj i : (Fin 3 → ℂ) →ₗ[ℂ] ℂ) = ((LinearMap.proj i : (Fin 3 → ℂ) →ₗ[ℂ] ℂ) ∘ₗ Matrix.toLin' g.1 : (Fin 3 → ℂ) →ₗ[ℂ] ℂ)",
+      "antifund_cycInv_proj2": ": antifund.ρ cyc⁻¹ (LinearMap.proj 2 : (Fin 3 → ℂ) →ₗ[ℂ] ℂ) = (LinearMap.proj 1 : (Fin 3 → ℂ) →ₗ[ℂ] ℂ)",
+      "antifund_cycInv_proj1": ": antifund.ρ cyc⁻¹ (LinearMap.proj 1 : (Fin 3 → ℂ) →ₗ[ℂ] ℂ) = (LinearMap.proj 0 : (Fin 3 → ℂ) →ₗ[ℂ] ℂ)",
+      "orbit_mem": "(p q : ℕ) (g : SU3) : (tensorRep p q).ρ g (hwVec p q) ∈ irrepSub p q",
+      "surjective_of_orbit_span": "{p q : ℕ} {X : FDRep ℂ SU3} (f : irrepRep p q ⟶ X) (s : Set X) (hs : Submodule.span ℂ s = ⊤) (h : ∀ x ∈ s, ∃ g, f.hom.hom.hom (orbitElt p q g) = x) : Function.Surjective f.hom.hom.hom",
+      "span_std_basis": ": Submodule.span ℂ (Set.range fun i : Fin 3 => (Pi.single i 1 : Fin 3 → ℂ)) = ⊤",
+      "span_dual_basis": ": Submodule.span ℂ (Set.range fun i : Fin 3 => (LinearMap.proj i : (Fin 3 → ℂ) →ₗ[ℂ] ℂ)) = ⊤",
+      "rightUnitor_tmul": "(X : FDRep ℂ SU3) (x : X) (c : ℂ) : (ρ_ X).hom.hom.hom.hom (x ⊗ₜ[ℂ] c : TensorProduct ℂ X (𝟙_ (FDRep ℂ SU3))) = c • x",
+      "f10_injective": ": Function.Injective f10.hom.hom.hom",
+      "f10_orbit": "(g : SU3) : f10.hom.hom.hom (orbitElt 1 0 g) = fund.ρ g e1",
+      "f10_bijective": ": Function.Bijective f10.hom.hom.hom",
+      "irrep10Iso_hw": ": irrep10Iso.hom.hom.hom.hom (hwIrrep 1 0) = e1",
+      "irrepSub10_eq_top": ": irrepSub 1 0 = ⊤",
+      "f01_injective": ": Function.Injective f01.hom.hom.hom",
+      "f01_orbit": "(g : SU3) : f01.hom.hom.hom (orbitElt 0 1 g) = antifund.ρ g e3dual",
+      "f01_bijective": ": Function.Bijective f01.hom.hom.hom",
+      "irrep01Iso_hw": ": irrep01Iso.hom.hom.hom.hom (hwIrrep 0 1) = e3dual",
+      "irrepSub01_eq_top": ": irrepSub 0 1 = ⊤",
+      "f00_bijective": ": Function.Bijective f00.hom.hom.hom",
+      "irrep00Iso_hw": ": irrep00Iso.hom.hom.hom.hom (hwIrrep 0 0) = (1 : ℂ)",
+      "irrepSub00_eq_top": ": irrepSub 0 0 = ⊤",
+      "irrep01_not_iso_fund": ": IsEmpty (irrepRep 0 1 ≅ fund)",
+      "antifund_not_iso_fund": ": IsEmpty (antifund ≅ fund)",
+      "irrep10_not_iso_irrep01": ": IsEmpty (irrepRep 1 0 ≅ irrepRep 0 1)",
+      "invariants_ne_bot_of_iso": "{X Y : FDRep ℂ SU3} (i : X ≅ Y) (h : Representation.invariants Y.ρ ≠ ⊥) : Representation.invariants X.ρ ≠ ⊥",
+      "irrep_trace_invariants_ne_bot": ": Representation.invariants (irrepRep 1 0 ⊗ irrepRep 0 1).ρ ≠ ⊥",
+      "irrep_eps_invariants_ne_bot": ": Representation.invariants (irrepRep 1 0 ⊗ (irrepRep 1 0 ⊗ irrepRep 1 0)).ρ ≠ ⊥",
+      "irrep_epsbar_invariants_ne_bot": ": Representation.invariants (irrepRep 0 1 ⊗ (irrepRep 0 1 ⊗ irrepRep 0 1)).ρ ≠ ⊥",
+      "irrep_iso_smallRep": "(x : Irrep) (hx : x ∈ [(0, 0), (1, 0), (0, 1)]) : Nonempty (irrepRep x.1 x.2 ≅ smallRep x)",
+      "attainedRows_irrep": "(t : Irrep × Irrep × Irrep) (ht : t ∈ attainedRows) (o : Bool) : Representation.invariants (thetaVertex o (irrepRep t.1.1 t.1.2) (irrepRep t.2.1.1 t.2.1.2) (irrepRep t.2.2.1 t.2.2.2)).ρ ≠ ⊥",
+      "attainedRows_irrep_both": "(t : Irrep × Irrep × Irrep) (ht : t ∈ attainedRows) : t ∈ thetaList ∧ Representation.invariants (thetaVertex true (irrepRep t.1.1 t.1.2) (irrepRep t.2.1.1 t.2.1.2) (irrepRep t.2.2.1 t.2.2.2)).ρ ≠ ⊥ ∧ Representation.invariants (thetaVertex false (irrepRep t.1.1 t.1.2) (irrepRep t.2.1.1 t.2.1.2) (irrepRep t.2.2.1 t.2.2.2)).ρ ≠ ⊥"
     }
   },
   "complete_files": [
@@ -682,6 +718,7 @@
     "CentreCharacterSU3.lean",
     "IrrepEmbedSU3.lean",
     "ThetaFloorTriality.lean",
-    "SingletWitnessSU3.lean"
+    "SingletWitnessSU3.lean",
+    "IrrepSmallIsoSU3.lean"
   ]
 }
