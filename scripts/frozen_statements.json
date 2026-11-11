@@ -989,6 +989,19 @@
       "hnt_irrPQ": "{E : Type*} (π : E → ℕ × ℕ) : ∀ e, NTe (irrPQ ∘ π) e → (id (π e)).1 + (id (π e)).2 ≥ 1",
       "long_energy_floor_irrep": "{E : Type*} [Fintype E] (π : E → ℕ × ℕ) (hlong : 6 < (Finset.univ.filter (NTe (irrPQ ∘ π))).card) : (((Finset.univ.filter (NTe (irrPQ ∘ π))).toList).map (fun e => c3 (π e).1 (π e).2)).sum ≥ 28",
       "list_support_dichotomy_energy": "(g : Graph) (n : ℕ) (hmem : LinksIn g n) (hinj : NormInj g n) (hs : simpleB g = true) (hSSAC : SmallSupportsAreCycles g) [∀ x, Simple (irrPQ x)] {H : Type*} [AddCommGroup H] [Module ℂ H] {gauge : Representation ℂ (Fin (n + 1) → CentreCharacterSU3.SU3) H} (PW : PeterWeylLattice ℂ CentreCharacterSU3.SU3 (listΓ g n) (ℕ × ℕ) irrPQ H gauge) (ψ : H) (hψ : ∀ g, gauge g ψ = ψ) (π : Fin g.length → ℕ × ℕ) (hπ : PW.proj π ψ ≠ 0) (h1 : 1 ≤ (Finset.univ.filter (NTe (irrPQ ∘ π))).card) : (((Finset.univ.filter (NTe (irrPQ ∘ π))).card = 4 ∨ (Finset.univ.filter (NTe (irrPQ ∘ π))).card = 6) ∧ shortCycle (supportList (listΓ g n) (irrPQ ∘ π) Fin.val) = true) ∨ (6 < (Finset.univ.filter (NTe (irrPQ ∘ π))).card ∧ (((Finset.univ.filter (NTe (irrPQ ∘ π))).toList).map (fun e => c3 (π e).1 (π e).2)).sum ≥ 28)"
+    },
+    "CubeFiniteUnconditional.lean": {
+      "cubePW_proj_ne_zero": "(ψ : (Fin 12 → G) → ℂ) (π : Fin 12 → SimpleIdeal G) (hπ : fourierProj simpleIrr π ψ ≠ 0) : (cubePW G).proj π ψ ≠ 0",
+      "cube_gauge_support_shortCycle_finite": "(ψ : (Fin 12 → G) → ℂ) (hψ : ∀ g, latticeGauge cubeΓ g ψ = ψ) (π : Fin 12 → SimpleIdeal G) (hπ : fourierProj simpleIrr π ψ ≠ 0) (h1 : 1 ≤ (Finset.univ.filter (NTe (simpleIrr ∘ π))).card) (h6 : (Finset.univ.filter (NTe (simpleIrr ∘ π))).card ≤ 6) : shortCycle (supportList cubeΓ (simpleIrr ∘ π) Fin.val) = true",
+      "cube_gauge_support_card_finite": "(ψ : (Fin 12 → G) → ℂ) (hψ : ∀ g, latticeGauge cubeΓ g ψ = ψ) (π : Fin 12 → SimpleIdeal G) (hπ : fourierProj simpleIrr π ψ ≠ 0) (h1 : 1 ≤ (Finset.univ.filter (NTe (simpleIrr ∘ π))).card) (h6 : (Finset.univ.filter (NTe (simpleIrr ∘ π))).card ≤ 6) : (Finset.univ.filter (NTe (simpleIrr ∘ π))).card = 4 ∨ (Finset.univ.filter (NTe (simpleIrr ∘ π))).card = 6",
+      "cube_gauge_support_finite": "(ψ : (Fin 12 → G) → ℂ) (hψ : ∀ g, latticeGauge cubeΓ g ψ = ψ) (π : Fin 12 → SimpleIdeal G) (hπ : fourierProj simpleIrr π ψ ≠ 0) (h1 : 1 ≤ (Finset.univ.filter (NTe (simpleIrr ∘ π))).card) (h6 : (Finset.univ.filter (NTe (simpleIrr ∘ π))).card ≤ 6) : ((Finset.univ.filter (NTe (simpleIrr ∘ π))).card = 4 ∨ (Finset.univ.filter (NTe (simpleIrr ∘ π))).card = 6) ∧ shortCycle (supportList cubeΓ (simpleIrr ∘ π) Fin.val) = true",
+      "cube_support_dichotomy_finite": "(ψ : (Fin 12 → G) → ℂ) (hψ : ∀ g, latticeGauge cubeΓ g ψ = ψ) (π : Fin 12 → SimpleIdeal G) (hπ : fourierProj simpleIrr π ψ ≠ 0) (h1 : 1 ≤ (Finset.univ.filter (NTe (simpleIrr ∘ π))).card) : (((Finset.univ.filter (NTe (simpleIrr ∘ π))).card = 4 ∨ (Finset.univ.filter (NTe (simpleIrr ∘ π))).card = 6) ∧ shortCycle (supportList cubeΓ (simpleIrr ∘ π) Fin.val) = true) ∨ (6 < (Finset.univ.filter (NTe (simpleIrr ∘ π))).card ∧ ∀ cs : List ℕ, cs.length = (Finset.univ.filter (NTe (simpleIrr ∘ π))).card → (∀ x ∈ cs, x ≥ 4) → cs.sum ≥ 28)",
+      "cube_no_three_links_finite": ": ¬ ∃ ψ : (Fin 12 → G) → ℂ, (∀ g, latticeGauge cubeΓ g ψ = ψ) ∧ ∃ π : Fin 12 → SimpleIdeal G, fourierProj simpleIrr π ψ ≠ 0 ∧ (Finset.univ.filter (NTe (simpleIrr ∘ π))).card = 3",
+      "cube_gauge_support_card_S3": "(ψ : (Fin 12 → S3) → ℂ) (hψ : ∀ g, latticeGauge cubeΓ g ψ = ψ) (π : Fin 12 → SimpleIdeal S3) (hπ : fourierProj simpleIrr π ψ ≠ 0) (h1 : 1 ≤ (Finset.univ.filter (NTe (simpleIrr ∘ π))).card) (h6 : (Finset.univ.filter (NTe (simpleIrr ∘ π))).card ≤ 6) : ((Finset.univ.filter (NTe (simpleIrr ∘ π))).card = 4 ∨ (Finset.univ.filter (NTe (simpleIrr ∘ π))).card = 6) ∧ shortCycle (supportList cubeΓ (simpleIrr ∘ π) Fin.val) = true",
+      "cube_support_dichotomy_S3": "(ψ : (Fin 12 → S3) → ℂ) (hψ : ∀ g, latticeGauge cubeΓ g ψ = ψ) (π : Fin 12 → SimpleIdeal S3) (hπ : fourierProj simpleIrr π ψ ≠ 0) (h1 : 1 ≤ (Finset.univ.filter (NTe (simpleIrr ∘ π))).card) : (((Finset.univ.filter (NTe (simpleIrr ∘ π))).card = 4 ∨ (Finset.univ.filter (NTe (simpleIrr ∘ π))).card = 6) ∧ shortCycle (supportList cubeΓ (simpleIrr ∘ π) Fin.val) = true) ∨ (6 < (Finset.univ.filter (NTe (simpleIrr ∘ π))).card ∧ ∀ cs : List ℕ, cs.length = (Finset.univ.filter (NTe (simpleIrr ∘ π))).card → (∀ x ∈ cs, x ≥ 4) → cs.sum ≥ 28)",
+      "cube_no_three_links_S3": ": ¬ ∃ ψ : (Fin 12 → S3) → ℂ, (∀ g, latticeGauge cubeΓ g ψ = ψ) ∧ ∃ π : Fin 12 → SimpleIdeal S3, fourierProj simpleIrr π ψ ≠ 0 ∧ (Finset.univ.filter (NTe (simpleIrr ∘ π))).card = 3",
+      "cubeThree_sublist": ": cubeThree.Sublist cubeE",
+      "cubeThree_not_shortCycle": ": shortCycle cubeThree = false"
     }
   },
   "complete_files": [
@@ -1028,6 +1041,7 @@
     "SupportDichotomy.lean",
     "GaugeSupportSimpleFamily.lean",
     "IrrepIrreducibleSU3.lean",
-    "HntLabels.lean"
+    "HntLabels.lean",
+    "CubeFiniteUnconditional.lean"
   ]
 }

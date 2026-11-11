@@ -207,6 +207,10 @@
     {
       "module": "HntLabels",
       "path": "HntLabels.lean"
+    },
+    {
+      "module": "CubeFiniteUnconditional",
+      "path": "CubeFiniteUnconditional.lean"
     }
   ],
   "expected_theorems": 995,
@@ -255,6 +259,7 @@
     "SupportDichotomy",
     "GaugeSupportSimpleFamily",
     "IrrepIrreducibleSU3",
-    "HntLabels"
+    "HntLabels",
+    "CubeFiniteUnconditional"
   ]
 }
