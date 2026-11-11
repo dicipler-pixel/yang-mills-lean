@@ -32,8 +32,9 @@ The gap and the flux floor each have their own certificate. The gap is E₁ − 
 | L=3 | 22 | 2 | 4.61532 | [3.82763, 3.85716] | 4.719 / 3.855 |
 | L=3 | 22 | 5/2 | 4.11825 | [3.55115, 3.77279] | 4.772 / 3.754 |
 | L=3 | 22 | 3 | 2.59635 | [2.40103, 3.77372] | 4.924 / 3.652 |
+| L=3 | 24 | 3 | 3.42943 | [3.12957, 3.67349] | 4.872 / 3.613 |
 
-At L=3 the cap-18 bounds loosen from λ = 5/2 (the hidden floor gets close to the protected levels), so L=3 is raised to cap 22 (`runs/L3_c22.log`, `lam2/ring_L3_cap22.*`). At λ = 3 even cap 22 is loose (gap ≥ 2.596 against float 4.924); a higher cap is needed to tighten it. As λ grows, the lower bounds drift away from the float values; that is the cap binding, not a sign the gap closes.
+At L=3 the cap-18 bounds loosen from λ = 5/2 (the hidden floor gets close to the protected levels), so L=3 is raised to cap 22 (`runs/L3_c22.log`, `lam2/ring_L3_cap22.*`). At λ = 3 cap 22 is loose (gap ≥ 2.596 against float 4.924); cap 24 (`runs/L3_c24.log`, `lam2/ring_L3_cap24.*`) tightens it to gap ≥ 3.429, still below float 4.872. As λ grows, the lower bounds drift away from the float values; that is the cap binding, not a sign the gap closes.
 
 Reproduce: `OMP_NUM_THREADS=1 LAMS=3/2,2,5/2,3 python run_cert.py L 18 18` (outputs copied to `lam2/`), and `LAMS=2,5/2,3 python run_cert.py 3 22 22`. With `LAMS` unset the driver runs the original λ = 1/4, 1/2, 1.
 
