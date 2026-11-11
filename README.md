@@ -15,6 +15,7 @@
 ![Theorems](https://img.shields.io/badge/theorems-604-2EA043)
 ![Theorems](https://img.shields.io/badge/theorems-636-2EA043)
 ![Theorems](https://img.shields.io/badge/theorems-611-2EA043)
+![Theorems](https://img.shields.io/badge/theorems-627-2EA043)
 ![sorry](https://img.shields.io/badge/sorry-0-2EA043)
 ![Code: MIT](https://img.shields.io/badge/code-MIT-lightgrey)
 ![Text: CC BY 4.0](https://img.shields.io/badge/text-CC%20BY%204.0-lightgrey)
@@ -85,6 +86,8 @@ specified finite algebra. The spatial work checks five original-link SU(3) model
 | | **Total** | **636** |
 | **Gauge support rule**: Schur at each vertex, no dangling link (`gauge_no_dangling`), paired irreps on two-link vertices (`gauge_pair_finrank`), the per-vertex and lattice rule, and the dual of a simple representation is simple (`dual_simple`). Regrouped by vertex (`gauge_support_rule_regrouped`, `_SU3`): a nonzero gauge-invariant vector of ⊗_v W_v forces a nonzero invariant at every vertex, so every labelling in the support of a gauge-invariant state obeys the lattice rule with no per-vertex hypothesis. The edge-to-vertex reshuffle ⊗_e (V ⊗ V*) ≅ ⊗_v W_v is proved as a gauge-equivariant linear isomorphism (`reshuffle`, `reshuffle_equivariant`, `reshuffle_tprod`), and packaged as one isomorphism of representations of the gauge group (`reshuffleRepEquiv`, a Mathlib `Representation.Equiv`) that matches the gauge invariants on both sides (`reshuffleInvariantsEquiv`), so the rule also follows from `gauge_support_rule_links` (`_SU3`). Still assumed, as the named hypothesis `PeterWeylLinksSU3` (a structure, not an axiom): Peter–Weyl link by link onto ⊗_e (V ⊗ V*) | [`GaugeSupport`](GaugeSupport.lean), [`GaugeSupportFDRep`](GaugeSupportFDRep.lean), [`GaugeSupportLattice`](GaugeSupportLattice.lean), [`DualSimple`](DualSimple.lean), [`GaugeSupportRegroup`](GaugeSupportRegroup.lean), [`GaugeSupportReshuffle`](GaugeSupportReshuffle.lean), [`GaugeSupportReshuffleRep`](GaugeSupportReshuffleRep.lean) | 90 |
 | | **Total** | **611** |
+| **List order and the cube**: `deg`, vertex membership, `admissible`, and (onto a list with no loops and no repeated link) `connected` and `shortCycle` are unchanged by reordering links. Every sublist of a host with 1 to 6 links is enumerated by `smallSupports`, so a gauge support's host-ordered copy is one of the supports `SmallSupportsAreCycles g` covers. On the cube (`cubeΓ`, link i = i-th pair of `cubeE`), every labelling in the support of a gauge-invariant state with 1 to 6 non-trivial links is a 4- or 6-cycle, under the named hypothesis `PeterWeylLattice` alone | [`PermCube`](PermCube.lean) | 23 |
+| | **Total** | **627** |
 
 Among the first 80 theorems, besides the matrix factorizations, fifteen are exact arithmetic checks of
 displayed rational constants: eleven in `GaugeCertificates` and four in `CrossTheorem`.
@@ -127,6 +130,8 @@ Python verifiers are separate and run from the research folders:
 4. **False controls**: fifteen false statements in [`FalseControls/`](FalseControls/) must be
    dual-simple, theta floor, triality, transfer-gap, cut-bound, Ky Fan chord, the three regrouped gauge-support statements the edge-to-vertex reshuffle (one link end dropped) and the reshuffle iso with source and target actions swapped.
 5. **Frozen statements**: 533 theorem statements are frozen, so a proof cannot pass by quietly
+   dual-simple, theta floor, triality, transfer-gap, cut-bound, Ky Fan chord, the three regrouped gauge-support statements, a support with a degree-one vertex claimed admissible, `K_{2,3}` claimed to be a short cycle, and a reordered support claimed to change a degree.
+5. **Frozen statements**: 549 theorem statements are frozen, so a proof cannot pass by quietly
    weakening what it proves. Every edit to a frozen statement is logged.
 
 ```bash
@@ -172,6 +177,7 @@ assistants, each working in the open in this repository:
   `ThetaTriality`, `TransferGap`, `CutBound`, `KyFanChord` and `TrialityVertex`, wired the gauge modules into the gate, and cross-checked the
   `ThetaTriality`, `TransferGap`, `CutBound`, `KyFanChord`, `TrialityVertex` and `CentreCharacterSU3`, wired the gauge modules into the gate, and cross-checked the
   `ThetaTriality`, `TransferGap`, `CutBound`, `KyFanChord`, `SmallSupportBridge` and `NtListSupport`, wired the gauge modules into the gate, and cross-checked the
+  `ThetaTriality`, `TransferGap`, `CutBound`, `KyFanChord`, `SmallSupportBridge`, `NtListSupport` and `PermCube`, wired the gauge modules into the gate, and cross-checked the
   λ = 5 strip and corner slopes in exact rationals.
 - **ink between the stars** built the 28/3 tail floor and its kernel-checked double-cube check
   (`TailFloor`, `TailFloorDoubleCube`) and proved the general small-support lemma

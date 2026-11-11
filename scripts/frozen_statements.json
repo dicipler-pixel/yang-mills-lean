@@ -716,6 +716,31 @@
       "toLattice_proj_eq": "(PW : PeterWeylLinks k G Γ Irr irr H gauge) (π : E → Irr) : PW.toLattice.proj π = (reshuffleRepEquiv Γ (irr ∘ π)).toLinearMap ∘ₗ PW.proj π",
       "PeterWeylLinks.proj_mem_invariants": "(PW : PeterWeylLinks k G Γ Irr irr H gauge) (ψ : H) (hψ : ∀ g, gauge g ψ = ψ) (π : E → Irr) : PW.proj π ψ ∈ Representation.invariants (edgeGaugeRep Γ (irr ∘ π))",
       "toLattice_proj_mem_invariants": "(PW : PeterWeylLinks k G Γ Irr irr H gauge) (ψ : H) (hψ : ∀ g, gauge g ψ = ψ) (π : E → Irr) : PW.toLattice.proj π ψ ∈ Representation.invariants (blockGaugeRep Γ (irr ∘ π)) ∧ (reshuffleInvariantsEquiv Γ (irr ∘ π) ⟨PW.proj π ψ, PW.proj_mem_invariants ψ hψ π⟩ : RegroupedBlock Γ (irr ∘ π)) = PW.toLattice.proj π ψ"
+    },
+    "PermCube.lean": {
+      "deg_perm": "{s t : Graph} (h : s.Perm t) (v : ℕ) : deg s v = deg t v",
+      "mem_verts_perm": "{s t : Graph} (h : s.Perm t) (v : ℕ) : v ∈ verts s ↔ v ∈ verts t",
+      "admissible_perm": "{s t : Graph} (h : s.Perm t) : admissible s = admissible t",
+      "adjP_perm": "{s t : Graph} (h : s.Perm t) (a b : ℕ) : adjP s a b ↔ adjP t a b",
+      "pass_sound": "(s : Graph) : ∀ (l : Graph), l ⊆ s → ∀ (acc : List ℕ) (x : ℕ), x ∈ SmallSupportBridge.pass l acc → ∃ y ∈ acc, Relation.ReflTransGen (adjP s) y x",
+      "reach_sound": "(s : Graph) : ∀ (n : ℕ) (acc : List ℕ) (x : ℕ), x ∈ reach s n acc → ∃ y ∈ acc, Relation.ReflTransGen (adjP s) y x | 0, _, x, hx => ⟨x, hx, Relation.ReflTransGen.refl⟩ | n + 1, acc, x, hx => by rw [reach_succ] at hx obtain ⟨y, hy, hyx⟩",
+      "rtg_symm": "{s : Graph} {a b : ℕ} (h : Relation.ReflTransGen (adjP s) a b) : Relation.ReflTransGen (adjP s) b a",
+      "connected_sound": "{s : Graph} (h : connected s = true) {u w : ℕ} (hu : u ∈ verts s) (hw : w ∈ verts s) : Relation.ReflTransGen (adjP s) u w",
+      "reachable_of_rtg": "{s : Graph} {a b : ℕ} (h : Relation.ReflTransGen (adjP s) a b) (ha : a ∈ (verts s).toFinset) (hb : b ∈ (verts s).toFinset) : (supG s).Reachable ⟨a, ha⟩ ⟨b, hb⟩",
+      "connected_of_perm": "{s t : Graph} (hp : t.Perm s) (hloop : ∀ e ∈ s, e.1 ≠ e.2) (hnd : (s.map norm).Nodup) (hne : s ≠ []) (h : connected t = true) : connected s = true",
+      "shortCycle_of_perm": "{s t : Graph} (hp : t.Perm s) (hloop : ∀ e ∈ s, e.1 ≠ e.2) (hnd : (s.map norm).Nodup) (h : shortCycle t = true) : shortCycle s = true",
+      "mem_choose_of_sublist": ": ∀ {t l : Graph}, t.Sublist l → t ∈ TailFloor.choose t.length l | _, _, .slnil => by simp [TailFloor.choose] | t, _ :: l, .cons a h => by rcases t with _ | ⟨b, t⟩ · cases l <;> simp [TailFloor.choose] · simp only [List.length_cons, TailFloor.choose, List.mem_append] exact Or.inr (by simpa using mem_choose_of_sublist h) | _ :: t, _ :: l, .cons_cons a h => by simp only [List.length_cons, TailFloor.choose, List.mem_append, List.mem_map] exact Or.inl ⟨t, mem_choose_of_sublist h, rfl⟩ theorem mem_smallSupports_of_sublist {t g : Graph} (h : t.Sublist g) (hne : t ≠ []) (h6 : t.length ≤ 6) : t ∈ smallSupports g",
+      "mem_smallSupports_of_sublist": "{t g : Graph} (h : t.Sublist g) (hne : t ≠ []) (h6 : t.length ≤ 6) : t ∈ smallSupports g",
+      "filter_perm": "{s g : Graph} (hs : s.Nodup) (hg : g.Nodup) (hsub : ∀ p ∈ s, p ∈ g) : (g.filter (fun p => decide (p ∈ s))).Sublist g ∧ (g.filter (fun p => decide (p ∈ s))).Perm s",
+      "supportList_nodup_norm": "{Γ : OrientedGraph Vx E} {π : E → FDRep k G} {lab : Vx → ℕ} (hmulti : ∀ e e', NTe π e → NTe π e' → norm (lab (Γ.src e), lab (Γ.tgt e)) = norm (lab (Γ.src e'), lab (Γ.tgt e')) → e = e') : ((supportList Γ π lab).map norm).Nodup",
+      "gauge_support_shortCycle_of_SSAC": "[DecidableEq Vx] {Γ : OrientedGraph Vx E} {Irr : Type*} {irr : Irr → FDRep k G} [∀ i, Simple (irr i)] {H : Type*} [AddCommGroup H] [Module k H] {gauge : Representation k (Vx → G) H} (PW : PeterWeylLattice k G Γ Irr irr H gauge) (ψ : H) (hψ : ∀ g, gauge g ψ = ψ) (π : E → Irr) (hπ : PW.proj π ψ ≠ 0) (lab : Vx → ℕ) (hlab : Function.Injective lab) (hmulti : ∀ e e', NTe (irr ∘ π) e → NTe (irr ∘ π) e' → norm (lab (Γ.src e), lab (Γ.tgt e)) = norm (lab (Γ.src e'), lab (Γ.tgt e')) → e = e') (g : Graph) (hg : simpleB g = true) (hSSAC : SmallSupportsAreCycles g) (hsub : ∀ p ∈ supportList Γ (irr ∘ π) lab, p ∈ g) (hne : supportList Γ (irr ∘ π) lab ≠ []) (hlen : (supportList Γ (irr ∘ π) lab).length ≤ 6) : shortCycle (supportList Γ (irr ∘ π) lab) = true",
+      "cubeΓ_link_mem": ": ∀ i : Fin 12, ((cubeΓ.src i).val, (cubeΓ.tgt i).val) ∈ cubeE",
+      "cubeΓ_norm_inj": ": ∀ i j : Fin 12, norm ((cubeΓ.src i).val, (cubeΓ.tgt i).val) = norm ((cubeΓ.src j).val, (cubeΓ.tgt j).val) → i = j",
+      "cubeE_simple": ": simpleB cubeE = true",
+      "supportList_length": "{Vx E : Type*} [Fintype E] {k : Type u} {G : Type v} [Field k] [Group G] (Γ : OrientedGraph Vx E) (π : E → FDRep k G) (lab : Vx → ℕ) : (supportList Γ π lab).length = (Finset.univ.filter (NTe π)).card",
+      "cube_gauge_support_shortCycle": "{k : Type u} {G : Type v} [Field k] [Group G] {Irr : Type*} {irr : Irr → FDRep k G} [∀ i, Simple (irr i)] {H : Type*} [AddCommGroup H] [Module k H] {gauge : Representation k (Fin 8 → G) H} (PW : PeterWeylLattice k G cubeΓ Irr irr H gauge) (ψ : H) (hψ : ∀ g, gauge g ψ = ψ) (π : Fin 12 → Irr) (hπ : PW.proj π ψ ≠ 0) (h1 : 1 ≤ (Finset.univ.filter (NTe (irr ∘ π))).card) (h6 : (Finset.univ.filter (NTe (irr ∘ π))).card ≤ 6) : shortCycle (supportList cubeΓ (irr ∘ π) Fin.val) = true",
+      "cube_gauge_support_card": "{k : Type u} {G : Type v} [Field k] [Group G] {Irr : Type*} {irr : Irr → FDRep k G} [∀ i, Simple (irr i)] {H : Type*} [AddCommGroup H] [Module k H] {gauge : Representation k (Fin 8 → G) H} (PW : PeterWeylLattice k G cubeΓ Irr irr H gauge) (ψ : H) (hψ : ∀ g, gauge g ψ = ψ) (π : Fin 12 → Irr) (hπ : PW.proj π ψ ≠ 0) (h1 : 1 ≤ (Finset.univ.filter (NTe (irr ∘ π))).card) (h6 : (Finset.univ.filter (NTe (irr ∘ π))).card ≤ 6) : (Finset.univ.filter (NTe (irr ∘ π))).card = 4 ∨ (Finset.univ.filter (NTe (irr ∘ π))).card = 6",
+      "deg_reorder_example": ": deg [(0, 1), (1, 2), (2, 3), (3, 0)] 1 = deg [(3, 0), (2, 3), (1, 2), (0, 1)] 1"
     }
   },
   "complete_files": [
@@ -746,6 +771,7 @@
     "IrrepEmbedSU3.lean",
     "NtListSupport.lean",
     "ThetaFloorTriality.lean",
-    "GaugeSupportReshuffleRep.lean"
+    "GaugeSupportReshuffleRep.lean",
+    "PermCube.lean"
   ]
 }
