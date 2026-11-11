@@ -404,6 +404,32 @@
       "cube_three_no_window": "(g : Fin 6 → ℝ → ℝ) (hg : ∀ p, ConcaveOn ℝ (Ici 0) (g p)) (hlo : ∀ p, cubeLo p ≤ g p (cubeC p + 1 / 1000)) (hhi : ∀ p, g p (cubeC p) ≤ cubeHi p) {d r s : ℝ} (hs0 : 0 < s) (hs1 : s ≤ 1) (hdr : d - r ≤ s * (28 / 3) - ∑ p : Fin 6, (g p (cubeC p) - g p ((1 - s) * cubeC p))) : d - r ≤ 0",
       "twoCubes_two_sum": ": (28 : ℝ) / 3 ≤ ∑ p : Fin 11, twoCubesC p * ((twoCubesLo p - twoCubesHi p) / (1 / 1000))",
       "twoCubes_two_no_window": "(g : Fin 11 → ℝ → ℝ) (hg : ∀ p, ConcaveOn ℝ (Ici 0) (g p)) (hlo : ∀ p, twoCubesLo p ≤ g p (twoCubesC p + 1 / 1000)) (hhi : ∀ p, g p (twoCubesC p) ≤ twoCubesHi p) {d r s : ℝ} (hs0 : 0 < s) (hs1 : s ≤ 1) (hdr : d - r ≤ s * (28 / 3) - ∑ p : Fin 11, (g p (twoCubesC p) - g p ((1 - s) * twoCubesC p))) : d - r ≤ 0"
+    },
+    "GaugeSupport.lean": {
+      "no_invariant_single": "(ρ : G →* (V →ₗ[k] V)) (hirr : IsIrreducible ρ) (hnt : IsNontrivialRep ρ) (v : V) (hv : ∀ g : G, ρ g v = v) : v = 0",
+      "schur": "(ρ : G →* (V →ₗ[k] V)) (σ : G →* (W →ₗ[k] W)) (hρ : IsIrreducible ρ) (hσ : IsIrreducible σ) (f : V →ₗ[k] W) (hf : IsEquivariant ρ σ f) : f = 0 ∨ Function.Bijective f",
+      "pair_invariant_iff_iso": "(ρ : G →* (V →ₗ[k] V)) (σ : G →* (W →ₗ[k] W)) (hρ : IsIrreducible ρ) (hσ : IsIrreducible σ) : (∃ f : V →ₗ[k] W, IsEquivariant ρ σ f ∧ f ≠ 0) ↔ IsIso ρ σ",
+      "pair_invariant_zero_of_not_iso": "(ρ : G →* (V →ₗ[k] V)) (σ : G →* (W →ₗ[k] W)) (hρ : IsIrreducible ρ) (hσ : IsIrreducible σ) (hne : ¬ IsIso ρ σ) (f : V →ₗ[k] W) (hf : IsEquivariant ρ σ f) : f = 0"
+    },
+    "GaugeSupportFDRep.lean": {
+      "unit_ρ_apply": "(g : G) (x : k) : (𝟙_ (FDRep k G)).ρ g x = x",
+      "unitHom_apply": "(X : FDRep k G) (v : Representation.invariants X.ρ) (c : k) : (unitHom X v).hom.hom.hom c = c • v.1",
+      "gauge_no_dangling": "{k G} [Field k] [Group G] (V : FDRep k G) [Simple V] (h : IsEmpty (𝟙_ (FDRep k G) ≅ V)) : Representation.invariants V.ρ = ⊥",
+      "gauge_pair_finrank": "{k G} [Field k] [IsAlgClosed k] [Group G] (V W : FDRep k G) [Simple V] [Simple W] : finrank k (Representation.invariants (Vᘁ ⊗ W).ρ) = if Nonempty (V ≅ W) then 1 else 0"
+    },
+    "GaugeSupportLattice.lean": {
+      "invariants_eq_bot_iff_of_iso": "{X Y : FDRep k G} (i : X ≅ Y) : Representation.invariants X.ρ = ⊥ ↔ Representation.invariants Y.ρ = ⊥",
+      "iso_of_pair_invariant": "(Y Y' Z : FDRep k G) [ExactPairing Y Y'] [Simple Y'] [Simple Z] (h : Representation.invariants (Y ⊗ Z).ρ ≠ ⊥) : Nonempty (Y' ≅ Z)",
+      "factor_out": "{h : HalfEdge k G} (hh : h.out = true) : h.factor = h.rep",
+      "factor_in": "{h : HalfEdge k G} (hh : h.out = false) : h.factor = h.repᘁ",
+      "factor_iso_unit_of_not_NT": "(h : HalfEdge k G) (hh : ¬ h.NT) : Nonempty (h.factor ≅ 𝟙_ (FDRep k G))",
+      "factor_not_iso_unit_of_NT": "(h : HalfEdge k G) (hh : h.NT) : IsEmpty (𝟙_ (FDRep k G) ≅ h.factor)",
+      "vertexRep_iso_ntList": "(l : List (HalfEdge k G)) : Nonempty (vertexRep l ≅ vertexRep (ntList l))",
+      "vertex_no_dangling": "(l : List (HalfEdge k G)) (x : HalfEdge k G) (hx : ntList l = [x]) [Simple x.factor] : Representation.invariants (vertexRep l).ρ = ⊥",
+      "vertex_two_valent": "(l : List (HalfEdge k G)) (x y : HalfEdge k G) (hxy : ntList l = [x, y]) [Simple x.rep] [Simple y.rep] (h : Representation.invariants (vertexRep l).ρ ≠ ⊥) : (x.out = true → y.out = false → Nonempty (x.rep ≅ y.rep)) ∧ (x.out = false → y.out = true → Nonempty (x.rep ≅ y.rep)) ∧ (x.out = true → y.out = true → [Simple x.repᘁ] → Nonempty (x.repᘁ ≅ y.rep)) ∧ (x.out = false → y.out = false → [Simple y.repᘁ] → Nonempty (x.rep ≅ y.repᘁ))",
+      "rep_of_mem_ntList": "{Vx E : Type*} [Fintype E] (Γ : OrientedGraph Vx E) (π : E → FDRep k G) (v : Vx) {x : HalfEdge k G} (hx : x ∈ ntList (incident Γ π v)) : ∃ e, x.rep = π e",
+      "simple_factor": "(x : HalfEdge k G) [Simple x.rep] [Simple x.repᘁ] : Simple x.factor",
+      "lattice_support_rule": "{Vx E : Type*} [Fintype E] (Γ : OrientedGraph Vx E) (π : E → FDRep k G) [hs : ∀ e, Simple (π e)] [hd : ∀ e, Simple (π e)ᘁ] (hinv : ∀ v, Representation.invariants (vertexRep (incident Γ π v)).ρ ≠ ⊥) (v : Vx) : (∀ x, ntList (incident Γ π v) ≠ [x]) ∧ (∀ x y, ntList (incident Γ π v) = [x, y] → (x.out = true → y.out = false → Nonempty (x.rep ≅ y.rep)) ∧ (x.out = false → y.out = true → Nonempty (x.rep ≅ y.rep)) ∧ (x.out = true → y.out = true → Nonempty (x.repᘁ ≅ y.rep)) ∧ (x.out = false → y.out = false → Nonempty (x.rep ≅ y.repᘁ)))"
     }
   },
   "complete_files": [
@@ -414,6 +440,9 @@
     "OneLinkTailFloor.lean",
     "TailFloor.lean",
     "TailFloorDoubleCube.lean",
-    "WindowWallCells.lean"
+    "WindowWallCells.lean",
+    "GaugeSupport.lean",
+    "GaugeSupportFDRep.lean",
+    "GaugeSupportLattice.lean"
   ]
 }

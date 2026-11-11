@@ -76,10 +76,6 @@ noncomputable def tensorRightHomLinearEquiv (X Y Y' Z : FDRep k G) [ExactPairing
     map_add' := fun f g => by simp [tensorRightHomEquiv]
     map_smul' := fun c f => by simp [tensorRightHomEquiv] }
 
-end GaugeSupport
-
-open GaugeSupport
-
 /-- **T1 (frozen; see FREEZE-LOG for the one syntax fix).** -/
 theorem gauge_no_dangling {k G} [Field k] [Group G] (V : FDRep k G) [Simple V]
     (h : IsEmpty (𝟙_ (FDRep k G) ≅ V)) : Representation.invariants V.ρ = ⊥ := by
@@ -115,3 +111,5 @@ theorem gauge_pair_finrank {k G} [Field k] [IsAlgClosed k] [Group G]
 
 #print axioms gauge_no_dangling
 #print axioms gauge_pair_finrank
+
+end GaugeSupport
