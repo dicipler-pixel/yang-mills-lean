@@ -213,8 +213,8 @@
       "path": "CubeFiniteUnconditional.lean"
     }
   ],
-  "expected_theorems": 995,
-  "expected_false_controls": 33,
+  "expected_theorems": 1006,
+  "expected_false_controls": 34,
   "root_imports": [
     "GaugeCertificates",
     "LongestYangMillsChain",
