@@ -55,9 +55,21 @@
     {
       "module": "SchurInertiaCount",
       "path": "SchurInertiaCount.lean"
+    },
+    {
+      "module": "TailFloor",
+      "path": "TailFloor.lean"
+    },
+    {
+      "module": "OneLinkTailFloor",
+      "path": "OneLinkTailFloor.lean"
+    },
+    {
+      "module": "TailFloorDoubleCube",
+      "path": "TailFloorDoubleCube.lean"
     }
   ],
-  "expected_theorems": 80,
+  "expected_theorems": 430,
   "expected_false_controls": 2,
   "root_imports": [
     "GaugeCertificates",
@@ -65,6 +77,9 @@
     "ProjectorKernel",
     "SchurFloorTransfer",
     "SchurInertiaComparison",
-    "SchurInertiaCount"
+    "SchurInertiaCount",
+    "TailFloor",
+    "OneLinkTailFloor",
+    "TailFloorDoubleCube"
   ]
 }
