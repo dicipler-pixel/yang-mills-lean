@@ -511,6 +511,13 @@
       "chord_gap_lower": "(E₀ E₁ u : ℝ → ℝ) {a b sa sb t : ℝ} (hab : a ≤ b) (hconc : ConcaveOn ℝ (Icc a b) (fun κ => E₀ κ + E₁ κ)) (ha : sa ≤ E₀ a + E₁ a) (hb : sb ≤ E₀ b + E₁ b) (hu : ∀ κ ∈ Icc a b, E₀ κ ≤ u κ) (ht0 : 0 ≤ t) (ht1 : t ≤ 1) : (1 - t) * sa + t * sb - 2 * u ((1 - t) * a + t * b) ≤ E₁ ((1 - t) * a + t * b) - E₀ ((1 - t) * a + t * b)",
       "chord_gap_pos": "(E₀ E₁ u : ℝ → ℝ) {a b sa sb t : ℝ} (hab : a ≤ b) (hconc : ConcaveOn ℝ (Icc a b) (fun κ => E₀ κ + E₁ κ)) (ha : sa ≤ E₀ a + E₁ a) (hb : sb ≤ E₀ b + E₁ b) (hu : ∀ κ ∈ Icc a b, E₀ κ ≤ u κ) (ht0 : 0 ≤ t) (ht1 : t ≤ 1) (hpos : 0 < (1 - t) * sa + t * sb - 2 * u ((1 - t) * a + t * b)) : E₀ ((1 - t) * a + t * b) < E₁ ((1 - t) * a + t * b)",
       "chord_gap_lower_inf": "{ι : Type*} (s : Finset ι) (hs : s.Nonempty) (m c : ι → ℝ) (E₀ E₁ : ℝ → ℝ) {a b sa sb t : ℝ} (hab : a ≤ b) (hconc : ConcaveOn ℝ (Icc a b) (fun κ => E₀ κ + E₁ κ)) (ha : sa ≤ E₀ a + E₁ a) (hb : sb ≤ E₀ b + E₁ b) (hq : ∀ i ∈ s, ∀ κ ∈ Icc a b, E₀ κ ≤ m i * κ + c i) (ht0 : 0 ≤ t) (ht1 : t ≤ 1) : (1 - t) * sa + t * sb - 2 * s.inf' hs (fun i => m i * ((1 - t) * a + t * b) + c i) ≤ E₁ ((1 - t) * a + t * b) - E₀ ((1 - t) * a + t * b)"
+    },
+    "CutBound.lean": {
+      "cas3_ge_four_of_triality_ne": "(x : Irrep) (h : triality x ≠ 0) : 4 ≤ cas3 x",
+      "cas3_fund": ": cas3 (1, 0) = 4",
+      "cas3_antifund": ": cas3 (0, 1) = 4",
+      "cut_bound": "(cuts : List Irrep) (h : ∀ x ∈ cuts, triality x ≠ 0) : 4 * cuts.length ≤ (cuts.map cas3).sum",
+      "cut_bound_tight": "(d : Nat) : ((List.replicate d ((1, 0) : Irrep)).map cas3).sum = 4 * d"
     }
   },
   "complete_files": [
@@ -531,6 +538,7 @@
     "ThetaFloor.lean",
     "ThetaTriality.lean",
     "TransferGap.lean",
-    "KyFanChord.lean"
+    "KyFanChord.lean",
+    "CutBound.lean"
   ]
 }

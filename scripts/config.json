@@ -127,10 +127,14 @@
     {
       "module": "KyFanChord",
       "path": "KyFanChord.lean"
+    },
+    {
+      "module": "CutBound",
+      "path": "CutBound.lean"
     }
   ],
-  "expected_theorems": 548,
-  "expected_false_controls": 9,
+  "expected_theorems": 553,
+  "expected_false_controls": 10,
   "root_imports": [
     "GaugeCertificates",
     "LongestYangMillsChain",
@@ -155,6 +159,7 @@
     "ThetaFloor",
     "ThetaTriality",
     "TransferGap",
-    "KyFanChord"
+    "KyFanChord",
+    "CutBound"
   ]
 }
