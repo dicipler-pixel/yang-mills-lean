@@ -151,10 +151,30 @@
     {
       "module": "GaugeSupportSimpleFamily",
       "path": "GaugeSupportSimpleFamily.lean"
+    },
+    {
+      "module": "SmallSupportBridge",
+      "path": "SmallSupportBridge.lean"
+    },
+    {
+      "module": "NtListSupport",
+      "path": "NtListSupport.lean"
+    },
+    {
+      "module": "PermCube",
+      "path": "PermCube.lean"
+    },
+    {
+      "module": "GraphInstances",
+      "path": "GraphInstances.lean"
+    },
+    {
+      "module": "SupportDichotomy",
+      "path": "SupportDichotomy.lean"
     }
   ],
-  "expected_theorems": 651,
-  "expected_false_controls": 17,
+  "expected_theorems": 747,
+  "expected_false_controls": 22,
   "root_imports": [
     "GaugeCertificates",
     "LongestYangMillsChain",
@@ -185,6 +205,11 @@
     "GaugeSupportReshuffle",
     "GaugeSupportReshuffleRep",
     "GaugeSupportPeterWeylFinite",
-    "GaugeSupportSimpleFamily"
+    "GaugeSupportSimpleFamily",
+    "SmallSupportBridge",
+    "NtListSupport",
+    "PermCube",
+    "GraphInstances",
+    "SupportDichotomy"
   ]
 }
