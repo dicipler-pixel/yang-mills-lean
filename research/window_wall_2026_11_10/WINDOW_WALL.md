@@ -113,6 +113,16 @@ These were checked after the sections above were written. Where they conflict wi
     (W'(0) <= -2.0e-5); the float root is 1.7347574. So every split is excluded from
     lambda/alpha >= 1.7347717. The even per-link split alone is excluded earlier, from
     1.7338256 (not excluded at 1.7337951).
+  - *Endpoint certificate for (a)* (Green, `dcube_uniform/`). At lambda/alpha = 1.7347717,
+    with the uniform split c_p = 20/11 on all 11 faces, exact rationals and the repo's
+    `interval_inertia` (N = 24, h = 1e-5) give the forward secant
+    U = -4435334032736196355095411672194503 / 227640311408488358377099027485000000000
+    ~ -1.948e-5 <= 0. Wrong-endpoint controls at mu = 5/2 are rejected.
+    `WindowWallMono` (forward secant monotone in lambda) carries the exclusion to every
+    larger lambda. The formalized h = 1/1000 secant test only excludes from 1.7352404,
+    so the 1.7347717 figure needs h = 1e-5. Run with
+    `python3 dcube_uniform/certify_dcube_uniform.py` (YM_RESEARCH overrides the path to
+    research/yang_mills_2026_09_09).
   - *(b) GPT's separate test.* It compares U(lambda) = 28/3 +
     (20541500575676903/909090909514080) lambda with lambda_min of the 95 x 95 retained
     matrix and gives 0.9867, with the certificate accepted at 0.5. The team has **not yet
