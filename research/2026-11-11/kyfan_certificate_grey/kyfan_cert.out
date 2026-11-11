@@ -1,0 +1,29 @@
+Verifying certificate.json: lam=8, kappa in [1/2, 2], truncation N=32, 26 rational trial vectors, interval grid 2^-224
+  node kappa= 1/2: E0 in [7.2852763892, 7.2852763893] (width 1.0e-10), E1 >= 10.9533417670   [neg counts 0, 1]
+  node kappa= 3/4: E0 in [8.7234838307, 8.7234838308] (width 1.0e-10), E1 >= 13.1166679293   [neg counts 0, 1]
+  node kappa=   1: E0 in [9.8782825003, 9.8782825004] (width 1.0e-10), E1 >= 14.8511858925   [neg counts 0, 1]
+  node kappa= 5/4: E0 in [10.8516438290, 10.8516438291] (width 1.0e-10), E1 >= 16.3099859780   [neg counts 0, 1]
+  node kappa= 3/2: E0 in [11.6958782311, 11.6958782312] (width 1.0e-10), E1 >= 17.5715620253   [neg counts 0, 1]
+  node kappa= 7/4: E0 in [12.4420664536, 12.4420664537] (width 1.0e-10), E1 >= 18.6825013655   [neg counts 0, 1]
+  node kappa=   2: E0 in [13.1104618443, 13.1104618444] (width 1.0e-10), E1 >= 19.6731226411   [neg counts 0, 1]
+  piece [1/2, 3/4]: gap >= 3.66806538 for every kappa in it (exact min at kappa=1/2); claimed 366806537/100000000
+  piece [3/4, 1]: gap >= 4.39318410 for every kappa in it (exact min at kappa=3/4); claimed 439318409/100000000
+  piece [1, 5/4]: gap >= 4.97290339 for every kappa in it (exact min at kappa=1); claimed 497290339/100000000
+  piece [5/4, 3/2]: gap >= 5.45834215 for every kappa in it (exact min at kappa=5/4); claimed 272917107/50000000
+  piece [3/2, 7/4]: gap >= 5.87568379 for every kappa in it (exact min at kappa=3/2); claimed 587568379/100000000
+  piece [7/4, 2]: gap >= 6.24043491 for every kappa in it (exact min at kappa=7/4); claimed 624043491/100000000
+  E1(kappa=1/2) <= 10.9533417771 (2-vector Rayleigh-Ritz), so gap(1/2) <= 3.6680653879
+CERTIFIED: gap(kappa) >= 366806537/100000000 (= 3.66806537) for every kappa in [1/2, 2]  (exact min of the bound: 40684615689558393589631936494560539765463317453325518741/11091573214143951546431705444021135836372406295000000000 ~ 3.6680653776)
+  and gap(1/2) <= 3.6680653879, so the uniform bound is tight to 1.0e-08
+Controls (each must be rejected):
+  rejected (as required): E0 lower bound +1/1000 at kappa=1/2
+  rejected (as required): E1 lower bound +1/1000 at kappa=1/2
+  rejected (as required): E0 lower bound +1/1000 at kappa=2
+  rejected (as required): E1 lower bound +1/1000 at kappa=2
+  rejected (as required): verifier on certificate with endpoint z0(1/2) + 1/1000
+  rejected (as required): verifier on Rayleigh line lowered by 1/1000
+  rejected (as required): E0 upper bound lowered by 1/1000 at each node (refuted by certified z0)
+  rejected (as required): uniform gap bound raised by 1/1000 (refuted by gap(1/2) upper bound)
+  rejected (as required): verifier on piece-0 claim raised by 1/1000
+all 9 controls rejected.  elapsed 26.4s
+exit 0
