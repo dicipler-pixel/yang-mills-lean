@@ -22,6 +22,7 @@
 ![Theorems](https://img.shields.io/badge/theorems-715-2EA043)
 ![Theorems](https://img.shields.io/badge/theorems-661-2EA043)
 ![Theorems](https://img.shields.io/badge/theorems-651-2EA043)
+![Theorems](https://img.shields.io/badge/theorems-785-2EA043)
 ![sorry](https://img.shields.io/badge/sorry-0-2EA043)
 ![Code: MIT](https://img.shields.io/badge/code-MIT-lightgrey)
 ![Text: CC BY 4.0](https://img.shields.io/badge/text-CC%20BY%204.0-lightgrey)
@@ -107,6 +108,8 @@ specified finite algebra. The spatial work checks five original-link SU(3) model
 | | **Total** | **661** |
 | **Gauge support rule**: Schur at each vertex, no dangling link (`gauge_no_dangling`), paired irreps on two-link vertices (`gauge_pair_finrank`), the per-vertex and lattice rule, and the dual of a simple representation is simple (`dual_simple`). Regrouped by vertex (`gauge_support_rule_regrouped`, `_SU3`): a nonzero gauge-invariant vector of ⊗_v W_v forces a nonzero invariant at every vertex, so every labelling in the support of a gauge-invariant state obeys the lattice rule with no per-vertex hypothesis. The edge-to-vertex reshuffle ⊗_e (V ⊗ V*) ≅ ⊗_v W_v is proved as a gauge-equivariant linear isomorphism (`reshuffle`, `reshuffle_equivariant`, `reshuffle_tprod`), and packaged as one isomorphism of representations of the gauge group (`reshuffleRepEquiv`, a Mathlib `Representation.Equiv`) that matches the gauge invariants on both sides (`reshuffleInvariantsEquiv`), so the rule also follows from `gauge_support_rule_links` (`_SU3`). For every finite group over ℂ, Peter–Weyl link by link is proved (`peterWeylLinks_of_finite`, on functions of the link variables, by matrix-coefficient Fourier projections, separation from Maschke), given only that the irrep family is complete (`IsCompleteIrrFamily`); so `gauge_support_rule_links_finite` needs no Peter–Weyl assumption, and dropping irreps makes it false (`not_peterWeylLinks_trivial_only`). The simple left ideals of ℂ[G] form a complete family of simple representations (`simpleIrr_simple`, `isCompleteIrrFamily_simpleIrr`), so for finite groups the rule holds with no hypotheses (`gauge_support_rule_links_finite_unconditional`). Still assumed for SU(3), as the named hypothesis `PeterWeylLinksSU3` (a structure, not an axiom): Peter–Weyl link by link onto ⊗_e (V ⊗ V*) | [`GaugeSupport`](GaugeSupport.lean), [`GaugeSupportFDRep`](GaugeSupportFDRep.lean), [`GaugeSupportLattice`](GaugeSupportLattice.lean), [`DualSimple`](DualSimple.lean), [`GaugeSupportRegroup`](GaugeSupportRegroup.lean), [`GaugeSupportReshuffle`](GaugeSupportReshuffle.lean), [`GaugeSupportReshuffleRep`](GaugeSupportReshuffleRep.lean), [`GaugeSupportPeterWeylFinite`](GaugeSupportPeterWeylFinite.lean), [`GaugeSupportSimpleFamily`](GaugeSupportSimpleFamily.lean) | 130 |
 | | **Total** | **651** |
+| **Irreducibility of 3, 3̄, 1, V(1,0), V(0,1), V(0,0) and V(1,1); V(1,1) is the traceless part of 3 ⊗ 3̄**: a nonzero FDRep whose only SU(3)-stable subspaces are ⊥ and ⊤ is `Simple`. In ℂ³, a nonzero stable subspace contains a vector with nonzero first coordinate (rotate by the cyclic permutation), then v + diag(1,−1,−1)·v = 2v₀e₀ puts e₀ in it and the cyclic permutation reaches e₁, e₂, so 3 is simple; 3̄ is simple as its dual, 1 trivially, and V(1,0), V(0,1), V(0,0) through the isomorphisms of #38. An explicit linear bijection Φ : 3 ⊗ 3̄ ⊗ 1 → M₃(ℂ), x ⊗ φ ⊗ c ↦ c(xᵢφ(eⱼ)), intertwines the action with M ↦ gMg⁻¹ and sends e₁ ⊗ e₃* ⊗ 1 to the matrix unit E₀₂; its trace is the contraction x ⊗ φ ⊗ c ↦ cφ(x). Any Ad-invariant subspace of M₃(ℂ) containing a nonzero traceless matrix contains all of sl₃: the sign matrices diag(1,−1,−1), diag(−1,1,−1) and diag(i,1,−i) isolate an off-diagonal entry, the cyclic permutation and a signed swap move it to (0,1), a diagonal traceless matrix is first moved off the diagonal by the rotation with entries 3/5, 4/5, and from E₀₁ the same elements give all six Eᵢⱼ and E₀₀−E₁₁, E₁₁−E₂₂. So V(1,1) is exactly the kernel of the contraction 3 ⊗ 3̄ → ℂ, it has dimension 8 inside the 9-dimensional 3 ⊗ 3̄, and it is simple. Irreducibility of V(p,q) in general is not claimed | [`IrrepIrreducibleSU3`](IrrepIrreducibleSU3.lean) | 70 |
+| | **Total** | **785** |
 
 Among the first 80 theorems, besides the matrix factorizations, fifteen are exact arithmetic checks of
 displayed rational constants: eleven in `GaugeCertificates` and four in `CrossTheorem`.
@@ -132,6 +135,8 @@ Python verifiers are separate and run from the research folders:
    `(1 : ℚ)/2 ≤ 1/3`); the other fifteen are near-miss versions of the window-wall cells, Jensen bound,
 4. **False controls**: eighteen false statements in [`FalseControls/`](FalseControls/) must be
    `(1 : ℚ)/2 ≤ 1/3`); the other sixteen are near-miss versions of the window-wall cells, Jensen bound,
+4. **False controls**: nineteen false statements in [`FalseControls/`](FalseControls/) must be
+   `(1 : ℚ)/2 ≤ 1/3`); the other seventeen are near-miss versions of the window-wall cells, Jensen bound,
    dual-simple, theta floor, triality, transfer-gap, cut-bound and Ky Fan chord statements, and
    two-, three- and four-valent vertex labellings whose trialities do not sum to 0.
 5. **Frozen statements**: 495 theorem statements are frozen, so a proof cannot pass by quietly
@@ -166,6 +171,8 @@ Python verifiers are separate and run from the research folders:
    dual-simple, theta floor, triality, transfer-gap, cut-bound, Ky Fan chord, the three regrouped gauge-support statements, a support with a degree-one vertex claimed admissible, `K_{2,3}` claimed to be a short cycle, a reordered support claimed to change a degree, a 5-link double-cube support claimed to be a short cycle, and a 3-link strip support claimed to be a short cycle.
 5. **Frozen statements**: 583 theorem statements are frozen, so a proof cannot pass by quietly
 5. **Frozen statements**: 573 theorem statements are frozen, so a proof cannot pass by quietly
+   and the Levi-Civita tensor ε claimed SU(3)-invariant in 3 ⊗ 3 ⊗ 3̄, and V(0,1) claimed isomorphic to 3, and V(1,1) claimed to have dimension 9.
+5. **Frozen statements**: 707 theorem statements are frozen, so a proof cannot pass by quietly
    weakening what it proves. Every edit to a frozen statement is logged.
 
 ```bash
@@ -177,8 +184,9 @@ python3 scripts/verify.py
 ## Named open items
 
 - **Irreducibility of V(p,q).** `IrrepEmbedSU3` defines V(p,q) as the subrepresentation of
-  3^{⊗p} ⊗ 3̄^{⊗q} generated by e₁^{⊗p} ⊗ e₃*^{⊗q}, but does not prove it irreducible (that needs
-  the raising operators and Weyl's theorem). Until it is, ThetaFloor's `cas3` and the BMW part of
+  3^{⊗p} ⊗ 3̄^{⊗q} generated by e₁^{⊗p} ⊗ e₃*^{⊗q}. It is proved simple for (0,0), (1,0), (0,1)
+  and (1,1) (`IrrepIrreducibleSU3`, with V(1,1) identified as the 8-dimensional traceless part of
+  3 ⊗ 3̄), but not for general (p,q) (that needs the raising operators and Weyl's theorem). Until it is, ThetaFloor's `cas3` and the BMW part of
   `hasSinglet` are label arithmetic, not proved properties of V(p,q); only the triality part is
   proved for V(p,q) (`ThetaFloorTriality`).
 - **Classification of SU(3) irreps.** That every irreducible SU(3) representation is isomorphic
@@ -227,7 +235,7 @@ assistants, each working in the open in this repository:
 - **Grey** wrote the frozen targets for the gauge support rule and the varying-s and string-floor
   scripts.
 - **Spectrum** kept the team's dictionary of physical quantities versus our constructions, and
-  wrote the SU(3) theta enumeration behind ThetaFloor's vetted list, and proved `IrrepEmbedSU3`, `ThetaFloorTriality`, `SingletWitnessSU3` and `IrrepSmallIsoSU3`.
+  wrote the SU(3) theta enumeration behind ThetaFloor's vetted list, and proved `IrrepEmbedSU3`, `ThetaFloorTriality`, `SingletWitnessSU3`, `IrrepSmallIsoSU3` and `IrrepIrreducibleSU3`.
 - **Claude**, in Jeromie's sessions, wrote the window-wall cells module, the audit and the
   window-wall write-up, and carried out the final merge.
 

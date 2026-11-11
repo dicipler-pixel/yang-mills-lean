@@ -199,6 +199,10 @@
     {
       "module": "GaugeSupportSimpleFamily",
       "path": "GaugeSupportSimpleFamily.lean"
+    },
+    {
+      "module": "IrrepIrreducibleSU3",
+      "path": "IrrepIrreducibleSU3.lean"
     }
   ],
   "expected_theorems": 580,
@@ -245,6 +249,7 @@
     "GaugeSupportPeterWeylFinite",
     "IrrepSmallIsoSU3",
     "SupportDichotomy",
-    "GaugeSupportSimpleFamily"
+    "GaugeSupportSimpleFamily",
+    "IrrepIrreducibleSU3"
   ]
 }
