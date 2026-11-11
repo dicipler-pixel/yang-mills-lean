@@ -1,0 +1,21 @@
+   control: wrong E upper endpoint (E_lo - 1/1000) at mu=5/2 certified as upper bound: claim holds = False -> REJECTED (ok)
+   control: wrong E lower endpoint (E_up + 1/1000) at mu=5/2 certified as lower bound: claim holds = False -> REJECTED (ok)
+strip: c = 10/3, t = 1, h = c/1000
+   lam=5: L_lower = 0.946761
+   lam=5.25: L_lower = 1.009035
+   float crossing lam* ~ 5.213411559
+   EXCLUDED (certified) at lam = 5213413/1000000 = 5.213413:  L_lower = 1.0000001562 > t = 1  (margin 1.562e-07)
+   secant test cannot exclude at lam = 521341/100000 = 5.21341:  L_upper = 0.9999998144 <= t  (margin 1.856e-07)
+   control: strip h=c/1000: exclusion at lam_lo=5.21341: claim holds = False -> REJECTED (ok)
+   control: strip h=c/1000: exclusion at lam_hi with t raised by 1/1000: claim holds = False -> REJECTED (ok)
+   control: strip h=c/1000: exclusion at lam_hi against the pre-vertex-rule upper t = 36/35: claim holds = False -> REJECTED (ok)
+corner: c = 3, t = 10/9, h = c/1000
+   lam=5: L_lower = 1.083426
+   lam=5.25: L_lower = 1.149423
+   float crossing lam* ~ 5.104163887
+   EXCLUDED (certified) at lam = 1020833/200000 = 5.104165:  L_lower = 1.1111112054 > t = 10/9  (margin 9.426e-08)
+   secant test cannot exclude at lam = 5104163/1000000 = 5.104163:  L_upper = 1.1111110766 <= t  (margin 3.453e-08)
+   control: corner h=c/1000: exclusion at lam_lo=5.104163: claim holds = False -> REJECTED (ok)
+   control: corner h=c/1000: exclusion at lam_hi with t raised by 1/1000: claim holds = False -> REJECTED (ok)
+   control: corner h=c/1000: exclusion at lam_hi with the strip coefficient c = 10/3 swapped in against t = 10/9: claim holds = False -> REJECTED (ok)
+all controls rejected as required
