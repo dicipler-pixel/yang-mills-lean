@@ -6,7 +6,7 @@
 
 [![Lean proof check](https://github.com/dicipler-pixel/yang-mills-lean/actions/workflows/build.yml/badge.svg)](https://github.com/dicipler-pixel/yang-mills-lean/actions/workflows/build.yml)
 ![Lean](https://img.shields.io/badge/Lean-v4.33.0-blue)
-![Theorems](https://img.shields.io/badge/theorems-715-2EA043)
+![Theorems](https://img.shields.io/badge/theorems-785-2EA043)
 ![sorry](https://img.shields.io/badge/sorry-0-2EA043)
 ![Code: MIT](https://img.shields.io/badge/code-MIT-lightgrey)
 ![Text: CC BY 4.0](https://img.shields.io/badge/text-CC%20BY%204.0-lightgrey)
@@ -64,7 +64,8 @@ specified finite algebra. The spatial work checks five original-link SU(3) model
 | **ThetaFloor triality from the centre character**: the triality ThetaFloor attaches to the label (p,q) is exactly the exponent by which ω·I acts on V(p,q), and the only one in {0,1,2}; V(p,q) carries the swapped label's triality only when it is 0. `hasSinglet` splits as vanishing vertex triality plus the BMW inequalities, and the triality clause is proved from `nvalent_triality_irrepRep` for V(a), V(b), V(c) arms with a nonzero invariant, at both theta vertices. Every entry of the theta tables (34 rows, level 40/3, level 43/3) satisfies the proved condition, and swapping p ↔ q on an arm of nonzero triality breaks it. `cas3` is blind to p ↔ q and cas3 ≡ triality² (mod 3), so the level is an integer iff the short arm has triality 0. That `cas3` and the BMW inequalities are the Casimir and tensor rule of V(p,q) needs irreducibility and is not claimed | [`ThetaFloorTriality`](ThetaFloorTriality.lean) | 23 |
 | **Explicit SU(3) singlets: the smallest theta rows are attained**: Σᵢ eᵢ ⊗ eᵢ* in 3 ⊗ 3̄ (from g g⁻¹ = 1), ε = Σ ε_{ijk} eᵢ ⊗ eⱼ ⊗ e_k in 3 ⊗ 3 ⊗ 3 (from det g = 1, via Σ ε_{ijk} g_{ai} g_{bj} g_{ck} = det g · ε_{abc}) and its dual in 3̄ ⊗ 3̄ ⊗ 3̄ (from det (g⁻¹)ᵀ = 1) are each nonzero and SU(3)-invariant. So the eight theta-table rows with arms in {1, 3, 3̄} — the six orderings of (1, 3̄, 3), (3, 3, 3) and (3̄, 3̄, 3̄) — have a nonzero invariant at both theta vertices: attained, not only allowed. The same ε placed in 3 ⊗ 3 ⊗ 3̄ is scaled by ω under ω·I and is not invariant; 3 ⊗ 3 ⊗ 3̄ has no invariant at all. The arms are 3, 3̄, 1 themselves; `IrrepSmallIsoSU3` identifies them with V(1,0), V(0,1), V(0,0) | [`SingletWitnessSU3`](SingletWitnessSU3.lean) | 45 |
 | **V(1,0) ≅ 3, V(0,1) ≅ 3̄, V(0,0) ≅ 1**: the cyclic permutation matrix (det +1, orthogonal) is in SU(3) and its orbit moves e₁ through the whole standard basis of 3 and e₃* through the whole dual basis of 3̄, so the subrepresentations V(1,0), V(0,1), V(0,0) of #30 are all of 3 ⊗ 1, 3̄ ⊗ 1, 1, and the inclusion followed by the right unitor gives explicit FDRep isomorphisms `irrep10Iso`, `irrep01Iso`, `irrep00Iso` (highest-weight vector to e₁, e₃*, 1). V(0,1) is not isomorphic to 3: ω·I acts by ω² on one and ω on the other, so 3̄ ≇ 3 and V(1,0) ≇ V(0,1). Transported along the isomorphisms, the trace and ε witnesses live on V(1,0) ⊗ V(0,1), V(1,0)^{⊗3}, V(0,1)^{⊗3}, and the eight attained theta rows have a nonzero invariant at both vertices with arms V(a), V(b), V(c): for these rows both directions of the singlet rule hold on the same objects | [`IrrepSmallIsoSU3`](IrrepSmallIsoSU3.lean) | 34 |
-| | **Total** | **715** |
+| **Irreducibility of 3, 3̄, 1, V(1,0), V(0,1), V(0,0) and V(1,1); V(1,1) is the traceless part of 3 ⊗ 3̄**: a nonzero FDRep whose only SU(3)-stable subspaces are ⊥ and ⊤ is `Simple`. In ℂ³, a nonzero stable subspace contains a vector with nonzero first coordinate (rotate by the cyclic permutation), then v + diag(1,−1,−1)·v = 2v₀e₀ puts e₀ in it and the cyclic permutation reaches e₁, e₂, so 3 is simple; 3̄ is simple as its dual, 1 trivially, and V(1,0), V(0,1), V(0,0) through the isomorphisms of #38. An explicit linear bijection Φ : 3 ⊗ 3̄ ⊗ 1 → M₃(ℂ), x ⊗ φ ⊗ c ↦ c(xᵢφ(eⱼ)), intertwines the action with M ↦ gMg⁻¹ and sends e₁ ⊗ e₃* ⊗ 1 to the matrix unit E₀₂; its trace is the contraction x ⊗ φ ⊗ c ↦ cφ(x). Any Ad-invariant subspace of M₃(ℂ) containing a nonzero traceless matrix contains all of sl₃: the sign matrices diag(1,−1,−1), diag(−1,1,−1) and diag(i,1,−i) isolate an off-diagonal entry, the cyclic permutation and a signed swap move it to (0,1), a diagonal traceless matrix is first moved off the diagonal by the rotation with entries 3/5, 4/5, and from E₀₁ the same elements give all six Eᵢⱼ and E₀₀−E₁₁, E₁₁−E₂₂. So V(1,1) is exactly the kernel of the contraction 3 ⊗ 3̄ → ℂ, it has dimension 8 inside the 9-dimensional 3 ⊗ 3̄, and it is simple. Irreducibility of V(p,q) in general is not claimed | [`IrrepIrreducibleSU3`](IrrepIrreducibleSU3.lean) | 70 |
+| | **Total** | **785** |
 
 Among the first 80 theorems, besides the matrix factorizations, fifteen are exact arithmetic checks of
 displayed rational constants: eleven in `GaugeCertificates` and four in `CrossTheorem`.
@@ -78,15 +79,15 @@ Python verifiers are separate and run from the research folders:
 2. **Independent replay**: every module is re-checked by Lean's separate kernel checker.
 3. **Axiom audit**: every named theorem depends only on `propext`, `Classical.choice` and
    `Quot.sound`. No `sorry`, no project axioms, no `native_decide`.
-4. **False controls**: eighteen false statements in [`FalseControls/`](FalseControls/) must be
+4. **False controls**: nineteen false statements in [`FalseControls/`](FalseControls/) must be
    rejected, showing the checker says no. Two are plain arithmetic (`(2 : ℚ) = 3` and
-   `(1 : ℚ)/2 ≤ 1/3`); the other sixteen are near-miss versions of the window-wall cells, Jensen bound,
+   `(1 : ℚ)/2 ≤ 1/3`); the other seventeen are near-miss versions of the window-wall cells, Jensen bound,
    dual-simple, theta floor, triality, transfer-gap, cut-bound and Ky Fan chord statements, and
    two-, three- and four-valent vertex labellings whose trialities do not sum to 0, and the
    adjoint 8 inside 3 ⊗ 3̄ claimed to have triality 1, and the adjoint V(1,1) claimed to carry the
    triality 2 of 3 ⊗ 3, and a theta-table row (1, 3̄, 3) with the 3̄ arm's triality swapped p ↔ q,
-   and the Levi-Civita tensor ε claimed SU(3)-invariant in 3 ⊗ 3 ⊗ 3̄, and V(0,1) claimed isomorphic to 3.
-5. **Frozen statements**: 637 theorem statements are frozen, so a proof cannot pass by quietly
+   and the Levi-Civita tensor ε claimed SU(3)-invariant in 3 ⊗ 3 ⊗ 3̄, and V(0,1) claimed isomorphic to 3, and V(1,1) claimed to have dimension 9.
+5. **Frozen statements**: 707 theorem statements are frozen, so a proof cannot pass by quietly
    weakening what it proves. Every edit to a frozen statement is logged.
 
 ```bash
@@ -98,8 +99,9 @@ python3 scripts/verify.py
 ## Named open items
 
 - **Irreducibility of V(p,q).** `IrrepEmbedSU3` defines V(p,q) as the subrepresentation of
-  3^{⊗p} ⊗ 3̄^{⊗q} generated by e₁^{⊗p} ⊗ e₃*^{⊗q}, but does not prove it irreducible (that needs
-  the raising operators and Weyl's theorem). Until it is, ThetaFloor's `cas3` and the BMW part of
+  3^{⊗p} ⊗ 3̄^{⊗q} generated by e₁^{⊗p} ⊗ e₃*^{⊗q}. It is proved simple for (0,0), (1,0), (0,1)
+  and (1,1) (`IrrepIrreducibleSU3`, with V(1,1) identified as the 8-dimensional traceless part of
+  3 ⊗ 3̄), but not for general (p,q) (that needs the raising operators and Weyl's theorem). Until it is, ThetaFloor's `cas3` and the BMW part of
   `hasSinglet` are label arithmetic, not proved properties of V(p,q); only the triality part is
   proved for V(p,q) (`ThetaFloorTriality`).
 - **Classification of SU(3) irreps.** That every irreducible SU(3) representation is isomorphic
@@ -142,7 +144,7 @@ assistants, each working in the open in this repository:
 - **Grey** wrote the frozen targets for the gauge support rule and the varying-s and string-floor
   scripts.
 - **Spectrum** kept the team's dictionary of physical quantities versus our constructions, and
-  wrote the SU(3) theta enumeration behind ThetaFloor's vetted list, and proved `IrrepEmbedSU3`, `ThetaFloorTriality`, `SingletWitnessSU3` and `IrrepSmallIsoSU3`.
+  wrote the SU(3) theta enumeration behind ThetaFloor's vetted list, and proved `IrrepEmbedSU3`, `ThetaFloorTriality`, `SingletWitnessSU3`, `IrrepSmallIsoSU3` and `IrrepIrreducibleSU3`.
 - **Claude**, in Jeromie's sessions, wrote the window-wall cells module, the audit and the
   window-wall write-up, and carried out the final merge.
 

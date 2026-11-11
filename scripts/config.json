@@ -155,10 +155,14 @@
     {
       "module": "IrrepSmallIsoSU3",
       "path": "IrrepSmallIsoSU3.lean"
+    },
+    {
+      "module": "IrrepIrreducibleSU3",
+      "path": "IrrepIrreducibleSU3.lean"
     }
   ],
-  "expected_theorems": 715,
-  "expected_false_controls": 18,
+  "expected_theorems": 785,
+  "expected_false_controls": 19,
   "root_imports": [
     "GaugeCertificates",
     "LongestYangMillsChain",
@@ -190,6 +194,7 @@
     "IrrepEmbedSU3",
     "ThetaFloorTriality",
     "SingletWitnessSU3",
-    "IrrepSmallIsoSU3"
+    "IrrepSmallIsoSU3",
+    "IrrepIrreducibleSU3"
   ]
 }
