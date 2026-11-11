@@ -147,10 +147,14 @@
     {
       "module": "PermCube",
       "path": "PermCube.lean"
+    },
+    {
+      "module": "GraphInstances",
+      "path": "GraphInstances.lean"
     }
   ],
-  "expected_theorems": 627,
-  "expected_false_controls": 16,
+  "expected_theorems": 652,
+  "expected_false_controls": 17,
   "root_imports": [
     "GaugeCertificates",
     "LongestYangMillsChain",
@@ -180,6 +184,7 @@
     "GaugeSupportRegroup",
     "SmallSupportBridge",
     "NtListSupport",
-    "PermCube"
+    "PermCube",
+    "GraphInstances"
   ]
 }
