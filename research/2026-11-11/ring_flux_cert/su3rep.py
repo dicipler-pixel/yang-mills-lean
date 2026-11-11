@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Jeromie Beasley. See LICENSING.md at the repository root.
 """Exact rational SU(3) representation data for spin networks (Green, ring_flux_cert).
 
 Irrep (p,q) is realised as the symmetric traceless subspace of V^{(x)p} (x) V*^{(x)q}

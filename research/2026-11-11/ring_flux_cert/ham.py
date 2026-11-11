@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Jeromie Beasley. See LICENSING.md at the repository root.
 """Exact assembly of H = E + lam*B on a truncated spin-network basis (Green, ring_flux_cert).
 
 P  = every link-irrep configuration of the sector with electric energy E <= cap (all intertwiners).

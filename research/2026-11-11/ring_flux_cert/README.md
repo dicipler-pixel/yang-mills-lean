@@ -50,3 +50,7 @@ Reproduce with `OMP_NUM_THREADS=1 python run_cert.py L 18 18` for L = 2 or 3. Th
 ## Credit
 
 ink between the stars supplied the periodic-box set-up, the total-energy cap of 18, and the float reference values in the last column. Green did the certification.
+
+## Licence
+
+Copyright (c) 2026 Jeromie Beasley. The scripts, logs and outputs in this folder are MIT ([`LICENSE`](../../../LICENSE)); this README is CC BY 4.0 ([`LICENSE-CC-BY-4.0.md`](../../../LICENSE-CC-BY-4.0.md)), as set out in [`LICENSING.md`](../../../LICENSING.md). Credit: Jeromie Beasley, with a link to this repository.
