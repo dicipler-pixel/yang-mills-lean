@@ -135,6 +135,10 @@
     {
       "module": "SmallSupportBridge",
       "path": "SmallSupportBridge.lean"
+    },
+    {
+      "module": "CutFlux",
+      "path": "CutFlux.lean"
     }
   ],
   "expected_theorems": 580,
@@ -165,6 +169,7 @@
     "TransferGap",
     "KyFanChord",
     "CutBound",
-    "SmallSupportBridge"
+    "SmallSupportBridge",
+    "CutFlux"
   ]
 }
