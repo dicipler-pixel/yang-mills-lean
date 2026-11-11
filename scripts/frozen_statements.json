@@ -38,13 +38,15 @@
     "OneLinkTailFloor.lean": {
       "tail_floor_le": "{n p q : ℕ} (h : n + 1 ≤ p + q) : tailFloor3 n ≤ casimir3 p q",
       "tail_floor_attained": "(n : ℕ) : casimir3 ((n + 1) / 2) ((n + 1) - (n + 1) / 2) = tailFloor3 n",
-      "control_kept_state_below_floor": ": casimir3 0 0 < tailFloor3 1"
+      "control_kept_state_below_floor": ": casimir3 0 0 < tailFloor3 1",
+      "four_mul_le": "(p q : ℕ) : 4 * (p * q) ≤ (p + q) * (p + q)"
     }
   },
   "complete_files": [
     "WindowWall.lean",
     "WindowWallDeriv.lean",
     "WindowWallFinite.lean",
-    "WindowWallMono.lean"
+    "WindowWallMono.lean",
+    "OneLinkTailFloor.lean"
   ]
 }
