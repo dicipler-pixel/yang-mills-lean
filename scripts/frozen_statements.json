@@ -582,6 +582,32 @@
       "toLattice_proj_eq": "(PW : PeterWeylLinks k G Γ Irr irr H gauge) (π : E → Irr) : PW.toLattice.proj π = (reshuffleRepEquiv Γ (irr ∘ π)).toLinearMap ∘ₗ PW.proj π",
       "PeterWeylLinks.proj_mem_invariants": "(PW : PeterWeylLinks k G Γ Irr irr H gauge) (ψ : H) (hψ : ∀ g, gauge g ψ = ψ) (π : E → Irr) : PW.proj π ψ ∈ Representation.invariants (edgeGaugeRep Γ (irr ∘ π))",
       "toLattice_proj_mem_invariants": "(PW : PeterWeylLinks k G Γ Irr irr H gauge) (ψ : H) (hψ : ∀ g, gauge g ψ = ψ) (π : E → Irr) : PW.toLattice.proj π ψ ∈ Representation.invariants (blockGaugeRep Γ (irr ∘ π)) ∧ (reshuffleInvariantsEquiv Γ (irr ∘ π) ⟨PW.proj π ψ, PW.proj_mem_invariants ψ hψ π⟩ : RegroupedBlock Γ (irr ∘ π)) = PW.toLattice.proj π ψ"
+    },
+    "GaugeSupportPeterWeylFinite.lean": {
+      "coeffEquiv_tmul": "(v : V) (φ : ((Vᘁ : FDRep ℂ G) : Type)) (m : V) : coeffEquiv V (v ⊗ₜ[ℂ] φ) m = (show Module.Dual ℂ V from φ) m • v",
+      "coeffEquiv_map": "(a b : G) (t : (V : Type) ⊗[ℂ] ((Vᘁ : FDRep ℂ G) : Type)) : coeffEquiv V (TensorProduct.map (V.ρ a) ((Vᘁ).ρ b) t) = V.ρ a ∘ₗ coeffEquiv V t ∘ₗ V.ρ b⁻¹",
+      "map_coeffTensor": "(a b u : G) : TensorProduct.map (V.ρ a) ((Vᘁ).ρ b) (coeffTensor V u) = coeffTensor V (a * u * b⁻¹)",
+      "coeffEval_coeffTensor": "(x : V) (u : G) : coeffEval V x (coeffTensor V u) = V.ρ u x",
+      "linkAct_one": "(U : E → G) : linkAct Γ 1 U = U",
+      "linkAct_mul": "(g h : Vx → G) (U : E → G) : linkAct Γ (g * h) U = linkAct Γ g (linkAct Γ h U)",
+      "latticeGauge_apply": "(g : Vx → G) (ψ : (E → G) → ℂ) (U : E → G) : latticeGauge Γ g ψ U = ψ (fun e => (g (Γ.src e))⁻¹ * U e * g (Γ.tgt e))",
+      "fourierProj_apply": "(π : E → Irr) (ψ : (E → G) → ℂ) : fourierProj irr π ψ = ∑ U, ψ U • configTensor irr π U",
+      "edgeGauge_configTensor": "(π : E → Irr) (g : Vx → G) (U : E → G) : edgeGauge Γ (irr ∘ π) g (configTensor irr π U) = configTensor irr π (linkAct Γ g U)",
+      "fourierProj_equivariant": "(π : E → Irr) (g : Vx → G) (ψ : (E → G) → ℂ) : fourierProj irr π (latticeGauge Γ g ψ) = edgeGauge Γ (irr ∘ π) g (fourierProj irr π ψ)",
+      "idealIncl_injective": "(m : Submodule (MonoidAlgebra ℂ G) (MonoidAlgebra ℂ G)) : Function.Injective (idealIncl m)",
+      "exists_irr_map_of_simple": "(hIrr : IsCompleteIrrFamily irr) (m : Submodule (MonoidAlgebra ℂ G) (MonoidAlgebra ℂ G)) [IsSimpleModule (MonoidAlgebra ℂ G) m] (w : MonoidAlgebra ℂ G) (hw : w ∈ m) : ∃ i, ∃ j : (irr i : Type) →ₗ[ℂ] MonoidAlgebra ℂ G, ∃ x, j x = w ∧ ∀ (u : G) (y : irr i), MonoidAlgebra.single u 1 * j y = j ((irr i).ρ u y)",
+      "span_simple_elements": "[Finite G] : Submodule.span ℂ {w : MonoidAlgebra ℂ G | ∃ m : Submodule (MonoidAlgebra ℂ G) (MonoidAlgebra ℂ G), IsSimpleModule (MonoidAlgebra ℂ G) m ∧ w ∈ m} = ⊤",
+      "regularOp_tprod": "{E : Type*} [Fintype E] [DecidableEq E] (ψ : (E → G) → ℂ) (w : E → MonoidAlgebra ℂ G) : regularOp ψ (PiTensorProduct.tprod ℂ w) = ∑ U, ψ U • PiTensorProduct.tprod ℂ (fun e => MonoidAlgebra.single (U e) 1 * w e)",
+      "eq_zero_of_regularOp_eq_zero": "{E : Type*} [Fintype E] [DecidableEq E] (ψ : (E → G) → ℂ) (h : regularOp ψ = 0) : ψ = 0",
+      "fourierProj_separating": "{E : Type*} [Fintype E] [DecidableEq E] (hIrr : IsCompleteIrrFamily irr) (ψ : (E → G) → ℂ) (h : ∀ π : E → Irr, fourierProj irr π ψ = 0) : ψ = 0",
+      "isCompleteIrrFamily_allReps": ": IsCompleteIrrFamily (allReps G)",
+      "peterWeylLinks_of_finite": "(hIrr : IsCompleteIrrFamily irr) : Nonempty (PeterWeylLinks ℂ G Γ Irr irr ((E → G) → ℂ) (latticeGauge Γ))",
+      "peterWeylLinksFinite_proj": "(hIrr : IsCompleteIrrFamily irr) : (peterWeylLinksFinite Γ irr hIrr).proj = fourierProj irr",
+      "gauge_support_rule_links_finite": "[Fintype Vx] [DecidableEq Vx] [∀ i, Simple (irr i)] (hIrr : IsCompleteIrrFamily irr) (ψ : (E → G) → ℂ) (hψ : ∀ g, latticeGauge Γ g ψ = ψ) (π : E → Irr) (hπ : fourierProj irr π ψ ≠ 0) (v : Vx) : (∀ x, ntList (incident Γ (irr ∘ π) v) ≠ [x]) ∧ (∀ x y, ntList (incident Γ (irr ∘ π) v) = [x, y] → (x.out = true → y.out = false → Nonempty (x.rep ≅ y.rep)) ∧ (x.out = false → y.out = true → Nonempty (x.rep ≅ y.rep)) ∧ (x.out = true → y.out = true → Nonempty (x.repᘁ ≅ y.rep)) ∧ (x.out = false → y.out = false → Nonempty (x.rep ≅ y.repᘁ)))",
+      "peterWeylLinks_of_finite_allReps": ": Nonempty (PeterWeylLinks ℂ G Γ (AllReps G) (allReps G) ((E → G) → ℂ) (latticeGauge Γ))",
+      "edgeGauge_trivFD": "{Vx E : Type*} [Fintype E] (Γ : OrientedGraph Vx E) (g : Vx → G) (t : EdgeBlock (fun _ : E => trivFD G)) : edgeGauge Γ (fun _ => trivFD G) g t = t",
+      "not_peterWeylLinks_trivial_only": "(g₀ : G) (hg₀ : g₀ ≠ 1) : ¬ Nonempty (PeterWeylLinks ℂ G oneLinkGraph Unit (fun _ => trivFD G) ((Unit → G) → ℂ) (latticeGauge oneLinkGraph))",
+      "not_isCompleteIrrFamily_trivial_S3": ": ¬ IsCompleteIrrFamily (fun _ : Unit => trivFD (Equiv.Perm (Fin 3)))"
     }
   },
   "complete_files": [
@@ -606,6 +632,7 @@
     "CutBound.lean",
     "GaugeSupportRegroup.lean",
     "GaugeSupportReshuffle.lean",
-    "GaugeSupportReshuffleRep.lean"
+    "GaugeSupportReshuffleRep.lean",
+    "GaugeSupportPeterWeylFinite.lean"
   ]
 }

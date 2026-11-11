@@ -118,3 +118,34 @@ The file has `open CategoryTheory MonoidalCategory Module`, so that `𝟙_`, `�
   swapped on one link `0 → 1`, `ℚˣ` acting on `ℚ` by scalars: the action on `V ⊗ V*` is
   `g 0 / g 1`, the swapped one `g 1 / g 0`; rejected, unsolved goals).
 - Gate: 611 theorems, 15 false controls.
+
+## GaugeSupportPeterWeylFinite.lean (Grey, 2026-11-11)
+
+- New file `GaugeSupportPeterWeylFinite.lean` (namespace `GaugeSupport`): `PeterWeylLinks`
+  for every finite group `G` over `ℂ`, on `H = (E → G) → ℂ`.
+- Gauge convention: `(g · ψ)(U) = ψ (e ↦ g (src e)⁻¹ * U e * g (tgt e))` (`latticeGauge`,
+  `latticeGauge_apply`), matching `edgeGauge` (`g (src e)` on `V`, `g (tgt e)` on `V*`).
+- `coeffTensor V u ∈ V ⊗ V*` corresponds to `ρ(u)` under `V ⊗ V* ≅ End V`;
+  `map_coeffTensor`: `(a, b)` sends it to `coeffTensor V (a * u * b⁻¹)` (uses `dual_ρ_apply`).
+- `fourierProj irr π ψ = ∑_U ψ U • ⊗_e coeffTensor (irr (π e)) (U e)`;
+  `fourierProj_equivariant`.
+- Hypothesis on the family (a `Prop`, not an axiom): `IsCompleteIrrFamily irr` — every
+  finite-dimensional irreducible complex representation is `Representation.Equiv` to some
+  `irr i`. Nothing else (no pairwise non-isomorphism, no irreducibility of members).
+- `fourierProj_separating`: from Maschke (`IsSemisimpleModule ℂ[G] ℂ[G]`): elements of simple
+  left ideals span `ℂ[G]` (`span_simple_elements`); each simple left ideal receives an
+  equivariant map from some `irr i` (`exists_irr_map_of_simple`); the regular operator
+  `∑_U ψ U ⊗_e (left mult. by U e)` then vanishes and determines `ψ`.
+- `peterWeylLinksFinite` / `peterWeylLinks_of_finite`; corollary
+  `gauge_support_rule_links_finite` (`[∀ i, Simple (irr i)]` plus completeness).
+- `isCompleteIrrFamily_allReps`, `peterWeylLinks_of_finite_allReps`: the hypothesis is
+  satisfiable (family of all representations on `ℂⁿ`, not irreducible-only).
+- Negation: `not_peterWeylLinks_trivial_only` (any group with `g₀ ≠ 1`, one link, family
+  `{trivial}`), `not_isCompleteIrrFamily_trivial_S3`.
+- One `set_option backward.isDefEq.respectTransparency false in` on
+  `exists_irr_map_of_simple` (as Mathlib does for `isSimpleModule_iff_irreducible_ofModule`).
+- Frozen statements of earlier files are unchanged; the file is in `complete_files`
+  (all 24 theorems frozen, 557 frozen in total).
+- False control: `PeterWeylDropControl` (`S₃`, one link, family `{trivial}` omitting the sign
+  representation, through `peterWeylLinks_of_finite`; rejected, unsolved goals).
+- Gate: 635 theorems, 16 false controls.

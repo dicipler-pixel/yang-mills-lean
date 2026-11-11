@@ -143,10 +143,14 @@
     {
       "module": "GaugeSupportReshuffleRep",
       "path": "GaugeSupportReshuffleRep.lean"
+    },
+    {
+      "module": "GaugeSupportPeterWeylFinite",
+      "path": "GaugeSupportPeterWeylFinite.lean"
     }
   ],
-  "expected_theorems": 611,
-  "expected_false_controls": 15,
+  "expected_theorems": 635,
+  "expected_false_controls": 16,
   "root_imports": [
     "GaugeCertificates",
     "LongestYangMillsChain",
@@ -175,6 +179,7 @@
     "CutBound",
     "GaugeSupportRegroup",
     "GaugeSupportReshuffle",
-    "GaugeSupportReshuffleRep"
+    "GaugeSupportReshuffleRep",
+    "GaugeSupportPeterWeylFinite"
   ]
 }
