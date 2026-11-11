@@ -33,3 +33,17 @@ The file has `open CategoryTheory MonoidalCategory Module`, so that `𝟙_`, `�
 - Before: `gauge_no_dangling` and `gauge_pair_finrank` were declared after `end GaugeSupport`, at top level.
 - After: both are inside `namespace GaugeSupport` (full names `GaugeSupport.gauge_no_dangling`, `GaugeSupport.gauge_pair_finrank`). Statement text unchanged.
 - Reason: `scripts/verify.py` requires one namespace per file and audits theorems as `<namespace>.<name>`; the axiom audit could not find the top-level names.
+
+## DualSimple.lean (Green, 2026-11-10)
+
+- New file `DualSimple.lean` (namespace `GaugeSupport`) proves
+  `dual_simple (V : FDRep k G) [Simple V] : Simple Vᘁ` for any field `k` and group `G`,
+  with no extra hypotheses, plus the global instance `instSimpleDual`.
+- `lattice_support_rule_of_simple` restates `lattice_support_rule` with `[hd : ∀ e, Simple (π e)ᘁ]`
+  removed and proves it from `dual_simple`. So the dual-simplicity hypothesis is discharged.
+  The original `lattice_support_rule` statement is unchanged.
+- The file is in `complete_files`, so the gate freezes all 12 of its theorems, the helper lemmas
+  included, not just the two headline ones. Red OK'd that.
+- False control: `FalseControls/DualSimpleControl.lean` (`∀ V : FDRep ℚ Unit, Simple Vᘁ`,
+  false for the zero representation) is rejected.
+- Gate: 493 theorems, 4 false controls rejected, 415 frozen, axioms propext / Classical.choice / Quot.sound.
