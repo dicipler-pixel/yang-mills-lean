@@ -159,6 +159,10 @@
     {
       "module": "IrrepEmbedSU3",
       "path": "IrrepEmbedSU3.lean"
+    },
+    {
+      "module": "NtListSupport",
+      "path": "NtListSupport.lean"
     }
   ],
   "expected_theorems": 580,
@@ -195,6 +199,7 @@
     "GaugeSupportRegroup",
     "CentreCharacterSU3",
     "GaugeSupportReshuffle",
-    "IrrepEmbedSU3"
+    "IrrepEmbedSU3",
+    "NtListSupport"
   ]
 }
