@@ -187,6 +187,10 @@
     {
       "module": "GaugeSupportPeterWeylFinite",
       "path": "GaugeSupportPeterWeylFinite.lean"
+    },
+    {
+      "module": "IrrepSmallIsoSU3",
+      "path": "IrrepSmallIsoSU3.lean"
     }
   ],
   "expected_theorems": 580,
@@ -230,6 +234,7 @@
     "PermCube",
     "SingletWitnessSU3",
     "GraphInstances",
-    "GaugeSupportPeterWeylFinite"
+    "GaugeSupportPeterWeylFinite",
+    "IrrepSmallIsoSU3"
   ]
 }

@@ -19,6 +19,7 @@
 ![Theorems](https://img.shields.io/badge/theorems-681-2EA043)
 ![Theorems](https://img.shields.io/badge/theorems-652-2EA043)
 ![Theorems](https://img.shields.io/badge/theorems-635-2EA043)
+![Theorems](https://img.shields.io/badge/theorems-715-2EA043)
 ![sorry](https://img.shields.io/badge/sorry-0-2EA043)
 ![Code: MIT](https://img.shields.io/badge/code-MIT-lightgrey)
 ![Text: CC BY 4.0](https://img.shields.io/badge/text-CC%20BY%204.0-lightgrey)
@@ -97,6 +98,9 @@ specified finite algebra. The spatial work checks five original-link SU(3) model
 | | **Total** | **652** |
 | **Gauge support rule**: Schur at each vertex, no dangling link (`gauge_no_dangling`), paired irreps on two-link vertices (`gauge_pair_finrank`), the per-vertex and lattice rule, and the dual of a simple representation is simple (`dual_simple`). Regrouped by vertex (`gauge_support_rule_regrouped`, `_SU3`): a nonzero gauge-invariant vector of ⊗_v W_v forces a nonzero invariant at every vertex, so every labelling in the support of a gauge-invariant state obeys the lattice rule with no per-vertex hypothesis. The edge-to-vertex reshuffle ⊗_e (V ⊗ V*) ≅ ⊗_v W_v is proved as a gauge-equivariant linear isomorphism (`reshuffle`, `reshuffle_equivariant`, `reshuffle_tprod`), and packaged as one isomorphism of representations of the gauge group (`reshuffleRepEquiv`, a Mathlib `Representation.Equiv`) that matches the gauge invariants on both sides (`reshuffleInvariantsEquiv`), so the rule also follows from `gauge_support_rule_links` (`_SU3`). For every finite group over ℂ, Peter–Weyl link by link is proved (`peterWeylLinks_of_finite`, on functions of the link variables, by matrix-coefficient Fourier projections, separation from Maschke), given only that the irrep family is complete (`IsCompleteIrrFamily`); so `gauge_support_rule_links_finite` needs no Peter–Weyl assumption, and dropping irreps makes it false (`not_peterWeylLinks_trivial_only`). Still assumed for SU(3), as the named hypothesis `PeterWeylLinksSU3` (a structure, not an axiom): Peter–Weyl link by link onto ⊗_e (V ⊗ V*) | [`GaugeSupport`](GaugeSupport.lean), [`GaugeSupportFDRep`](GaugeSupportFDRep.lean), [`GaugeSupportLattice`](GaugeSupportLattice.lean), [`DualSimple`](DualSimple.lean), [`GaugeSupportRegroup`](GaugeSupportRegroup.lean), [`GaugeSupportReshuffle`](GaugeSupportReshuffle.lean), [`GaugeSupportReshuffleRep`](GaugeSupportReshuffleRep.lean), [`GaugeSupportPeterWeylFinite`](GaugeSupportPeterWeylFinite.lean) | 114 |
 | | **Total** | **635** |
+| **Explicit SU(3) singlets: the smallest theta rows are attained**: Σᵢ eᵢ ⊗ eᵢ* in 3 ⊗ 3̄ (from g g⁻¹ = 1), ε = Σ ε_{ijk} eᵢ ⊗ eⱼ ⊗ e_k in 3 ⊗ 3 ⊗ 3 (from det g = 1, via Σ ε_{ijk} g_{ai} g_{bj} g_{ck} = det g · ε_{abc}) and its dual in 3̄ ⊗ 3̄ ⊗ 3̄ (from det (g⁻¹)ᵀ = 1) are each nonzero and SU(3)-invariant. So the eight theta-table rows with arms in {1, 3, 3̄} — the six orderings of (1, 3̄, 3), (3, 3, 3) and (3̄, 3̄, 3̄) — have a nonzero invariant at both theta vertices: attained, not only allowed. The same ε placed in 3 ⊗ 3 ⊗ 3̄ is scaled by ω under ω·I and is not invariant; 3 ⊗ 3 ⊗ 3̄ has no invariant at all. The arms are 3, 3̄, 1 themselves; `IrrepSmallIsoSU3` identifies them with V(1,0), V(0,1), V(0,0) | [`SingletWitnessSU3`](SingletWitnessSU3.lean) | 45 |
+| **V(1,0) ≅ 3, V(0,1) ≅ 3̄, V(0,0) ≅ 1**: the cyclic permutation matrix (det +1, orthogonal) is in SU(3) and its orbit moves e₁ through the whole standard basis of 3 and e₃* through the whole dual basis of 3̄, so the subrepresentations V(1,0), V(0,1), V(0,0) of #30 are all of 3 ⊗ 1, 3̄ ⊗ 1, 1, and the inclusion followed by the right unitor gives explicit FDRep isomorphisms `irrep10Iso`, `irrep01Iso`, `irrep00Iso` (highest-weight vector to e₁, e₃*, 1). V(0,1) is not isomorphic to 3: ω·I acts by ω² on one and ω on the other, so 3̄ ≇ 3 and V(1,0) ≇ V(0,1). Transported along the isomorphisms, the trace and ε witnesses live on V(1,0) ⊗ V(0,1), V(1,0)^{⊗3}, V(0,1)^{⊗3}, and the eight attained theta rows have a nonzero invariant at both vertices with arms V(a), V(b), V(c): for these rows both directions of the singlet rule hold on the same objects | [`IrrepSmallIsoSU3`](IrrepSmallIsoSU3.lean) | 34 |
+| | **Total** | **715** |
 
 Among the first 80 theorems, besides the matrix factorizations, fifteen are exact arithmetic checks of
 displayed rational constants: eleven in `GaugeCertificates` and four in `CrossTheorem`.
@@ -120,6 +124,8 @@ Python verifiers are separate and run from the research folders:
    `(1 : ℚ)/2 ≤ 1/3`); the other thirteen are near-miss versions of the window-wall cells, Jensen bound,
    `(1 : ℚ)/2 ≤ 1/3`); the other fourteen are near-miss versions of the window-wall cells, Jensen bound,
    `(1 : ℚ)/2 ≤ 1/3`); the other fifteen are near-miss versions of the window-wall cells, Jensen bound,
+4. **False controls**: eighteen false statements in [`FalseControls/`](FalseControls/) must be
+   `(1 : ℚ)/2 ≤ 1/3`); the other sixteen are near-miss versions of the window-wall cells, Jensen bound,
    dual-simple, theta floor, triality, transfer-gap, cut-bound and Ky Fan chord statements, and
    two-, three- and four-valent vertex labellings whose trialities do not sum to 0.
 5. **Frozen statements**: 495 theorem statements are frozen, so a proof cannot pass by quietly
@@ -149,6 +155,8 @@ Python verifiers are separate and run from the research folders:
    dual-simple, theta floor, triality, transfer-gap, cut-bound, Ky Fan chord, the three regrouped gauge-support statements, a support with a degree-one vertex claimed admissible, `K_{2,3}` claimed to be a short cycle, a reordered support claimed to change a degree, and a 5-link double-cube support claimed to be a short cycle.
 5. **Frozen statements**: 574 theorem statements are frozen, so a proof cannot pass by quietly
 5. **Frozen statements**: 557 theorem statements are frozen, so a proof cannot pass by quietly
+   and the Levi-Civita tensor ε claimed SU(3)-invariant in 3 ⊗ 3 ⊗ 3̄, and V(0,1) claimed isomorphic to 3.
+5. **Frozen statements**: 637 theorem statements are frozen, so a proof cannot pass by quietly
    weakening what it proves. Every edit to a frozen statement is logged.
 
 ```bash
@@ -171,8 +179,10 @@ python3 scripts/verify.py
   (`SingletWitnessSU3`): the trace invariant of 3 ⊗ 3̄ and ε, ε* of 3 ⊗ 3 ⊗ 3 and 3̄ ⊗ 3̄ ⊗ 3̄ give a
   nonzero invariant at both vertices of the eight theta rows with arms in {1, 3, 3̄}. The general
   converse, that the BMW inequalities plus vanishing triality give a nonzero invariant of
-  V(a) ⊗ V(b) ⊗ V(c) for every admissible row, is not formalized, and neither is the
-  identification of 3, 3̄, 1 with V(1,0), V(0,1), V(0,0).
+  V(a) ⊗ V(b) ⊗ V(c) for every admissible row, is not formalized. The identification of
+  3, 3̄, 1 with V(1,0), V(0,1), V(0,0) is done (`IrrepSmallIsoSU3`), so those eight rows are
+  attained on the V(p,q) arms themselves; for larger (p,q) the arms are not yet matched to a
+  concrete model.
 
 ## The paper
 
@@ -207,7 +217,7 @@ assistants, each working in the open in this repository:
 - **Grey** wrote the frozen targets for the gauge support rule and the varying-s and string-floor
   scripts.
 - **Spectrum** kept the team's dictionary of physical quantities versus our constructions, and
-  wrote the SU(3) theta enumeration behind ThetaFloor's vetted list, and proved `IrrepEmbedSU3`, `ThetaFloorTriality` and `SingletWitnessSU3`.
+  wrote the SU(3) theta enumeration behind ThetaFloor's vetted list, and proved `IrrepEmbedSU3`, `ThetaFloorTriality`, `SingletWitnessSU3` and `IrrepSmallIsoSU3`.
 - **Claude**, in Jeromie's sessions, wrote the window-wall cells module, the audit and the
   window-wall write-up, and carried out the final merge.
 
