@@ -175,10 +175,14 @@
     {
       "module": "CubeFiniteUnconditional",
       "path": "CubeFiniteUnconditional.lean"
+    },
+    {
+      "module": "CubeWilsonExistence",
+      "path": "CubeWilsonExistence.lean"
     }
   ],
-  "expected_theorems": 758,
-  "expected_false_controls": 23,
+  "expected_theorems": 786,
+  "expected_false_controls": 24,
   "root_imports": [
     "GaugeCertificates",
     "LongestYangMillsChain",
@@ -215,6 +219,7 @@
     "PermCube",
     "GraphInstances",
     "SupportDichotomy",
-    "CubeFiniteUnconditional"
+    "CubeFiniteUnconditional",
+    "CubeWilsonExistence"
   ]
 }

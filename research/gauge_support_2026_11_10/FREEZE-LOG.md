@@ -200,3 +200,25 @@ The file has `open CategoryTheory MonoidalCategory Module`, so that `𝟙_`, `�
   exactly 3 non-trivial links; the constant state is gauge invariant, the labelling goal stays
   open; rejected, unsolved goals).
 - Gate: 758 theorems, 23 false controls.
+
+## CubeWilsonExistence.lean (Grey, 2026-11-11)
+
+- New file `CubeWilsonExistence.lean` (namespace `GaugeSupport`): the 4-cycle case of the
+  cube support theorem is attained, for any finite `G` with a non-trivial character
+  `φ : G →* ℂˣ`, and for `S₃` with the sign character.
+- Character ideal: `eChar φ = ∑_g φ(g⁻¹) g`, `charIdeal φ = span {eChar φ}` is a simple left
+  ideal (`charIdeal_simple`), `charSI φ : SimpleIdeal G`, `G` acts on it by the scalar `φ`
+  (`simpleIrr_charSI_ρ`); non-trivial label iff `φ ≠ 1` (`charSI_isEmpty_iso`,
+  `charSI_one_iso`).
+- Wilson loop on the face `0 → 1 → 3 → 2 → 0` (links 0, 5 forwards, 1, 4 backwards):
+  `wilson φ U = φ (U₀ U₅ U₁⁻¹ U₄⁻¹)`, gauge invariant; labelling `faceπ φ`;
+  `fourierProj_wilson_ne_zero`, `faceπ_card` (= 4), `faceπ_one_card` (= 0 for `φ = 1`);
+  `cube_four_cycle_attained(_shortCycle)`, `cube_four_cycle_attained_S3(_shortCycle)`,
+  `cube_wilson_trivial_card_S3`.
+- set_option: `backward.isDefEq.respectTransparency false` on `charSI_one_iso` only.
+  Frozen statements of earlier files are unchanged; the file is in `complete_files` (all 28
+  theorems frozen, 708 frozen in total).
+- False control: `CubeWilsonTrivialControl` (the trivial-character face labelling of `S₃`
+  claimed to have exactly 4 non-trivial links; rewriting with `cube_wilson_trivial_card_S3`
+  leaves `0 = 4`; rejected, unsolved goals).
+- Gate: 786 theorems, 24 false controls.
