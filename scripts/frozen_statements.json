@@ -978,6 +978,17 @@
       "simple_irrep00": ": Simple (irrepRep 0 0)",
       "irrep11_invariant_eq_bot_or_top": "(W : Submodule ℂ (irrepRep 1 1)) (hW : ∀ g, ∀ w ∈ W, (irrepRep 1 1).ρ g w ∈ W) : W = ⊥ ∨ W = ⊤",
       "simple_irrep11": ": Simple (irrepRep 1 1)"
+    },
+    "HntLabels.lean": {
+      "diag_mem": "(d : Fin 3 → ℂ) (hu : ∀ i, star (d i) * d i = 1) (hdet : d 0 * d 1 * d 2 = 1) : Matrix.diagonal d ∈ CentreCharacterSU3.SU3",
+      "not_trivial_of_weight": "{p q : ℕ} (g : CentreCharacterSU3.SU3) (c : ℂ) (hc1 : c ≠ 1) (hc : (tensorRep p q).ρ g (hwVec p q) = c • hwVec p q) : IsEmpty (𝟙_ (FDRep ℂ CentreCharacterSU3.SU3) ≅ irrepRep p q)",
+      "root_facts": "(n : ℕ) (hn : 1 ≤ n) : ∃ t : ℂ, star t * t = 1 ∧ t ^ n ≠ 1",
+      "irrep_nontrivial": "{p q : ℕ} (h : (p, q) ≠ (0, 0)) : IsEmpty (𝟙_ (FDRep ℂ CentreCharacterSU3.SU3) ≅ irrepRep p q)",
+      "irrep_trivial_iff": "(p q : ℕ) : Nonempty (𝟙_ (FDRep ℂ CentreCharacterSU3.SU3) ≅ irrepRep p q) ↔ (p, q) = (0, 0)",
+      "NTe_irrPQ_iff": "{E : Type*} (π : E → ℕ × ℕ) (e : E) : NTe (irrPQ ∘ π) e ↔ π e ≠ (0, 0)",
+      "hnt_irrPQ": "{E : Type*} (π : E → ℕ × ℕ) : ∀ e, NTe (irrPQ ∘ π) e → (id (π e)).1 + (id (π e)).2 ≥ 1",
+      "long_energy_floor_irrep": "{E : Type*} [Fintype E] (π : E → ℕ × ℕ) (hlong : 6 < (Finset.univ.filter (NTe (irrPQ ∘ π))).card) : (((Finset.univ.filter (NTe (irrPQ ∘ π))).toList).map (fun e => c3 (π e).1 (π e).2)).sum ≥ 28",
+      "list_support_dichotomy_energy": "(g : Graph) (n : ℕ) (hmem : LinksIn g n) (hinj : NormInj g n) (hs : simpleB g = true) (hSSAC : SmallSupportsAreCycles g) [∀ x, Simple (irrPQ x)] {H : Type*} [AddCommGroup H] [Module ℂ H] {gauge : Representation ℂ (Fin (n + 1) → CentreCharacterSU3.SU3) H} (PW : PeterWeylLattice ℂ CentreCharacterSU3.SU3 (listΓ g n) (ℕ × ℕ) irrPQ H gauge) (ψ : H) (hψ : ∀ g, gauge g ψ = ψ) (π : Fin g.length → ℕ × ℕ) (hπ : PW.proj π ψ ≠ 0) (h1 : 1 ≤ (Finset.univ.filter (NTe (irrPQ ∘ π))).card) : (((Finset.univ.filter (NTe (irrPQ ∘ π))).card = 4 ∨ (Finset.univ.filter (NTe (irrPQ ∘ π))).card = 6) ∧ shortCycle (supportList (listΓ g n) (irrPQ ∘ π) Fin.val) = true) ∨ (6 < (Finset.univ.filter (NTe (irrPQ ∘ π))).card ∧ (((Finset.univ.filter (NTe (irrPQ ∘ π))).toList).map (fun e => c3 (π e).1 (π e).2)).sum ≥ 28)"
     }
   },
   "complete_files": [
@@ -1016,6 +1027,7 @@
     "IrrepSmallIsoSU3.lean",
     "SupportDichotomy.lean",
     "GaugeSupportSimpleFamily.lean",
-    "IrrepIrreducibleSU3.lean"
+    "IrrepIrreducibleSU3.lean",
+    "HntLabels.lean"
   ]
 }

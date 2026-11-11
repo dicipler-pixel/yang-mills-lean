@@ -203,6 +203,10 @@
     {
       "module": "IrrepIrreducibleSU3",
       "path": "IrrepIrreducibleSU3.lean"
+    },
+    {
+      "module": "HntLabels",
+      "path": "HntLabels.lean"
     }
   ],
   "expected_theorems": 580,
@@ -250,6 +254,7 @@
     "IrrepSmallIsoSU3",
     "SupportDichotomy",
     "GaugeSupportSimpleFamily",
-    "IrrepIrreducibleSU3"
+    "IrrepIrreducibleSU3",
+    "HntLabels"
   ]
 }
