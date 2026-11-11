@@ -452,6 +452,14 @@
       "split_free_28_3": "{ι : Type*} (P : Finset ι) (g : ℝ → ℝ) (hg : ConcaveOn ℝ (Ici 0) g) (hmono : MonotoneOn g (Ici 0)) (κ : ι → ℝ) (hκ : ∀ p ∈ P, 0 ≤ κ p) {E s d r : ℝ} (hE : ∑ p ∈ P, κ p ≤ E) (hs1 : s ≤ 1) (hd : d ≤ s * (28 / 3) + ∑ p ∈ P, g ((1 - s) * κ p)) (hr : ∀ κ' : ι → ℝ, (∀ p ∈ P, 0 ≤ κ' p) → ∑ p ∈ P, κ' p ≤ E → ∑ p ∈ P, g (κ' p) ≤ r) : d - r ≤ s * (28 / 3) - P.card * (g (E / P.card) - g ((1 - s) * (E / P.card)))",
       "no_window_split_free": "{ι : Type*} (P : Finset ι) (hP : P.Nonempty) (g : ℝ → ℝ) (hg : ConcaveOn ℝ (Ici 0) g) (hmono : MonotoneOn g (Ici 0)) (κ : ι → ℝ) (hκ : ∀ p ∈ P, 0 ≤ κ p) {E s T d r h L : ℝ} (hEpos : 0 < E) (hE : ∑ p ∈ P, κ p ≤ E) (hh : 0 < h) (hL : L * h ≤ g (E / P.card + h) - g (E / P.card)) (hT : T ≤ E * L) (hs0 : 0 < s) (hs1 : s ≤ 1) (hd : d ≤ s * T + ∑ p ∈ P, g ((1 - s) * κ p)) (hr : ∀ κ' : ι → ℝ, (∀ p ∈ P, 0 ≤ κ' p) → ∑ p ∈ P, κ' p ≤ E → ∑ p ∈ P, g (κ' p) ≤ r) : d - r ≤ 0",
       "excited_needs_monotone": ": ¬ ((fun x : ℝ => -x) ((1 - 0) * 0) ≤ 1 * (fun x : ℝ => -x) ((1 - 0) * (1 / 1)))"
+    },
+    "SmallSupportCycle.lean": {
+      "card_side_le": "{A B : Finset V} (hbip : G.IsBipartiteWith ↑A ↑B) (hmin : ∀ v, 2 ≤ G.degree v) (hE : #G.edgeFinset ≤ 6) : #A ≤ 3",
+      "nbr_subset": "{A B : Finset V} (hbip : G.IsBipartiteWith ↑A ↑B) {v : V} (hv : v ∈ A) : G.neighborFinset v ⊆ B",
+      "side_two": "{A B : Finset V} (hbip : G.IsBipartiteWith ↑A ↑B) (hpair : ∀ a b, a ≠ b → #(G.neighborFinset a ∩ G.neighborFinset b) ≤ 2) (hmin : ∀ v, 2 ≤ G.degree v) (hA : #A = 2) : #B ≤ 2",
+      "side_ge_two": "{A B : Finset V} (hbip : G.IsBipartiteWith ↑A ↑B) (hmin : ∀ v, 2 ≤ G.degree v) {v : V} (hv : v ∈ A) : 2 ≤ #B",
+      "common_nbr": "{A B : Finset V} (hbip : G.IsBipartiteWith ↑A ↑B) (hmin : ∀ v, 2 ≤ G.degree v) (hB : #B ≤ 3) {a a' : V} (ha : a ∈ A) (ha' : a' ∈ A) : ∃ b, G.Adj a b ∧ G.Adj a' b",
+      "small_support_is_cycle": "(A B : Finset V) (hbip : G.IsBipartiteWith ↑A ↑B) (hcov : ∀ v, v ∈ A ∨ v ∈ B) (hpair : ∀ a b, a ≠ b → #(G.neighborFinset a ∩ G.neighborFinset b) ≤ 2) (hmin : ∀ v, 2 ≤ G.degree v) (hE : #G.edgeFinset ≤ 6) [Nonempty V] : (∀ v, G.degree v = 2) ∧ G.Connected ∧ (Fintype.card V = 4 ∨ Fintype.card V = 6)"
     }
   },
   "complete_files": [
@@ -467,6 +475,7 @@
     "GaugeSupportFDRep.lean",
     "GaugeSupportLattice.lean",
     "DualSimple.lean",
-    "WindowWallJensen.lean"
+    "WindowWallJensen.lean",
+    "SmallSupportCycle.lean"
   ]
 }

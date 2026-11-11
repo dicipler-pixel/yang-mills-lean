@@ -107,9 +107,13 @@
     {
       "module": "WindowWallJensen",
       "path": "WindowWallJensen.lean"
+    },
+    {
+      "module": "SmallSupportCycle",
+      "path": "SmallSupportCycle.lean"
     }
   ],
-  "expected_theorems": 499,
+  "expected_theorems": 505,
   "expected_false_controls": 5,
   "root_imports": [
     "GaugeCertificates",
@@ -130,6 +134,7 @@
     "GaugeSupportFDRep",
     "GaugeSupportLattice",
     "DualSimple",
-    "WindowWallJensen"
+    "WindowWallJensen",
+    "SmallSupportCycle"
   ]
 }
