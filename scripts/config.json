@@ -131,10 +131,102 @@
     {
       "module": "CutBound",
       "path": "CutBound.lean"
+    },
+    {
+      "module": "SmallSupportBridge",
+      "path": "SmallSupportBridge.lean"
+    },
+    {
+      "module": "CutFlux",
+      "path": "CutFlux.lean"
+    },
+    {
+      "module": "TrialityVertex",
+      "path": "TrialityVertex.lean"
+    },
+    {
+      "module": "GaugeSupportRegroup",
+      "path": "GaugeSupportRegroup.lean"
+    },
+    {
+      "module": "CentreCharacterSU3",
+      "path": "CentreCharacterSU3.lean"
+    },
+    {
+      "module": "GaugeSupportReshuffle",
+      "path": "GaugeSupportReshuffle.lean"
+    },
+    {
+      "module": "IrrepEmbedSU3",
+      "path": "IrrepEmbedSU3.lean"
+    },
+    {
+      "module": "NtListSupport",
+      "path": "NtListSupport.lean"
+    },
+    {
+      "module": "ThetaFloorTriality",
+      "path": "ThetaFloorTriality.lean"
+    },
+    {
+      "module": "GaugeSupportReshuffleRep",
+      "path": "GaugeSupportReshuffleRep.lean"
+    },
+    {
+      "module": "PermCube",
+      "path": "PermCube.lean"
+    },
+    {
+      "module": "SingletWitnessSU3",
+      "path": "SingletWitnessSU3.lean"
+    },
+    {
+      "module": "GraphInstances",
+      "path": "GraphInstances.lean"
+    },
+    {
+      "module": "GaugeSupportPeterWeylFinite",
+      "path": "GaugeSupportPeterWeylFinite.lean"
+    },
+    {
+      "module": "IrrepSmallIsoSU3",
+      "path": "IrrepSmallIsoSU3.lean"
+    },
+    {
+      "module": "SupportDichotomy",
+      "path": "SupportDichotomy.lean"
+    },
+    {
+      "module": "GaugeSupportSimpleFamily",
+      "path": "GaugeSupportSimpleFamily.lean"
+    },
+    {
+      "module": "IrrepIrreducibleSU3",
+      "path": "IrrepIrreducibleSU3.lean"
+    },
+    {
+      "module": "HntLabels",
+      "path": "HntLabels.lean"
+    },
+    {
+      "module": "CubeFiniteUnconditional",
+      "path": "CubeFiniteUnconditional.lean"
+    },
+    {
+      "module": "AdjointWitnessSU3",
+      "path": "AdjointWitnessSU3.lean"
+    },
+    {
+      "module": "CubeWilsonExistence",
+      "path": "CubeWilsonExistence.lean"
+    },
+    {
+      "module": "SymWitnessSU3",
+      "path": "SymWitnessSU3.lean"
     }
   ],
-  "expected_theorems": 553,
-  "expected_false_controls": 10,
+  "expected_theorems": 1243,
+  "expected_false_controls": 37,
   "root_imports": [
     "GaugeCertificates",
     "LongestYangMillsChain",
@@ -160,6 +252,29 @@
     "ThetaTriality",
     "TransferGap",
     "KyFanChord",
-    "CutBound"
+    "CutBound",
+    "SmallSupportBridge",
+    "CutFlux",
+    "TrialityVertex",
+    "GaugeSupportRegroup",
+    "CentreCharacterSU3",
+    "GaugeSupportReshuffle",
+    "IrrepEmbedSU3",
+    "NtListSupport",
+    "ThetaFloorTriality",
+    "GaugeSupportReshuffleRep",
+    "PermCube",
+    "SingletWitnessSU3",
+    "GraphInstances",
+    "GaugeSupportPeterWeylFinite",
+    "IrrepSmallIsoSU3",
+    "SupportDichotomy",
+    "GaugeSupportSimpleFamily",
+    "IrrepIrreducibleSU3",
+    "HntLabels",
+    "CubeFiniteUnconditional",
+    "AdjointWitnessSU3",
+    "CubeWilsonExistence",
+    "SymWitnessSU3"
   ]
 }

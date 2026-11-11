@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Jeromie Beasley. See LICENSING.md at the repository root.
 """Exact P-block matrices from ham.build: G_PP, A_E = G E, A_B = G B_PP, C = B_QP^T G_QQ B_QP."""
 from fractions import Fraction as F
 

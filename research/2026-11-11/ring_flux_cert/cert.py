@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Jeromie Beasley. See LICENSING.md at the repository root.
 """Certified bounds for the SU(3) periodic ring (Green, ring_flux_cert).
 
 Lower bounds: exact Schur/Feshbach form bound with a sector-specific hidden floor d,

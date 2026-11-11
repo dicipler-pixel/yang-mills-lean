@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Jeromie Beasley. See LICENSING.md at the repository root.
 """Exact SU(3) Kogut-Susskind Hamiltonian on the periodic ring (ladder) of L plaquettes,
 in a spin-network basis with exact rational vertex intertwiners (Green, ring_flux_cert).
 
