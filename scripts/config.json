@@ -135,10 +135,14 @@
     {
       "module": "TrialityVertex",
       "path": "TrialityVertex.lean"
+    },
+    {
+      "module": "CentreCharacterSU3",
+      "path": "CentreCharacterSU3.lean"
     }
   ],
-  "expected_theorems": 573,
-  "expected_false_controls": 13,
+  "expected_theorems": 590,
+  "expected_false_controls": 14,
   "root_imports": [
     "GaugeCertificates",
     "LongestYangMillsChain",
@@ -165,6 +169,7 @@
     "TransferGap",
     "KyFanChord",
     "CutBound",
-    "TrialityVertex"
+    "TrialityVertex",
+    "CentreCharacterSU3"
   ]
 }
