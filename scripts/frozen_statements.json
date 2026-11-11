@@ -888,6 +888,24 @@
       "long_energy_floor": "{k : Type u} {G : Type v} [Field k] [Group G] {E : Type*} [Fintype E] {Irr : Type*} (irr : Irr → FDRep k G) (π : E → Irr) (lbl : Irr → ℕ × ℕ) (hnt : ∀ e, NTe (irr ∘ π) e → (lbl (π e)).1 + (lbl (π e)).2 ≥ 1) (hlong : 6 < (Finset.univ.filter (NTe (irr ∘ π))).card) : (((Finset.univ.filter (NTe (irr ∘ π))).toList).map (fun e => c3 (lbl (π e)).1 (lbl (π e)).2)).sum ≥ 28",
       "stripThree_sublist": ": stripThree.Sublist stripE",
       "stripThree_not_shortCycle": ": shortCycle stripThree = false"
+    },
+    "GaugeSupportSimpleFamily.lean": {
+      "eq_bot_or_eq_top_of_isIrreducible": "(ρ : Representation ℂ G V) (hρ : ρ.IsIrreducible) (W : Submodule ℂ V) (hW : ∀ g, ∀ w ∈ W, ρ g w ∈ W) : W = ⊥ ∨ W = ⊤",
+      "nontrivial_of_isIrreducible": "(ρ : Representation ℂ G V) (hρ : ρ.IsIrreducible) : Nontrivial V",
+      "simple_of_isIrreducible": "[Module.Finite ℂ V] (ρ : Representation ℂ G V) (hρ : ρ.IsIrreducible) : Simple (FDRep.of ρ)",
+      "ofModule_isIrreducible": "(m : Submodule (MonoidAlgebra ℂ G) (MonoidAlgebra ℂ G)) [IsSimpleModule (MonoidAlgebra ℂ G) m] : (Representation.ofModule (k",
+      "simpleIrr_simple": "(m : SimpleIdeal G) : Simple (simpleIrr m)",
+      "simpleIrr_ρ": "(m : SimpleIdeal G) : (simpleIrr m).ρ = Representation.ofModule (k",
+      "idealIncl_ofModule": "(m : Submodule (MonoidAlgebra ℂ G) (MonoidAlgebra ℂ G)) (u : G) (z : RestrictScalars ℂ (MonoidAlgebra ℂ G) m) : idealIncl m (Representation.ofModule (k",
+      "exists_simpleIdeal_equiv": "(W : Type) [AddCommGroup W] [Module ℂ W] [Module.Finite ℂ W] (σ : Representation ℂ G W) (hσ : σ.IsIrreducible) : ∃ m : SimpleIdeal G, Nonempty (σ.Equiv (Representation.ofModule (k",
+      "isCompleteIrrFamily_simpleIrr": ": IsCompleteIrrFamily (simpleIrr (G",
+      "peterWeylLinks_simpleIrr": ": Nonempty (PeterWeylLinks ℂ G Γ (SimpleIdeal G) simpleIrr ((E → G) → ℂ) (latticeGauge Γ))",
+      "gauge_support_rule_links_finite_unconditional": "[Fintype Vx] [DecidableEq Vx] (ψ : (E → G) → ℂ) (hψ : ∀ g, latticeGauge Γ g ψ = ψ) (π : E → SimpleIdeal G) (hπ : fourierProj simpleIrr π ψ ≠ 0) (v : Vx) : (∀ x, ntList (incident Γ (simpleIrr ∘ π) v) ≠ [x]) ∧ (∀ x y, ntList (incident Γ (simpleIrr ∘ π) v) = [x, y] → (x.out = true → y.out = false → Nonempty (x.rep ≅ y.rep)) ∧ (x.out = false → y.out = true → Nonempty (x.rep ≅ y.rep)) ∧ (x.out = true → y.out = true → Nonempty (x.repᘁ ≅ y.rep)) ∧ (x.out = false → y.out = false → Nonempty (x.rep ≅ y.repᘁ)))",
+      "regularRep_apply": "(g : G) (f : G → ℂ) (t : G) : regularRep G g f t = f (g⁻¹ * t)",
+      "regularRep_const_line": "(g₀ : G) (hg₀ : g₀ ≠ 1) : let W : Submodule ℂ (G → ℂ)",
+      "not_simple_regularRep": "[Finite G] (g₀ : G) (hg₀ : g₀ ≠ 1) : ¬ Simple (FDRep.of (regularRep G))",
+      "not_isIrreducible_regularRep": "(g₀ : G) (hg₀ : g₀ ≠ 1) : ¬ (regularRep G).IsIrreducible",
+      "not_simple_regularRep_S3": ": ¬ Simple (FDRep.of (regularRep (Equiv.Perm (Fin 3))))"
     }
   },
   "complete_files": [
@@ -924,6 +942,7 @@
     "GraphInstances.lean",
     "GaugeSupportPeterWeylFinite.lean",
     "IrrepSmallIsoSU3.lean",
-    "SupportDichotomy.lean"
+    "SupportDichotomy.lean",
+    "GaugeSupportSimpleFamily.lean"
   ]
 }

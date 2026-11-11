@@ -195,6 +195,10 @@
     {
       "module": "SupportDichotomy",
       "path": "SupportDichotomy.lean"
+    },
+    {
+      "module": "GaugeSupportSimpleFamily",
+      "path": "GaugeSupportSimpleFamily.lean"
     }
   ],
   "expected_theorems": 580,
@@ -240,6 +244,7 @@
     "GraphInstances",
     "GaugeSupportPeterWeylFinite",
     "IrrepSmallIsoSU3",
-    "SupportDichotomy"
+    "SupportDichotomy",
+    "GaugeSupportSimpleFamily"
   ]
 }

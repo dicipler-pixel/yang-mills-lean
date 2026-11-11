@@ -21,6 +21,7 @@
 ![Theorems](https://img.shields.io/badge/theorems-635-2EA043)
 ![Theorems](https://img.shields.io/badge/theorems-715-2EA043)
 ![Theorems](https://img.shields.io/badge/theorems-661-2EA043)
+![Theorems](https://img.shields.io/badge/theorems-651-2EA043)
 ![sorry](https://img.shields.io/badge/sorry-0-2EA043)
 ![Code: MIT](https://img.shields.io/badge/code-MIT-lightgrey)
 ![Text: CC BY 4.0](https://img.shields.io/badge/text-CC%20BY%204.0-lightgrey)
@@ -104,6 +105,8 @@ specified finite algebra. The spatial work checks five original-link SU(3) model
 | | **Total** | **715** |
 | **Short or long**: one statement per graph (cube, two squares, strip, corner, double cube, and generic `listΓ`). For a nonzero gauge-invariant component with at least one non-trivial link, under `PeterWeylLattice` alone, either it has 4 or 6 non-trivial links forming a short cycle, or more than 6 and the conclusion of `long_support_floor` holds (any 7+ link costs, each at least 4, sum to at least 28 in `c3` units). `long_energy_floor` gives that bound for Dynkin labels, assuming a non-trivial link has a nonzero label | [`SupportDichotomy`](SupportDichotomy.lean) | 9 |
 | | **Total** | **661** |
+| **Gauge support rule**: Schur at each vertex, no dangling link (`gauge_no_dangling`), paired irreps on two-link vertices (`gauge_pair_finrank`), the per-vertex and lattice rule, and the dual of a simple representation is simple (`dual_simple`). Regrouped by vertex (`gauge_support_rule_regrouped`, `_SU3`): a nonzero gauge-invariant vector of ⊗_v W_v forces a nonzero invariant at every vertex, so every labelling in the support of a gauge-invariant state obeys the lattice rule with no per-vertex hypothesis. The edge-to-vertex reshuffle ⊗_e (V ⊗ V*) ≅ ⊗_v W_v is proved as a gauge-equivariant linear isomorphism (`reshuffle`, `reshuffle_equivariant`, `reshuffle_tprod`), and packaged as one isomorphism of representations of the gauge group (`reshuffleRepEquiv`, a Mathlib `Representation.Equiv`) that matches the gauge invariants on both sides (`reshuffleInvariantsEquiv`), so the rule also follows from `gauge_support_rule_links` (`_SU3`). For every finite group over ℂ, Peter–Weyl link by link is proved (`peterWeylLinks_of_finite`, on functions of the link variables, by matrix-coefficient Fourier projections, separation from Maschke), given only that the irrep family is complete (`IsCompleteIrrFamily`); so `gauge_support_rule_links_finite` needs no Peter–Weyl assumption, and dropping irreps makes it false (`not_peterWeylLinks_trivial_only`). The simple left ideals of ℂ[G] form a complete family of simple representations (`simpleIrr_simple`, `isCompleteIrrFamily_simpleIrr`), so for finite groups the rule holds with no hypotheses (`gauge_support_rule_links_finite_unconditional`). Still assumed for SU(3), as the named hypothesis `PeterWeylLinksSU3` (a structure, not an axiom): Peter–Weyl link by link onto ⊗_e (V ⊗ V*) | [`GaugeSupport`](GaugeSupport.lean), [`GaugeSupportFDRep`](GaugeSupportFDRep.lean), [`GaugeSupportLattice`](GaugeSupportLattice.lean), [`DualSimple`](DualSimple.lean), [`GaugeSupportRegroup`](GaugeSupportRegroup.lean), [`GaugeSupportReshuffle`](GaugeSupportReshuffle.lean), [`GaugeSupportReshuffleRep`](GaugeSupportReshuffleRep.lean), [`GaugeSupportPeterWeylFinite`](GaugeSupportPeterWeylFinite.lean), [`GaugeSupportSimpleFamily`](GaugeSupportSimpleFamily.lean) | 130 |
+| | **Total** | **651** |
 
 Among the first 80 theorems, besides the matrix factorizations, fifteen are exact arithmetic checks of
 displayed rational constants: eleven in `GaugeCertificates` and four in `CrossTheorem`.
@@ -162,6 +165,7 @@ Python verifiers are separate and run from the research folders:
 5. **Frozen statements**: 637 theorem statements are frozen, so a proof cannot pass by quietly
    dual-simple, theta floor, triality, transfer-gap, cut-bound, Ky Fan chord, the three regrouped gauge-support statements, a support with a degree-one vertex claimed admissible, `K_{2,3}` claimed to be a short cycle, a reordered support claimed to change a degree, a 5-link double-cube support claimed to be a short cycle, and a 3-link strip support claimed to be a short cycle.
 5. **Frozen statements**: 583 theorem statements are frozen, so a proof cannot pass by quietly
+5. **Frozen statements**: 573 theorem statements are frozen, so a proof cannot pass by quietly
    weakening what it proves. Every edit to a frozen statement is logged.
 
 ```bash
