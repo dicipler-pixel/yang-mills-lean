@@ -84,3 +84,34 @@ inconclusive. That case is still open: the bound is an outer bound only, and it 
 whether a certificate exists there. The bound applies to
 the total-electric cutoff C <= 8 with floor 28/3 only. It is the finite-graph form of the
 fixed-total-cutoff obstruction in SCALING_AND_OBSTRUCTIONS.md.
+
+## 2026-11-10 late results
+
+These were checked after the sections above were written. Where they conflict with
+"What it does not say", this section is the newer status.
+
+- **Uneven splits.** Splits that differ across faces but keep a common retained electric
+  fraction s on every link cannot reopen any of the five cells. Proof: g is concave and
+  nondecreasing, so by Jensen the equal face coefficient c = E/P is optimal. Certified
+  lower bounds on the exclusion margin delta (GPT's values):
+
+  | cell | lambda | c | delta (GPT, certified) | Grey rerun, h = c/1000 |
+  |---|---|---|---|---|
+  | two squares | 8 | 7/2 | >= 1.452038 | 1.4482 |
+  | strip | 5 | 10/3 | >= 0.138547 | 0.1343 |
+  | corner | 5 | 3 | >= 0.421398 | 0.4175 |
+  | cube | 3 | 2 | >= 2.031478 | 2.0278 |
+  | two cubes | 2 | 20/11 | >= 2.601404 | 2.5971 |
+
+- **Any alpha.** The results hold for every alpha > 0 at the same ratio mu = lambda/alpha.
+- **Double cube.** For the repo's C <= 8 certificate, the double cube is excluded for all
+  lambda/alpha >= 0.9867 (GPT/Astra: 95 x 95 retained matrix, integer-interval check).
+  The certificate is accepted at lambda/alpha = 0.5. The exact edge between 0.5 and 0.9867
+  is open.
+- **Graph step.** On all five graphs, every leaf-free support with at most 6 links is a
+  single 4-cycle or 6-cycle. Counts (4-cycles / 6-cycles): two squares 2/1, strip 3/2,
+  corner 3/4, cube 6/16, two cubes 11/36. Independent counts by GPT and Green; Lean kernel
+  proof (`SmallSupportsAreCycles`, no symmetry shortcut) in PR #11.
+- **Still open:** the SU(3) gauge support rule (no dangling link; conjugate irreps at
+  two-valent vertices), link-dependent s, the exact double-cube edge, and the 40/3 and
+  43/3 floors in Lean.
