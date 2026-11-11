@@ -7,8 +7,11 @@ Layers 1 and 3 of the floor argument in
 * Layer 1 (proved): single-irrep Casimir bounds from c(p,q) = (p²+q²+pq+3p+3q)/3.
 * Layer 3 (proved, finite check): on each graph, every link support with at most
   six links and no vertex of support-degree one is a single connected 4- or 6-cycle.
-* Layer 2 (NOT proved, hypothesis): Peter–Weyl / gauge invariance, i.e. a physical
+* Layer 2 (NOT proved, not formalized): the SU(3) step, here called the gauge support rule: Peter–Weyl / gauge invariance, i.e. a physical
   spin-network support has no vertex of degree one, and a cycle carries one irrep.
+
+`SmallSupportsAreCycles g` is the purely graph-theoretic Layer 3 property, proved below;
+it says nothing about SU(3). The gauge support rule (Layer 2) is still open.
 
 Combining: any admissible support state with energy above 8 has energy ≥ 28/3.
 Conventions: α = 1, open-boundary graphs. Core Lean only.
@@ -78,9 +81,9 @@ def smallSupports (g : Graph) : List Graph :=
   (List.range 6).flatMap (fun k => choose (k+1) g)
 
 /-- The Prop the floor needs: every admissible nonempty support with ≤ 6 links is a short cycle. -/
-def SupportHyp (g : Graph) : Prop := ∀ s ∈ smallSupports g, admissible s = true → shortCycle s = true
+def SmallSupportsAreCycles (g : Graph) : Prop := ∀ s ∈ smallSupports g, admissible s = true → shortCycle s = true
 
-instance (g : Graph) : Decidable (SupportHyp g) := by unfold SupportHyp; infer_instance
+instance (g : Graph) : Decidable (SmallSupportsAreCycles g) := by unfold SmallSupportsAreCycles; infer_instance
 
 -- vertices of the unit cube as binary 0..7, edges at Hamming distance 1
 def cubeE : Graph := [(0,1),(2,3),(4,5),(6,7),(0,2),(1,3),(4,6),(5,7),(0,4),(1,5),(2,6),(3,7)]
@@ -92,13 +95,13 @@ def twoE : Graph := [(0,1),(1,2),(3,4),(4,5),(0,3),(1,4),(2,5)]
 def stripE : Graph := [(0,1),(1,2),(2,3),(4,5),(5,6),(6,7),(0,4),(1,5),(2,6),(3,7)]
 
 set_option maxRecDepth 200000 in
-theorem two_hyp : SupportHyp twoE := by decide +kernel
+theorem two_cycles : SmallSupportsAreCycles twoE := by decide +kernel
 set_option maxRecDepth 200000 in
-theorem strip_hyp : SupportHyp stripE := by decide +kernel
+theorem strip_cycles : SmallSupportsAreCycles stripE := by decide +kernel
 set_option maxRecDepth 200000 in
-theorem corner_hyp : SupportHyp cornerE := by decide +kernel
+theorem corner_cycles : SmallSupportsAreCycles cornerE := by decide +kernel
 set_option maxRecDepth 200000 in
-theorem cube_hyp : SupportHyp cubeE := by decide +kernel
+theorem cube_cycles : SmallSupportsAreCycles cubeE := by decide +kernel
 
 
 /-! ### Fused checker (no materialized subset list), for the 20-link double cube -/
@@ -123,7 +126,7 @@ def hypB (s : Graph) : Bool := !(admissible s) || shortCycle s
 
 def checkB (g : Graph) : Bool := (List.range 6).all (fun k => allChoose hypB (k+1) g [])
 
-theorem checkB_sound (g : Graph) (h : checkB g = true) : SupportHyp g := by
+theorem checkB_sound (g : Graph) (h : checkB g = true) : SmallSupportsAreCycles g := by
   intro s hs ha
   simp only [smallSupports, List.mem_flatMap, List.mem_range] at hs
   obtain ⟨k, hk, hs⟩ := hs
@@ -137,7 +140,7 @@ theorem checkB_sound (g : Graph) (h : checkB g = true) : SupportHyp g := by
 def dcubeE : Graph := [(0,4),(0,2),(0,1),(1,5),(1,3),(2,6),(2,3),(3,7),(4,8),(4,6),(4,5),(5,9),(5,7),(6,10),(6,7),(7,11),(8,10),(8,9),(9,11),(10,11)]
 
 -- NOT YET CHECKED: `checkB dcubeE = true` runs out of memory in the kernel here.
--- Once it is checked, `checkB_sound` gives `SupportHyp dcubeE`.
+-- Once it is checked, `checkB_sound` gives `SmallSupportsAreCycles dcubeE`.
 
 theorem edge_counts : twoE.length = 7 ∧ stripE.length = 10 ∧ cornerE.length = 9 ∧ cubeE.length = 12 := by decide
 
@@ -175,6 +178,6 @@ theorem cycle_floor (len p q : Nat) (hl : len = 4 ∨ len = 6) (hgt : len * c3 p
 theorem cube_count : ((smallSupports cubeE).filter admissible).length = 22 := by decide +kernel
 -- K_{2,3} (theta graph 2,2,2): an admissible 6-link support that is not a cycle, so the hypothesis FAILS
 def k23E : Graph := [(0,2),(2,1),(0,3),(3,1),(0,4),(4,1)]
-theorem k23_control : ¬ SupportHyp k23E := by decide +kernel
+theorem k23_control : ¬ SmallSupportsAreCycles k23E := by decide +kernel
 
 end TailFloor

@@ -4,5 +4,5 @@ it exhausted memory locally. Run with `lake env lean TailFloorDoubleCube.lean`. 
 namespace TailFloor
 set_option maxRecDepth 400000 in
 theorem dcube_checkB : checkB dcubeE = true := by decide +kernel
-theorem dcube_hyp : SupportHyp dcubeE := checkB_sound _ dcube_checkB
+theorem dcube_cycles : SmallSupportsAreCycles dcubeE := checkB_sound _ dcube_checkB
 end TailFloor
