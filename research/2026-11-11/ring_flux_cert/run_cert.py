@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Jeromie Beasley. See LICENSING.md at the repository root.
 """Driver: python run_cert.py L cap0 cap1  -> ring_L{L}.json / .out"""
 import sys, json, time
 from fractions import Fraction as F

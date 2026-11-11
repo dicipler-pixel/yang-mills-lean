@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Jeromie Beasley. See LICENSING.md at the repository root.
 """Float spectra of the exact truncated matrices (reference only, not a certificate)."""
 import sys, time, pickle
 import numpy as np, scipy.linalg as sl
