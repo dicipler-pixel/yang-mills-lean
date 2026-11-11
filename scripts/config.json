@@ -155,10 +155,34 @@
     {
       "module": "SupportDichotomy",
       "path": "SupportDichotomy.lean"
+    },
+    {
+      "module": "TrialityVertex",
+      "path": "TrialityVertex.lean"
+    },
+    {
+      "module": "CentreCharacterSU3",
+      "path": "CentreCharacterSU3.lean"
+    },
+    {
+      "module": "IrrepEmbedSU3",
+      "path": "IrrepEmbedSU3.lean"
+    },
+    {
+      "module": "ThetaFloorTriality",
+      "path": "ThetaFloorTriality.lean"
+    },
+    {
+      "module": "SingletWitnessSU3",
+      "path": "SingletWitnessSU3.lean"
+    },
+    {
+      "module": "IrrepSmallIsoSU3",
+      "path": "IrrepSmallIsoSU3.lean"
     }
   ],
-  "expected_theorems": 661,
-  "expected_false_controls": 18,
+  "expected_theorems": 823,
+  "expected_false_controls": 26,
   "root_imports": [
     "GaugeCertificates",
     "LongestYangMillsChain",
@@ -190,6 +214,12 @@
     "NtListSupport",
     "PermCube",
     "GraphInstances",
-    "SupportDichotomy"
+    "SupportDichotomy",
+    "TrialityVertex",
+    "CentreCharacterSU3",
+    "IrrepEmbedSU3",
+    "ThetaFloorTriality",
+    "SingletWitnessSU3",
+    "IrrepSmallIsoSU3"
   ]
 }
