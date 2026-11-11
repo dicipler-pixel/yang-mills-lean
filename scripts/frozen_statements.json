@@ -34,12 +34,19 @@
       "increment_mono": "{e : ℝ → ℝ} (he : ConcaveOn ℝ (Ici 0) e) {κ₁ κ₂ l₁ l₂ : ℝ} (hκ₁ : 0 < κ₁) (hκ : κ₁ ≤ κ₂) (hl₁ : 0 ≤ l₁) (hl : l₁ < l₂) : κ₁ * e (l₂ / κ₁) - κ₁ * e (l₁ / κ₁) ≤ κ₂ * e (l₂ / κ₂) - κ₂ * e (l₁ / κ₂)",
       "forward_secant_mono": "{e : ℝ → ℝ} (he : ConcaveOn ℝ (Ici 0) e) {c h l₁ l₂ : ℝ} (hc : 0 < c) (hh : 0 ≤ h) (hl₁ : 0 ≤ l₁) (hl : l₁ < l₂) : (c + h) * e (l₁ / (c + h)) - c * e (l₁ / c) ≤ (c + h) * e (l₂ / (c + h)) - c * e (l₂ / c)",
       "control_needs_concavity": ": ∃ e : ℝ → ℝ, ¬ (1 * e (2 / 1) - 1 * e (1 / 1) ≤ 2 * e (2 / 2) - 2 * e (1 / 2))"
+    },
+    "OneLinkTailFloor.lean": {
+      "tail_floor_le": "{n p q : ℕ} (h : n + 1 ≤ p + q) : tailFloor3 n ≤ casimir3 p q",
+      "tail_floor_attained": "(n : ℕ) : casimir3 ((n + 1) / 2) ((n + 1) - (n + 1) / 2) = tailFloor3 n",
+      "control_kept_state_below_floor": ": casimir3 0 0 < tailFloor3 1",
+      "four_mul_le": "(p q : ℕ) : 4 * (p * q) ≤ (p + q) * (p + q)"
     }
   },
   "complete_files": [
     "WindowWall.lean",
     "WindowWallDeriv.lean",
     "WindowWallFinite.lean",
-    "WindowWallMono.lean"
+    "WindowWallMono.lean",
+    "OneLinkTailFloor.lean"
   ]
 }
