@@ -2,7 +2,7 @@
 
 This is a truncated-Hamiltonian numerical study on a two-plaquette lattice, not a continuum or mass-gap claim. It reports the lowest spectral gap of the SU(3) Kogut–Susskind Hamiltonian on two plaquettes that share a link (the theta graph, arms 1, 3, 3), in a Gelfand–Tsetlin recoupling basis. The numbers below are gaps of a **finite truncated Hamiltonian**. No continuum, mass-gap, or Millennium claim is made.
 
-Author: Jeromie Beasley. Licence: MIT OR Apache-2.0 (repository licence). Code and sweep live in this folder, reusing the existing GT / recoupling build (`gt_su3.py`, `theta_gt.py`, `run_sweep.py`). ECUT = 300 was run at \(\lambda=64\) only (`run_ecut300_lam64.py`); other couplings at that cutoff, including \(\lambda=128\), were not run. The driver `run_ecut300_lam128.py` is included but has no results file.
+Author: Jeromie Beasley. Licence: MIT for code, CC BY 4.0 for prose — see LICENSING.md. Code and sweep live in this folder, reusing the existing GT / recoupling build (`gt_su3.py`, `theta_gt.py`, `run_sweep.py`). ECUT = 300 was run at \(\lambda=64\) only (`run_ecut300_lam64.py`); other couplings at that cutoff, including \(\lambda=128\), were not run. The driver `run_ecut300_lam128.py` is included but has no results file.
 
 ## Method
 
@@ -137,4 +137,4 @@ Both controls rejected in under 3 s. PASS.
 | `run_ecut300_lam128.py` | single-coupling driver for ECUT = 300, \(\lambda=128\); not run, no results file |
 | `one_plaquette.py` | one-plaquette helper, not used in the table |
 
-Jeromie Beasley · licence MIT OR Apache-2.0 · ORCID https://orcid.org/0009-0006-4645-5643 · GitHub dicipler-pixel · X @d1c1pler · YouTube @AtlasMemoriae (https://www.youtube.com/@AtlasMemoriae) · website https://atlas-memoriae.dicipler.workers.dev
+Jeromie Beasley · licence MIT for code, CC BY 4.0 for prose — see LICENSING.md · ORCID https://orcid.org/0009-0006-4645-5643 · GitHub dicipler-pixel · X @d1c1pler · YouTube @AtlasMemoriae (https://www.youtube.com/@AtlasMemoriae) · website https://atlas-memoriae.dicipler.workers.dev

@@ -225,8 +225,8 @@
       "path": "SymWitnessSU3.lean"
     }
   ],
-  "expected_theorems": 1097,
-  "expected_false_controls": 36,
+  "expected_theorems": 1243,
+  "expected_false_controls": 37,
   "root_imports": [
     "GaugeCertificates",
     "LongestYangMillsChain",
