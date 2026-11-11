@@ -1,0 +1,39 @@
+# SU(3) periodic ring L=3: H = sum C2 + lam sum_p (3 - Re tr U_p), units g^2/2
+sector 0: cap 18, P = 796 configs / 838 states, Q1 = 5893 configs / 6862 states, exact symmetry defects (AB,G,C) = (0, 0, 0), min electric energy in sector = 0, build 31s
+sector 1: cap 18, P = 795 configs / 819 states, Q1 = 5925 configs / 6971 states, exact symmetry defects (AB,G,C) = (0, 0, 0), min electric energy in sector = 4, build 6s
+
+## lam = 1/4
+ sector 0 hidden floor: d = 17885371/937500 = 19.07773  (theta=1/20, m_Q=1057/60, min E on Q = 55/3, local e0(5/2) >= 76097/15625 [float 4.870210; +1/1000 rejected: True])
+   RR: E0 <= 2.23200714 (exact rational; float eig 2.23200714)
+   E0 >= 223199/100000 = 2.231990  (#neg K = 0 <= 0, disc margin 1.71e-05; float threshold 2.232007; control z+1/1000: count 1 rejected=True)
+   E1 >= 744447/100000 = 7.444470  (#neg K = 1 <= 1, disc margin 1.74e-05; float threshold 7.444487; control z+1/1000: count 4 rejected=True)
+   float levels in P: [2.23200714 7.44453156 7.4453875 ]
+ sector 1 hidden floor: d = 5940957/312500 = 19.01106  (theta=1/20, m_Q=351/20, min E on Q = 55/3, local e0(5/2) >= 76097/15625 [float 4.870210; +1/1000 rejected: True])
+   RR: E0 <= 6.23103936 (exact rational; float eig 6.23103936)
+   E0 >= 311551/50000 = 6.231020  (#neg K = 0 <= 0, disc margin 1.83e-05; float threshold 6.231038; control z+1/1000: count 2 rejected=True)
+   float levels in P: [6.23103936 6.23117777 8.81219408]
+ SUMMARY: gap_lo = 5.212463, floor_lo = 3.999013, floor_up = 3.999049, gap_float = 5.212524, floor_float = 3.999032
+
+## lam = 1/2
+ sector 0 hidden floor: d = 596027027/30000000 = 19.86757  (theta=1/20, m_Q=1057/60, min E on Q = 55/3, local e0(5) >= 7503003/1000000 [float 7.503005; +1/1000 rejected: True])
+   RR: E0 <= 4.42635563 (exact rational; float eig 4.42635563)
+   E0 >= 221317/50000 = 4.426340  (#neg K = 0 <= 0, disc margin 1.33e-05; float threshold 4.426353; control z+1/1000: count 1 rejected=True)
+   E1 >= 95269/10000 = 9.526900  (#neg K = 1 <= 1, disc margin 1.35e-05; float threshold 9.526913; control z+1/1000: count 2 rejected=True)
+   float levels in P: [4.42635563 9.52773351 9.53100286]
+ sector 1 hidden floor: d = 198009009/10000000 = 19.80090  (theta=1/20, m_Q=351/20, min E on Q = 55/3, local e0(5) >= 7503003/1000000 [float 7.503005; +1/1000 rejected: True])
+   RR: E0 <= 8.42190492 (exact rational; float eig 8.42190492)
+   E0 >= 421093/50000 = 8.421860  (#neg K = 0 <= 0, disc margin 1.92e-05; float threshold 8.421879; control z+1/1000: count 1 rejected=True)
+   float levels in P: [ 8.42190492  8.42315369 10.91583049]
+ SUMMARY: gap_lo = 5.100544, floor_lo = 3.995504, floor_up = 3.995565, gap_float = 5.101378, floor_float = 3.995549
+
+## lam = 1
+ sector 0 hidden floor: d = 160895467/7500000 = 21.45273  (theta=3/20, m_Q=971/60, min E on Q = 55/3, local e0(10/3) >= 1463721/250000 [float 5.854885; +1/1000 rejected: True])
+   RR: E0 <= 8.69216141 (exact rational; float eig 8.69216141)
+   E0 >= 434597/50000 = 8.691940  (#neg K = 0 <= 0, disc margin 1.56e-05; float threshold 8.691956; control z+1/1000: count 1 rejected=True)
+   E1 >= 1359409/100000 = 13.594090  (#neg K = 1 <= 1, disc margin 1.60e-05; float threshold 13.594105; control z+1/1000: count 2 rejected=True)
+   float levels in P: [ 8.69216141 13.61204548 13.62118747]
+ sector 1 hidden floor: d = 319027027/15000000 = 21.26847  (theta=1/10, m_Q=503/30, min E on Q = 55/3, local e0(5) >= 7503003/1000000 [float 7.503005; +1/1000 rejected: True])
+   RR: E0 <= 12.66889982 (exact rational; float eig 12.66889982)
+   E0 >= 1266771/100000 = 12.667710  (#neg K = 0 <= 0, disc margin 1.21e-05; float threshold 12.667722; control z+1/1000: count 1 rejected=True)
+   float levels in P: [12.66889982 12.681264   15.00522463]
+ SUMMARY: gap_lo = 4.901929, floor_lo = 3.975549, floor_up = 3.976960, gap_float = 4.919884, floor_float = 3.976738

@@ -183,6 +183,50 @@
     {
       "module": "CubeWilsonSix",
       "path": "CubeWilsonSix.lean"
+    },
+    {
+      "module": "CutFlux",
+      "path": "CutFlux.lean"
+    },
+    {
+      "module": "TrialityVertex",
+      "path": "TrialityVertex.lean"
+    },
+    {
+      "module": "CentreCharacterSU3",
+      "path": "CentreCharacterSU3.lean"
+    },
+    {
+      "module": "IrrepEmbedSU3",
+      "path": "IrrepEmbedSU3.lean"
+    },
+    {
+      "module": "ThetaFloorTriality",
+      "path": "ThetaFloorTriality.lean"
+    },
+    {
+      "module": "SingletWitnessSU3",
+      "path": "SingletWitnessSU3.lean"
+    },
+    {
+      "module": "IrrepSmallIsoSU3",
+      "path": "IrrepSmallIsoSU3.lean"
+    },
+    {
+      "module": "IrrepIrreducibleSU3",
+      "path": "IrrepIrreducibleSU3.lean"
+    },
+    {
+      "module": "HntLabels",
+      "path": "HntLabels.lean"
+    },
+    {
+      "module": "AdjointWitnessSU3",
+      "path": "AdjointWitnessSU3.lean"
+    },
+    {
+      "module": "SymWitnessSU3",
+      "path": "SymWitnessSU3.lean"
     }
   ],
   "expected_theorems": 797,
@@ -225,6 +269,17 @@
     "SupportDichotomy",
     "CubeFiniteUnconditional",
     "CubeWilsonExistence",
-    "CubeWilsonSix"
+    "CubeWilsonSix",
+    "CutFlux",
+    "TrialityVertex",
+    "CentreCharacterSU3",
+    "IrrepEmbedSU3",
+    "ThetaFloorTriality",
+    "SingletWitnessSU3",
+    "IrrepSmallIsoSU3",
+    "IrrepIrreducibleSU3",
+    "HntLabels",
+    "AdjointWitnessSU3",
+    "SymWitnessSU3"
   ]
 }
