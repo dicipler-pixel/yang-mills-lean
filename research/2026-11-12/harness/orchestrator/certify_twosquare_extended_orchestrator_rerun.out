@@ -1,0 +1,23 @@
+cross-check with the repo exact Haar 19-state matrices: 120 exact trace identities hold
+inertia method check: integer congruence + Gershgorin agrees with the repo exact rational LDL on 7 19-state matrices (repo targets at lambda = 1 and 4 reproduced)
+exact build  ECUT = 50 : retained n = 760, outside states reached = 917, boundary states = 465, c_plus = 151/3, 2.7 s
+  exact structure checks at ECUT = 50: 1271 commutation identities, 47 character-rule entries, 1520 norm-balance identities
+  lam = 3 done in 14.8 s: CERTIFIED 
+  lam = 4 done in 14.9 s: CERTIFIED 
+exact build  ECUT = 60 : retained n = 1343, outside states reached = 1494, boundary states = 793, c_plus = 181/3, 5.5 s
+  exact structure checks at ECUT = 60: 2381 commutation identities, 54 character-rule entries, 2686 norm-balance identities
+  lam = 6 done in 95.9 s: CERTIFIED 
+  lam = 8 done in 92.7 s: CERTIFIED 
+
+lam | ECUT | dim | d | r (>= E0) | z (<= E1) | certified gap >= | reference gap | old 19-state | status
+3 | 50 | 760 | 44.488507 | 15.891177794 | 20.72542 | 4.834242 | 4.834274496 | 2.467 | CERTIFIED
+4 | 50 | 760 | 46.876627 | 20.143922445 | 25.34913 | 5.205208 | 5.205346442 | 0.991 | CERTIFIED
+6 | 60 | 1343 | 57.373527 | 27.390878551 | 33.82471 | 6.433831 | 6.434517604 | none | CERTIFIED
+8 | 60 | 1343 | 65.193269 | 33.489784845 | 41.28192 | 7.792135 | 7.803420119 | none | CERTIFIED
+
+lam = 3: K(z) has exactly 1 negative eigenvalue (n = 760, worst Gershgorin radius/centre 4.97e-06); control z = 10363229/500000 rejected (2 negative eigenvalues); gap >= 2417121103/500000000
+lam = 4: K(z) has exactly 1 negative eigenvalue (n = 760, worst Gershgorin radius/centre 4.91e-06); control z = 25350357/1000000 rejected (2 negative eigenvalues); gap >= 1041041511/200000000
+lam = 6: K(z) has exactly 1 negative eigenvalue (n = 1343, worst Gershgorin radius/centre 1.24e-05); control z = 1057087/31250 rejected (2 negative eigenvalues); gap >= 6433831449/1000000000
+lam = 8: K(z) has exactly 1 negative eigenvalue (n = 1343, worst Gershgorin radius/centre 2.37e-05); control z = 1290627/31250 rejected (2 negative eigenvalues); gap >= 1558427031/200000000
+
+total 229.4 s;  ALL CERTIFIED

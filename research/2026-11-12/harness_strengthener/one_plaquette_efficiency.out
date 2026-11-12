@@ -1,0 +1,49 @@
+lambda = 1 : converged gap (N = 100, float) = 1.340169640
+  N =  3  d =     8.000  scalar =     1.112699  matrix =     1.339106
+  N =  5  d =    15.000  scalar =     1.251115  matrix =     1.340170
+  N = 10  d =    41.333  scalar =     1.313503  matrix =     1.340170
+  N = 15  d =    80.000  scalar =     1.327038  matrix =     1.340170
+  N = 20  d =   131.333  scalar =     1.332325  matrix =     1.340170
+  N = 25  d =   195.000  scalar =     1.334938  matrix =     1.340170
+  N = 30  d =   271.333  scalar =     1.336431  matrix =     1.340170
+  N = 40  d =   461.333  scalar =     1.337984  matrix =     1.340170
+  N = 50  d =   701.333  scalar =     1.338736  matrix =     1.340170
+  N = 60  d =   991.333  scalar =     1.339157  matrix =     1.340170
+  N = 80  d =  1721.333  scalar =     1.339587  matrix =     1.340170
+lambda = 10 : converged gap (N = 100, float) = 5.648191116
+  N =  3  d =     8.000  scalar =          nan  matrix =          nan
+  N =  5  d =    15.000  scalar =          nan  matrix =          nan
+  N = 10  d =    41.333  scalar =     2.081404  matrix =     5.648144
+  N = 15  d =    80.000  scalar =     4.102165  matrix =     5.648191
+  N = 20  d =   131.333  scalar =     4.781161  matrix =     5.648191
+  N = 25  d =   195.000  scalar =     5.088580  matrix =     5.648191
+  N = 30  d =   271.333  scalar =     5.255821  matrix =     5.648191
+  N = 40  d =   461.333  scalar =     5.423317  matrix =     5.648191
+  N = 50  d =   701.333  scalar =     5.502124  matrix =     5.648191
+  N = 60  d =   991.333  scalar =     5.545582  matrix =     5.648191
+  N = 80  d =  1721.333  scalar =     5.589524  matrix =     5.648191
+lambda = 100 : converged gap (N = 100, float) = 19.360770831
+  N =  3  d =     8.000  scalar =          nan  matrix =          nan
+  N =  5  d =    15.000  scalar =          nan  matrix =          nan
+  N = 10  d =    41.333  scalar =          nan  matrix =          nan
+  N = 15  d =    80.000  scalar =   -70.069254  matrix =          nan
+  N = 20  d =   131.333  scalar =   -50.462763  matrix =    19.359121
+  N = 25  d =   195.000  scalar =   -33.337612  matrix =    19.360771
+  N = 30  d =   271.333  scalar =   -20.175762  matrix =    19.360771
+  N = 40  d =   461.333  scalar =    -4.068144  matrix =    19.360771
+  N = 50  d =   701.333  scalar =     4.176548  matrix =    19.360771
+  N = 60  d =   991.333  scalar =     8.767410  matrix =    19.360771
+  N = 80  d =  1721.333  scalar =    13.370538  matrix =    19.360771
+
+smallest N (3..80) at which each bound reaches a fraction of the converged gap (- = not reached by N = 80)
+lambda | converged gap | bound  | first > 0 | 50% | 90% | 99%
+     1 |      1.340170 | scalar |         3 |   3 |   4 |  15
+     1 |      1.340170 | matrix |         3 |   3 |   3 |   3
+    10 |      5.648191 | scalar |         8 |  12 |  25 |   -
+    10 |      5.648191 | matrix |         6 |   7 |   7 |   8
+   100 |     19.360771 | scalar |        45 |  63 |   - |   -
+   100 |     19.360771 | matrix |        16 |  18 |  18 |  19
+
+anchor lambda = 100, N = 25: scalar = -33.3376 (paper: -33.3376), matrix = 19.360771 (paper gap 19.360771)
+anchor reproduced ; 316.2 s
+exit 0
